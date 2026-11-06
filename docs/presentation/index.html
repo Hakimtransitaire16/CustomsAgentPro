@@ -1,0 +1,489 @@
+<title>CustomsAgentPro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a precise single column, like a technical spec sheet — a measured rule line, quiet graphite surfaces, one Saharan gold accent. */
+:root {
+  --ground: #f3f2ef;
+  --surface: #fbfaf8;
+  --ink: #17191b;
+  --muted: #62666a;
+  --rule: #d8d6d0;
+  --gold: #9a6f0e;
+  --gold-soft: #f1e7cf;
+  --block: #b3261e;
+  --warn: #9a5800;
+  --ok: #1e6e47;
+  --info: #3b5878;
+  --f-display: "Reem Kufi", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #101213; --surface: #171a1c; --ink: #ebeae6; --muted: #9da1a4; --rule: #2c3033;
+    --gold: #d9aa3c; --gold-soft: #2b2416; --block: #ff7a6e; --warn: #f0a94a; --ok: #58c793; --info: #94b6da;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #101213; --surface: #171a1c; --ink: #ebeae6; --muted: #9da1a4; --rule: #2c3033;
+  --gold: #d9aa3c; --gold-soft: #2b2416; --block: #ff7a6e; --warn: #f0a94a; --ok: #58c793; --info: #94b6da;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--ground); color: var(--ink); font: 16px/1.75 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.page { max-width: 980px; margin: 0 auto; padding-block: 40px 80px; display: grid; gap: 64px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; font-weight: 600; }
+h2 { font-size: 26px; line-height: 1.3; }
+h3 { font-size: 18px; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--gold); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+section { display: grid; gap: 20px; }
+.lead { color: var(--muted); }
+
+/* Hero */
+.hero { display: grid; gap: 18px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.wordmark { font: 600 18px/1 var(--f-mono); letter-spacing: .5px; direction: ltr; }
+.wordmark b { color: var(--gold); font-weight: 600; }
+.chip { font: 500 12px/1 var(--f-body); padding: 7px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.hero h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.15; }
+.hero h1 span { color: var(--gold); }
+.hero p { font-size: 18px; color: var(--muted); }
+
+/* Findings */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.fact { background: var(--surface); padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fact .num { font: 600 32px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.fact .num small { font-size: 15px; color: var(--muted); font-family: var(--f-body); font-weight: 500; }
+.fact p { font-size: 14px; color: var(--muted); }
+
+/* Explainer */
+.explain { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.explain > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.compare { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 14px; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+th { font-weight: 500; color: var(--muted); font-size: 12px; }
+
+/* Tool */
+.tool { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: grid; gap: 22px; }
+.tool-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+input, select { width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--ground); color: var(--ink); font: 14px var(--f-body); }
+.items { display: grid; gap: 12px; }
+.item { display: grid; grid-template-columns: 3fr 1.1fr 1fr 1fr 1fr 1.5fr auto; gap: 8px; align-items: end; padding-bottom: 12px; border-bottom: 1px dashed var(--rule); }
+@media (max-width: 760px) { .item { grid-template-columns: 1fr 1fr; } .item .desc { grid-column: 1 / -1; } }
+button { font: 500 14px var(--f-body); cursor: pointer; border-radius: 4px; padding: 9px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink); }
+button.primary { background: var(--ink); color: var(--ground); border-color: var(--ink); font-weight: 600; }
+button.on { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+button.icon { padding: 8px 11px; color: var(--muted); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.docs { display: flex; gap: 8px 18px; flex-wrap: wrap; }
+.docs label { display: flex; gap: 6px; align-items: center; font-size: 14px; color: var(--ink); }
+.docs input { width: auto; }
+.sub { font: 600 13px var(--f-body); color: var(--muted); }
+
+.result { display: grid; gap: 14px; border-top: 1px solid var(--rule); padding-top: 20px; }
+.status { justify-self: start; padding: 5px 14px; border-radius: 999px; font-weight: 600; font-size: 14px; border: 1.5px solid currentColor; }
+.s-ready { color: var(--ok); } .s-review { color: var(--warn); } .s-blocked { color: var(--block); }
+.findings { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.findings li { padding: 10px 14px; background: var(--ground); border-inline-start: 3px solid var(--rule); display: grid; gap: 2px; }
+.findings li.blocking { border-inline-start-color: var(--block); }
+.findings li.warning { border-inline-start-color: var(--warn); }
+.findings li.info { border-inline-start-color: var(--info); }
+.sev { font: 500 11px var(--f-mono); letter-spacing: .5px; }
+li.blocking .sev { color: var(--block); } li.warning .sev { color: var(--warn); } li.info .sev { color: var(--info); }
+.table-wrap { overflow-x: auto; }
+.total td { font-weight: 700; border-bottom: none; }
+.landed { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 14px 16px; background: var(--gold-soft); border-radius: 4px; }
+.landed b { font: 600 24px var(--f-display); font-variant-numeric: tabular-nums; }
+
+.sugg { display: grid; gap: 6px; }
+.sugg > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; background: var(--ground); border-radius: 4px; }
+.sugg > div > span:first-child { min-width: 0; }
+.conf { min-width: 72px; text-align: end; font-variant-numeric: tabular-nums; }
+.bar { height: 4px; background: var(--rule); border-radius: 2px; margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--gold); border-radius: 2px; }
+
+/* Study + roadmap */
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.part { border-top: 2px solid var(--ink); padding-top: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part p { font-size: 14px; color: var(--muted); }
+.road { list-style: none; padding: 0; margin: 0; display: grid; }
+.road li { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.road .m { font: 600 14px var(--f-mono); color: var(--muted); }
+.road .done .m { color: var(--gold); }
+.road p { font-size: 14px; color: var(--muted); }
+.tag { font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; }
+.done .tag { border-color: var(--gold); color: var(--gold); }
+.note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <div class="brand">
+      <span class="wordmark">Customs<b>Agent</b>Pro</span>
+      <span class="chip">نموذج أولي · بيانات توضيحية · نوفمبر 2026</span>
+    </div>
+    <h1>الدقة <span>قبل</span> الوصول</h1>
+    <p>ملف شحنة واحد يعطي المستورد والمصدّر الجزائري يقيناً كاملاً قبل الشحن: رمز التعريفة، والقرارات الملزمة، والتكلفة النهائية، ومتطلبات السوق الأوروبية.</p>
+    <div class="row"><a href="#engine"><button class="primary">جرّب المحرك</button></a><a href="#study">اقرأ خلاصة الدراسة</a></div>
+  </header>
+
+  <section>
+    <span class="eyebrow">ما كشفته الدراسة</span>
+    <h2>خمس حقائق تبني عليها الفكرة</h2>
+    <div class="facts">
+      <div class="fact"><span class="num">77 <small>قراراً فقط</small></span><p>عدد قرارات RTC في المجموعة الرسمية لطبعة 2026 (و98 في طبعة 2025). أداة اليقين موجودة في الجزائر منذ 2020، ولا يستعملها أحد تقريباً.</p></div>
+      <div class="fact"><span class="num">1 جانفي 2026</span><p>بداية المرحلة النهائية لـ CBAM: الإسمنت والحديد والأسمدة، أي أهم صادرات الجزائر خارج المحروقات نحو أوروبا.</p></div>
+      <div class="fact"><span class="num">30 ديسمبر 2026</span><p>تطبيق EUDR على الشركات الكبيرة والمتوسطة. أثره على الجزائر محدود: الجلود والأثاث والكرتون والشوكولاتة.</p></div>
+      <div class="fact"><span class="num">1 جويلية 2028</span><p>تشغيل EU Customs Data Hub للتجارة الإلكترونية: أوروبا تنتقل من "التصريح" إلى "تدفق البيانات".</p></div>
+      <div class="fact"><span class="num">70%</span><p>من التصاريح الجزائرية عبر نظام ALCES الجديد في سبتمبر 2024. الجمارك في مرحلة رقمنة، والخطوة التالية توحيد البيانات.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">المفهوم الأساسي</span>
+    <h2>ما هو RTC وما هو BTI؟</h2>
+    <div class="explain">
+      <div>
+        <h3>المشكلة</h3>
+        <p>لكل بضاعة رمز تعريفة يحدد الرسوم. إذا اختار المستورد رمزاً ورأى موظف الجمارك رمزاً آخر، ينتج خلاف وتأخير وفرق في الرسوم، ويُكتشف ذلك بعد وصول البضاعة.</p>
+      </div>
+      <div>
+        <h3>الحل</h3>
+        <p>تسأل الجمارك قبل أن تستورد. تعطيك رسالة رسمية تحدد رمز بضاعتك، ولا تستطيع تغيير رأيها بعد ذلك، وأنت ملزم به أيضاً.</p>
+      </div>
+    </div>
+    <div class="compare">
+      <table>
+        <tr><th></th><th>RTC — الجزائر</th><th>BTI — أوروبا</th></tr>
+        <tr><td>الاسم</td><td>الاستعلام التعريفي الملزم</td><td>المعلومة التعريفية الملزمة</td></tr>
+        <tr><td>الأساس</td><td>القانون 17-04 والمرسوم 18-165، مطبق منذ 1 مارس 2020</td><td>قانون الجمارك الموحد UCC، المادتان 33 و34</td></tr>
+        <tr><td>المدة</td><td>6 أشهر قابلة للتجديد حسب المصادر (يجب التحقق)</td><td>3 سنوات، في الدول الـ27</td></tr>
+        <tr><td>الحجم السنوي</td><td>أقل من 100 قرار</td><td>عشرات الآلاف</td></tr>
+        <tr><td>قاعدة قابلة للبحث</td><td>لا، ملفات PDF سنوية</td><td>نعم، قاعدة EBTI العامة</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="engine">
+    <span class="eyebrow">النموذج الأولي</span>
+    <h2>جرّب المحرك</h2>
+    <p class="lead">المحرك يعمل هنا في المتصفح. غيّر البنود أو الوثائق ثم اضغط "حلّل الملف". النسب والقرارات توضيحية، والقرارات التي تبدأ بـ DEMO ليست حقيقية.</p>
+
+    <div class="tool">
+      <div class="grid" style="grid-template-columns: 1fr auto; align-items: end;">
+        <label for="q">تصنيف سريع: صف البضاعة بالعربية أو الفرنسية<input id="q" value="Plaquettes de frein céramique"></label>
+        <button id="qbtn">اقترح رمزاً</button>
+      </div>
+      <div id="sugg" class="sugg"></div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <span class="sub">ملف الشحنة</span>
+        <div class="tabs">
+          <button id="ex-import" class="on">مثال استيراد من الصين</button>
+          <button id="ex-export">مثال تصدير نحو فرنسا</button>
+        </div>
+      </div>
+      <div class="grid">
+        <label for="direction">الاتجاه<select id="direction"><option value="import">استيراد إلى الجزائر</option><option value="export">تصدير من الجزائر</option></select></label>
+        <label for="origin">بلد المنشأ<input id="origin"></label>
+        <label for="dest">بلد الوجهة<input id="dest"></label>
+        <label for="nif">NIF صاحب الملف<input id="nif"></label>
+        <label for="incoterm">Incoterm<select id="incoterm"><option>FOB</option><option>EXW</option><option>FCA</option><option>CFR</option><option>CIF</option></select></label>
+        <label for="rate">سعر صرف اليورو (دج)<input id="rate" type="number" step="0.01"></label>
+        <label for="freight">النقل (يورو)<input id="freight" type="number"></label>
+        <label for="insurance">التأمين (يورو)<input id="insurance" type="number"></label>
+      </div>
+      <div class="sub">البنود</div>
+      <div id="items" class="items"></div>
+      <div class="row"><button id="add" class="icon">+ إضافة بند</button></div>
+      <div class="sub">الوثائق المتوفرة</div>
+      <div class="docs" id="docs"></div>
+      <div class="row"><button id="run" class="primary">حلّل الملف</button></div>
+
+      <div class="result" id="result">
+        <span id="status" class="status"></span>
+        <ul id="findings" class="findings"></ul>
+        <div id="cost"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="study">
+    <span class="eyebrow">الدراسة الكاملة على GitHub</span>
+    <h2>أربعة أجزاء، بمصادر رسمية</h2>
+    <div class="parts">
+      <div class="part"><h3>BTI و RTC</h3><p>الإطار القانوني، ومسار الطلب، والمقارنة، وأربع فرص منتج.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/01-rtc-bti.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>EUDR و CBAM</h3><p>الجدول الزمني، والسلع المعنية، والربط الجمركي، والأثر الحقيقي على الجزائر.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/02-eudr.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>البيانات الأوروبية</h3><p>نموذج EUCDM، والإصلاح الأوروبي، وData Hub، وموقع الجزائر في هذا المسار.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/03-eu-customs-data.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>التركيب والنموذج</h3><p>ست فجوات، والمنتج، ونموذج البيانات، وثماني قواعد عمل.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/04-synthese-et-modele.md">اقرأ الجزء</a></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">خطة البناء</span>
+    <h2>من النموذج إلى المنتج</h2>
+    <ol class="road">
+      <li class="done"><span class="m">M0</span><div><h3>النموذج الأولي</h3><p>نموذج البيانات، ومحرك القواعد، والتصنيف، والتكلفة، و18 اختباراً.</p></div><span class="tag">منجز</span></li>
+      <li><span class="m">M1</span><div><h3>البيانات الحقيقية</h3><p>التعريفة الرسمية، ومجموعات RTC 2024–2026، وقوانين المالية، وعينة من BTI.</p></div><span class="tag">التالي</span></li>
+      <li><span class="m">M2</span><div><h3>الذكاء الاصطناعي</h3><p>قراءة الفواتير آلياً، وتصنيف بنموذج لغوي مع السوابق كمرجع.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M3</span><div><h3>التحقق الميداني</h3><p>مقابلات مع 15 إلى 20 مستورداً ومصدّراً ووكيلاً، وتجربة على ملفات حقيقية.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M4</span><div><h3>المنتج</h3><p>الحسابات، وملفات العملاء، والتتبع، والفوترة، وأمن البيانات.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M5</span><div><h3>الربط الرسمي</h3><p>شراكة مع المديرية العامة للجمارك للربط مع ALCES.</p></div><span class="tag">مخطط</span></li>
+    </ol>
+  </section>
+
+  <p class="note">نسب التعريفة في هذا النموذج توضيحية، وليست التعريفة الجزائرية الرسمية ولا قانون المالية الساري. القرارات التي تبدأ بـ DEMO تجريبية. نطاقا EUDR و CBAM مبسّطان، والمرجع هو الملحقان الرسميان. كل اقتراح أداة مساعدة للوكيل المعتمد، والقرار والمسؤولية له.</p>
+</div>
+
+<script>
+// ---- Reference data (illustrative / demo) ----
+const TARIFF = [
+  ["0804.10","Dattes","تمور",["datte","dattes","deglet","تمر","تمور","dates"],.30,.09],
+  ["0901.21","Café torréfié","بن محمص",["cafe","torrefie","قهوة","بن","محمص","coffee","roasted"],.30,.19],
+  ["1509.20","Huile d'olive vierge extra","زيت زيتون بكر ممتاز",["huile","olive","vierge","زيت","زيتون"],.30,.19],
+  ["1806.32","Chocolat en tablettes","شوكولاتة ألواح",["chocolat","tablette","cacao","شوكولاتة","شكولاطة","كاكاو","chocolate"],.30,.19,.70],
+  ["2523.29","Ciment Portland","إسمنت بورتلاند",["ciment","portland","إسمنت","اسمنت","cement"],.15,.19],
+  ["3102.10","Urée, engrais azoté","يوريا (سماد آزوتي)",["uree","engrais","azote","يوريا","سماد","اسمدة","urea"],.05,.09],
+  ["4011.10","Pneumatiques neufs pour voitures","إطارات جديدة للسيارات السياحية",["pneu","pneumatique","إطار","اطارات","عجلات","tyre","tire"],.30,.19],
+  ["4107.12","Cuirs de bovins, pleine fleur","جلود أبقار مدبوغة",["cuir","bovin","peau","جلد","جلود","ابقار","leather"],.15,.19],
+  ["4819.10","Boîtes en carton ondulé","علب وصناديق من الكرتون المموج",["carton","ondule","boite","caisse","emballage","كرتون","علب","تغليف","box"],.30,.19],
+  ["7214.20","Barres en fer pour béton armé","قضبان حديد للخرسانة المسلحة",["rond","beton","barre","fer","acier","حديد","قضبان","خرسانة","rebar","steel"],.15,.19],
+  ["7604.29","Profilés en aluminium","مقاطع من سبائك الألمنيوم",["profile","aluminium","alliage","ألمنيوم","المنيوم"],.15,.19],
+  ["8471.30","Ordinateurs portables","حواسيب محمولة",["ordinateur","portable","laptop","حاسوب","حواسيب","محمول"],.05,.19],
+  ["8517.13","Smartphones","هواتف ذكية",["smartphone","telephone","mobile","هاتف","هواتف","ذكي","phone"],.30,.19,0,true],
+  ["8703.23","Voitures de tourisme 1500-3000 cm3","سيارات سياحية",["voiture","vehicule","automobile","tourisme","سيارة","سيارات","مركبة","car"],.30,.19,0,true],
+  ["8708.30","Freins et leurs parties","مكابح وأجزاؤها",["frein","plaquette","disque","مكابح","فرامل","وسادات","brake","pads"],.30,.19],
+  ["9403.60","Meubles en bois","أثاث خشبي",["meuble","bois","armoire","table","أثاث","خشب","خزانة","طاولة","furniture","wood"],.30,.19,1.20],
+].map(([code,fr,ar,kw,duty,vat,daps=0,lic=false]) => ({code,fr,ar,kw,duty,vat,daps,lic}));
+
+const RULINGS = [
+  {ref:"DEMO-RTC-2026-0001", holder:"000016001234567", desc:"Plaquettes de frein céramique pour véhicules légers, conditionnées par jeu de 4", hs:"8708.30", from:"2026-01-15", to:"2026-12-14"},
+  {ref:"DEMO-RTC-2026-0002", holder:"000016009876543", desc:"Boîtes pliantes en carton ondulé imprimé pour emballage de dattes", hs:"4819.10", from:"2026-03-01", to:"2026-11-20"},
+  {ref:"DEMO-BTI-FR-2025-0003", holder:null, desc:"Tablette de chocolat noir 70% cacao, non fourrée, 100 g", hs:"1806.32", from:"2025-06-01", to:"2028-05-31"},
+];
+
+const EU = new Set("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE".split(" "));
+const EUDR = {cattle:["0102","0201","0202","4101","4104","4107"], cocoa:["1801","1802","1803","1804","1805","1806"], coffee:["0901"],
+  oil_palm:["120710","1511","151321","151329"], rubber:["4001","4005","4006","4007","4008","4010","4011","4012","4013","4015","4016","4017"],
+  soya:["1201","120810","1507","2304"], wood:["44","47","48","9401","9403","9406"]};
+const CBAM = {cement:["250700","2523"], electricity:["2716"], fertilisers:["2808","2814","283421","3102","3105"],
+  iron_steel:["72","7301","7302","7303","7304","7305","7306","7307","7308","7309","7310","7311","7318","7326"],
+  aluminium:["7601","7603","7604","7605","7606","7607","7608","7609","7610","7611","7612","7613","7614","7616"], hydrogen:["280410"]};
+
+// ---- Text normalisation (same logic as app/customsagent/text.py) ----
+const AR = {"أ":"ا","إ":"ا","آ":"ا","ة":"ه","ى":"ي","ؤ":"و","ئ":"ي"};
+const STOP = new Set("de du des la le les en et pour a au aux un une the of for and من في على و ال مع ل".split(" "));
+function normalize(t) {
+  t = t.toLowerCase().replace(/[ً-ْـ]/g, "").replace(/[أإآةىؤئ]/g, c => AR[c]);
+  return t.normalize("NFD").replace(/\p{Mn}/gu, "");
+}
+function tokens(t) {
+  const out = new Set();
+  for (let w of normalize(t).match(/[\p{L}\p{N}_]+/gu) || []) {
+    if (STOP.has(w) || w.length < 2) continue;
+    if (w.startsWith("ال") && w.length > 4) w = w.slice(2);
+    if (/^[\x00-\x7f]+$/.test(w) && w.length > 4 && w.endsWith("s")) w = w.slice(0, -1);
+    out.add(w);
+  }
+  return out;
+}
+TARIFF.forEach(l => l.idx = tokens([...l.kw, l.fr, l.ar].join(" ")));
+RULINGS.forEach(r => r.idx = tokens(r.desc));
+const byCode = Object.fromEntries(TARIFF.map(l => [l.code, l]));
+
+// ---- Classifier ----
+function overlap(q, t) { let c = []; q.forEach(w => t.has(w) && c.push(w)); return [q.size ? c.length / q.size : 0, c]; }
+function classify(desc) {
+  const q = tokens(desc), scores = {}, prec = {};
+  TARIFF.forEach(l => { const [s] = overlap(q, l.idx); if (s) scores[l.code] = s; });
+  RULINGS.forEach(r => { const [s] = overlap(q, r.idx); if (s && byCode[r.hs]) { scores[r.hs] = (scores[r.hs] || 0) + s * 1.5; (prec[r.hs] ||= []).push(r.ref); } });
+  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  if (!ranked.length) return [];
+  const best = ranked[0][1], margin = (best - (ranked[1]?.[1] || 0)) / best;
+  return ranked.slice(0, 3).map(([code, s], i) => {
+    const strength = Math.min(s, 1), conf = i === 0 ? strength * (0.5 + 0.5 * margin) : strength * 0.5;
+    return { code, ar: byCode[code].ar, fr: byCode[code].fr, conf: Math.round(Math.min(conf, .99) * 100) / 100, prec: prec[code] || [] };
+  });
+}
+
+// ---- Rules (same codes as docs/etude/04 §4.2) ----
+const digits = c => c.replace(/[.\s]/g, "");
+const inScope = (hs, scope) => { if (!hs) return null; const d = digits(hs); for (const [k, ps] of Object.entries(scope)) if (ps.some(p => d.startsWith(p))) return k; return null; };
+const valid = (r, day) => r.from <= day && day <= r.to;
+
+function analyze(d, day) {
+  const F = [], push = (rule, sev, msg, item = null) => F.push({ rule, sev, msg, item });
+  const hasDoc = t => d.docs.includes(t);
+  const toEU = d.direction === "export" && EU.has(d.dest);
+  const req = d.direction === "import" ? { invoice: "الفاتورة التجارية", transport: "وثيقة النقل (B/L أو LTA أو CMR)" } : { invoice: "الفاتورة التجارية" };
+  for (const [t, label] of Object.entries(req)) if (!hasDoc(t)) push("R-DOC-01", "blocking", "وثيقة إلزامية ناقصة: " + label);
+  if (!d.items.length) push("R-VAL-01", "blocking", "الملف لا يحتوي على أي بند بضاعة");
+  const held = RULINGS.filter(r => d.nif && r.holder === d.nif && valid(r, day));
+
+  d.items.forEach((it, i) => {
+    if (!(it.value > 0)) push("R-VAL-01", "blocking", "القيمة يجب أن تكون أكبر من صفر", i);
+    if (it.gross_kg && it.net_kg > it.gross_kg) push("R-VAL-01", "blocking", "الوزن الصافي لا يمكن أن يتجاوز الوزن القائم", i);
+    const sug = classify(it.description);
+    if (!it.hs_code) {
+      if (!sug.length) { push("R-CLS-00", "blocking", "تعذّر اقتراح رمز تعريفة: الوصف غير كافٍ", i); return; }
+      it.hs_code = sug[0].code;
+      push("R-CLS-00", "info", `رمز مقترح: ${sug[0].code} (${sug[0].ar}) بثقة ${Math.round(sug[0].conf * 100)}%`, i);
+      if (sug[0].conf < .6) push("R-CLS-01", "warning", "ثقة التصنيف منخفضة: نوصي بطلب RTC من المديرية العامة للجمارك قبل الشحن", i);
+    } else if (!byCode[it.hs_code]) push("R-CLS-02", "warning", `الرمز ${it.hs_code} غير موجود في التعريفة المحمّلة`, i);
+
+    if (it.ruling_ref) {
+      const r = RULINGS.find(x => x.ref === it.ruling_ref);
+      if (!r) push("R-RTC-02", "blocking", `المرجع ${it.ruling_ref} غير موجود في سجل القرارات`, i);
+      else if (!valid(r, day)) push("R-RTC-02", "blocking", `القرار ${r.ref} منتهي الصلاحية منذ ${r.to}`, i);
+      else if (r.hs !== it.hs_code) push("R-RTC-01", "blocking", `الرمز المصرّح ${it.hs_code} يخالف القرار ${r.ref} (${r.hs})`, i);
+    }
+    if (sug.length) held.forEach(r => {
+      if (r.ref !== it.ruling_ref && sug[0].prec.includes(r.ref) && r.hs !== it.hs_code)
+        push("R-RTC-01", "blocking", `لديك قرار ساري ${r.ref} لبضاعة مماثلة برمز ${r.hs}، والرمز المصرّح ${it.hs_code}`, i);
+    });
+    const line = byCode[it.hs_code];
+    if (d.direction === "import" && line?.lic && !hasDoc("licence")) push("R-LIC-01", "warning", "هذا البند قد يخضع لترخيص أو إجراء مسبق: تحقق من التنظيم الساري", i);
+    if (toEU) {
+      const e = inScope(it.hs_code, EUDR);
+      if (e && !hasDoc("dds")) push("R-EUDR-01", "blocking", `البند في نطاق EUDR (${e}): يلزم مرجع DDS أو بيانات تحديد الموقع لتمكين المستورد الأوروبي`, i);
+      const c = inScope(it.hs_code, CBAM);
+      if (c && !hasDoc("cbam_emissions")) push("R-CBAM-01", "warning", `البند في نطاق CBAM (${c}): جهّز بيانات الانبعاثات المضمنة، وإلا تُطبق القيم الافتراضية`, i);
+    }
+  });
+  if (d.nif) {
+    const limit = new Date(day); limit.setDate(limit.getDate() + 30);
+    const lim = limit.toISOString().slice(0, 10);
+    held.filter(r => r.to <= lim).forEach(r => push("R-RTC-03", "warning", `القرار ${r.ref} ينتهي في ${r.to}: جهّز طلب التجديد`));
+  }
+  const blocking = F.some(f => f.sev === "blocking");
+  return { status: blocking ? "blocked" : F.length ? "review" : "ready", findings: F, cost: d.direction === "import" ? cost(d) : null };
+}
+
+function cost(d) {
+  const total = d.items.reduce((s, i) => s + (i.value || 0), 0) || 1;
+  const extras = ["EXW", "FCA", "FOB"].includes(d.incoterm) ? d.freight + d.insurance : 0;
+  const T = { value: 0, duty: 0, daps: 0, vat: 0 };
+  const lines = d.items.map((it, i) => {
+    const v = ((it.value || 0) + extras * (it.value || 0) / total) * d.rate, l = byCode[it.hs_code];
+    T.value += v;
+    if (!l) return { i, hs: it.hs_code, v, err: true };
+    const duty = v * l.duty, daps = v * l.daps, vat = (v + duty + daps) * l.vat;
+    T.duty += duty; T.daps += daps; T.vat += vat;
+    return { i, hs: l.code, v, duty, daps, vat, l };
+  });
+  T.taxes = T.duty + T.daps + T.vat; T.landed = T.value + T.taxes;
+  return { lines, T };
+}
+
+// ---- UI ----
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const pct = r => Math.round(r * 100) + "%";
+const DOCS = { invoice: "فاتورة", transport: "وثيقة نقل", licence: "ترخيص", eur1: "EUR.1", dds: "مرجع DDS (EUDR)", cbam_emissions: "بيانات CBAM" };
+const STATUS = { ready: "جاهز للتصريح", review: "يحتاج مراجعة", blocked: "متوقف: يجب التصحيح" };
+const SEV = { blocking: "مانع", warning: "تحذير", info: "معلومة" };
+let uid = 0;
+
+$("docs").innerHTML = Object.entries(DOCS).map(([k, v]) => `<label for="doc-${k}"><input type="checkbox" id="doc-${k}" value="${k}"> ${v}</label>`).join("");
+
+function addItem(it = {}) {
+  const n = ++uid, el = document.createElement("div");
+  el.className = "item";
+  el.innerHTML = `
+    <label class="desc" for="d${n}">الوصف<input id="d${n}" data-k="description" value="${esc(it.description)}"></label>
+    <label for="h${n}">رمز HS<input id="h${n}" data-k="hs_code" value="${esc(it.hs_code)}" placeholder="آلي"></label>
+    <label for="v${n}">القيمة (يورو)<input id="v${n}" data-k="value" type="number" value="${it.value ?? ""}"></label>
+    <label for="n${n}">صافي كغ<input id="n${n}" data-k="net_kg" type="number" value="${it.net_kg ?? ""}"></label>
+    <label for="g${n}">قائم كغ<input id="g${n}" data-k="gross_kg" type="number" value="${it.gross_kg ?? ""}"></label>
+    <label for="r${n}">مرجع RTC<input id="r${n}" data-k="ruling_ref" value="${esc(it.ruling_ref)}"></label>
+    <button class="icon" aria-label="حذف البند">✕</button>`;
+  el.querySelector("button").onclick = () => el.remove();
+  $("items").appendChild(el);
+}
+
+function load(ex) {
+  const imp = ex === "import";
+  $("ex-import").classList.toggle("on", imp); $("ex-export").classList.toggle("on", !imp);
+  $("direction").value = ex; $("origin").value = imp ? "CN" : "DZ"; $("dest").value = imp ? "DZ" : "FR";
+  $("nif").value = imp ? "000016001234567" : ""; $("incoterm").value = "FOB";
+  $("rate").value = 150; $("freight").value = imp ? 800 : 0; $("insurance").value = imp ? 50 : 0;
+  $("items").innerHTML = "";
+  if (imp) {
+    addItem({ description: "Plaquettes de frein céramique", hs_code: "8708.99", value: 12000, net_kg: 800, gross_kg: 850 });
+    addItem({ description: "Pneumatiques neufs pour voitures", value: 8000, net_kg: 1200, gross_kg: 1300 });
+  } else {
+    addItem({ description: "Cuir de bovin pleine fleur", value: 20000, net_kg: 1500, gross_kg: 1600 });
+    addItem({ description: "Ciment Portland gris", value: 45000, net_kg: 500000, gross_kg: 502000 });
+    addItem({ description: "Boîtes en carton ondulé pour dattes", value: 6000, net_kg: 900, gross_kg: 950 });
+  }
+  document.querySelectorAll("#docs input").forEach(c => c.checked = c.value === "invoice");
+  run();
+}
+
+function readDossier() {
+  const items = [...document.querySelectorAll(".item")].map(row => {
+    const o = {};
+    row.querySelectorAll("input").forEach(i => { const v = i.value.trim(); if (v) o[i.dataset.k] = i.type === "number" ? Number(v) : v; });
+    return o;
+  }).filter(o => o.description);
+  return {
+    direction: $("direction").value, origin: $("origin").value.trim().toUpperCase(), dest: $("dest").value.trim().toUpperCase(),
+    nif: $("nif").value.trim() || null, incoterm: $("incoterm").value, rate: Number($("rate").value) || 1,
+    freight: Number($("freight").value) || 0, insurance: Number($("insurance").value) || 0, items,
+    docs: [...document.querySelectorAll("#docs input:checked")].map(c => c.value),
+  };
+}
+
+function run() {
+  const res = analyze(readDossier(), "2026-11-06");
+  $("status").className = "status s-" + res.status;
+  $("status").textContent = STATUS[res.status];
+  $("findings").innerHTML = res.findings.map(f => `<li class="${f.sev}"><span class="sev">${SEV[f.sev]} · ${f.rule}${f.item !== null ? " · البند " + (f.item + 1) : ""}</span>${esc(f.msg)}</li>`).join("")
+    || `<li class="info">لا توجد ملاحظات. الملف جاهز.</li>`;
+  const c = res.cost;
+  $("cost").innerHTML = !c ? "" : `
+    <div class="table-wrap"><table>
+      <tr><th>البند</th><th>الرمز</th><th>القيمة لدى الجمارك</th><th>الحق الجمركي</th><th>DAPS</th><th>TVA</th></tr>
+      ${c.lines.map(l => `<tr><td>${l.i + 1}</td><td>${esc(l.hs)}</td><td>${fmt(l.v)}</td>${l.err ? `<td colspan="3">رمز غير موجود في التعريفة</td>` :
+        `<td>${fmt(l.duty)} <span class="mono">${pct(l.l.duty)}</span></td><td>${fmt(l.daps)}</td><td>${fmt(l.vat)} <span class="mono">${pct(l.l.vat)}</span></td>`}</tr>`).join("")}
+      <tr class="total"><td colspan="2">المجموع (دج)</td><td>${fmt(c.T.value)}</td><td>${fmt(c.T.duty)}</td><td>${fmt(c.T.daps)}</td><td>${fmt(c.T.vat)}</td></tr>
+    </table></div>
+    <div class="landed"><span>التكلفة الإجمالية التقديرية عند الوصول</span><b>${fmt(c.T.landed)} دج</b></div>`;
+}
+
+function quick() {
+  const s = classify($("q").value);
+  $("sugg").innerHTML = s.length ? s.map(x => `
+    <div><span><b>${esc(x.code)}</b> ${esc(x.ar)} <span class="mono">${esc(x.fr)}</span>${x.prec.length ? `<br><span class="mono">سوابق: ${x.prec.map(esc).join("، ")}</span>` : ""}</span>
+    <span class="conf">${pct(x.conf)}<div class="bar"><i style="width:${x.conf * 100}%"></i></div></span></div>`).join("")
+    : `<div>لا يوجد اقتراح. أضف تفاصيل: المادة، والاستعمال، والتركيب.</div>`;
+}
+
+$("qbtn").onclick = quick;
+$("q").addEventListener("keydown", e => { if (e.key === "Enter") quick(); });
+$("run").onclick = run;
+$("add").onclick = () => addItem();
+$("ex-import").onclick = () => load("import");
+$("ex-export").onclick = () => load("export");
+quick();
+load("import");
+</script>
