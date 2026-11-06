@@ -1,0 +1,21 @@
+{
+  "_notice": "ILLUSTRATIVE SAMPLE ONLY. Codes are shortened and rates are placeholders, not the official Algerian tariff or the current loi de finances. Replace with official DGD data before any real use.",
+  "lines": [
+    {"code": "0804.10", "label_fr": "Dattes", "label_ar": "تمور", "keywords": ["datte", "dattes", "deglet", "تمر", "تمور", "dates"], "duty_rate": 0.30, "vat_rate": 0.09},
+    {"code": "0901.21", "label_fr": "Café torréfié, non décaféiné", "label_ar": "بن محمص", "keywords": ["cafe", "torrefie", "قهوة", "بن", "محمص", "coffee", "roasted"], "duty_rate": 0.30, "vat_rate": 0.19},
+    {"code": "1509.20", "label_fr": "Huile d'olive vierge extra", "label_ar": "زيت زيتون بكر ممتاز", "keywords": ["huile", "olive", "vierge", "زيت", "زيتون", "olive oil"], "duty_rate": 0.30, "vat_rate": 0.19},
+    {"code": "1806.32", "label_fr": "Chocolat en tablettes, non fourré", "label_ar": "شوكولاتة ألواح", "keywords": ["chocolat", "tablette", "cacao", "شوكولاتة", "شكولاطة", "كاكاو", "chocolate"], "duty_rate": 0.30, "vat_rate": 0.19, "daps_rate": 0.70},
+    {"code": "2523.29", "label_fr": "Ciment Portland (autre que blanc)", "label_ar": "إسمنت بورتلاند", "keywords": ["ciment", "portland", "إسمنت", "اسمنت", "cement"], "duty_rate": 0.15, "vat_rate": 0.19},
+    {"code": "3102.10", "label_fr": "Urée, engrais azoté", "label_ar": "يوريا (سماد آزوتي)", "keywords": ["uree", "engrais", "azote", "يوريا", "سماد", "اسمدة", "urea", "fertilizer"], "duty_rate": 0.05, "vat_rate": 0.09},
+    {"code": "4011.10", "label_fr": "Pneumatiques neufs pour voitures de tourisme", "label_ar": "إطارات جديدة للسيارات السياحية", "keywords": ["pneu", "pneumatique", "إطار", "اطارات", "عجلات", "tyre", "tire"], "duty_rate": 0.30, "vat_rate": 0.19},
+    {"code": "4107.12", "label_fr": "Cuirs de bovins, pleine fleur", "label_ar": "جلود أبقار مدبوغة", "keywords": ["cuir", "bovin", "peau", "جلد", "جلود", "ابقار", "leather"], "duty_rate": 0.15, "vat_rate": 0.19},
+    {"code": "4819.10", "label_fr": "Caisses et boîtes en papier ou carton ondulé", "label_ar": "علب وصناديق من الكرتون المموج", "keywords": ["carton", "ondule", "boite", "caisse", "emballage", "كرتون", "علب", "تغليف", "cardboard", "box"], "duty_rate": 0.30, "vat_rate": 0.19},
+    {"code": "7214.20", "label_fr": "Barres en fer pour béton armé (rond à béton)", "label_ar": "قضبان حديد للخرسانة المسلحة", "keywords": ["rond", "beton", "barre", "fer", "acier", "حديد", "قضبان", "خرسانة", "rebar", "steel"], "duty_rate": 0.15, "vat_rate": 0.19},
+    {"code": "7604.29", "label_fr": "Profilés en alliages d'aluminium", "label_ar": "مقاطع من سبائك الألمنيوم", "keywords": ["profile", "aluminium", "alliage", "ألمنيوم", "المنيوم", "aluminum"], "duty_rate": 0.15, "vat_rate": 0.19},
+    {"code": "8471.30", "label_fr": "Ordinateurs portables", "label_ar": "حواسيب محمولة", "keywords": ["ordinateur", "portable", "laptop", "حاسوب", "حواسيب", "محمول", "pc"], "duty_rate": 0.05, "vat_rate": 0.19},
+    {"code": "8517.13", "label_fr": "Smartphones", "label_ar": "هواتف ذكية", "keywords": ["smartphone", "telephone", "mobile", "هاتف", "هواتف", "ذكي", "phone"], "duty_rate": 0.30, "vat_rate": 0.19, "licence_required": true},
+    {"code": "8703.23", "label_fr": "Voitures de tourisme, moteur à allumage 1500-3000 cm3", "label_ar": "سيارات سياحية بمحرك 1500-3000 سم3", "keywords": ["voiture", "vehicule", "automobile", "tourisme", "سيارة", "سيارات", "مركبة", "car"], "duty_rate": 0.30, "vat_rate": 0.19, "licence_required": true},
+    {"code": "8708.30", "label_fr": "Freins et servo-freins et leurs parties (plaquettes)", "label_ar": "مكابح وأجزاؤها (أقراص، وسادات)", "keywords": ["frein", "plaquette", "disque", "مكابح", "فرامل", "وسادات", "brake", "pads"], "duty_rate": 0.30, "vat_rate": 0.19},
+    {"code": "9403.60", "label_fr": "Meubles en bois", "label_ar": "أثاث خشبي", "keywords": ["meuble", "bois", "armoire", "table", "أثاث", "خشب", "خزانة", "طاولة", "furniture", "wood"], "duty_rate": 0.30, "vat_rate": 0.19, "daps_rate": 1.20}
+  ]
+}
