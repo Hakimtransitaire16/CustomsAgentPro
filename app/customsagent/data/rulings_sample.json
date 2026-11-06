@@ -1,0 +1,8 @@
+{
+  "_notice": "DEMO DATA. These are fictitious example rulings for testing the prototype. They are NOT real DGD RTC decisions or EBTI decisions. Replace with the official published collections (douane.gov.dz, EBTI).",
+  "rulings": [
+    {"reference": "DEMO-RTC-2026-0001", "kind": "classification", "source": "DGD", "holder_nif": "000016001234567", "description": "Plaquettes de frein céramique pour véhicules légers, conditionnées par jeu de 4", "hs_code": "8708.30", "valid_from": "2026-01-15", "valid_to": "2026-12-14"},
+    {"reference": "DEMO-RTC-2026-0002", "kind": "classification", "source": "DGD", "holder_nif": "000016009876543", "description": "Boîtes pliantes en carton ondulé imprimé pour emballage de dattes", "hs_code": "4819.10", "valid_from": "2026-03-01", "valid_to": "2026-11-20"},
+    {"reference": "DEMO-BTI-FR-2025-0003", "kind": "classification", "source": "EBTI", "holder_nif": null, "description": "Tablette de chocolat noir 70% cacao, non fourrée, 100 g", "hs_code": "1806.32", "valid_from": "2025-06-01", "valid_to": "2028-05-31"}
+  ]
+}

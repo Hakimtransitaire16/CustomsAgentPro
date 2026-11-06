@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الدقة قبل الوصول</title>
+<style>
+  :root {
+    --bg: #f4f4f2; --surface: #ffffff; --ink: #16181a; --muted: #6b7075; --line: #d9dbdc;
+    --accent: #b8860b; --block: #b3261e; --warn: #a15c00; --ok: #1e7a4c; --info: #3a5a7a;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1112; --surface: #181b1d; --ink: #e9eaeb; --muted: #9aa0a5; --line: #2b2f32;
+      --accent: #d9a92b; --block: #ff6b5e; --warn: #f0a645; --ok: #4cc38a; --info: #8fb4d9;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 system-ui, "Segoe UI", Tahoma, sans-serif; }
+  header { padding: 28px 16px 20px; border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: .5px; }
+  h1 span { color: var(--accent); }
+  .tag { color: var(--muted); font-size: 13px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  main { padding: 20px 16px 60px; display: grid; gap: 20px; }
+  section { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; }
+  h2 { margin: 0 0 14px; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+  input, select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font: inherit; }
+  input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .items { display: grid; gap: 10px; }
+  .item { display: grid; grid-template-columns: 3fr 1.2fr 1fr 1fr 1fr 1.4fr auto; gap: 8px; align-items: end; }
+  @media (max-width: 760px) { .item { grid-template-columns: 1fr 1fr; } .item .desc { grid-column: 1 / -1; } }
+  button { font: inherit; cursor: pointer; border-radius: 4px; padding: 9px 16px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+  button.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600; }
+  button.ghost { color: var(--muted); padding: 8px 10px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+  .docs { display: flex; gap: 16px; flex-wrap: wrap; }
+  .docs label { display: flex; gap: 6px; align-items: center; font-size: 14px; color: var(--ink); }
+  .docs input { width: auto; }
+  .status { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 600; font-size: 13px; border: 1px solid currentColor; }
+  .s-ready { color: var(--ok); } .s-review { color: var(--warn); } .s-blocked { color: var(--block); }
+  ul.findings { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  ul.findings li { padding: 10px 12px; border-inline-start: 3px solid var(--line); background: var(--bg); border-start-end-radius: 4px; border-end-end-radius: 4px; }
+  ul.findings li.blocking { border-inline-start-color: var(--block); }
+  ul.findings li.warning { border-inline-start-color: var(--warn); }
+  ul.findings li.info { border-inline-start-color: var(--info); }
+  .code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px; border-bottom: 1px solid var(--line); text-align: start; }
+  th { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .table-wrap { overflow-x: auto; }
+  .total td { font-weight: 700; border-bottom: none; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .sugg { margin-top: 10px; display: grid; gap: 6px; }
+  .sugg div { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; background: var(--bg); border-radius: 4px; }
+  .bar { height: 4px; background: var(--line); border-radius: 2px; margin-top: 4px; }
+  .bar i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Customs<span>Agent</span>Pro</h1>
+  <div class="tag">الدقة قبل الوصول · نموذج أولي — بيانات توضيحية</div>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <h2>تصنيف سريع</h2>
+    <div class="row" style="margin:0">
+      <input id="q" placeholder="صف البضاعة بالعربية أو الفرنسية… مثال: Plaquettes de frein céramique" style="flex:1;min-width:220px">
+      <button onclick="quick()">اقترح رمزاً</button>
+    </div>
+    <div id="sugg" class="sugg"></div>
+  </section>
+
+  <section>
+    <h2>ملف الشحنة</h2>
+    <div class="grid">
+      <label>الاتجاه<select id="direction"><option value="import">استيراد إلى الجزائر</option><option value="export">تصدير من الجزائر</option></select></label>
+      <label>بلد المنشأ<input id="origin_country" value="CN"></label>
+      <label>بلد الوجهة<input id="destination_country" value="DZ"></label>
+      <label>NIF صاحب الملف<input id="holder_nif" value="000016001234567"></label>
+      <label>Incoterm<select id="incoterm"><option>FOB</option><option>EXW</option><option>FCA</option><option>CFR</option><option>CIF</option></select></label>
+      <label>العملة<input id="currency" value="EUR"></label>
+      <label>سعر الصرف (دج)<input id="exchange_rate" type="number" step="0.01" value="150"></label>
+      <label>النقل<input id="freight" type="number" value="800"></label>
+      <label>التأمين<input id="insurance" type="number" value="50"></label>
+    </div>
+
+    <h2 style="margin-top:20px">البنود</h2>
+    <div id="items" class="items"></div>
+    <div class="row"><button class="ghost" onclick="addItem()">+ إضافة بند</button></div>
+
+    <h2 style="margin-top:20px">الوثائق المتوفرة</h2>
+    <div class="docs" id="docs"></div>
+
+    <div class="row">
+      <button class="primary" onclick="analyze()">حلّل الملف</button>
+      <button class="ghost" onclick="exampleExport()">مثال: تصدير نحو فرنسا</button>
+    </div>
+  </section>
+
+  <section id="result" hidden>
+    <h2>النتيجة</h2>
+    <div id="status"></div>
+    <ul id="findings" class="findings"></ul>
+    <div id="cost"></div>
+  </section>
+</main>
+
+<script>
+const DOCS = { invoice: "فاتورة", transport: "وثيقة نقل", licence: "ترخيص", eur1: "EUR.1", dds: "مرجع DDS (EUDR)", cbam_emissions: "بيانات CBAM" };
+const STATUS = { ready: "جاهز للتصريح", review: "يحتاج مراجعة", blocked: "متوقف — يجب التصحيح" };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => Number(n).toLocaleString("fr-DZ", { maximumFractionDigits: 2 });
+
+$("docs").innerHTML = Object.entries(DOCS).map(([k, v]) =>
+  `<label><input type="checkbox" value="${k}" ${k === "invoice" ? "checked" : ""}> ${v}</label>`).join("");
+
+function addItem(it = {}) {
+  const d = document.createElement("div");
+  d.className = "item";
+  d.innerHTML = `
+    <label class="desc">الوصف<input data-k="description" value="${esc(it.description)}"></label>
+    <label>رمز HS<input data-k="hs_code" value="${esc(it.hs_code)}" placeholder="آلي"></label>
+    <label>القيمة<input data-k="value" type="number" value="${it.value ?? ""}"></label>
+    <label>صافي كغ<input data-k="net_kg" type="number" value="${it.net_kg ?? ""}"></label>
+    <label>قائم كغ<input data-k="gross_kg" type="number" value="${it.gross_kg ?? ""}"></label>
+    <label>مرجع RTC<input data-k="ruling_ref" value="${esc(it.ruling_ref)}"></label>
+    <button class="ghost" title="حذف" onclick="this.parentElement.remove()">✕</button>`;
+  $("items").appendChild(d);
+}
+
+function dossier() {
+  const v = id => $(id).value.trim();
+  const items = [...document.querySelectorAll(".item")].map(row => {
+    const o = {};
+    row.querySelectorAll("input").forEach(i => {
+      const val = i.value.trim();
+      if (!val) return;
+      o[i.dataset.k] = i.type === "number" ? Number(val) : val;
+    });
+    return o;
+  }).filter(o => o.description);
+  return {
+    reference: "WEB-" + Date.now(), direction: v("direction"), holder_nif: v("holder_nif") || null,
+    origin_country: v("origin_country"), destination_country: v("destination_country"),
+    incoterm: v("incoterm"), currency: v("currency"),
+    exchange_rate: Number(v("exchange_rate")) || 1, freight: Number(v("freight")) || 0, insurance: Number(v("insurance")) || 0,
+    items,
+    documents: [...document.querySelectorAll("#docs input:checked")].map(c => ({ type: c.value, number: "-" })),
+  };
+}
+
+async function post(url, body) {
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  return r.json();
+}
+
+async function quick() {
+  const { suggestions } = await post("/api/classify", { description: $("q").value });
+  $("sugg").innerHTML = suggestions.length ? suggestions.map(s => `
+    <div><span><b>${esc(s.hs_code)}</b> — ${esc(s.label_ar)} <span class="code">${esc(s.label_fr)}</span>
+      ${s.precedents.length ? `<br><span class="code">سوابق: ${s.precedents.map(esc).join("، ")}</span>` : ""}</span>
+      <span style="min-width:80px">${Math.round(s.confidence * 100)}%<div class="bar"><i style="width:${s.confidence * 100}%"></i></div></span></div>`).join("")
+    : `<div>لا يوجد اقتراح. أضف تفاصيل: المادة، الاستعمال، التركيب.</div>`;
+}
+
+async function analyze() {
+  const res = await post("/api/analyze", dossier());
+  $("result").hidden = false;
+  if (res.error) { $("status").innerHTML = `<span class="status s-blocked">${esc(res.detail || res.error)}</span>`; return; }
+  $("status").innerHTML = `<span class="status s-${res.status}">${STATUS[res.status]}</span>`;
+  $("findings").innerHTML = res.findings.map(f => `
+    <li class="${f.severity}">${esc(f.message)}<br><span class="code">${esc(f.rule)}${f.item !== null ? " · البند " + (f.item + 1) : ""}</span></li>`).join("")
+    || `<li class="info">لا توجد ملاحظات.</li>`;
+  const c = res.cost;
+  $("cost").innerHTML = c ? `
+    <h2 style="margin-top:20px">التكلفة التقديرية (دج)</h2>
+    <div class="table-wrap"><table>
+      <tr><th>البند</th><th>الرمز</th><th>القيمة لدى الجمارك</th><th>الحق الجمركي</th><th>DAPS</th><th>TVA</th><th>مجموع الرسوم</th></tr>
+      ${c.lines.map(l => `<tr><td>${l.item + 1}</td><td>${esc(l.hs_code)}</td><td>${fmt(l.customs_value)}</td>
+        ${l.error ? `<td colspan="4">رمز غير موجود في التعريفة</td>` :
+        `<td>${fmt(l.duty)} <span class="code">${l.duty_rate * 100}%</span></td><td>${fmt(l.daps)}</td><td>${fmt(l.vat)} <span class="code">${l.vat_rate * 100}%</span></td><td>${fmt(l.taxes)}</td>`}</tr>`).join("")}
+      <tr class="total"><td colspan="2">المجموع</td><td>${fmt(c.totals.customs_value)}</td><td>${fmt(c.totals.duty)}</td><td>${fmt(c.totals.daps)}</td><td>${fmt(c.totals.vat)}</td><td>${fmt(c.totals.taxes)}</td></tr>
+    </table></div>
+    <div class="note">التكلفة الإجمالية عند الوصول: <b>${fmt(c.totals.landed)} دج</b> · النسب توضيحية وليست التعريفة الرسمية.</div>` : "";
+  $("result").scrollIntoView({ behavior: "smooth" });
+}
+
+function exampleExport() {
+  $("direction").value = "export"; $("origin_country").value = "DZ"; $("destination_country").value = "FR";
+  $("items").innerHTML = "";
+  addItem({ description: "Cuir de bovin pleine fleur", value: 20000, net_kg: 1500, gross_kg: 1600 });
+  addItem({ description: "Ciment Portland gris", value: 45000, net_kg: 500000, gross_kg: 502000 });
+  addItem({ description: "Boîtes en carton ondulé pour dattes", value: 6000, net_kg: 900, gross_kg: 950 });
+  analyze();
+}
+
+addItem({ description: "Plaquettes de frein céramique", hs_code: "8708.99", value: 12000, net_kg: 800, gross_kg: 850 });
+addItem({ description: "Pneumatiques neufs pour voitures", value: 8000, net_kg: 1200, gross_kg: 1300 });
+</script>
+</body>
+</html>
