@@ -389,13 +389,14 @@ function renderDetail() {
 }
 
 // ===== Persistence =====
-const queue = new Map();
+const queue = new Map(), unsaved = new Set();   // unsaved: created here, not yet confirmed by the store
 async function save(d) {
   d.updated = new Date().toISOString();
   render();
+  await ready;                                      // dossiers created before storage answered are saved once it does
   if (memoryOnly || !db || !uid) return;
   const prev = queue.get(d.id) || Promise.resolve();
-  const next = prev.then(() => col().doc(d.id).set(JSON.parse(JSON.stringify(d)))).catch(e => {
+  const next = prev.then(() => col().doc(d.id).set(JSON.parse(JSON.stringify(d)))).then(() => unsaved.delete(d.id)).catch(e => {
     banner(e.code === "quota_exceeded" ? "المساحة ممتلئة: احذف ملفات قديمة." : "تعذّر الحفظ. تحقّق من الاتصال.", true);
   });
   queue.set(d.id, next);
@@ -406,7 +407,7 @@ const col = () => db.doc("data/users/" + uid + "/profile").collection("dossiers"
 function createDossier() {
   const id = "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const d = { id, ref: "", client: "", unloading: "", status: "docs", docs: [], created: new Date().toISOString() };
-  dossiers.push(d); current = id; save(d);
+  dossiers.push(d); unsaved.add(id); current = id; save(d);
   setTimeout(() => $("f-ref").focus(), 0);
 }
 window.createDossier = createDossier;
@@ -467,7 +468,9 @@ async function readFiles(files) {
       else if (imagesOk) input = { images: [file] };
       else throw new Error("scan");
       const prompt = input.text ? PROMPT + "\n\nDOCUMENT TEXT:\n" + input.text : PROMPT + "\n\nThe document is in the attached image(s).";
-      const data = await sample.json(prompt, { signal: ctl.signal, images: input.images, modelTier: "default" });
+      const opts = { signal: ctl.signal, modelTier: "default" };
+      if (input.images) opts.images = input.images;   // never pass an undefined option
+      const data = await sample.json(prompt, opts);
       if (!data || typeof data !== "object") throw { code: "invalid_json" };
       const type = DOC_TYPE[data.doc_type] ? data.doc_type : "other";
       d.docs = [...(d.docs || []), { name: file.name, type, data, added: new Date().toISOString() }];
@@ -482,7 +485,8 @@ async function readFiles(files) {
         : e?.code === "invalid_json" ? "لم تُفهم الإجابة. أعد المحاولة لهذه الوثيقة."
         : e?.code === "image_rejected" ? "الصورة مرفوضة (حجم أو نوع غير مقبول)."
         : "تعذّرت قراءة الوثيقة. أعد المحاولة.";
-      toast(`${file.name}: ${msg}`);
+      toast(`${file.name}: ${msg} [${e?.code || e?.message || e}]`);
+      console.error("read", file.name, e);
       if (e?.code === "not_granted" || e?.code === "rate_limited") break;
     }
   }
@@ -497,7 +501,7 @@ $("del").onclick = async () => {
   const d = dossiers.find(x => x.id === current); if (!d) return;
   if ($("del").dataset.armed !== "1") { $("del").dataset.armed = "1"; $("del").textContent = "تأكيد الحذف؟"; setTimeout(() => { $("del").dataset.armed = ""; $("del").textContent = "حذف الملف"; }, 3000); return; }
   $("del").dataset.armed = ""; $("del").textContent = "حذف الملف";
-  dossiers = dossiers.filter(x => x.id !== d.id); queue.delete(d.id); current = null; render();
+  dossiers = dossiers.filter(x => x.id !== d.id); queue.delete(d.id); unsaved.delete(d.id); current = null; render();
   if (!memoryOnly && db && uid) await col().doc(d.id).delete().catch(() => toast("تعذّر الحذف."));
 };
 for (const [id, k] of [["f-ref", "ref"], ["f-client", "client"], ["f-unload", "unloading"], ["f-status", "status"]]) {
@@ -527,7 +531,8 @@ drop.addEventListener("dragleave", () => drop.classList.remove("over"));
 drop.addEventListener("drop", e => { e.preventDefault(); drop.classList.remove("over"); readFiles([...e.dataTransfer.files]); });
 
 // ===== Start =====
-(async function start() {
+let readyResolve; const ready = new Promise(r => readyResolve = r);
+(async function start() { try {
   render();
   if (!window.claude?.use) { memoryOnly = true; banner("افتح هذه الصفحة داخل Claude لحفظ الملفات وقراءة الوثائق. في هذا العرض لا يُحفظ شيء."); $("list").innerHTML = ""; render(); return; }
   const [dbNs, sampleNs, userNs] = await Promise.all([claude.use("db"), claude.use("sample"), claude.use("user")]);
@@ -544,8 +549,12 @@ drop.addEventListener("drop", e => { e.preventDefault(); drop.classList.remove("
       const mine = local.get(s.id);
       return mine && mine.updated > (remote.updated || "") ? mine : remote;   // keep an edit not yet confirmed
     });
-    for (const [id, d] of local) if (!dossiers.some(x => x.id === id) && queue.has(id)) dossiers.push(d);
+    for (const [id, d] of local) if (!dossiers.some(x => x.id === id) && (queue.has(id) || unsaved.has(id))) dossiers.push(d);
     render();
   }, e => { clearTimeout(timer); banner(e.code === "revoked" ? "انتهى الوصول إلى الملفات في هذا العرض." : "تعذّر تحميل الملفات.", true); });
+} catch (e) {
+  console.error("start", e); memoryOnly = true;
+  banner("تعذّر تشغيل الحفظ: " + (e?.code || e?.message || e) + ". الملفات تبقى حتى إغلاق الصفحة فقط.", true); render();
+} finally { readyResolve(); }
 })();
 </script>
