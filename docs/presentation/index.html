@@ -1,0 +1,581 @@
+<title>CustomsAgentPro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a precise single column, like a technical spec sheet — measured rules, quiet graphite surfaces, one Saharan gold accent. */
+:root {
+  --ground: #f3f2ef;
+  --surface: #fbfaf8;
+  --ink: #17191b;
+  --muted: #62666a;
+  --rule: #d8d6d0;
+  --gold: #9a6f0e;
+  --gold-soft: #f1e7cf;
+  --block: #b3261e;
+  --warn: #9a5800;
+  --ok: #1e6e47;
+  --info: #3b5878;
+  --f-display: "Reem Kufi", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #101213; --surface: #171a1c; --ink: #ebeae6; --muted: #9da1a4; --rule: #2c3033;
+    --gold: #d9aa3c; --gold-soft: #2b2416; --block: #ff7a6e; --warn: #f0a94a; --ok: #58c793; --info: #94b6da;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #101213; --surface: #171a1c; --ink: #ebeae6; --muted: #9da1a4; --rule: #2c3033;
+  --gold: #d9aa3c; --gold-soft: #2b2416; --block: #ff7a6e; --warn: #f0a94a; --ok: #58c793; --info: #94b6da;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--ground); color: var(--ink); font: 16px/1.75 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.page { max-width: 980px; margin: 0 auto; padding-block: 40px 80px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 64px; }
+section, .tool, .hero, .result, .findings, .chart, .sugg, .dlist, .items { grid-template-columns: minmax(0, 1fr); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; font-weight: 600; }
+h2 { font-size: 26px; line-height: 1.3; }
+h3 { font-size: 18px; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--gold); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+section { display: grid; gap: 20px; }
+.lead { color: var(--muted); }
+
+.hero { display: grid; gap: 18px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.wordmark { font: 600 18px/1 var(--f-mono); letter-spacing: .5px; direction: ltr; }
+.wordmark b { color: var(--gold); font-weight: 600; }
+.chip { font: 500 12px/1.4 var(--f-body); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.hero h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.15; }
+.hero h1 span { color: var(--gold); }
+.hero p { font-size: 18px; color: var(--muted); }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.fact { background: var(--surface); padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fact .num { font: 600 32px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.fact .num small { font-size: 15px; color: var(--muted); font-family: var(--f-body); font-weight: 500; }
+.fact p { font-size: 14px; color: var(--muted); }
+.fact.new .num { color: var(--gold); }
+
+.explain { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.explain > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.scroll-x { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 14px; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+th { font-weight: 500; color: var(--muted); font-size: 12px; }
+
+/* Analytics */
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+.chart { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.bars { display: grid; gap: 8px; }
+.brow { display: grid; grid-template-columns: minmax(0, 11rem) 1fr 3rem; gap: 10px; align-items: center; font-size: 14px; }
+.brow .lab { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btrack { height: 12px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.btrack i { display: block; height: 100%; background: var(--gold); }
+.brow .val { font-variant-numeric: tabular-nums; text-align: end; color: var(--muted); }
+
+/* Tool */
+.tool { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: grid; gap: 20px; }
+.tool-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+input, select { width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--ground); color: var(--ink); font: 14px var(--f-body); }
+.items { display: grid; gap: 12px; }
+.item { display: grid; grid-template-columns: 3fr 1.6fr 1fr 1fr 1fr auto; gap: 8px; align-items: end; padding-bottom: 12px; border-bottom: 1px dashed var(--rule); }
+@media (max-width: 760px) { .item { grid-template-columns: 1fr 1fr; } .item .desc { grid-column: 1 / -1; } }
+button { font: 500 14px var(--f-body); cursor: pointer; border-radius: 4px; padding: 9px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink); }
+button:disabled { opacity: .5; cursor: wait; }
+button.primary { background: var(--ink); color: var(--ground); border-color: var(--ink); font-weight: 600; }
+button.on { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+button.icon { padding: 8px 11px; color: var(--muted); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.docs { display: flex; gap: 8px 18px; flex-wrap: wrap; }
+.docs label { display: flex; gap: 6px; align-items: center; font-size: 14px; color: var(--ink); }
+.docs input { width: auto; }
+.sub { font: 600 13px var(--f-body); color: var(--muted); }
+.loading { padding: 14px 16px; background: var(--gold-soft); border-radius: 4px; font-size: 14px; }
+
+.result { display: grid; gap: 14px; border-top: 1px solid var(--rule); padding-top: 20px; }
+.status { justify-self: start; padding: 5px 14px; border-radius: 999px; font-weight: 600; font-size: 14px; border: 1.5px solid currentColor; }
+.s-ready { color: var(--ok); } .s-review { color: var(--warn); } .s-blocked { color: var(--block); }
+.findings { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.findings li { padding: 10px 14px; background: var(--ground); border-inline-start: 3px solid var(--rule); display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.findings li.blocking { border-inline-start-color: var(--block); }
+.findings li.warning { border-inline-start-color: var(--warn); }
+.findings li.info { border-inline-start-color: var(--info); }
+.sev { font: 500 11px var(--f-mono); letter-spacing: .5px; }
+li.blocking .sev { color: var(--block); } li.warning .sev { color: var(--warn); } li.info .sev { color: var(--info); }
+.total td { font-weight: 700; border-bottom: none; }
+.landed { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 14px 16px; background: var(--gold-soft); border-radius: 4px; }
+.landed b { font: 600 24px var(--f-display); font-variant-numeric: tabular-nums; }
+
+.sugg { display: grid; gap: 6px; }
+.sugg > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; background: var(--ground); border-radius: 4px; }
+.sugg > div > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.conf { min-width: 72px; text-align: end; font-variant-numeric: tabular-nums; }
+.bar { height: 4px; background: var(--rule); border-radius: 2px; margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--gold); border-radius: 2px; }
+
+/* Decisions */
+.dlist { display: grid; gap: 8px; }
+.dec { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; min-width: 0; }
+.dec-top { display: flex; gap: 8px 12px; flex-wrap: wrap; align-items: baseline; justify-content: space-between; }
+.dec h3 { font: 600 15px/1.5 var(--f-body); overflow-wrap: anywhere; }
+.badge { font: 500 11px var(--f-mono); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; }
+.badge.m110 { border-color: var(--warn); color: var(--warn); }
+.badge.flag { border-color: var(--block); color: var(--block); }
+.dec details { font-size: 14px; color: var(--muted); }
+.dec summary { cursor: pointer; color: var(--gold); }
+.dec details p { margin-top: 6px; max-width: none; }
+
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.part { border-top: 2px solid var(--ink); padding-top: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part p { font-size: 14px; color: var(--muted); }
+.road { list-style: none; padding: 0; margin: 0; display: grid; }
+.road li { display: grid; grid-template-columns: 48px 1fr auto; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.road .m { font: 600 14px var(--f-mono); color: var(--muted); }
+.road .done .m, .road .part-done .m { color: var(--gold); }
+.road p { font-size: 14px; color: var(--muted); }
+.tag { font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; }
+.done .tag, .part-done .tag { border-color: var(--gold); color: var(--gold); }
+.note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <div class="brand">
+      <span class="wordmark">Customs<b>Agent</b>Pro</span>
+      <span class="chip">نموذج أولي · بيانات المديرية العامة للجمارك · نوفمبر 2026</span>
+    </div>
+    <h1>الدقة <span>قبل</span> الوصول</h1>
+    <p>ملف شحنة واحد يعطي المستورد والمصدّر الجزائري يقيناً كاملاً قبل الشحن: رمز التعريفة، والقرارات الملزمة، والتكلفة، ومتطلبات السوق الأوروبية.</p>
+    <div class="row"><a href="#engine"><button class="primary">جرّب المحرك</button></a><a href="#decisions">ابحث في قرارات RTC</a></div>
+  </header>
+
+  <section>
+    <span class="eyebrow">ما كشفته الدراسة والوثائق الرسمية</span>
+    <h2>الحقائق التي تبني عليها الفكرة</h2>
+    <div class="facts">
+      <div class="fact"><span class="num">206 <small>قرارات رسمية</small></span><p>من مجموعتي 2020 و2025: 182 قرار RTC و24 قراراً آخر (نزاعات نموذج 110، و D40، ومذكرات). من 105 قرارات في 2020 إلى 77 فقط في 2025: الأداة تتراجع بدل أن تنتشر.</p></div>
+      <div class="fact new"><span class="num">3 <small>سنوات</small></span><p>صلاحية قرار RTC منذ <b>المادة 94 من قانون المالية 2021</b>، بدل 6 أشهر في القانون 17-04 والمرسوم 18-165. قرارات 2025 كلها 1095 يوماً، مثل BTI الأوروبي.</p></div>
+      <div class="fact new"><span class="num">2 <small>خطآن</small></span><p>اكتشفهما التدقيق الآلي في المنشور الرسمي: في RTC 025 و RTC 026 يختلف رمز الرأس عن رمز الحيثيات.</p></div>
+      <div class="fact"><span class="num">18 <small>رمزاً</small></span><p>استعملتها الجمارك في قرارات 2020 و2025 وليست في تعريفة 2016، منها الهواتف الذكية و LED. حتى قانون المالية 2026 يستعمل رموزاً أحدث. التعريفة السارية ضرورية.</p></div>
+      <div class="fact new"><span class="num">30% ← 5%</span><p>قانون المالية 2026 خفّض الحق الجمركي على المواشي واللحوم الطازجة والمجمدة حتى 31 ديسمبر 2026. المحرك يطبّق النسب غير المشروطة (المواد 131 و139 و140).</p></div>
+      <div class="fact"><span class="num">2026 <small>CBAM و EUDR</small></span><p>CBAM في مرحلته النهائية منذ 1 جانفي 2026 (الإسمنت والحديد والأسمدة: أهم صادرات الجزائر نحو أوروبا). EUDR يُطبَّق في 30 ديسمبر 2026، وأثره محدود: الجلود والأثاث والكرتون والشوكولاتة.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">المفهوم الأساسي</span>
+    <h2>ما هو RTC وما هو BTI؟</h2>
+    <div class="explain">
+      <div>
+        <h3>المشكلة</h3>
+        <p>لكل بضاعة رمز تعريفة يحدد الرسوم. إذا اختار المستورد رمزاً ورأى موظف الجمارك رمزاً آخر، ينتج خلاف وتأخير وفرق في الرسوم، ويُكتشف ذلك بعد وصول البضاعة.</p>
+      </div>
+      <div>
+        <h3>الحل</h3>
+        <p>تسأل الجمارك قبل أن تستورد. تعطيك قراراً رسمياً لمنتجك أنت بالضبط، يلزمها ويلزمك، ولا يتغير في الميناء. يمكن طلبه لأي بضاعة، لكن كل قرار يخص منتجاً واحداً ويستعمله صاحبه فقط.</p>
+      </div>
+    </div>
+    <div class="scroll-x">
+      <table>
+        <tr><th></th><th>RTC — الجزائر</th><th>BTI — أوروبا</th></tr>
+        <tr><td>الاسم</td><td>الاستعلام التعريفي الملزم، وهو نوع من "القرارات المسبقة" مع RCO (المنشأ) و RCDT (الإعفاء)</td><td>المعلومة التعريفية الملزمة</td></tr>
+        <tr><td>الأساس</td><td>القانون 17-04 (المادة 50 ثالثاً) والمرسوم 18-165، مطبق منذ 1 مارس 2020</td><td>قانون الجمارك الموحد UCC، المادتان 33 و34</td></tr>
+        <tr><td>المدة</td><td>3 سنوات منذ قانون المالية 2021، المادة 94 (النص الأصلي: 6 أشهر)</td><td>3 سنوات، في الدول الـ27</td></tr>
+        <tr><td>ملف الطلب</td><td>سجل تجاري، بطاقة التعريف الجبائي، فاتورة شكلية، وصف وصور وكتالوجات (المرسوم 18-165، المادتان 7 و8)</td><td>وصف تقني مفصل، وعينات أو صور</td></tr>
+        <tr><td>الحجم السنوي</td><td>105 قرارات في 2020، و77 في 2025</td><td>عشرات الآلاف</td></tr>
+        <tr><td>قاعدة قابلة للبحث</td><td>لا، مجموعة PDF سنوية. <a href="#decisions">هذه الصفحة تجعلها قابلة للبحث</a></td><td>نعم، قاعدة EBTI العامة</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="analytics">
+    <span class="eyebrow">تحليل البيانات الرسمية</span>
+    <h2>ماذا تقول القرارات والتعريفة</h2>
+    <div class="charts">
+      <div class="chart">
+        <h3>أكثر الفصول طلباً للقرارات</h3>
+        <div class="bars" id="chart-chapters"><div class="loading">جاري التحميل…</div></div>
+        <span class="mono">عدد القرارات حسب فصل الرمز الأول · مجموعتا 2020 و2025</span>
+      </div>
+      <div class="chart">
+        <h3>نسب الحق الجمركي في التعريفة</h3>
+        <div class="bars" id="chart-rates"><div class="loading">جاري التحميل…</div></div>
+        <span class="mono">عدد أسطر التعريفة حسب النسبة · تعريفة 2016 مع تعديلات قانون المالية 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="engine">
+    <span class="eyebrow">النموذج الأولي على البيانات الرسمية</span>
+    <h2>جرّب المحرك</h2>
+    <p class="lead">المحرك يعمل هنا في المتصفح على التعريفة الرسمية (15,947 سطراً مع نسب قانون المالية 2026) و206 قرارات حقيقية. اكتب وصف البضاعة <b>بالفرنسية</b>، لغة التعريفة الرسمية.</p>
+
+    <div id="kb-status" class="loading">جاري تحميل التعريفة الرسمية والقرارات (2.4 ميغابايت)…</div>
+
+    <div class="tool">
+      <div class="grid" style="grid-template-columns: 1fr auto; align-items: end;">
+        <label for="q">تصنيف سريع: وصف البضاعة بالفرنسية<input id="q" value="Boitier de l'unité extérieure de climatiseur"></label>
+        <button id="qbtn" disabled>اقترح رمزاً</button>
+      </div>
+      <div id="sugg" class="sugg"></div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-head">
+        <span class="sub">ملف الشحنة</span>
+        <div class="tabs">
+          <button id="ex-import" class="on" disabled>مثال استيراد من الصين</button>
+          <button id="ex-export" disabled>مثال تصدير نحو فرنسا</button>
+        </div>
+      </div>
+      <div class="grid">
+        <label for="direction">الاتجاه<select id="direction"><option value="import">استيراد إلى الجزائر</option><option value="export">تصدير من الجزائر</option></select></label>
+        <label for="origin">بلد المنشأ<input id="origin"></label>
+        <label for="dest">بلد الوجهة<input id="dest"></label>
+        <label for="incoterm">Incoterm<select id="incoterm"><option>FOB</option><option>EXW</option><option>FCA</option><option>CFR</option><option>CIF</option></select></label>
+        <label for="rate">سعر صرف اليورو (دج)<input id="rate" type="number" step="0.01"></label>
+        <label for="freight">النقل (يورو)<input id="freight" type="number"></label>
+        <label for="insurance">التأمين (يورو)<input id="insurance" type="number"></label>
+      </div>
+      <div class="sub">البنود</div>
+      <div id="items" class="items"></div>
+      <div class="row"><button id="add" class="icon">+ إضافة بند</button></div>
+      <div class="sub">الوثائق المتوفرة</div>
+      <div class="docs" id="docs"></div>
+      <div class="row"><button id="run" class="primary" disabled>حلّل الملف</button></div>
+
+      <div class="result" id="result" hidden>
+        <span id="status" class="status"></span>
+        <ul id="findings" class="findings"></ul>
+        <div id="cost"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="decisions">
+    <span class="eyebrow">قاعدة RTC القابلة للبحث</span>
+    <h2>قرارات التصنيف الرسمية 2020 و2025</h2>
+    <p class="lead">الجمارك تنشر قراراتها في ملف PDF سنوي. هنا تجدها كلها قابلة للبحث بالكلمة أو بالرمز، مع الحيثيات والقواعد المطبقة.</p>
+    <div class="grid" style="grid-template-columns: 1fr auto auto; align-items: end;">
+      <label for="dq">ابحث بالكلمة (بالفرنسية) أو بالرمز<input id="dq" placeholder="climatiseur، 3304، cosmétique…"></label>
+      <select id="dtype" aria-label="نوع القرار"><option value="">كل الأنواع</option><option value="RTC">RTC</option><option value="M110">قرارات أخرى (نزاعات، D40، مذكرات)</option><option value="flag">فيها خطأ مكتشف</option></select>
+      <select id="dyear" aria-label="السنة"><option value="">كل السنوات</option><option>2025</option><option>2020</option></select>
+    </div>
+    <span id="dcount" class="mono"></span>
+    <div id="dlist" class="dlist"></div>
+    <div class="row"><button id="dmore" hidden>عرض المزيد</button></div>
+  </section>
+
+  <section id="study">
+    <span class="eyebrow">الدراسة الكاملة على GitHub</span>
+    <h2>الدراسة وقاعدة المعرفة</h2>
+    <div class="parts">
+      <div class="part"><h3>BTI و RTC</h3><p>الإطار القانوني، ومسار الطلب، والمقارنة، وأربع فرص منتج.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/01-rtc-bti.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>EUDR و CBAM</h3><p>الجدول الزمني، والسلع المعنية، والربط الجمركي، والأثر الحقيقي على الجزائر.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/02-eudr.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>البيانات الأوروبية</h3><p>نموذج EUCDM، والإصلاح الأوروبي، و Data Hub، وموقع الجزائر.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/03-eu-customs-data.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>التركيب والنموذج</h3><p>الفجوات، والمنتج، ونموذج البيانات، وقواعد العمل.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/docs/etude/04-synthese-et-modele.md">اقرأ الجزء</a></div>
+      <div class="part"><h3>تحليل الوثائق الرسمية</h3><p>التعريفة، وقرارات 2020 و2025، وقانون المالية 2026، والقانون 17-04، والمرسوم 18-165، و EBTI، وتقرير الجمارك الذكية.</p><a href="https://github.com/Hakimtransitaire16/CustomsAgentPro/blob/claude/how-can-i-help-abo0g0/knowledge-base/ANALYSE.md">اقرأ التحليل</a></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">خطة البناء</span>
+    <h2>من النموذج إلى المنتج</h2>
+    <ol class="road">
+      <li class="done"><span class="m">M0</span><div><h3>النموذج الأولي</h3><p>نموذج البيانات، ومحرك القواعد، والتصنيف، والتكلفة، و26 اختباراً.</p></div><span class="tag">منجز</span></li>
+      <li class="part-done"><span class="m">M1</span><div><h3>البيانات الحقيقية</h3><p>منجز: تعريفة 2016، وقرارات 2020 و2025، وقانون المالية 2026، والقانون 17-04، والمرسوم 18-165. ينقص: الجدول الكامل للتعريفة السارية، ومجموعات 2021–2024، ونسب TVA و DAPS لكل رمز.</p></div><span class="tag">جزئياً</span></li>
+      <li><span class="m">M2</span><div><h3>الذكاء الاصطناعي</h3><p>قراءة الفواتير آلياً، وتصنيف بنموذج لغوي مع السوابق كمرجع، والبحث بالعربية.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M3</span><div><h3>التحقق الميداني</h3><p>مقابلات مع 15 إلى 20 مستورداً ومصدّراً ووكيلاً، وتجربة على ملفات حقيقية.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M4</span><div><h3>المنتج والرادار التنظيمي</h3><p>الحسابات، وملفات العملاء، ورصد يومي لموقع الجمارك مع إشعارات، والفوترة.</p></div><span class="tag">مخطط</span></li>
+      <li><span class="m">M5</span><div><h3>الربط الرسمي</h3><p>شراكة مع المديرية العامة للجمارك للربط مع ALCES.</p></div><span class="tag">مخطط</span></li>
+    </ol>
+  </section>
+
+  <p class="note">المصادر: المديرية العامة للجمارك، التعريفة الجمركية 2016 ومجموعتا قرارات التصنيف 2020 و2025؛ قانون المالية 2026 (القانون 25-17، الجريدة الرسمية 88). التعريفة 2016 تحتوي على الحق الجمركي فقط، والمحرك يطبّق عليها نسب قانون المالية 2026 غير المشروطة: الرسم على القيمة المضافة مفترض بـ19% و DAPS غير محسوب، وقد تكون النسب عُدّلت بقوانين المالية بعد 2016. القرارات المنشورة لا تذكر أصحابها، فهي تُستعمل كسوابق إرشادية فقط والقرار يلزم صاحبه. نطاقا EUDR و CBAM مبسّطان. كل اقتراح أداة مساعدة للوكيل المعتمد، والقرار والمسؤولية له.</p>
+</div>
+
+<script>
+// ---- Text normalisation (same logic as app/customsagent/text.py) ----
+const AR = {"أ":"ا","إ":"ا","آ":"ا","ة":"ه","ى":"ي","ؤ":"و","ئ":"ي"};
+const STOP = new Set("de du des la le les en et pour a au aux un une the of for and من في على و ال مع ل".split(" "));
+function normalize(t) {
+  t = t.toLowerCase().replace(/[ً-ْـ]/g, "").replace(/[أإآةىؤئ]/g, c => AR[c]);
+  return t.normalize("NFD").replace(/\p{Mn}/gu, "");
+}
+function tokens(t) {
+  const out = new Set();
+  for (let w of normalize(t).match(/[\p{L}\p{N}_]+/gu) || []) {
+    if (STOP.has(w) || w.length < 2) continue;
+    if (w.startsWith("ال") && w.length > 4) w = w.slice(2);
+    if (/^[\x00-\x7f]+$/.test(w) && w.length > 4 && w.endsWith("s")) w = w.slice(0, -1);
+    out.add(w);
+  }
+  return out;
+}
+
+// ---- Knowledge base (loaded from kb.json) ----
+let KB = null, TARIFF = [], byCode = {}, RULINGS = [];
+const VAT = 0.19;
+
+const EU = new Set("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE".split(" "));
+const EUDR = {cattle:["0102","0201","0202","4101","4104","4107"], cocoa:["1801","1802","1803","1804","1805","1806"], coffee:["0901"],
+  oil_palm:["120710","1511","151321","151329"], rubber:["4001","4005","4006","4007","4008","4010","4011","4012","4013","4015","4016","4017"],
+  soya:["1201","120810","1507","2304"], wood:["44","47","48","9401","9403","9406"]};
+const CBAM = {cement:["250700","2523"], electricity:["2716"], fertilisers:["2808","2814","283421","3102","3105"],
+  iron_steel:["72","7301","7302","7303","7304","7305","7306","7307","7308","7309","7310","7311","7318","7326"],
+  aluminium:["7601","7603","7604","7605","7606","7607","7608","7609","7610","7611","7612","7613","7614","7616"], hydrogen:["280410"]};
+
+// ---- Classifier (same algorithm as app/customsagent/classifier.py) ----
+// Python's round(x, 2): ties go to the even digit
+function round2(x) { const y = x * 100, f = Math.floor(y); return (Math.abs(y - f - 0.5) < 1e-9 ? (f % 2 ? f + 1 : f) : Math.round(y)) / 100; }
+function overlap(q, t) { let n = 0; q.forEach(w => t.has(w) && n++); return q.size ? n / q.size : 0; }
+function classify(desc) {
+  const q = tokens(desc), scores = new Map(), prec = {};
+  for (const l of TARIFF) { const s = overlap(q, l.idx); if (s) scores.set(l.code, s); }
+  // a code earns the bonus of its best matching precedent, not the sum
+  const bestPrec = new Map();
+  for (const r of RULINGS) {
+    const s = overlap(q, r.idx);
+    if (s && byCode[r.hs]) { bestPrec.set(r.hs, Math.max(bestPrec.get(r.hs) || 0, s)); (prec[r.hs] ||= []).push(r.ref); }
+  }
+  for (const [code, s] of bestPrec) scores.set(code, (scores.get(code) || 0) + s * 1.5);
+  // stable sort keeps tariff order on ties, like Python's sorted()
+  const ranked = [...scores.entries()].sort((a, b) => b[1] - a[1]);
+  if (!ranked.length) return [];
+  const best = ranked[0][1], margin = (best - (ranked[1]?.[1] || 0)) / best;
+  return ranked.slice(0, 3).map(([code, s], i) => {
+    const strength = Math.min(s, 1), conf = i === 0 ? strength * (0.5 + 0.5 * margin) : strength * 0.5;
+    return { code, label: byCode[code].label, rate: byCode[code].rate, note: byCode[code].note, conf: round2(Math.min(conf, .99)), prec: prec[code] || [] };
+  });
+}
+
+// ---- Rules (codes from docs/etude/04 §4.2) ----
+const digits = c => c.replace(/[.\s]/g, "");
+const inScope = (hs, scope) => { if (!hs) return null; const d = digits(hs); for (const [k, ps] of Object.entries(scope)) if (ps.some(p => d.startsWith(p))) return k; return null; };
+
+function analyze(d, day) {
+  const F = [], push = (rule, sev, msg, item = null) => F.push({ rule, sev, msg, item });
+  const hasDoc = t => d.docs.includes(t);
+  const toEU = d.direction === "export" && EU.has(d.dest);
+  const req = d.direction === "import" ? { invoice: "الفاتورة التجارية", transport: "وثيقة النقل (B/L أو LTA أو CMR)" } : { invoice: "الفاتورة التجارية" };
+  for (const [t, label] of Object.entries(req)) if (!hasDoc(t)) push("R-DOC-01", "blocking", "وثيقة إلزامية ناقصة: " + label);
+  if (!d.items.length) push("R-VAL-01", "blocking", "الملف لا يحتوي على أي بند بضاعة");
+
+  d.items.forEach((it, i) => {
+    if (!(it.value > 0)) push("R-VAL-01", "blocking", "القيمة يجب أن تكون أكبر من صفر", i);
+    if (it.gross_kg && it.net_kg > it.gross_kg) push("R-VAL-01", "blocking", "الوزن الصافي لا يمكن أن يتجاوز الوزن القائم", i);
+    if (!it.hs_code) {
+      const sug = classify(it.description);
+      if (!sug.length) { push("R-CLS-00", "blocking", "تعذّر اقتراح رمز تعريفة: الوصف غير كافٍ", i); return; }
+      it.hs_code = sug[0].code;
+      push("R-CLS-00", "info", `رمز مقترح: ${sug[0].code} (${sug[0].label}) بثقة ${Math.round(sug[0].conf * 100)}%`, i);
+      if (sug[0].conf < .6) push("R-CLS-01", "warning", "ثقة التصنيف منخفضة: عدة رموز محتملة. نوصي بطلب RTC من المديرية العامة للجمارك قبل الشحن", i);
+    } else if (!byCode[it.hs_code]) push("R-CLS-02", "warning", `الرمز ${it.hs_code} غير موجود في التعريفة المحمّلة (2016)`, i);
+
+    // R-PRE-01: a published decision classifies similar goods under another code
+    const q = tokens(it.description); let shown = 0;
+    for (const r of RULINGS) {
+      if (shown === 2) break;
+      if (q.size && overlap(q, r.idx) >= .6 && r.hs !== it.hs_code) {
+        push("R-PRE-01", "warning", `سابقة منشورة: القرار ${r.ref} صنّف بضاعة مشابهة (${r.title.slice(0, 70)}) في الرمز ${r.hs}، والرمز المصرّح ${it.hs_code}. راجع التصنيف`, i);
+        shown++;
+      }
+    }
+    if (toEU) {
+      const e = inScope(it.hs_code, EUDR);
+      if (e && !hasDoc("dds")) push("R-EUDR-01", "blocking", `البند في نطاق EUDR (${e}): يلزم مرجع DDS أو بيانات تحديد الموقع لتمكين المستورد الأوروبي`, i);
+      const c = inScope(it.hs_code, CBAM);
+      if (c && !hasDoc("cbam_emissions")) push("R-CBAM-01", "warning", `البند في نطاق CBAM (${c}): جهّز بيانات الانبعاثات المضمنة، وإلا تُطبق القيم الافتراضية`, i);
+    }
+  });
+  const blocking = F.some(f => f.sev === "blocking");
+  return { status: blocking ? "blocked" : F.length ? "review" : "ready", findings: F, cost: d.direction === "import" ? cost(d) : null };
+}
+
+function cost(d) {
+  const total = d.items.reduce((s, i) => s + (i.value || 0), 0) || 1;
+  const extras = ["EXW", "FCA", "FOB"].includes(d.incoterm) ? d.freight + d.insurance : 0;
+  const T = { value: 0, duty: 0, vat: 0 };
+  const lines = d.items.map((it, i) => {
+    const v = ((it.value || 0) + extras * (it.value || 0) / total) * d.rate, l = byCode[it.hs_code];
+    T.value += v;
+    if (!l) return { i, hs: it.hs_code, v, err: true };
+    const duty = v * l.rate / 100, vat = (v + duty) * VAT;
+    T.duty += duty; T.vat += vat;
+    return { i, hs: l.code, v, duty, vat, l };
+  });
+  T.taxes = T.duty + T.vat; T.landed = T.value + T.taxes;
+  return { lines, T };
+}
+
+// ---- UI ----
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const DOCS = { invoice: "فاتورة", transport: "وثيقة نقل", licence: "ترخيص", eur1: "EUR.1", dds: "مرجع DDS (EUDR)", cbam_emissions: "بيانات CBAM" };
+const STATUS = { ready: "جاهز للتصريح", review: "يحتاج مراجعة", blocked: "متوقف: يجب التصحيح" };
+const SEV = { blocking: "مانع", warning: "تحذير", info: "معلومة" };
+const CHAPTERS = { 19: "محضرات الحبوب والمعجنات", 23: "بقايا الصناعات الغذائية وأعلاف الحيوانات", 33: "الزيوت العطرية ومستحضرات التجميل",
+  38: "منتجات كيميائية متنوعة", 39: "اللدائن (البلاستيك)", 84: "الآلات والأجهزة الآلية", 85: "الآلات والأجهزة الكهربائية", 90: "أدوات البصريات والقياس والطب" };
+let uid = 0;
+
+$("docs").innerHTML = Object.entries(DOCS).map(([k, v]) => `<label for="doc-${k}"><input type="checkbox" id="doc-${k}" value="${k}"> ${v}</label>`).join("");
+
+function addItem(it = {}) {
+  const n = ++uid, el = document.createElement("div");
+  el.className = "item";
+  el.innerHTML = `
+    <label class="desc" for="d${n}">الوصف (بالفرنسية)<input id="d${n}" data-k="description" value="${esc(it.description)}"></label>
+    <label for="h${n}">رمز HS (10 أرقام)<input id="h${n}" class="ltr" data-k="hs_code" value="${esc(it.hs_code)}" placeholder="آلي"></label>
+    <label for="v${n}">القيمة (يورو)<input id="v${n}" data-k="value" type="number" value="${it.value ?? ""}"></label>
+    <label for="n${n}">صافي كغ<input id="n${n}" data-k="net_kg" type="number" value="${it.net_kg ?? ""}"></label>
+    <label for="g${n}">قائم كغ<input id="g${n}" data-k="gross_kg" type="number" value="${it.gross_kg ?? ""}"></label>
+    <button class="icon" aria-label="حذف البند">✕</button>`;
+  el.querySelector("button").onclick = () => el.remove();
+  $("items").appendChild(el);
+}
+
+function load(ex) {
+  const imp = ex === "import";
+  $("ex-import").classList.toggle("on", imp); $("ex-export").classList.toggle("on", !imp);
+  $("direction").value = ex; $("origin").value = imp ? "CN" : "DZ"; $("dest").value = imp ? "DZ" : "FR";
+  $("incoterm").value = "FOB"; $("rate").value = 150; $("freight").value = imp ? 800 : 0; $("insurance").value = imp ? 50 : 0;
+  $("items").innerHTML = "";
+  if (imp) {
+    addItem({ description: "Boitier de l'unité extérieure de climatiseur", hs_code: "8415.90.11.00", value: 9000, net_kg: 700, gross_kg: 760 });
+    addItem({ description: "Crème hydratante pour le visage", value: 6000, net_kg: 400, gross_kg: 450 });
+    addItem({ description: "Pneumatiques neufs pour voitures de tourisme", value: 8000, net_kg: 1200, gross_kg: 1300 });
+  } else {
+    addItem({ description: "Cuirs de bovins pleine fleur", value: 20000, net_kg: 1500, gross_kg: 1600 });
+    addItem({ description: "Ciment Portland gris", value: 45000, net_kg: 500000, gross_kg: 502000 });
+    addItem({ description: "Caisses en carton ondulé", value: 6000, net_kg: 900, gross_kg: 950 });
+  }
+  document.querySelectorAll("#docs input").forEach(c => c.checked = c.value === "invoice");
+  run();
+}
+
+function readDossier() {
+  const items = [...document.querySelectorAll(".item")].map(row => {
+    const o = {};
+    row.querySelectorAll("input").forEach(i => { const v = i.value.trim(); if (v) o[i.dataset.k] = i.type === "number" ? Number(v) : v; });
+    return o;
+  }).filter(o => o.description);
+  return {
+    direction: $("direction").value, origin: $("origin").value.trim().toUpperCase(), dest: $("dest").value.trim().toUpperCase(),
+    incoterm: $("incoterm").value, rate: Number($("rate").value) || 1,
+    freight: Number($("freight").value) || 0, insurance: Number($("insurance").value) || 0, items,
+    docs: [...document.querySelectorAll("#docs input:checked")].map(c => c.value),
+  };
+}
+
+function run() {
+  if (!KB) return;
+  const res = analyze(readDossier(), new Date().toISOString().slice(0, 10));
+  $("result").hidden = false;
+  $("status").className = "status s-" + res.status;
+  $("status").textContent = STATUS[res.status];
+  $("findings").innerHTML = res.findings.map(f => `<li class="${f.sev}"><span class="sev">${SEV[f.sev]} · ${f.rule}${f.item !== null ? " · البند " + (f.item + 1) : ""}</span>${esc(f.msg)}</li>`).join("")
+    || `<li class="info">لا توجد ملاحظات. الملف جاهز.</li>`;
+  const c = res.cost;
+  $("cost").innerHTML = !c ? "" : `
+    <div class="scroll-x"><table>
+      <tr><th>البند</th><th>الرمز</th><th>القيمة لدى الجمارك</th><th>الحق الجمركي (2016 + LF 2026)</th><th>TVA (مفترض 19%)</th></tr>
+      ${c.lines.map(l => `<tr><td>${l.i + 1}</td><td class="ltr">${esc(l.hs)}</td><td>${fmt(l.v)}</td>${l.err ? `<td colspan="2">رمز غير موجود في التعريفة</td>` :
+        `<td>${fmt(l.duty)} <span class="mono">${l.l.rate}%${l.l.note ? " · LF 2026" : ""}</span></td><td>${fmt(l.vat)}</td>`}</tr>`).join("")}
+      <tr class="total"><td colspan="2">المجموع (دج)</td><td>${fmt(c.T.value)}</td><td>${fmt(c.T.duty)}</td><td>${fmt(c.T.vat)}</td></tr>
+    </table></div>
+    <div class="landed"><span>التكلفة الإجمالية التقديرية عند الوصول (دون DAPS)</span><b>${fmt(c.T.landed)} دج</b></div>`;
+}
+
+function quick() {
+  if (!KB) return;
+  const s = classify($("q").value);
+  $("sugg").innerHTML = s.length ? s.map(x => `
+    <div><span><b class="ltr">${esc(x.code)}</b> <span class="mono">${x.rate}%${x.note ? " · " + esc(x.note) : ""}</span><br>${esc(x.label)}${x.prec.length ? `<br><span class="mono">سوابق رسمية: ${x.prec.map(esc).join("، ")}</span>` : ""}</span>
+    <span class="conf">${Math.round(x.conf * 100)}%<div class="bar"><i style="width:${x.conf * 100}%"></i></div></span></div>`).join("")
+    : `<div>لا يوجد اقتراح. اكتب الوصف بالفرنسية مع تفاصيل: المادة، والاستعمال، والتركيب.</div>`;
+}
+
+// ---- Decisions explorer ----
+let DSHOW = 8;
+function decisionsView() {
+  const q = normalize($("dq").value.trim()), type = $("dtype").value, qd = digits(q);
+  const list = KB.decisions.filter(d => {
+    if (type === "RTC" && d.type !== "RTC") return false;
+    if (type === "M110" && d.type === "RTC") return false;
+    if (type === "flag" && !d.warn.length) return false;
+    if ($("dyear").value && d.year !== $("dyear").value) return false;
+    if (!q) return true;
+    if (qd && /^\d+$/.test(qd) && d.hs.some(h => digits(h).startsWith(qd))) return true;
+    return normalize(d.title + " " + d.why).includes(q);
+  }).sort((a, b) => b.date.localeCompare(a.date));
+  $("dcount").textContent = `${list.length} قراراً`;
+  $("dlist").innerHTML = list.slice(0, DSHOW).map(d => `
+    <article class="dec">
+      <div class="dec-top"><span class="mono ltr">${esc(d.ref)}</span>
+        <span class="row" style="gap:6px"><span class="badge">${esc(d.year)}</span>${d.type === "RTC" ? `<span class="badge">RTC${d.to ? " · حتى " + esc(d.to) : ""}</span>` : `<span class="badge m110">${esc(d.type)}</span>`}${d.warn.length ? `<span class="badge flag">خطأ مكتشف</span>` : ""}</span></div>
+      <h3>${esc(d.title)}</h3>
+      <div><span class="mono">الرمز: </span><b class="ltr">${d.hs.map(esc).join(" · ") || "—"}</b> <span class="mono">${esc(d.rules)}</span></div>
+      ${d.warn.length ? `<div class="mono" style="color:var(--block)">${esc(d.warn[0])}</div>` : ""}
+      ${d.why ? `<details><summary>الحيثيات</summary><p>${esc(d.why)}${d.why.length >= 600 ? "…" : ""}</p></details>` : ""}
+    </article>`).join("") || `<div class="dec">لا توجد نتيجة. جرّب كلمة أخرى بالفرنسية أو رمزاً من 4 أرقام.</div>`;
+  $("dmore").hidden = list.length <= DSHOW;
+}
+
+function bars(el, rows, max) {
+  $(el).innerHTML = rows.map(([lab, v]) => `
+    <div class="brow"><span class="lab" title="${esc(lab)}">${esc(lab)}</span><span class="btrack"><i style="width:${(v / max) * 100}%"></i></span><span class="val">${v.toLocaleString("fr-FR")}</span></div>`).join("");
+}
+
+function ready(kb) {
+  KB = kb;
+  TARIFF = kb.tariff.map(([code, rate, path, extra = {}]) => {
+    // lines created by the 2026 finance law carry the law's scope as their only label
+    const head = extra.raw ? "" : kb.headings[code.slice(0, 2) + "." + code.slice(2, 4)] || "";
+    const label = extra.raw ? path : head + " > " + path;
+    return { code, rate, label, note: extra.n || "", idx: tokens(extra.raw ? path : head + " " + path) };
+  });
+  byCode = Object.fromEntries(TARIFF.map(l => [l.code, l]));
+  for (const d of kb.decisions)
+    for (const hs of d.hs) RULINGS.push({ ref: d.hs.length > 1 ? `${d.ref} [${hs}]` : d.ref, hs, title: d.title, idx: tokens(d.title) });
+
+  const st = kb.stats;
+  bars("chart-chapters", st.chapters.map(([ch, n]) => [`${ch} · ${CHAPTERS[ch] || "الفصل " + ch}`, n]), st.chapters[0][1]);
+  bars("chart-rates", st.rates.map(([r, n]) => [r ? r + "%" : "معفى", n]), Math.max(...st.rates.map(r => r[1])));
+
+  $("kb-status").textContent = `تم التحميل: ${st.tariff_lines.toLocaleString("fr-FR")} سطراً من التعريفة (${st.lf2026_lines} منها معدّلة بقانون المالية 2026) و ${st.rtc + st.m110} قراراً رسمياً.`;
+  document.querySelectorAll("button[disabled]").forEach(b => b.disabled = false);
+  quick(); load("import"); decisionsView();
+}
+
+$("qbtn").onclick = quick;
+$("q").addEventListener("keydown", e => { if (e.key === "Enter") quick(); });
+$("run").onclick = run;
+$("add").onclick = () => addItem();
+$("ex-import").onclick = () => load("import");
+$("ex-export").onclick = () => load("export");
+$("dq").addEventListener("input", () => { DSHOW = 8; decisionsView(); });
+$("dtype").onchange = $("dyear").onchange = () => { DSHOW = 8; decisionsView(); };
+$("dmore").onclick = () => { DSHOW += 12; decisionsView(); };
+
+fetch("kb.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(ready).catch(err => {
+  $("kb-status").textContent = "تعذّر تحميل البيانات الرسمية (" + err.message + "). أعد تحميل الصفحة.";
+  ["chart-chapters", "chart-rates"].forEach(id => $(id).textContent = "البيانات غير متوفرة.");
+});
+</script>

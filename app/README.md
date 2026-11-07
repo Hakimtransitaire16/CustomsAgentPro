@@ -16,7 +16,7 @@
 ```bash
 cd app
 python -m customsagent.server          # ثم افتح http://localhost:8000
-python -m unittest discover -s tests   # 18 اختباراً
+python -m unittest discover -s tests   # 24 اختباراً
 ```
 
 ## الواجهة البرمجية
