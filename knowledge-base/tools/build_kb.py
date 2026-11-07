@@ -5,7 +5,8 @@ Usage (from the knowledge-base folder):
 
 Inputs : text/*.txt  (made by tools/extract_text.sh from sources/*.pdf)
 Outputs: data/tarif_2016.json, data/tarif_2016.csv, data/tarif_2016_notes.json,
-         data/decisions_classement_2025.json, data/loi_17-04_code_douanes.json,
+         data/decisions_classement_<année>.json, data/loi_17-04_code_douanes.json,
+         data/loi_finances_2026.json, data/mesures_tarifaires_lf2026.json,
          data/decret_18-165.json, data/references.json, kb.sqlite (full-text search)
 """
 from __future__ import annotations
@@ -21,7 +22,13 @@ TEXT = ROOT / "text"
 DATA = ROOT / "data"
 
 TARIF_TXT = TEXT / "tarif-douanier-2016-10-chiffres-pour-telechargement.txt"
-RECUEIL_TXT = TEXT / "recueil_des_decisions_de_classement_tarifaire_2026.txt"
+RECUEILS = [  # (text file, label): collection published in January of year N covers year N-1
+    (TEXT / "recueil_des_decisions_de_classement_tarifaire_2026.txt",
+     "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"),
+    (TEXT / "recueil_des_decisions_de_classement_tarifaire_2021.txt",
+     "DGD — Recueil des décisions de classement tarifaire 2020 (publié janvier 2021)"),
+]
+LF2026_TXT = TEXT / "loi_de_finances_2026.txt"
 LOI_TXT = TEXT / "loi_no_17-04_du_16_fevrier_2017_code_des_douanes.txt"
 DECRET_TXT = TEXT / "decret_executif_no_18-165_du_14_juin2018.txt"
 EBTI_TXT = TEXT / "ebti_general_information_en.txt"
@@ -157,11 +164,13 @@ def parse_tariff() -> tuple[list[dict], dict]:
     return items, {"headings": headings, "chapter_notes": notes}
 
 
-# ------------------------------------------------------------------- rulings 2025
+# ---------------------------------------------------------- classification decisions
 PAGE_NOISE = re.compile(
     r"Direction Générale des Douanes|Sous -Direction des Bases|Recueil de Décisions de Classement|"
-    r"^\s*\d{1,3}\s*$|^\s*(JANVIER|Janvier)?\s*2026\s*$"
+    r"^\s*\d{1,3}\s*$|^\s*(JANVIER|Janvier)?\s*20\d\d\s*$"
 )
+CODE10 = r"\d{4}\.\d{2}\.\d{2}\.\d{2}"
+CODE_ANY = r"\d{4}\.\d{2}\.\d{2}\.\d{2}|\b\d{2}\.\d{2}\b"  # 10-digit code or 4-digit heading
 
 
 def strip_pages(text: str) -> str:
@@ -174,7 +183,7 @@ def section(block: str, start: str, ends: list[str]) -> str:
 
 
 def regex_section(block: str, start: str, end: str) -> str:
-    m = re.search(start + r"(.*?)(?=" + end + ")", block, re.S)
+    m = re.search("(?:" + start + r")(.*?)(?=" + end + ")", block, re.S)
     return clean(m.group(1)) if m else ""
 
 
@@ -183,7 +192,7 @@ def check_consistency(rulings: list[dict]) -> None:
     differs from it by one or two digits does (e.g. 4221.91.99.00 in the header, 4421.91.99.00 in the text)."""
     for r in rulings:
         text = r.get("justification") or ""
-        cited = set(re.findall(r"\d{4}\.\d{2}\.\d{2}\.\d{2}", text))
+        cited = set(re.findall(CODE10, text))
         for code in r.get("hs_codes") or []:
             if code in cited:
                 continue
@@ -199,24 +208,23 @@ def dmy(s: str) -> str | None:
     return f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else None
 
 
-def parse_recueil() -> list[dict]:
-    text = strip_pages(RECUEIL_TXT.read_text(encoding="utf-8"))
+def parse_recueil(path: Path, source: str) -> list[dict]:
+    """One yearly collection: RTC decisions, then other decisions (modèle 110, D40)."""
+    text = strip_pages(path.read_text(encoding="utf-8"))
     out = []
-    rtc_blocks = re.split(r"(?=REFERENCE RTC\s*:\s*N°)", text)
-    for b in rtc_blocks:
+    for b in re.split(r"(?=REFERENCE RTC\s*:)", text):
         if not b.startswith("REFERENCE RTC"):
             continue
-        b = b.split("Référence de la décision : Modèle 110")[0]
-        ref = re.search(r"N°\s*(\d+/DGD)\s+DU\s+([\d.]+)", b)
-        retained_txt = section(b, "SOUS-POSITION RETENUE", ["DESCRIPTION DU PRODUIT"])
-        codes = re.findall(r"\d{4}\.\d{2}\.\d{2}\.\d{2}", retained_txt)
+        b = b.split("Référence de la décision")[0]
+        ref = re.search(r"(?:N°)?\s*(\d+/DGD)\s+DU\s+([\d.]+)", b)
+        codes = re.findall(CODE_ANY, section(b, "SOUS-POSITION RETENUE", ["DESCRIPTION DU PRODUIT"]))
         rgi = re.search(r"(Application d[ue]s? .*?(?:du SH|SH)\.?)", b.replace("\n", " "))
         out.append({
             "type": "RTC",
             "reference": f"RTC {ref.group(1)} du {ref.group(2)}" if ref else None,
             "number": int(ref.group(1).split("/")[0]) if ref else None,
             "decision_date": dmy(ref.group(2)) if ref else None,
-            "valid_from": dmy(section(b, "DATE DE DEBUT DE VALIDITE", ["DATE DE FIN"])),
+            "valid_from": dmy(section(b, "DEBUT DE VALIDITE", ["DATE DE FIN"])),  # "DATE" missing once in 2020
             "valid_to": dmy(section(b, "DATE DE FIN DE VALIDITE", ["DESIGNATION"])),
             "designation": section(b, "DESIGNATION DU PRODUIT", ["SOUS-POSITION RETENUE"]),
             "hs_code": codes[0] if codes else None,
@@ -224,27 +232,32 @@ def parse_recueil() -> list[dict]:
             "description": section(b, "DESCRIPTION DU PRODUIT", ["JUSTIFICATIF DU CLASSEMENT"]),
             "justification": section(b, "JUSTIFICATIF DU CLASSEMENT", ["ILLUSTRATION", "REFERENCE RTC"]),
             "rules_applied": clean(rgi.group(1)) if rgi else None,
-            "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)",
+            "source": source,
         })
 
-    for b in re.split(r"(?=Référence de la décision : Modèle 110)", text)[1:]:
-        ref = re.search(r"Modèle 110, n°\s*(\S+)\s+du\s+([\d.]+)", b)
-        retained = re.findall(r"\d{4}\.\d{2}\.\d{2}\.\d{2}",
-                              regex_section(b, r"tarifaire\(s\) retenue\(s\)\s*:", r"\d\.\s*Description"))
-        envis = re.search(r"envisagée \(s\)\s*:\s*(.*?)\n", b)
+    for b in re.split(r"(?=Référence de la décision\s*:)", text)[1:]:
+        b = b.split("REFERENCE RTC")[0]
+        head = b.split("\n", 1)[0]
+        kind = ("Modèle 110" if "110" in head else "Modèle D40" if re.search(r"D\s*40", head)
+                else "Note DGD" if "Note" in head else "Décision DGD")
+        ref = re.search(r"n°\s*(\S+)\s+du\s+([\d.]+)", head)
+        retained = list(dict.fromkeys(re.findall(CODE_ANY, regex_section(
+            b, r"tarifaire\(s\) retenue\(s\)\s*:", r"\d\.\s*Description|Justificatif|\n\s*\n|\Z"))))
+        envis = re.search(r"envisagée ?\(s\)\s*:\s*(.*?)\n\s*\n", b, re.S)
         body = b.split("DECISION DE L’ADMINISTRATION CENTRALE", 1)[-1]
         out.append({
-            "type": "Modèle 110",
-            "reference": f"Modèle 110 n° {ref.group(1)} du {ref.group(2)}" if ref else None,
+            "type": kind,
+            "reference": f"{kind} n° {ref.group(1)} du {ref.group(2)}" if ref else clean(head),
             "decision_date": dmy(ref.group(2)) if ref else None,
             "requesting_service": section(b, "Service demandeur", ["Description du produit"]),
-            "designation": section(b, "Description du produit", ["Position(s)"]),
-            "codes_considered": re.findall(r"\d{4}\.\d{2}\.\d{2}\.\d{2}", envis.group(1)) if envis else [],
+            "designation": section(b, "Description du produit", ["Position(s)", "Position (s)"]),
+            "codes_considered": re.findall(CODE10, envis.group(1)) if envis else [],
             "hs_code": retained[0] if retained else None,
             "hs_codes": retained,
-            "description": regex_section(body, r"\d\.\s*Description du produit\s*:", r"\d\.\s*Sous positions? envisagées?"),
-            "justification": regex_section(body, r"\d\.\s*Classement tarifaire\s*:", r"\Z"),
-            "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)",
+            "description": regex_section(body, r"\d\.\s*Description d(?:u|es) produits?\s*:",
+                                         r"\d\.\s*Sous positions? envisagées?|\d\.\s*Classement"),
+            "justification": regex_section(body, r"\d\.\s*Classement tarifaire\s*:|Justificatif\s*:", r"\Z"),
+            "source": source,
         })
     check_consistency(out)
     return out
@@ -273,6 +286,86 @@ def parse_articles(path: Path, instrument: str) -> list[dict]:
             "text": body,
         })
     return arts
+
+
+# ------------------------------------------------------------ loi de finances 2026
+LF_DOMAINS = [
+    ("code des douanes", "douanes"), ("code des impôts directs", "impôts directs"),
+    ("code de l’enregistrement", "enregistrement"), ("code de l'enregistrement", "enregistrement"),
+    ("code du timbre", "timbre"), ("code des taxes sur le chiffre d’affaires", "TVA / taxes sur le CA"),
+    ("code des impôts indirects", "impôts indirects"), ("code des procédures fiscales", "procédures fiscales"),
+]
+CUSTOMS_HINTS = re.compile(r"droits? de douane|sous-position tarifaire|position tarifaire|dédouan|"
+                           r"importation|code des douanes|droit additionnel provisoire|contribution de solidarité")
+LF_TOP_ART = re.compile(r"^(Article 1er|Art\.\s*(\d+))\s*\.?\s*[—–-]", re.M)
+
+# Tariff measures of the 2026 finance law, summarised from the text (codes are extracted
+# from the article itself). apply=True: unconditional rate on exact codes, used by the engine.
+LF2026_MEASURES = {
+    121: {"measure": "Exemption DD, TVA, taxe de domiciliation bancaire, contribution de solidarité et précompte",
+          "scope": "Ovins vivants pour l'abattage (Aïd El Adha) du 15.04.2025 au 30.06.2026 ; bovins vivants pour "
+                   "l'abattage du 15.11.2025 au 30.06.2026", "valid_to": "2026-06-30", "apply": False},
+    131: {"measure": "Droit de douane 15 %", "scope": "Chauffe-eau solaires à usage domestique",
+          "dd_rate": 0.15, "apply": True},
+    132: {"measure": "Exonération des droits de douane", "scope": "Électrolyseurs pour la production d'hydrogène (ex-code)",
+          "dd_rate": 0.0, "apply": False},
+    133: {"measure": "Droit de douane réduit 5 %", "scope": "Intrants pour la fabrication de panneaux solaires "
+          "photovoltaïques (ex-codes) et cellules photovoltaïques", "dd_rate": 0.05,
+          "condition": "Attestation des services du ministère chargé de l'énergie, exigible au dédouanement",
+          "apply": False},
+    135: {"measure": "Exonération de tous droits et taxes (y compris DAPS, contribution de solidarité, précompte)",
+          "scope": "Véhicules de transport de 10 personnes ou plus (87.02), dans la limite de 10 000 unités, "
+                   "finis ou en kit ; à compter du 01.10.2025",
+          "condition": "Autorisation du ministère chargé de l'industrie, avec fiche des quantités", "apply": False},
+    136: {"measure": "Nouvelles exceptions à la contribution de solidarité (3 %)",
+          "scope": "Importations du wakf public exonérées ; importations des dispositifs de soutien à l'investissement",
+          "apply": False},
+    137: {"measure": "Nouvelles exceptions au droit additionnel provisoire de sauvegarde (DAPS)",
+          "scope": "Importations directes de l'agence algérienne de coopération internationale ; dons et biens "
+                   "wakfs publics exonérés", "apply": False},
+    138: {"measure": "Exemption DD et TVA au taux réduit", "scope": "Matières premières pour aliments d'aquaculture (ex-codes)",
+          "dd_rate": 0.0, "condition": "Attestation des services du ministère chargé de la pêche", "apply": False},
+    139: {"measure": "Droit de douane réduit 5 % jusqu'au 31.12.2026",
+          "scope": "Bovins et ovins vivants pour l'abattage ; viandes bovines et ovines fraîches réfrigérées sous vide",
+          "dd_rate": 0.05, "valid_to": "2026-12-31", "apply": True},
+    140: {"measure": "Droit de douane réduit 5 % et exonération possible de TVA jusqu'au 31.12.2026",
+          "scope": "Viandes blanches congelées", "dd_rate": 0.05, "valid_to": "2026-12-31", "apply": True},
+}
+
+
+def parse_finance_law() -> tuple[list[dict], list[dict]]:
+    text = "\n".join(l for l in LF2026_TXT.read_text(encoding="utf-8").splitlines() if not JO_NOISE.search(l))
+    found = list(LF_TOP_ART.finditer(text))
+    arts, last = [], 0
+    for i, m in enumerate(found):
+        num = 1 if m.group(1).startswith("Article") else int(m.group(2))
+        if num < last or num > last + 3:  # an article quoted inside an amended code, not a law article
+            continue
+        last = num
+        end = next((f.start() for f in found[i + 1:]
+                    if (1 if f.group(1).startswith("Article") else int(f.group(2))) in range(num + 1, num + 4)), len(text))
+        body = clean(text[m.end():end])
+        head = body[:250].lower()
+        domain = next((d for k, d in LF_DOMAINS if k.lower() in head), "autres dispositions")
+        if domain == "autres dispositions" and "79-07" in head:
+            domain = "douanes"
+        arts.append({
+            "instrument": "Loi 25-17 du 14.12.2025 portant loi de finances pour 2026",
+            "article": str(num), "domain": domain,
+            "customs_relevant": domain == "douanes" or bool(CUSTOMS_HINTS.search(body)),
+            "codes": sorted(set(re.findall(r"\d{4}\.\d{2}\.\d{2}\.\d{2}", body))),
+            "text": body,
+        })
+    measures = []
+    for a in arts:
+        meta = LF2026_MEASURES.get(int(a["article"]))
+        if not meta:
+            continue
+        codes = re.findall(r"(EX\s*|Ex\s*)?(\d{4}\.\d{2}\.\d{2}\.\d{2})", a["text"])
+        measures.append({"article": a["article"], **meta,
+                         "codes": [{"code": c, "ex": bool(ex)} for ex, c in codes],
+                         "source": "Loi de finances 2026, art. " + a["article"]})
+    return arts, measures
 
 
 # ---------------------------------------------------------------- full text
@@ -328,7 +421,9 @@ def build_sqlite(tarif, rulings, loi, decret, extra_chunks):
 def main():
     DATA.mkdir(exist_ok=True)
     tarif, tarif_meta = parse_tariff()
-    rulings = parse_recueil()
+    by_year = {path.stem[-4:]: parse_recueil(path, label) for path, label in RECUEILS}
+    rulings = [r for rs in by_year.values() for r in rs]
+    lf_articles, lf_measures = parse_finance_law()
     loi = parse_articles(LOI_TXT, "Loi 17-04 du 16.02.2017")
     decret = parse_articles(DECRET_TXT, "Décret exécutif 18-165 du 14.06.2018")
 
@@ -345,15 +440,22 @@ def main():
         for t in tarif:
             w.writerow([t["code"], t["chapter"], t["heading"], t["unit"], t["dd_rate"], t["dd_exempt"],
                         t["label"], t["full_label"]])
-    dump("decisions_classement_2025.json", {"count": len(rulings), "decisions": rulings})
+    for pub_year, rs in by_year.items():
+        dump(f"decisions_classement_{int(pub_year) - 1}.json", {"count": len(rs), "decisions": rs})
+    dump("loi_finances_2026.json", {"count": len(lf_articles), "articles": lf_articles})
+    dump("mesures_tarifaires_lf2026.json", {"count": len(lf_measures), "measures": lf_measures})
     dump("loi_17-04_code_douanes.json", {"count": len(loi), "articles": loi})
     dump("decret_18-165.json", {"count": len(decret), "articles": decret})
 
     chunks = paragraphs(EBTI_TXT, "EBTI — information générale BTI (UE)") + \
         paragraphs(SMART_TXT, "OMD — Enquête douanes intelligentes (juillet 2024)")
-    n = build_sqlite(tarif, rulings, loi, decret, chunks)
-    print(f"tarif: {len(tarif)} lignes | décisions: {len(rulings)} | loi 17-04: {len(loi)} articles | "
-          f"décret 18-165: {len(decret)} articles | index FTS: {n} entrées")
+    lf_rows = [{"instrument": a["instrument"], "scope": a["domain"], "article": a["article"], "text": a["text"]}
+               for a in lf_articles]
+    n = build_sqlite(tarif, rulings, loi, decret + lf_rows, chunks)
+    print(f"tarif: {len(tarif)} lignes | décisions: {len(rulings)} "
+          f"({', '.join(f'{int(y) - 1}: {len(r)}' for y, r in by_year.items())}) | loi 17-04: {len(loi)} | "
+          f"décret 18-165: {len(decret)} | LF 2026: {len(lf_articles)} articles, {len(lf_measures)} mesures "
+          f"tarifaires | index FTS: {n} entrées")
 
 
 if __name__ == "__main__":

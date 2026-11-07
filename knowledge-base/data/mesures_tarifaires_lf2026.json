@@ -1,0 +1,296 @@
+{
+ "count": 10,
+ "measures": [
+  {
+   "article": "121",
+   "measure": "Exemption DD, TVA, taxe de domiciliation bancaire, contribution de solidarité et précompte",
+   "scope": "Ovins vivants pour l'abattage (Aïd El Adha) du 15.04.2025 au 30.06.2026 ; bovins vivants pour l'abattage du 15.11.2025 au 30.06.2026",
+   "valid_to": "2026-06-30",
+   "apply": false,
+   "codes": [
+    {
+     "code": "0104.10.91.10",
+     "ex": false
+    },
+    {
+     "code": "0102.29.91.10",
+     "ex": false
+    },
+    {
+     "code": "0102.29.91.20",
+     "ex": false
+    },
+    {
+     "code": "0102.29.91.30",
+     "ex": false
+    }
+   ],
+   "source": "Loi de finances 2026, art. 121"
+  },
+  {
+   "article": "131",
+   "measure": "Droit de douane 15 %",
+   "scope": "Chauffe-eau solaires à usage domestique",
+   "dd_rate": 0.15,
+   "apply": true,
+   "codes": [
+    {
+     "code": "8419.12.10.00",
+     "ex": false
+    }
+   ],
+   "source": "Loi de finances 2026, art. 131"
+  },
+  {
+   "article": "132",
+   "measure": "Exonération des droits de douane",
+   "scope": "Électrolyseurs pour la production d'hydrogène (ex-code)",
+   "dd_rate": 0.0,
+   "apply": false,
+   "codes": [
+    {
+     "code": "8543.30.00.00",
+     "ex": true
+    }
+   ],
+   "source": "Loi de finances 2026, art. 132"
+  },
+  {
+   "article": "133",
+   "measure": "Droit de douane réduit 5 %",
+   "scope": "Intrants pour la fabrication de panneaux solaires photovoltaïques (ex-codes) et cellules photovoltaïques",
+   "dd_rate": 0.05,
+   "condition": "Attestation des services du ministère chargé de l'énergie, exigible au dédouanement",
+   "apply": false,
+   "codes": [
+    {
+     "code": "3506.91.10.00",
+     "ex": true
+    },
+    {
+     "code": "3810.90.11.00",
+     "ex": true
+    },
+    {
+     "code": "3919.10.10.00",
+     "ex": true
+    },
+    {
+     "code": "3920.10.99.20",
+     "ex": true
+    },
+    {
+     "code": "7007.19.90.00",
+     "ex": true
+    },
+    {
+     "code": "7409.11.10.00",
+     "ex": true
+    },
+    {
+     "code": "7616.99.99.00",
+     "ex": true
+    },
+    {
+     "code": "8535.90.10.00",
+     "ex": true
+    },
+    {
+     "code": "8541.42.00.00",
+     "ex": false
+    }
+   ],
+   "source": "Loi de finances 2026, art. 133"
+  },
+  {
+   "article": "135",
+   "measure": "Exonération de tous droits et taxes (y compris DAPS, contribution de solidarité, précompte)",
+   "scope": "Véhicules de transport de 10 personnes ou plus (87.02), dans la limite de 10 000 unités, finis ou en kit ; à compter du 01.10.2025",
+   "condition": "Autorisation du ministère chargé de l'industrie, avec fiche des quantités",
+   "apply": false,
+   "codes": [],
+   "source": "Loi de finances 2026, art. 135"
+  },
+  {
+   "article": "136",
+   "measure": "Nouvelles exceptions à la contribution de solidarité (3 %)",
+   "scope": "Importations du wakf public exonérées ; importations des dispositifs de soutien à l'investissement",
+   "apply": false,
+   "codes": [],
+   "source": "Loi de finances 2026, art. 136"
+  },
+  {
+   "article": "137",
+   "measure": "Nouvelles exceptions au droit additionnel provisoire de sauvegarde (DAPS)",
+   "scope": "Importations directes de l'agence algérienne de coopération internationale ; dons et biens wakfs publics exonérés",
+   "apply": false,
+   "codes": [],
+   "source": "Loi de finances 2026, art. 137"
+  },
+  {
+   "article": "138",
+   "measure": "Exemption DD et TVA au taux réduit",
+   "scope": "Matières premières pour aliments d'aquaculture (ex-codes)",
+   "dd_rate": 0.0,
+   "condition": "Attestation des services du ministère chargé de la pêche",
+   "apply": false,
+   "codes": [
+    {
+     "code": "0306.39.21.00",
+     "ex": true
+    },
+    {
+     "code": "1212.29.10.00",
+     "ex": true
+    },
+    {
+     "code": "1504.10.19.00",
+     "ex": true
+    },
+    {
+     "code": "1504.10.99.00",
+     "ex": true
+    },
+    {
+     "code": "1504.20.11.00",
+     "ex": true
+    },
+    {
+     "code": "1504.20.20.00",
+     "ex": true
+    },
+    {
+     "code": "1504.20.90.00",
+     "ex": true
+    },
+    {
+     "code": "2301.20.11.00",
+     "ex": true
+    },
+    {
+     "code": "2301.20.21.00",
+     "ex": true
+    },
+    {
+     "code": "2302.10.91.00",
+     "ex": true
+    },
+    {
+     "code": "2302.30.91.00",
+     "ex": true
+    },
+    {
+     "code": "2302.40.91.10",
+     "ex": true
+    },
+    {
+     "code": "2302.40.99.10",
+     "ex": true
+    },
+    {
+     "code": "2302.50.91.00",
+     "ex": true
+    }
+   ],
+   "source": "Loi de finances 2026, art. 138"
+  },
+  {
+   "article": "139",
+   "measure": "Droit de douane réduit 5 % jusqu'au 31.12.2026",
+   "scope": "Bovins et ovins vivants pour l'abattage ; viandes bovines et ovines fraîches réfrigérées sous vide",
+   "dd_rate": 0.05,
+   "valid_to": "2026-12-31",
+   "apply": true,
+   "codes": [
+    {
+     "code": "0102.29.91.10",
+     "ex": false
+    },
+    {
+     "code": "0102.29.91.20",
+     "ex": false
+    },
+    {
+     "code": "0102.29.91.30",
+     "ex": false
+    },
+    {
+     "code": "0104.10.91.10",
+     "ex": false
+    },
+    {
+     "code": "0201.10.11.00",
+     "ex": false
+    },
+    {
+     "code": "0201.10.19.00",
+     "ex": false
+    },
+    {
+     "code": "0201.20.10.00",
+     "ex": false
+    },
+    {
+     "code": "0201.20.20.00",
+     "ex": false
+    },
+    {
+     "code": "0201.30.91.00",
+     "ex": false
+    },
+    {
+     "code": "0204.10.10.00",
+     "ex": false
+    },
+    {
+     "code": "0204.21.10.00",
+     "ex": false
+    },
+    {
+     "code": "0204.22.11.00",
+     "ex": false
+    },
+    {
+     "code": "0204.22.19.00",
+     "ex": false
+    },
+    {
+     "code": "0204.23.91.00",
+     "ex": false
+    }
+   ],
+   "source": "Loi de finances 2026, art. 139"
+  },
+  {
+   "article": "140",
+   "measure": "Droit de douane réduit 5 % et exonération possible de TVA jusqu'au 31.12.2026",
+   "scope": "Viandes blanches congelées",
+   "dd_rate": 0.05,
+   "valid_to": "2026-12-31",
+   "apply": true,
+   "codes": [
+    {
+     "code": "0207.12.10.00",
+     "ex": false
+    },
+    {
+     "code": "0207.12.20.00",
+     "ex": false
+    },
+    {
+     "code": "0207.12.90.00",
+     "ex": false
+    },
+    {
+     "code": "0207.14.24.00",
+     "ex": false
+    },
+    {
+     "code": "0207.14.25.00",
+     "ex": false
+    }
+   ],
+   "source": "Loi de finances 2026, art. 140"
+  }
+ ]
+}

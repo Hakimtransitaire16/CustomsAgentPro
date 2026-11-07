@@ -13,11 +13,25 @@ class OfficialDataTest(unittest.TestCase):
 
     def test_tariff_size_and_rates(self):
         lines = self.engine.tariff.lines
-        self.assertEqual(len(lines), 15946)
+        # 15 946 lines of the 2016 edition + 8419.12.10.00 created by the 2026 finance law (art. 131)
+        self.assertEqual(len(lines), 15947)
         # rates printed in the 2016 edition: exemption, 5 %, 15 %, 30 %
         self.assertEqual({l.duty_rate for l in lines.values()}, {0.0, 0.05, 0.15, 0.30})
         self.assertEqual(lines["0101.21.11.00"].duty_rate, 0.05)  # pur-sang arabe, reproducteur
         self.assertEqual(lines["8415.90.19.00"].duty_rate, 0.30)
+
+    def test_finance_law_2026_rates(self):
+        lines = self.engine.tariff.lines
+        self.assertEqual(lines["0201.10.11.00"].duty_rate, 0.05)  # art. 139, was 30 % in 2016
+        self.assertIn("art. 139", lines["0201.10.11.00"].rate_note)
+        self.assertEqual(lines["0207.12.10.00"].duty_rate, 0.05)  # art. 140
+        self.assertEqual(lines["8419.12.10.00"].duty_rate, 0.15)  # art. 131, code absent in 2016
+        self.assertEqual(lines["7616.99.99.00"].duty_rate, 0.30)  # art. 133 is an ex-code: not applied
+
+    def test_both_collections_loaded(self):
+        refs = {r.reference for r in self.engine.rulings.rulings}
+        self.assertIn("RTC 01/DGD du 28.05.2020", refs)
+        self.assertIn("RTC 001/DGD du 06.03.2025", refs)
 
     def test_rtc_used_as_precedent(self):
         top = self.engine.classify("Boitier de l'unité extérieure de climatiseur split")[0]

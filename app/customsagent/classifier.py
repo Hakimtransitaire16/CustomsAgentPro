@@ -48,12 +48,17 @@ def classify(description: str, tariff: Tariff, rulings: RulingRegistry, top: int
             scores[code] = score
             terms[code] = set(common)
 
+    # A code earns the bonus of its BEST matching precedent, not the sum: several rulings on
+    # the same product (e.g. three identical monitors) must not outweigh one strong match.
+    best_precedent: dict[str, float] = {}
     for r in rulings.rulings:
         score, common = _overlap(query, rulings.index(r.reference))
         if score and r.hs_code in tariff.lines:
-            scores[r.hs_code] = scores.get(r.hs_code, 0) + score * PRECEDENT_WEIGHT
+            best_precedent[r.hs_code] = max(best_precedent.get(r.hs_code, 0), score)
             terms.setdefault(r.hs_code, set()).update(common)
             precedents.setdefault(r.hs_code, []).append(r.reference)
+    for code, score in best_precedent.items():
+        scores[code] = scores.get(code, 0) + score * PRECEDENT_WEIGHT
 
     if not scores:
         return []

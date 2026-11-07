@@ -57,8 +57,18 @@ def code(c: str) -> None:
         print(f"  … {len(lines) - 25} de plus")
     if not lines:
         print("  Absent du tarif 2016 : code créé ou modifié depuis (SH 2017/2022 ?). Vérifier le tarif en vigueur.")
+    lf = ROOT / "data" / "mesures_tarifaires_lf2026.json"
+    if lf.exists():
+        import json
+        hits = [(m, c) for m in json.loads(lf.read_text(encoding="utf-8"))["measures"] for c in m["codes"]
+                if re.sub(r"\D", "", c["code"]).startswith(d) or d.startswith(re.sub(r"\D", "", c["code"]))]
+        if hits:
+            print("\n⚠ Loi de finances 2026 :")
+        for m, c in hits:
+            cond = f' — condition : {m["condition"]}' if m.get("condition") else ""
+            print(f'  {"EX " if c["ex"] else ""}{c["code"]}  art. {m["article"]} : {m["measure"]}{cond}')
     decs = [r for r in db.execute("SELECT * FROM decisions") if re.sub(r"\D", "", r["hs_code"] or "")[:4] == d[:4]]
-    print(f"\nDécisions de classement 2025 sur la position {d[:4]} : {len(decs)}")
+    print(f"\nDécisions de classement (2020, 2025) sur la position {d[:4]} : {len(decs)}")
     for r in decs:
         print(f"  {r['hs_code']}  {r['reference']}  — {r['designation'][:70]}  (valide jusqu'au {r['valid_to'] or '-'})")
 
