@@ -124,6 +124,7 @@ class TariffLine:
     vat_rate: float
     daps_rate: float = 0.0
     licence_required: bool = False
+    source: str = "sample"  # sample | dgd-2016 (official tariff, D.D only; VAT assumed)
 
 
 @dataclass

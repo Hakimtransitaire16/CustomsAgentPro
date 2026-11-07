@@ -15,7 +15,8 @@ from pathlib import Path
 from .engine import Engine
 
 WEB_DIR = Path(__file__).resolve().parent.parent / "web"
-ENGINE = Engine()
+# CUSTOMSAGENT_DATA=official -> real DGD tariff and decisions from knowledge-base/
+ENGINE = Engine.official() if os.environ.get("CUSTOMSAGENT_DATA") == "official" else Engine()
 MAX_BODY = 1_000_000
 
 

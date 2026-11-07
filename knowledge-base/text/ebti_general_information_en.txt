@@ -1,0 +1,285 @@
+                               EUROPEAN UNION
+
+                 Application for Binding Tariff Information (BTI)
+
+                                 General Information
+
+Please read the following information carefully before completing your BTI application.
+
+1.     For specific guidance on how to complete this form, please see the information
+       overleaf.
+
+2.     BTI decisions are issued in accordance with Articles 14, 15, 22 to 37 and 52 of
+       Regulation (EU) No 952/2013 of the European Parliament and of the Council of 9
+       October 2013 laying down the Union Customs Code (UCC). Those provisions are
+       further clarified by Articles 11 to 14, 19, 20, 22, 252 and Annex A of Commission
+       Delegated Regulation (EU) 2015/2446 of 28 July 2015 supplementing the UCC (UCC
+       DA) as regards detailed rules concerning certain provisions of the UCC and Articles 8
+       to 23 and Annex A of Commission Implementing Regulation (EU) 2015/2447 of 24
+       November 2015 laying down detailed rules for implementing certain provisions of the
+       UCC (UCC IA).
+
+       In addition, the legal basis for the BTI application form is set out in Commission
+       Delegated Regulation (EU) 2016/341 of 17 December 2015 supplementing the UCC
+       as regards transitional rules for certain provisions of the UCC where the relevant
+       electronic systems are not yet operational and amending the UCC DA (UCC TDA)
+       and the corrigendum to it published in OJ L101 of 16 April 2016 (page 33).
+
+       Those Regulations can be found on the Europa website.
+
+3.     An application for a BTI decision may only be made in respect of an intended use of
+       the BTI decision or a customs procedure.
+
+4.     A BTI decision can only be used for goods for which customs formalities are
+       completed after the start date of validity of the decision.
+
+5.     A separate application must be made for each type of product.
+
+6.     A BTI decision must be declared to customs and may only be invoked by the holder or
+       a customs representative acting in the name and on behalf of the holder of that
+       decision.
+
+7.     Information entered in boxes 1, 2, 4 and 10 of the application form will be treated as
+       confidential and covered by the obligation of professional secrecy.
+
+8.     You may be requested to supply a translation of any attached document into the
+       official language or one of the official languages of the Member State where you have
+       submitted your application.
+9.    BTI decisions are provided free of charge. Where customs have incurred specific costs
+      in analysis, obtaining expert advice on samples or returning samples, or providing
+      translation facilities at the request of the applicant, those may be passed on to the
+      applicant.
+
+10.   In cases where the application contains incorrect or incomplete information, the BTI
+      based on such indications shall be annulled.
+
+11.   Further information may be obtained from the customs authorities listed in Official
+      Journal, which can also be found on the Europa website.
+
+
+
+
+                                            2
+                  INFORMATION ON THE COMPLETION OF THE APPLICATION FOR
+                            BINDING TARIFF INFORMATION (BTI)
+
+The following information provides specific guidance on the completion of the Application for
+BTI, as contained in Annex 4 of Commission Delegated Regulation (EU) 2016/341 of 17
+December 2015 (TDA).
+Please read the following information carefully before completing your application.
+
+BOX 1. Applicant (mandatory and confidential)
+
+For the purposes of binding tariff information, applicant means (i) a person who has applied for or (ii) a person
+in whose name an application has been made (direct customs representation) for binding tariff information with
+the customs authorities. When the BTI decision is issued, the applicant will become the holder of that decision.
+Information entered into this box shall be treated as confidential.
+
+Name and address of the applicant: the following details should be provided:
+Name: enter maximum of 70 characters
+Street and number: enter maximum of 70 characters
+Country: enter the ISO Code1 of the country (2 characters)
+Postcode: enter maximum of 9 characters
+City: enter maximum of 35 characters
+Applicant identification: EORI No (mandatory): enter the EORI number of the applicant –maximum of 17
+characters.
+
+BOX 2. Place where main accounts for customs purposes are held or accessible (if different from the
+country above)
+
+Full address of the location, including the Member State where the main accounts are intended to be held or are
+intended to be accessible: the following details should be provided:
+Street and number: enter maximum of 70 characters
+Country: enter the ISO Code1 of the country (2 characters)
+Postcode: enter maximum of 9 characters
+City: enter maximum of 35 characters
+
+The UN/LOCODE (maximum 17 characters) may replace the address, if it provides an unambiguous
+identification of the location concerned.
+
+BOX 3. Customs representative (mandatory, if the applicant appointed a customs representative)
+
+Please complete this box if the applicant nominated a customs representative who represents him in his dealings
+with the customs authority insofar as the application for a BTI decision is concerned prior to the issuing of the
+BTI decision.
+
+Name and address of the customs representative: the following details should be provided:
+Name: enter maximum of 70 characters
+Street and number: enter maximum of 70 characters
+Country: enter the ISO Code1 of the country (2 characters)
+Postcode: enter maximum of 9 characters
+City: enter maximum of 35 characters
+Representative identification: EORI No (mandatory): enter the EORI number of the customs representative –
+maximum of 17 characters.
+
+
+
+
+1
+  ISO 3166 Country Codes: AT = Austria, BE = Belgium, BG = Bulgaria, CY = Cyprus, CZ = Czech Republic, DE = Germany, DK =
+Denmark, EE = Estonia, ES = Spain, FI = Finland, FR = France, GB = United Kingdom, GR = Greece, HR = Croatia, HU = Hungary, IE =
+Ireland, IT = Italy, LT = Lithuania, LU = Luxembourg, LV = Latvia, MT = Malta, NL = Netherlands, PL = Poland, PT = Portugal, RO =
+Romania, SE = Sweden, SI = Slovenia, SK = Slovakia.
+
+
+                                                               3
+BOX 4. Contact person responsible for the application (mandatory)
+The contact person is the person responsible for keeping contact with customs as regards the application. The
+information entered in box 1. Applicant and box 3. Customs representative normally relates to a company, whilst
+the person responsible for the application relates to a private individual who can either be an employee of the
+companies either in box 1 or 3, or a contractor.
+
+Name and contact details of the contact person: enter four lines with a maximum of 220 characters. Only the
+name and one of the following details are mandatory:
+Telephone Number: enter a maximum of 50 characters.
+Fax Number: enter a maximum of 50 characters.
+E-mail address: enter a maximum of 50 characters.
+
+BOX 5. Reissue of a BTI decision (mandatory)
+
+BTI decisions are normally issued with a validity period of three years. If the applicant is already the holder of a
+BTI decision the validity of which has expired or will shortly do so, indicate (yes/no) whether the application
+concerns the reissue of a BTI decision. If yes, provide the relevant details.
+
+BTI Decision Reference number: enter the reference number of the BTI decision which the holder would like to
+be reissued.
+Valid from: enter the date from which the BTI decision was valid.
+Commodity Code: enter the commodity code under which the BTI decision was issued (maximum 22
+characters).
+
+BOX 6. Type of transaction (mandatory)
+
+Please specify the envisaged transaction the BTI decision is intended to be used for, by indicating (yes/no)
+whether the application relates to an import, export transaction or special procedures. The type of the special
+procedure should be specified (maximum 70 characters).
+
+BOX 7. Customs Nomenclature (mandatory)
+
+Please indicate in which nomenclature the goods are to be classified, by inserting 'x' in one box only. If the
+nomenclature is not one of those listed, specify the nomenclature concerned. Please note that BTI decisions can
+only refer to a nomenclature based on the Harmonized Commodity Description and Coding System (HS) (e.g.
+Combined Nomenclature, TARIC, etc.), but cannot be issued for HS codes.
+
+The Combined Nomenclature (CN) is applied in the EU at 8-digit level. TARIC is the 9th and 10th digits applied
+at EU level to tariff and non-tariff measures such as suspensions, quotas, anti-dumping duty, etc. The TARIC
+code can be complemented by two additional TARIC codes of maximum four characters, which can be further
+complemented by additional national code(s) of maximum four characters. The Export refund nomenclature is
+linked to the refund of agricultural subsidies. In case of any doubts regarding nomenclature, the appropriate
+customs offices can be contacted.
+
+BOX 8. Commodity code (optional)
+
+Please indicate the customs nomenclature code under which the applicant expects the goods to be classified. This
+field has a maximum of 22 characters. If the applicant is uncertain of where the goods are to be classified, the
+TARIC database or the EBTI database (where all valid BTI decisions are made available for public consultation)
+can be consulted.
+
+
+BOX 9. Description of goods (mandatory)
+
+Please provide a detailed description of the goods permitting their identification and the determination of their
+classification in the customs nomenclature. This should also include details of the composition of the goods and
+any methods of examination used for its determination where the classification depends on it. This field contains
+free text with a maximum of 2560 characters. Any details which the applicant considers to be confidential should
+be entered in box 10. Commercial denomination and additional information.
+
+
+
+                                                         4
+BOX 10. Commercial denomination and additional information* (optional and confidential)
+
+Please include any particulars which the applicant wishes to be treated as confidential, including the trademark
+and model numbers of the goods, formulae and laboratory analyses. Although this box is optional, it is
+recommended to include here the commercial denomination for easier and more transparent identification of the
+goods within the customs procedures.
+
+In certain cases, including those where samples are provided, the administration concerned may take
+photographs or ask a laboratory for an analysis. Please state clearly, if such samples, photographs, brochures etc.
+(e.g. analysis results) are to be treated as fully or partially confidential. Any such information, not intended as
+confidential, will be published on the public EBTI database and will be accessible on the Internet.
+
+This field can contain maximum 2560 characters.
+
+(*) Please use a separate sheet of paper if more space is required.
+
+BOX 11. Samples etc.
+Please indicate whether any samples, photographs, brochures or other documents available which may assist the
+customs authorities in determining the correct classification of the goods, are provided. Please indicate this by
+inserting 'x' in the appropriate box(es).
+
+If there is a sample, it should be indicated (yes/no) whether it has to be returned or not.
+
+BOX 12. Other BTI Applications and other BTI held (mandatory)
+
+Please indicate (yes/no) whether the applicant has applied for or received a BTI decision for identical or similar
+goods in the Union to those described in the box 9. Description of goods and box 10. Commercial denomination
+and additional information.
+
+If yes, the following information should be completed:
+Country of Application: enter the ISO Code1 of the country where the application was submitted (2 characters).
+Place of Application: enter the place where the application was submitted (maximum 35 characters).
+Date of Application: enter the date on which the competent customs authority has received the application.
+BTI Decision Reference number: enter the reference number of the BTI decision(s) which the applicant has
+already received. This part is mandatory if the applicant has received BTI decision following his application.
+Start date of the decision: enter the date on which the BTI decision validity starts.
+Commodity Code: enter the nomenclature code indicated on the BTI decision (maximum 22 characters).
+
+BOX 13. BTI decisions issued to other Holders (mandatory)
+
+Please indicate (yes/no) whether the applicant is aware of BTI decisions issued to other holders for identical or
+similar goods to those described in the box 9. Description of goods and box 10. Commercial denomination and
+additional information. Information concerning existing BTI decisions can be consulted at the public EBTI
+database that is accessible on the Internet.
+
+If yes, the following additional elements are optional:
+BTI Decision Reference number: enter the reference number of the BTI decision(s) of which the applicant is
+aware.
+Start date of the decision: enter the date on which the BTI decision validity starts.
+Commodity Code: enter the nomenclature code indicated on the BTI decision (maximum 22 characters).
+
+BOX 14. Are you aware of any legal or administrative proceedings concerning tariff classification pending
+within the EU, or a court ruling on tariff classification already handed down within the EU, relating to the
+goods described in boxes 9 and 10? (mandatory)
+
+Please indicate whether or not the applicant is aware of any legal or administrative proceedings concerning tariff
+classification pending within the Union, or a court ruling on tariff classification already handed down within the
+Union, relating to the goods described in the box 9. Description of goods and box 10. Commercial denomination
+and additional information.
+
+
+
+                                                          5
+If yes, the following additional elements are optional:
+Country code: enter the ISO Code1 of the country (2 characters)
+Name of the court: enter maximum of 70 characters
+Address of the court: the following details should be provided:
+Street and number: enter maximum of 70 characters
+Country: enter the ISO Code1 of the country (2 characters)
+Postcode: enter maximum of 9 characters
+City: enter maximum of 35 characters
+Reference number of the case: enter the reference number of the case pending and/or the judgement, and any
+other relevant information (maximum 512 characters).
+
+BOX 15. Date and Authentication (mandatory)
+
+After the application has been checked for accuracy and completeness, it should be signed and dated. All
+separate sheets, if any, should also be signed and dated.
+
+Date: enter the date on which the applicant has signed or otherwise authenticated the application.
+Signature: (i) Paper-based applications shall be signed by the person who lodges the application. (ii)
+Applications made by using an electronic system shall be authenticated by the person who lodges the application
+(applicant or representative). (iii) In case the application is submitted by using the EU harmonised trader
+interface defined by the Commission and the Member States in agreement with each other, the application shall
+be considered as authenticated.
+
+If the applicant has a reference, it may be inserted here.
+
+BOX 16. Additional information (optional)
+
+Enter any additional information (maximum 512 characters), if deemed helpful.
+
+
+
+
+                                                             6
+
