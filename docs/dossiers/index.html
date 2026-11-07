@@ -1,0 +1,551 @@
+<title>Dossier Control</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<style>
+/* Layout: an operations console — dense list of dossiers on top, one dossier opened below; graphite, one gold accent, semantic colours for deadlines. */
+:root {
+  --ground: #f2f2ef; --surface: #fbfbf9; --ink: #16181a; --muted: #5f6468; --rule: #d6d5cf;
+  --gold: #946a0c; --gold-soft: #f0e6cc;
+  --crit: #b3261e; --crit-soft: #f8dedb; --warn: #965600; --warn-soft: #f7e7cf; --ok: #1d6b45; --ok-soft: #dcefe4; --info: #3b5878;
+  --f-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0f1112; --surface: #171a1c; --ink: #ebeae6; --muted: #9ca1a5; --rule: #2d3134;
+    --gold: #d9aa3c; --gold-soft: #2a2416; --crit: #ff7a6e; --crit-soft: #3a1d1a; --warn: #f0a94a; --warn-soft: #36280f;
+    --ok: #58c793; --ok-soft: #15291f; --info: #94b6da; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0f1112; --surface: #171a1c; --ink: #ebeae6; --muted: #9ca1a5; --rule: #2d3134;
+  --gold: #d9aa3c; --gold-soft: #2a2416; --crit: #ff7a6e; --crit-soft: #3a1d1a; --warn: #f0a94a; --warn-soft: #36280f;
+  --ok: #58c793; --ok-soft: #15291f; --info: #94b6da; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--ground); color: var(--ink); font: 15px/1.6 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.page { max-width: 1060px; margin: 0 auto; padding-block: 24px 64px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font: 600 20px/1.2 var(--f-mono); direction: ltr; text-align: start; }
+h1 b { color: var(--gold); font-weight: 600; }
+h2 { font-size: 17px; font-weight: 600; }
+h3 { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: .3px; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); font-size: 12.5px; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.muted { color: var(--muted); }
+button { font: 500 14px var(--f-body); cursor: pointer; border-radius: 4px; padding: 8px 14px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+button:disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--ink); color: var(--ground); border-color: var(--ink); font-weight: 600; }
+button.ghost { background: transparent; color: var(--muted); }
+button.danger { color: var(--crit); background: transparent; }
+:is(button, input, select, textarea, summary):focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+input, select, textarea { width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--ground); color: var(--ink); font: 14px var(--f-body); }
+label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); min-width: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.between { justify-content: space-between; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 16px; }
+.banner { padding: 10px 14px; border-radius: 4px; background: var(--gold-soft); font-size: 13.5px; }
+.banner.crit { background: var(--crit-soft); }
+
+/* Dossier list */
+.summary { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--rule); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pill.crit { background: var(--crit-soft); border-color: transparent; color: var(--crit); font-weight: 600; }
+.pill.warn { background: var(--warn-soft); border-color: transparent; color: var(--warn); font-weight: 600; }
+.pill.ok { background: var(--ok-soft); border-color: transparent; color: var(--ok); }
+.list { display: grid; gap: 6px; }
+.dos { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid var(--rule); border-inline-start: 4px solid var(--rule); border-radius: 4px; background: var(--surface); cursor: pointer; text-align: start; font: inherit; color: inherit; width: 100%; }
+.dos.crit { border-inline-start-color: var(--crit); } .dos.warn { border-inline-start-color: var(--warn); } .dos.ok { border-inline-start-color: var(--ok); }
+.dos.sel { outline: 2px solid var(--gold); outline-offset: -1px; }
+.dos b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) { .dos { grid-template-columns: minmax(0, 1fr) auto; } .dos .hide-sm { display: none; } }
+.empty { padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--rule); border-radius: 6px; display: grid; gap: 10px; justify-items: center; }
+
+/* Dossier detail */
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.deadline { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border-radius: 4px; background: var(--ground); }
+.deadline .big { font: 600 26px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.deadline.crit { background: var(--crit-soft); color: var(--crit); } .deadline.warn { background: var(--warn-soft); color: var(--warn); } .deadline.ok { background: var(--ok-soft); color: var(--ok); }
+.drop { border: 1.5px dashed var(--rule); border-radius: 6px; padding: 18px; text-align: center; display: grid; gap: 8px; justify-items: center; color: var(--muted); }
+.drop.over { border-color: var(--gold); background: var(--gold-soft); }
+.docs { display: grid; gap: 8px; }
+.doc { border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; display: grid; gap: 6px; background: var(--ground); min-width: 0; }
+.doc .kv { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+.doc .kv span { white-space: nowrap; }
+.doc details summary { cursor: pointer; color: var(--gold); font-size: 13px; }
+.progress { font-size: 13px; color: var(--info); }
+.findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.findings li { padding: 8px 12px; border-inline-start: 3px solid var(--rule); background: var(--ground); font-size: 14px; overflow-wrap: anywhere; }
+.findings li.crit { border-inline-start-color: var(--crit); } .findings li.warn { border-inline-start-color: var(--warn); }
+.findings li.ok { border-inline-start-color: var(--ok); } .findings li.info { border-inline-start-color: var(--info); }
+.sheet { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+th { font-size: 12px; font-weight: 500; color: var(--muted); }
+td.v { font-family: var(--f-mono); font-size: 13px; }
+td.c { width: 1%; }
+button.copy { padding: 3px 9px; font-size: 12px; }
+textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); }
+.tabs button { border: none; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: var(--muted); padding: 8px 12px; }
+.tabs button.on { color: var(--ink); border-bottom-color: var(--gold); font-weight: 600; }
+.toast { position: fixed; inset-inline-start: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--ground); padding: 8px 14px; border-radius: 4px; font-size: 13px; }
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="row" style="gap:14px">
+      <h1>Dossier<b>Control</b></h1>
+      <span class="muted" style="font-size:13px">برج مراقبة ملفات الجمركة: الآجال، والوثائق، والتصريح، والزبون</span>
+    </div>
+    <button class="primary" id="new">+ ملف جديد</button>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <section class="card">
+    <div class="row between">
+      <h2>الملفات حسب الأولوية</h2>
+      <div class="summary" id="summary"></div>
+    </div>
+    <div id="list" class="list"><div class="empty">جاري تحميل ملفاتك…</div></div>
+  </section>
+
+  <section class="card" id="detail" hidden>
+    <div class="row between">
+      <h2 id="d-title">ملف</h2>
+      <div class="row">
+        <button class="ghost" id="close">إغلاق</button>
+        <button class="danger" id="del">حذف الملف</button>
+      </div>
+    </div>
+
+    <div class="fields">
+      <label for="f-ref">مرجع الملف<input id="f-ref" placeholder="مثال: IMP-2026-118"></label>
+      <label for="f-client">الزبون (اسم مختصر، دون معطيات جبائية)<input id="f-client" placeholder="مثال: Client B"></label>
+      <label for="f-unload">تاريخ التفريغ (الإنزال)<input id="f-unload" type="date"></label>
+      <label for="f-status">المرحلة<select id="f-status">
+        <option value="docs">في انتظار الوثائق</option>
+        <option value="ready">الوثائق كاملة</option>
+        <option value="declared">تم التصريح</option>
+        <option value="released">رُفعت اليد / خرجت السلعة</option>
+      </select></label>
+    </div>
+
+    <div id="deadline" class="deadline"></div>
+
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="docs" role="tab">الوثائق والتدقيق</button>
+      <button data-tab="sheet" role="tab">بطاقة التصريح</button>
+      <button data-tab="msg" role="tab">رسالة الزبون</button>
+    </div>
+
+    <div data-pane="docs" style="display:grid;gap:14px">
+      <div class="drop" id="drop">
+        <b style="color:var(--ink)">أسقط هنا الفاتورة، وقائمة التعبئة، وبوليصة الشحن</b>
+        <span style="font-size:13px">PDF أو صور (حتى الوثائق الممسوحة). Claude يقرأها ويستخرج البيانات.</span>
+        <div class="row" style="justify-content:center">
+          <button id="pick">اختر ملفات</button>
+          <input type="file" id="file" multiple accept="application/pdf,image/jpeg,image/png,image/webp" hidden>
+        </div>
+        <span class="progress" id="progress" hidden></span>
+        <button class="ghost" id="stop" hidden>إيقاف</button>
+      </div>
+      <div id="docs" class="docs"></div>
+      <div style="display:grid;gap:8px">
+        <h3>التدقيق المتقاطع بين الوثائق</h3>
+        <ul id="checks" class="findings"></ul>
+      </div>
+    </div>
+
+    <div data-pane="sheet" hidden style="display:grid;gap:10px">
+      <p class="muted" style="font-size:13px">البيانات المجمّعة من كل الوثائق، جاهزة للنسخ في نظام التصريح. تحقّق من كل قيمة قبل الإدخال.</p>
+      <div class="sheet"><table id="sheet-head"></table></div>
+      <h3>البنود</h3>
+      <div class="sheet"><table id="sheet-items"></table></div>
+    </div>
+
+    <div data-pane="msg" hidden style="display:grid;gap:10px">
+      <div class="row">
+        <label for="m-lang" style="min-width:140px">اللغة<select id="m-lang"><option value="dz">الدارجة</option><option value="fr">Français</option></select></label>
+      </div>
+      <textarea id="msg" aria-label="رسالة الزبون"></textarea>
+      <div class="row"><button class="primary" id="copy-msg">نسخ الرسالة</button><span class="muted" style="font-size:13px">ألصقها في واتساب أو البريد.</span></div>
+    </div>
+  </section>
+
+  <p class="muted" style="font-size:12.5px">الآجال حسب قانون الجمارك: مدة البقاء في المستودعات المؤقتة 21 يوماً من التفريغ (المادة 71)، وإيداع التصريح المفصل خلال 21 يوماً (المادة 76)، وبعد انقضاء الأجل يحوّل نظام المعلومات الجمركي البضاعة آلياً إلى فضاءات الإيداع (المادة 74 المعدلة بالمادة 123 من قانون المالية 2026). تحقّق من أي تمديد أو نص خاص بمكتبك. ملفاتك محفوظة في مساحة خاصة بك وحدك، والوثائق نفسها لا تُحفظ، فقط البيانات المستخرجة منها.</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// ===== Constants =====
+const STORAGE_DAYS = 21;                       // Code des douanes art. 71 & 76
+const STATUS = { docs: "في انتظار الوثائق", ready: "الوثائق كاملة", declared: "تم التصريح", released: "خرجت السلعة" };
+const DOC_TYPE = { invoice: "فاتورة تجارية", packing_list: "قائمة التعبئة", bill_of_lading: "بوليصة الشحن", certificate_origin: "شهادة المنشأ", other: "وثيقة أخرى" };
+// 2026 finance law: unconditional duty changes (art. 131, 139, 140) — codes from the knowledge base
+const LF2026 = {
+  "0102.29.91.10":"art. 139 — DD 5 % jusqu'au 31.12.2026","0102.29.91.20":"art. 139 — DD 5 %","0102.29.91.30":"art. 139 — DD 5 %",
+  "0201":"art. 139 — viandes bovines fraîches/réfrigérées : DD 5 %","0204":"art. 139 — viandes ovines : DD 5 %",
+  "0207":"art. 140 — viandes blanches congelées : DD 5 %, exonération TVA possible","8419.12.10.00":"art. 131 — chauffe-eau solaires : DD 15 %",
+};
+
+// ===== State =====
+let db = null, sample = null, uid = null, imagesOk = false;
+let dossiers = [], current = null, memoryOnly = false, ctl = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const num = v => (v === null || v === undefined || v === "" || isNaN(Number(v))) ? null : Number(v);
+const fmt = (v, d = 2) => v === null ? "—" : Number(v).toLocaleString("fr-FR", { maximumFractionDigits: d });
+const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+
+function toast(t) { const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2200); }
+function banner(t, crit) { const b = $("banner"); b.hidden = !t; b.textContent = t || ""; b.classList.toggle("crit", !!crit); }
+
+// ===== Deadlines (pain B) =====
+function deadlineOf(d) {
+  if (!d.unloading) return { level: "none", label: "تاريخ التفريغ غير محدد", days: null };
+  if (d.status === "declared" || d.status === "released") return { level: "ok", label: STATUS[d.status], days: null };
+  const start = new Date(d.unloading + "T00:00:00"), end = new Date(start); end.setDate(end.getDate() + STORAGE_DAYS);
+  const days = Math.round((end - today()) / 86400000);
+  const date = `${end.getFullYear()}-${String(end.getMonth() + 1).padStart(2, "0")}-${String(end.getDate()).padStart(2, "0")}`;
+  if (days < 0) return { level: "crit", days, date, label: `تجاوز الأجل بـ ${-days} يوماً: خطر النقل الآلي إلى فضاء الإيداع` };
+  if (days <= 3) return { level: "crit", days, date, label: `${days} أيام فقط قبل انقضاء الأجل` };
+  if (days <= 7) return { level: "warn", days, date, label: `${days} أيام قبل انقضاء الأجل` };
+  return { level: "ok", days, date, label: `${days} يوماً قبل انقضاء الأجل` };
+}
+
+// ===== Cross-document checks (pain D) =====
+const byType = (d, t) => (d.docs || []).filter(x => x.type === t).map(x => x.data);
+const close = (a, b, tol) => Math.abs(a - b) <= Math.max(Math.abs(a), Math.abs(b)) * tol;
+const normName = s => String(s || "").toLowerCase().normalize("NFD").replace(/\p{Mn}/gu, "").replace(/\b(sarl|spa|eurl|sas|ltd|co|company|limited|srl|gmbh|inc)\b/g, "").match(/[\p{L}\p{N}]{3,}/gu) || [];
+const nameMatch = (a, b) => { const A = new Set(normName(a)), B = normName(b); if (!A.size || !B.length) return true; return B.some(w => A.has(w)); };
+const normCont = c => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+
+function checks(d) {
+  const F = [], add = (level, text) => F.push({ level, text });
+  const inv = byType(d, "invoice"), pl = byType(d, "packing_list"), bl = byType(d, "bill_of_lading"), co = byType(d, "certificate_origin");
+  if (!(d.docs || []).length) { add("info", "لا توجد وثائق بعد. أسقط الفاتورة وبوليصة الشحن وقائمة التعبئة."); return F; }
+  if (!inv.length) add("crit", "الفاتورة التجارية ناقصة.");
+  if (!bl.length) add("crit", "بوليصة الشحن (أو وثيقة النقل) ناقصة.");
+  if (!pl.length) add("warn", "قائمة التعبئة ناقصة: مقارنة الأوزان والطرود محدودة.");
+
+  for (const i of inv) {
+    const items = (i.items || []).map(x => num(x.amount)).filter(x => x !== null), tot = num(i.total_amount);
+    if (items.length && tot !== null) {
+      const s = items.reduce((a, b) => a + b, 0);
+      if (!close(s, tot, 0.01)) add("crit", `الفاتورة ${i.number || ""}: مجموع البنود ${fmt(s)} لا يساوي المجموع المعلن ${fmt(tot)} ${i.currency || ""}.`);
+      else add("ok", `الفاتورة ${i.number || ""}: مجموع البنود مطابق للمجموع (${fmt(tot)} ${i.currency || ""}).`);
+    }
+    if (!i.currency) add("warn", `الفاتورة ${i.number || ""}: العملة غير ظاهرة.`);
+    if (!i.incoterm) add("warn", `الفاتورة ${i.number || ""}: شرط التسليم (Incoterm) غير ظاهر، وهو ضروري لتحديد القيمة لدى الجمارك.`);
+    if ((i.items || []).some(x => !x.origin) && !i.origin_country) add("warn", "بلد المنشأ غير ظاهر في الفاتورة.");
+  }
+
+  // weights and packages across documents
+  const series = (key, label, tol, unit) => {
+    const vals = [["الفاتورة", inv], ["قائمة التعبئة", pl], ["بوليصة الشحن", bl]]
+      .flatMap(([n, arr]) => arr.map(x => [n, num(x[key])])).filter(([, v]) => v !== null);
+    if (vals.length < 2) return;
+    const bad = vals.filter(([, v]) => !close(v, vals[0][1], tol));
+    if (bad.length) add("crit", `${label} غير متطابق: ${vals.map(([n, v]) => `${n} ${fmt(v)}${unit}`).join("، ")}.`);
+    else add("ok", `${label} متطابق في ${vals.length} وثائق (${fmt(vals[0][1])}${unit}).`);
+  };
+  series("gross_kg", "الوزن القائم", 0.02, " كغ");
+  series("net_kg", "الوزن الصافي", 0.02, " كغ");
+  series("packages", "عدد الطرود", 0, "");
+
+  // containers
+  const cBL = new Set(bl.flatMap(x => x.containers || []).map(normCont).filter(Boolean));
+  const cPL = new Set(pl.flatMap(x => x.containers || []).map(normCont).filter(Boolean));
+  if (cBL.size && cPL.size) {
+    const miss = [...cBL].filter(c => !cPL.has(c)).concat([...cPL].filter(c => !cBL.has(c)));
+    if (miss.length) add("crit", `أرقام الحاويات غير متطابقة بين البوليصة وقائمة التعبئة: ${miss.join("، ")}.`);
+    else add("ok", `الحاويات متطابقة (${cBL.size}).`);
+  }
+
+  // consignee / supplier names
+  const cons = inv.map(x => x.consignee).concat(bl.map(x => x.consignee)).filter(Boolean);
+  if (cons.length >= 2 && !cons.every(c => nameMatch(cons[0], c))) add("warn", `اسم المرسَل إليه يختلف بين الوثائق: ${cons.map(esc).join(" / ")}.`);
+  const sup = inv.map(x => x.supplier).concat(bl.map(x => x.shipper)).filter(Boolean);
+  if (sup.length >= 2 && !sup.every(c => nameMatch(sup[0], c))) add("warn", `اسم المورد / الشاحن يختلف: ${sup.map(esc).join(" / ")}.`);
+
+  // origin vs certificate
+  const oInv = inv.map(x => x.origin_country).filter(Boolean), oCO = co.map(x => x.origin_country).filter(Boolean);
+  if (oInv.length && oCO.length && !nameMatch(oInv[0], oCO[0])) add("crit", `المنشأ في الفاتورة (${esc(oInv[0])}) يختلف عن شهادة المنشأ (${esc(oCO[0])}).`);
+
+  // 2026 finance law (pain C)
+  for (const i of inv) for (const it of i.items || []) {
+    const code = String(it.hs_code || "").replace(/\s/g, "");
+    if (!code) continue;
+    const hit = Object.keys(LF2026).find(k => code.replace(/\./g, "").startsWith(k.replace(/\./g, "")));
+    if (hit) add("info", `البند «${esc(it.description).slice(0, 60)}» (${esc(code)}) معني بقانون المالية 2026: ${LF2026[hit]}.`);
+  }
+
+  // anomalies Claude noticed while reading
+  for (const x of d.docs || []) for (const a of x.data.anomalies || []) add("warn", `${DOC_TYPE[x.type] || "وثيقة"}: ${esc(a)}`);
+  return F;
+}
+
+// ===== Declaration sheet (pain F) =====
+function sheet(d) {
+  const inv = byType(d, "invoice")[0] || {}, bl = byType(d, "bill_of_lading")[0] || {}, pl = byType(d, "packing_list")[0] || {};
+  const pick = (...v) => v.find(x => x !== null && x !== undefined && x !== "" && !(Array.isArray(x) && !x.length));
+  const head = [
+    ["المرسَل إليه (Destinataire)", pick(inv.consignee, bl.consignee)],
+    ["المورد (Fournisseur)", pick(inv.supplier, bl.shipper)],
+    ["رقم الفاتورة وتاريخها", pick(inv.number) ? `${inv.number}${inv.date ? " du " + inv.date : ""}` : null],
+    ["العملة", inv.currency], ["Incoterm", inv.incoterm],
+    ["القيمة الإجمالية", num(inv.total_amount) !== null ? fmt(inv.total_amount) : null],
+    ["بلد المنشأ", pick(inv.origin_country, (inv.items || [])[0]?.origin)],
+    ["عدد الطرود", pick(num(pl.packages), num(bl.packages), num(inv.packages))],
+    ["الوزن القائم (كغ)", pick(num(pl.gross_kg), num(bl.gross_kg), num(inv.gross_kg))],
+    ["الوزن الصافي (كغ)", pick(num(pl.net_kg), num(inv.net_kg))],
+    ["رقم البوليصة", pick(bl.bl_number, bl.number)], ["السفينة / الرحلة", bl.vessel],
+    ["ميناء الشحن", bl.port_loading], ["ميناء التفريغ", bl.port_discharge],
+    ["الحاويات", pick(bl.containers, pl.containers)?.join?.(", ")],
+  ];
+  $("sheet-head").innerHTML = `<tr><th>الخانة</th><th>القيمة</th><th></th></tr>` + head.map(([k, v]) =>
+    `<tr><td>${k}</td><td class="v ltr">${v === null || v === undefined || v === "" ? '<span class="muted">—</span>' : esc(v)}</td><td class="c">${v === null || v === undefined || v === "" ? "" : `<button class="copy" data-copy="${esc(v)}">نسخ</button>`}</td></tr>`).join("");
+  const items = inv.items || [];
+  $("sheet-items").innerHTML = items.length ? `<tr><th>#</th><th>الوصف</th><th>HS</th><th>الكمية</th><th>القيمة</th><th>المنشأ</th></tr>` + items.map((it, i) =>
+    `<tr><td>${i + 1}</td><td>${esc(it.description)} <button class="copy" data-copy="${esc(it.description)}">نسخ</button></td><td class="v ltr">${esc(it.hs_code || "—")}</td><td class="v">${fmt(num(it.quantity), 3)} ${esc(it.unit || "")}</td><td class="v">${fmt(num(it.amount))}</td><td>${esc(it.origin || inv.origin_country || "—")}</td></tr>`).join("")
+    : `<tr><td class="muted">لا توجد بنود. أضف الفاتورة في تبويب الوثائق.</td></tr>`;
+}
+
+// ===== Client message (pain G) =====
+function message(d, lang) {
+  const dl = deadlineOf(d), ref = d.ref || "", c = d.client || "";
+  const missing = [];
+  if (!byType(d, "invoice").length) missing.push(lang === "fr" ? "la facture commerciale" : "الفاتورة");
+  if (!byType(d, "bill_of_lading").length) missing.push(lang === "fr" ? "le connaissement (B/L)" : "البوليصة (B/L)");
+  if (!byType(d, "packing_list").length) missing.push(lang === "fr" ? "la liste de colisage" : "الـ packing list");
+  const issues = checks(d).filter(x => x.level === "crit" && !/ناقص/.test(x.text)).length;
+  if (lang === "fr") {
+    const s = { docs: `Votre dossier ${ref} est en attente de documents${missing.length ? " : " + missing.join(", ") : ""}.`,
+      ready: `Les documents de votre dossier ${ref} sont complets${issues ? `, avec ${issues} point(s) à clarifier avant la déclaration` : ""}.`,
+      declared: `Votre dossier ${ref} a été déclaré en douane. Nous suivons la suite et vous informons dès la mainlevée.`,
+      released: `Bonne nouvelle : la marchandise du dossier ${ref} a obtenu la mainlevée.` }[d.status];
+    const dd = dl.date && d.status !== "declared" && d.status !== "released" ? `\nDate limite de séjour en dépôt temporaire : ${dl.date} (${dl.days >= 0 ? `J-${dl.days}` : "dépassée"}).` : "";
+    return `Bonjour ${c},\n${s}${dd}\nCordialement.`;
+  }
+  const s = { docs: `ملف ${ref} مازال يستنى الوثائق${missing.length ? ": " + missing.join("، ") : ""}.`,
+    ready: `الوثائق تاع الملف ${ref} كاملين${issues ? `، بصح كاين ${issues} نقطة لازم نوضحوها قبل التصريح` : ""}.`,
+    declared: `الملف ${ref} تصرّح في الديوانة. راني نتبع ونخبرك كي تتنحّى السلعة.`,
+    released: `خبر مليح: السلعة تاع الملف ${ref} خرجت (mainlevée).` }[d.status];
+  const dd = dl.date && d.status !== "declared" && d.status !== "released" ? `\nآخر أجل في المخزن المؤقت: ${dl.date} (${dl.days >= 0 ? `باقي ${dl.days} يوم` : "فات الأجل"}).` : "";
+  return `السلام عليكم ${c}،\n${s}${dd}\nبالتوفيق.`;
+}
+
+// ===== Rendering =====
+function render() {
+  const sorted = [...dossiers].sort((a, b) => {
+    const A = deadlineOf(a), B = deadlineOf(b), rank = x => x.level === "crit" ? 0 : x.level === "warn" ? 1 : x.level === "none" ? 2 : 3;
+    return rank(A) - rank(B) || (A.days ?? 999) - (B.days ?? 999);
+  });
+  const counts = { crit: 0, warn: 0, ok: 0 };
+  sorted.forEach(d => { const l = deadlineOf(d).level; if (counts[l] !== undefined) counts[l]++; });
+  $("summary").innerHTML = `<span class="pill crit">${counts.crit} عاجل</span><span class="pill warn">${counts.warn} قريب</span><span class="pill ok">${counts.ok} في الأمان</span><span class="pill">${dossiers.length} ملفاً</span>`;
+  $("list").innerHTML = sorted.length ? sorted.map(d => {
+    const dl = deadlineOf(d), issues = checks(d).filter(x => x.level === "crit").length;
+    return `<button class="dos ${dl.level} ${current === d.id ? "sel" : ""}" data-id="${esc(d.id)}">
+      <span><b>${esc(d.ref || "ملف بلا مرجع")}</b><span class="muted" style="font-size:13px">${esc(d.client || "—")} · ${STATUS[d.status]}</span></span>
+      <span class="hide-sm muted" style="font-size:13px">${(d.docs || []).length} وثائق${issues ? ` · <span style="color:var(--crit)">${issues} مشكلة</span>` : ""}</span>
+      <span class="pill ${dl.level === "none" ? "" : dl.level}">${dl.days === null ? (dl.level === "ok" ? "✓" : "—") : dl.days < 0 ? `+${-dl.days} ي` : `J-${dl.days}`}</span>
+      <span class="hide-sm mono muted ltr">${esc(d.unloading || "")}</span></button>`;
+  }).join("") : `<div class="empty"><b style="color:var(--ink)">لا توجد ملفات بعد</b><span>أنشئ ملفاً، وأدخل تاريخ التفريغ، ثم أسقط الوثائق. المنصة تحسب الأجل وتدقق الوثائق وتجهّز بطاقة التصريح ورسالة الزبون.</span><button class="primary" onclick="createDossier()">+ أول ملف</button></div>`;
+  renderDetail();
+}
+
+function renderDetail() {
+  const d = dossiers.find(x => x.id === current);
+  $("detail").hidden = !d;
+  if (!d) return;
+  $("d-title").textContent = d.ref || "ملف جديد";
+  for (const [id, k] of [["f-ref", "ref"], ["f-client", "client"], ["f-unload", "unloading"], ["f-status", "status"]])
+    if (document.activeElement !== $(id)) $(id).value = d[k] || (k === "status" ? "docs" : "");
+  const dl = deadlineOf(d);
+  $("deadline").className = "deadline " + (dl.level === "none" ? "" : dl.level);
+  $("deadline").innerHTML = dl.days === null ? `<span>${esc(dl.label)}</span>` :
+    `<span class="big">${dl.days < 0 ? "+" + -dl.days : "J-" + dl.days}</span><span><b>${esc(dl.label)}</b><br><span style="font-size:13px">آخر أجل: <span class="mono ltr">${dl.date}</span> (21 يوماً من التفريغ)</span></span>`;
+  $("docs").innerHTML = (d.docs || []).map((x, i) => {
+    const v = x.data, kv = [["رقم", v.number || v.bl_number], ["التاريخ", v.date], ["المجموع", num(v.total_amount) !== null ? fmt(v.total_amount) + " " + (v.currency || "") : null],
+      ["الطرود", v.packages], ["القائم", num(v.gross_kg) !== null ? fmt(v.gross_kg) + " كغ" : null], ["البنود", (v.items || []).length || null]].filter(([, val]) => val !== null && val !== undefined && val !== "");
+    return `<div class="doc"><div class="row between"><b>${DOC_TYPE[x.type] || "وثيقة"}</b><span class="row"><span class="mono muted">${esc(x.name)}</span><button class="danger copy" data-rmdoc="${i}">حذف</button></span></div>
+      <div class="kv">${kv.map(([k, val]) => `<span><span class="muted">${k}:</span> <span class="ltr">${esc(val)}</span></span>`).join("")}</div>
+      <details><summary>كل البيانات المستخرجة</summary><pre class="mono" style="white-space:pre-wrap;overflow-wrap:anywhere;margin:6px 0 0">${esc(JSON.stringify(v, null, 1))}</pre></details></div>`;
+  }).join("");
+  $("checks").innerHTML = checks(d).map(f => `<li class="${f.level}">${f.text}</li>`).join("");
+  sheet(d);
+  if (document.activeElement !== $("msg")) $("msg").value = message(d, $("m-lang").value);
+}
+
+// ===== Persistence =====
+const queue = new Map();
+async function save(d) {
+  d.updated = new Date().toISOString();
+  render();
+  if (memoryOnly || !db || !uid) return;
+  const prev = queue.get(d.id) || Promise.resolve();
+  const next = prev.then(() => col().doc(d.id).set(JSON.parse(JSON.stringify(d)))).catch(e => {
+    banner(e.code === "quota_exceeded" ? "المساحة ممتلئة: احذف ملفات قديمة." : "تعذّر الحفظ. تحقّق من الاتصال.", true);
+  });
+  queue.set(d.id, next);
+  return next;
+}
+const col = () => db.doc("data/users/" + uid + "/profile").collection("dossiers");
+
+function createDossier() {
+  const id = "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const d = { id, ref: "", client: "", unloading: "", status: "docs", docs: [], created: new Date().toISOString() };
+  dossiers.push(d); current = id; save(d);
+  setTimeout(() => $("f-ref").focus(), 0);
+}
+window.createDossier = createDossier;
+
+// ===== Reading documents with Claude (pain F + D) =====
+const PROMPT = `You read one customs / shipping document for an Algerian customs declarant and return its data.
+Return ONLY one JSON object with exactly these keys (use null when a value is not on the document; never guess or invent):
+{"doc_type": "invoice" | "packing_list" | "bill_of_lading" | "certificate_origin" | "other",
+ "number": string|null, "date": "YYYY-MM-DD"|null,
+ "supplier": string|null, "shipper": string|null, "consignee": string|null,
+ "currency": string|null, "incoterm": string|null, "total_amount": number|null,
+ "packages": number|null, "gross_kg": number|null, "net_kg": number|null,
+ "containers": [string], "bl_number": string|null, "vessel": string|null,
+ "port_loading": string|null, "port_discharge": string|null, "eta": "YYYY-MM-DD"|null,
+ "origin_country": string|null,
+ "items": [{"description": string, "hs_code": string|null, "quantity": number|null, "unit": string|null,
+            "unit_price": number|null, "amount": number|null, "net_kg": number|null, "gross_kg": number|null, "origin": string|null}],
+ "anomalies": [string]}
+Rules: numbers use a dot as decimal separator and no thousands separator; weights in kilograms; keep descriptions in the document's language;
+"anomalies" lists, in Arabic, short concrete problems you see ON THIS DOCUMENT (illegible field, missing signature or stamp, totals that do not add up, inconsistent dates). Empty list if none.`;
+
+async function pdfInput(file) {
+  if (!window.pdfjsLib) throw new Error("pdf");
+  const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer(), isEvalSupported: false }).promise;
+  const pages = Math.min(pdf.numPages, 12);
+  let text = "";
+  for (let p = 1; p <= pages; p++) {
+    const c = await (await pdf.getPage(p)).getTextContent();
+    text += `\n--- page ${p} ---\n` + c.items.map(i => i.str + (i.hasEOL ? "\n" : " ")).join("");
+  }
+  if (text.replace(/\s|-|page|\d/g, "").length > 40) return { text: text.slice(0, 120000) };
+  // scanned PDF: send page images
+  const max = Math.min(pages, (await sample.limits().catch(() => null))?.images?.maxCount || 0, 5);
+  if (!imagesOk || !max) throw new Error("scan");
+  const images = [];
+  for (let p = 1; p <= max; p++) {
+    const page = await pdf.getPage(p), vp = page.getViewport({ scale: 1.6 });
+    const cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height;
+    await page.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+    images.push(await new Promise(r => cv.toBlob(r, "image/jpeg", 0.85)));
+  }
+  return { images };
+}
+
+async function readFiles(files) {
+  const d = dossiers.find(x => x.id === current);
+  if (!d || !files.length) return;
+  if (!sample) { banner("قراءة الوثائق بالذكاء الاصطناعي غير متاحة في هذا العرض. افتح الصفحة في Claude.", true); return; }
+  ctl = new AbortController();
+  $("stop").hidden = false; $("progress").hidden = false; $("pick").disabled = true;
+  let n = 0;
+  for (const file of files) {
+    n++;
+    $("progress").textContent = `يقرأ ${file.name} (${n}/${files.length})… قد يستغرق ذلك حتى دقيقة.`;
+    try {
+      let input;
+      if (file.type === "application/pdf") input = await pdfInput(file);
+      else if (imagesOk) input = { images: [file] };
+      else throw new Error("scan");
+      const prompt = input.text ? PROMPT + "\n\nDOCUMENT TEXT:\n" + input.text : PROMPT + "\n\nThe document is in the attached image(s).";
+      const data = await sample.json(prompt, { signal: ctl.signal, images: input.images, modelTier: "default" });
+      if (!data || typeof data !== "object") throw { code: "invalid_json" };
+      const type = DOC_TYPE[data.doc_type] ? data.doc_type : "other";
+      d.docs = [...(d.docs || []), { name: file.name, type, data, added: new Date().toISOString() }];
+      if (!d.ref && (data.bl_number || data.number)) d.ref = data.bl_number || data.number;
+      await save(d);
+    } catch (e) {
+      if (e?.code === "cancelled") break;
+      const msg = e?.message === "scan" ? "وثيقة ممسوحة (صورة) ولا يمكن إرسال الصور في هذا العرض."
+        : e?.message === "pdf" ? "تعذّر تحميل قارئ PDF. أعد تحميل الصفحة."
+        : e?.code === "not_granted" ? "لم يُسمح للصفحة باستعمال Claude. اسمح بذلك من نافذة الإذن ثم أعد المحاولة."
+        : e?.code === "rate_limited" ? "حدّ الاستعمال وصل. أعد المحاولة بعد قليل."
+        : e?.code === "invalid_json" ? "لم تُفهم الإجابة. أعد المحاولة لهذه الوثيقة."
+        : e?.code === "image_rejected" ? "الصورة مرفوضة (حجم أو نوع غير مقبول)."
+        : "تعذّرت قراءة الوثيقة. أعد المحاولة.";
+      toast(`${file.name}: ${msg}`);
+      if (e?.code === "not_granted" || e?.code === "rate_limited") break;
+    }
+  }
+  $("stop").hidden = true; $("progress").hidden = true; $("pick").disabled = false; $("file").value = "";
+}
+
+// ===== Events =====
+$("new").onclick = createDossier;
+$("list").addEventListener("click", e => { const b = e.target.closest(".dos"); if (b) { current = b.dataset.id; render(); $("detail").scrollIntoView({ behavior: "smooth", block: "start" }); } });
+$("close").onclick = () => { current = null; render(); };
+$("del").onclick = async () => {
+  const d = dossiers.find(x => x.id === current); if (!d) return;
+  if ($("del").dataset.armed !== "1") { $("del").dataset.armed = "1"; $("del").textContent = "تأكيد الحذف؟"; setTimeout(() => { $("del").dataset.armed = ""; $("del").textContent = "حذف الملف"; }, 3000); return; }
+  $("del").dataset.armed = ""; $("del").textContent = "حذف الملف";
+  dossiers = dossiers.filter(x => x.id !== d.id); queue.delete(d.id); current = null; render();
+  if (!memoryOnly && db && uid) await col().doc(d.id).delete().catch(() => toast("تعذّر الحذف."));
+};
+for (const [id, k] of [["f-ref", "ref"], ["f-client", "client"], ["f-unload", "unloading"], ["f-status", "status"]]) {
+  $(id).addEventListener("change", () => { const d = dossiers.find(x => x.id === current); if (d && d[k] !== $(id).value) { d[k] = $(id).value; save(d); } });
+}
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll("[data-pane]").forEach(p => p.hidden = p.dataset.pane !== b.dataset.tab);
+});
+$("m-lang").onchange = () => { const d = dossiers.find(x => x.id === current); if (d) $("msg").value = message(d, $("m-lang").value); };
+async function copy(text) {
+  try { await navigator.clipboard.writeText(text); toast("نُسخ"); }
+  catch { toast("انسخ يدوياً: حدّد النص"); }
+}
+$("copy-msg").onclick = () => copy($("msg").value);
+document.addEventListener("click", e => {
+  const c = e.target.closest("[data-copy]"); if (c) copy(c.dataset.copy);
+  const r = e.target.closest("[data-rmdoc]");
+  if (r) { const d = dossiers.find(x => x.id === current); if (d) { d.docs = d.docs.filter((_, i) => i !== Number(r.dataset.rmdoc)); save(d); } }
+});
+$("pick").onclick = () => $("file").click();
+$("file").onchange = () => readFiles([...$("file").files]);
+$("stop").onclick = () => ctl?.abort();
+const drop = $("drop");
+drop.addEventListener("dragover", e => { e.preventDefault(); drop.classList.add("over"); });
+drop.addEventListener("dragleave", () => drop.classList.remove("over"));
+drop.addEventListener("drop", e => { e.preventDefault(); drop.classList.remove("over"); readFiles([...e.dataTransfer.files]); });
+
+// ===== Start =====
+(async function start() {
+  render();
+  if (!window.claude?.use) { memoryOnly = true; banner("افتح هذه الصفحة داخل Claude لحفظ الملفات وقراءة الوثائق. في هذا العرض لا يُحفظ شيء."); $("list").innerHTML = ""; render(); return; }
+  const [dbNs, sampleNs, userNs] = await Promise.all([claude.use("db"), claude.use("sample"), claude.use("user")]);
+  db = dbNs; sample = sampleNs;
+  if (sample) imagesOk = !!(await sample.limits().catch(() => null))?.images;
+  uid = userNs ? await userNs.id() : null;
+  if (!db || !uid) { memoryOnly = true; banner("الحفظ غير متاح في هذا العرض (سجّل الدخول إلى Claude). الملفات تبقى حتى إغلاق الصفحة فقط."); render(); return; }
+  const timer = setTimeout(() => banner("الملفات لم تصل بعد. تحقّق من الاتصال."), 10000);
+  col().onSnapshot(snap => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); if ($("banner").textContent.startsWith("الملفات لم")) banner(""); }
+    const local = new Map(dossiers.map(d => [d.id, d]));
+    dossiers = snap.docs.map(s => {
+      const remote = JSON.parse(JSON.stringify(s.data()));
+      const mine = local.get(s.id);
+      return mine && mine.updated > (remote.updated || "") ? mine : remote;   // keep an edit not yet confirmed
+    });
+    for (const [id, d] of local) if (!dossiers.some(x => x.id === id) && queue.has(id)) dossiers.push(d);
+    render();
+  }, e => { clearTimeout(timer); banner(e.code === "revoked" ? "انتهى الوصول إلى الملفات في هذا العرض." : "تعذّر تحميل الملفات.", true); });
+})();
+</script>
