@@ -1,0 +1,778 @@
+   Projet sur les douanes intelligentes
+
+
+   Résultats de
+   l’enquête de l’OMD
+   sur les douanes
+   intelligentes
+   JUILLET 2024
+
+
+
+
+wcoomd.org
+
+                                          1
+2
+         Projet sur les douanes intelligentes
+
+
+Résultats de l’enquête de l’OMD sur
+     les douanes intelligentes
+
+                   JUILLET 2024
+4
+Table des matières
+
+
+ABRÉVIATIONS ET ACRONYMES .............................................................................................................................................................................................................................. 4
+
+Introduction: but de l’enquête ............................................................................................................................................................................................................................................. 5
+
+I. Participation à l’enquête .................................................................................................................................................................................................................................................... 5
+
+II. Stratégie et maturité informatiques ............................................................................................................................................................................................................... 6
+
+III. Situation de l’adoption des différentes technologies ........................................................................................................................................................ 8
+
+IV. Impact escompté et difficulté d’adoption ........................................................................................................................................................................................ 11
+
+V. Adoption de la technologie au service de l’amélioration des performances douanières.................................... 14
+
+VI. Renforcement des capacités.................................................................................................................................................................................................................................. 15
+
+V. Sélection des technologies-phares .............................................................................................................................................................................................................. 17
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+ABRÉVIATIONS ET ACRONYMES
+
+
+ AD          Analyse des données
+ AMS         Région de l’OMD - Amérique/Caraïbes
+ AOA         Région de l’OMD - Afrique orientale et australe
+ AOC         Région de l’OMD - Afrique occidentale et centrale
+ AP          Région de l’OMD - Asie/Pacifique
+ CN          Correspondants nationaux
+ EUR         Région de l’OMD - Europe
+ IA/AA       Intelligence artificielle/apprentissage automatique
+ IdO         Internet des objets
+ MENA Région de l’OMD - Afrique du Nord, Proche et Moyen-Orient
+ OMD         Organisation mondiale des douanes
+ RV          Réalité virtuelle, réalité augmentée et réalité mixte
+
+
+
+
+4
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+Introduction: but de l’enquête
+L’enquête de l’OMD sur les douanes intelligentes a été lancée le 17 avril 2024. Sa date limite, initiale-
+ment fixée au 6 mai 2024, a par la suite été reportée au 15 mai 2024. En réponse aux demandes des
+Membres, des soumissions ultérieures ont été enregistrées jusqu'au 24 juin 2024.
+L’enquête visait les objectifs suivants :
+
+    -    évaluer le niveau mondial d'adoption de la technologie ;
+    -    déterminer les besoins des Membres en termes de renforcement des capacités liées à l’applica-
+         tion des technologies ;
+    -    définir les technologies (au nombre de trois maximum) sur lesquelles le Projet devrait se con-
+         centrer. L’équipe du projet rédigera des rapports détaillés au sujet des spécifications tech-
+         niques minimales (pour la mise en œuvre/l’intégration), des coûts et des tendances, ainsi que
+         des cas d’utilisation, des processus opérationnels, des arrangements politiques et des exigences
+         légales encadrant l’adoption des trois technologies sur lesquelles est axé le Projet ;
+    -    établir une communauté des Douanes intelligentes : des Correspondants nationaux (CN) seront
+         désignés pour le projet sur les douanes intelligentes ;
+    -    partager des connaissances sur les technologies de rupture appliquées aux matières douanières
+         ;
+    -    identifier les Membres intéressés par la mise au point d'études de cas approfondies sur l'adop-
+         tion de la technologie. Ces études de cas seront utilisées pour mettre à jour le Rapport d’étude
+         sur les technologies de rupture ou pour alimenter le portail de la Communauté.
+
+Étant donné que l’un des principaux défis de l'adoption de technologies concerne l’accueil que d’autres
+parties prenantes coopérant avec la douane réservent à ces technologies, une deuxième étude a été
+lancée en parallèle pour inviter les Membres de l’OMD à diffuser un lien dédié vers l’enquête auprès de
+tous les organismes gouvernementaux qui participent à la mise en œuvre et/ou à l’utilisation des tech-
+nologies que les Membres adoptent ou envisagent d'adopter.
+
+
+
+    I.        Participation à l’enquête
+Le niveau de participation à l’enquête est élevé et équilibré entre les régions de l’OMD.
+
+116 soumissions ont été reçues au total - ce qui signifie que 62 % du total des Membres de l’OMD ont
+répondu à l’enquête.
+
+Les quatre régions ayant enregistré le plus fort taux de participation sont l’ESA et l’AP, suivies ex aequo
+par l’AOC, AMS et EUR.
+
+
+                                  Niveau de participation par région de l'OMD
+
+
+
+                                                 50%                  79%                        AOA
+
+                                  58%                                                            AP
+                                                                                                 AOC
+                                                                            71%
+                                                                                                 AMS
+                                    58%
+                                                                                                 EUR
+                                                           58%
+                                                                                                 MENA
+
+
+
+
+                                                                                                            5
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+      Région de l’OMD           Nombre de soumissions                 Membre de l’OMD    Taux de participation
+
+ AOA                                                       19                       24                   79 %
+ AP                                                        25                       35                   71 %
+ AOC                                                       14                       24                   58 %
+ AMS                                                       19                       33                   58 %
+ EUR                                                       30                       52                   58 %
+ MENA                                                        9                      18                   50 %
+ TOTAL                                                     116                     186                   62 %
+
+
+78 % des participants (soit 90 Membres) ont donné des détails au sujet des technologies adoptées/en
+cours de développement/en cours d’examen, et huit Membres ont soumis des fichiers distincts détail-
+lant des études de cas.
+En outre, 63 % des participants (73 Membres) se sont déclarés disposés à communiquer davantage
+d’informations et à mettre au point des études de cas sur une technologie ou plusieurs.
+
+Seulement six organismes partenaires ont répondu à l’enquête que les douanes leur avaient transférée.
+Ces organismes gouvernementaux sont les suivants : ministère des Finances ; organisme chargé des ré-
+seaux commerciaux ; ministère de la Présidence ; agence de régulation des télécommunications, des
+radiocommunications et de la radiotélédiffusion ; ministère du Commerce et des échanges (départe-
+ment du tourisme) et département des technologies de l’information. Pendant les premières réunions
+tenues avec les CN les 17 et 20 juin 2024, les Membres ont exprimé un certain degré d’intérêt pour
+une nouvelle collecte des données auprès des organismes partenaires, afin d'enrichir l’enquête, et ont
+repoussé la date limite pour ce faire.
+
+
+
+      II.     Stratégie et maturité informatiques
+Une stratégie informatique est en place dans 92 % des cas.
+
+Concernant le niveau de maturité de l’innovation technologique et de l’adoption des technologies, la
+majorité des réponses ont rendu compte d’un niveau de maturité opérationnel (30 %) et avancé (27 %).
+
+Le niveau transformationnel (7 %) se classe dernier, derrière le niveau initial (13 %) et le niveau expéri-
+mental (23 %), ce qui souligne qu’il existe une marge d'amélioration.de participation à l’enquête est
+élevé et équilibré entre les régions de l’OMD.
+
+              Nombre de Membres de l'OMD ayant une stratégie d’adoption des outils
+                         informatiques et de gestion de l’information
+
+
+                                                   8%
+
+
+
+                                                           92%
+
+
+
+
+                                                     Oui    Non
+
+
+
+
+6
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+              Maturité en matière d’innovation soutenue par les technologies et d’adoption
+                                            des technologies
+
+
+                                                                      Initial (prise de conscience) - Niveau 1
+                               7%     13%
+                 27%                                                  Expérimental (ad hoc)- Niveau 2
+                                                    23%
+                                                                      Opérationnel (établi)- Niveau 3
+
+                                30%                                   Avancé (systémique) - Niveau 4
+
+                                                                      Transformationnel (généralisé) - Niveau 5
+
+
+
+
+ Niveau 1       Initial             À ce stade, l’administration commence à reconnaître l’importance de l’in-
+                (prise de           novation, mais n’a pas encore développé une capacité d’innovation struc-
+                conscience)         turée. La prise de décision est ad hoc, motivée par des initiatives indivi-
+                                    duelles, et tend à être effectuée en réaction aux exigences opération-
+                                    nelles. Les processus impliquent une numérisation partielle, avec des ex-
+                                    tractions de données manuelles. L’architecture informatique interne est
+                                    fragmentée.
+ Niveau 2       Expérimental        Dans cette phase, l’administration recherche activement des possibilités
+                (ad hoc)            d’innovation, mais la démarche a tendance à être ad hoc. Des projets pi-
+                                    lotes sont menés et l’expertise technologique est essentiellement cloi-
+                                    sonnée. La coordination entre les équipes est minimale, bien qu’un cer-
+                                    tain partage des bonnes pratiques ait lieu sans processus formel au sein
+                                    de l’entreprise.
+ Niveau 3       Opérationnel        À ce stade, des équipes chargées de l’innovation sont mises en place et
+                (établi)            l’administration formalise son approche et évolue vers une capacité d’in-
+                                    novation durable avec des solutions évolutives. Des plans de déploie-
+                                    ment de technologies de rupture sont établis conformément aux objec-
+                                    tifs stratégiques. La direction soutient cette approche et une feuille de
+                                    route de transformation pluriannuelle claire est en place.
+ Niveau 4       Avancé              De multiples innovations et solutions sont déployées à partir d’un réper-
+                (systémique)        toire géré. Un environnement de collaboration soutient les applications
+                                    technologiques pour différents cas d’utilisation. L’administration dispose
+                                    d’une architecture de données et d’une gouvernance informatique
+                                    claires. Des partenariats stratégiques sont utilisés pour l’innovation tech-
+                                    nologique. Des directives relatives à l’architecture d’entreprise garantis-
+                                    sent la cohérence, la sécurité et la conformité dans l’ensemble de l’orga-
+                                    nisation.
+ Niveau 5       Transforma-         L’innovation fait l’objet d’une planification stratégique et bénéficie d’un
+                tionnel             financement, et elle est encouragée dans toute l’entreprise, devenant
+                (généralisé)        ainsi un processus opérationnel essentiel. Les technologies de rupture et
+                                    les pratiques innovantes sont pleinement intégrées dans les processus
+                                    opérationnels au sein d’une infrastructure informatique homogène. L’ac-
+                                    cent est mis sur l’amélioration continue et l’obsolescence planifiée est
+                                    gérée. L’administration se dote d’une forte capacité interne de dévelop-
+                                    pement numérique et encourage une culture de l’innovation, allant au-
+                                    delà du simple respect des bonnes pratiques, pour devenir un précurseur
+                                    dans ce domaine.
+
+
+
+                                                                                                                  7
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+Sur le graphique ci-dessous sont représentés ces niveaux de maturité, par région de l’OMD.
+
+                   Maturité en matière d’innovation soutenue par les technologies et d’adoption
+                                     des technologies : répartition régionale
+
+     WCA              3                    5                4               1
+
+    MENA              3        1       2            2
+
+      EUR                 4                     5                       6                                  9                       2
+
+      ESA             3        1                5                               9                     1
+
+       AP         2                              10                                          8                   2        2
+
+     AMS          2                5                            7                            4        1
+
+             0                         5                    10                          15                  20                     25            30
+
+                                   1.Initial (prise de conscience)                      2. Expérimental (ad hoc)
+                                   3. Opérationnel (établi)                             4.Avancé (systémique)
+                                   5. Transformationnel (généralisé)
+
+
+
+
+      III.         Situation de l’adoption des différentes technologies
+      Les mégadonnées et l’analyse des données (AD) sont les solutions les plus fréquemment adoptées
+      (23 Membres), devant l’informatique en nuage (17), la biométrie (13), l’intelligence artificielle/ap-
+      prentissage automatique (AI/AA), les drones (12) et la cartographie géospatiale (11).
+
+      Cette comparaison des statuts d'adoption des différentes technologies met en évidence la préva-
+      lence du stade de développement (projets pilotes, validation de concepts et technologies en cours
+      d’examen aux fins de planification des investissements) par rapport au statut de mise en œuvre
+      complète.
+
+                   Nombre de Membres ayant actuellement adopté la technologie (déploiement
+                                                 complet)
+
+                      Mégadonnées et AD                                                                                                     23
+                   Informatique en nuage                                                                                      17
+                                       Biométrie                                                                13
+                                               IA/AA                                                       12
+                                           Drones                                                          12
+                 Cartographie géospatiale                                                             11
+                          Internet des objets                                                    9
+                              Chaîne de blocs                                       6
+                                           Robots                           4
+    Réalité virtuelle, augmentée, mixte                             3
+
+                                                        0                   5                    10                  15                20        25
+
+
+
+
+8
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+Le contexte régional pour considérablement influencer l’environnement général de l’adoption des tech-
+nologies, notamment en raison de facteurs tels le développement économique, les infrastructures et
+politiques publiques. Par conséquent, la répartition régionale des statuts d'adoption des différentes
+technologies est présentée afin d'affiner la granularité des résultats et de tenir compte du contexte
+dans les évaluations pour ainsi tenter de corriger la fracture numérique.
+
+
+
+                                                Comparaison des statuts d’adoption
+
+                  Biométrie           13         13          34
+                                                                                                  Déjà adoptée
+ Cartographie géospatiale         11             16          31                                   (déploiement
+                                                                                                  complet)
+           Chaîne de blocs        6        8                 57
+
+                    Drones        12             17               37
+
+                     IA/AA        12                   43                   45                    En cours de
+                                                                                                  développement (y
+    Informatique en nuage             17              25               36                         compris la
+                                                                                                  démonstration de
+        Internet des objets       9             15           37                                   faisabilité et des
+                                                                                                  projets pilotes)
+      Mégadonnées et AD                    23                41                  40
+                                                                                                  En cours d’examen
+                     Robots    4 7                    39                                          (prévu)
+
+                         RV    3 8                    38
+
+                              0                  20         40         60    80       100   120
+
+
+
+
+                                                                                                                       9
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+Les technologies semblant présenter le plus fort potentiel de développement (en cours de développe-
+ment ou d’examen) sont l’IA/AA, devant les mégadonnées et l’AD, la chaîne de blocs et l’informatique en
+nuage.
+
+
+
+
+10
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+    IV.       Impact escompté et difficulté d’adoption
+L’IA/AA, les mégadonnées et l’AD semblent être les technologies dont l’impact escompté est le plus
+élevé, et obtiennent des scores de difficulté relativement modérés.
+
+La chaîne de blocs et l’informatique en nuage sont considérées comme les plus difficiles à adopter, mal-
+gré un effet estimé qui reste substantiel. La répartition régionale de ces technologies est illustrée ci-
+dessous.
+
+
+
+
+                                                                                                      11
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+                                                          Impact prévu contre difficulté d'adoption
+
+                              7,50
+
+
+
+                                                          Robots; 5,31; 7,07
+                              7,00                                                Chaîne de blocs;
+                                                    RV; 5,07; 6,98                  6,78; 6,77
+
+                                                                                                   Informatique en
+  Difficulté moyenne (6.07)
+
+
+
+
+                              6,50                                                                nuage; 7,59; 6,78
+
+
+
+                                           Impression en 3D;                                                              Intelligence
+                              6,00                                                                                       artificielle et
+                                              4,58; 6,01
+                                                                    Drones; 6,06; 5,63                                  apprentissage
+                                                                               Internet des objets;                   automatique; 8,63;
+                                                                                                                              5,95
+                                                                 Biométrie ; 5,76; 6,51; 5,63
+                              5,50
+                                                                      5,57
+
+                                                                                 Cartographie
+                                                                               géospatiale; 6,39;
+                              5,00                                                   5,27                               Mégadonnées et
+                                                                                                                         analyse des
+                                                                                                                        données; 8,78;
+                                                                                                                            5,12
+                              4,50
+                                 4,30              5,30                6,30                7,30               8,30                 9,30
+                                                                         Impact moyen (6,5)
+
+
+
+                                                     Impact moyen attendu : répartition régionale ​
+ 10,0
+      9,0
+      8,0
+      7,0
+      6,0
+      5,0
+      4,0
+      3,0
+      2,0
+      1,0
+      0,0
+                                     AMS             AOA                 AOC                AP                EUR              MENA
+
+                                     Informatique en nuage          Cartographie géospatiale         Robots
+                                     Impression en 3D               RV                               Drones
+                                     Biométrie                      IA/AA                            Mégadonnées et AD
+                                     Internet des objets            Chaîne de blocs
+
+
+
+
+12
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+                               Difficulté de mise en œuvre : répartition régionale ​
+ 9,0
+
+ 8,0
+
+ 7,0
+
+ 6,0
+
+ 5,0
+
+ 4,0
+
+ 3,0
+
+ 2,0
+
+ 1,0
+
+ 0,0
+              AMS                 AP                 EUR              MENA          AOA            AOC
+
+               Biométrie                        Mégadonnées et AD            Internet des objets
+               Chaîne de blocs                  RV                           Impression en 3D
+               IA/AA                            Robots                       Cartographie géospatiale
+               Informatique en nuage            Drones
+
+
+
+
+                                                                                                         13
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+     V.       Adoption de la technologie au service de l’amélioration des
+              performances douanières
+L’adoption de la technologie contribue, ou devrait contribuer, à améliorer les performances des
+douanes, principalement dans des domaines liés à la facilitation des échanges et à la compétitivité éco-
+nomique, ainsi qu’à la lutte contre la fraude, à la sécurité et à la protection de la société, même si cela
+est moins marqué dans les domaines du recouvrement des recettes et du développement organisation-
+nel.¹
+
+
+
+              Domaines de performance améliorés par l'adoption de technologies de rupture
+
+               Circulation facilitée des marchandises                                                                        95
+                                   Qualité des services                                                                      93
+             Recours aux techniques de ciblage et de…                                                                    91
+        Lutte contre le commerce illicite des produits…                                                                 90
+                                Commerce sans papier                                                                    88
+  Confiance dans les relations avec le secteur privé                                                               83
+     Lutte contre les marchandises contrefaites et le…                                                         79
+                      Lutte contre le trafic de drogue                                                        77
+       Dédouanement et livraison dans le commerce…                                                        74
+        Enquêtes financières visant à lutter contre le…                                                  71
+                Respect des règles de classement des…                                                    70
+               Recouvrement des recettes plus juste                                                  67
+            Lutte contre la prolifération des armes et…                                             65
+                      Protection de la santé publique                                               65
+                              Niveau d’éthique avancé                                               64
+     Lutte contre les menaces pour l’environnement                                              61
+                        Degré élevé de responsabilité                                          59
+          Respect volontaire des règles en matière de…                                         58
+                   Circulation facilitée des personnes                                     57
+                Personnel plus compétent et motivé                                         56
+ Lutte contre le trafic illicite du patrimoine culturel                                    56
+     Précision de la planification stratégique associée…                                  53
+                    Gestion des ressources humaines                                  46
+                                       Égalité de genre                    26
+
+                                                            0    10   20   30   40   50   60        70    80        90 100
+
+
+
+
+¹ Il est ici fait référence au Mécanisme de mesure de la performance de l’OMD :
+https://www.wcoomd.org/en/topics/capacity-building/instrument-and-tools/pmm.aspx
+
+
+
+
+14
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+    VI.       Renforcement des capacités
+Les Membres ont déclaré avoir besoin d’un accompagnement en termes de renforcement des capacités
+dans quatre principaux domaines, à savoir : compétences techniques ; sensibilisation à la cybersécurité ;
+politique et gouvernance en matière de technologies de l’information ; planification stratégique et ges-
+tion des changements. Viennent ensuite l’architecture de base de données ; la thématique des proces-
+sus et de la gouvernance ; la gestion de projets puis les considérations éthiques. L’adoption de la tech-
+nologie contribue, ou devrait contribuer, à améliorer les performances des douanes.
+
+
+
+                               Besoins en matière de renforcement des capacités
+
+                  Compétences techniques                                                           97
+
+         Sensibilisation à la cybersécurité                                             74
+
+ Politique et gouvernance en matière de…                                               72
+
+   Planification stratégique et gestion du…                                           71
+
+                Processus et gouvernance                                        59
+
+        Architecture de base de données                                         58
+
+                           Gestion de projet                                   56
+
+                   Considérations éthiques                            32
+
+                                        Autres            10
+
+                                                  0         20         40     60        80        100       120
+
+
+ Compétences techniques            Développer les compétences spécifiques requises pour mettre en œuvre,
+                                   maintenir et optimiser efficacement les nouvelles solutions technolo-
+                                   giques.
+ Sensibilisation à la cyber-       Comprendre et atténuer les menaces et vulnérabilités associées aux nou-
+ sécurité                          velles technologies afin de protéger les données et les systèmes des cy-
+                                   ber-attaques.
+ Politique et gouvernance          Créer et appliquer des politiques et cadres pour régir l’utilisation des tech-
+ informatiques                     nologies au secours des buts stratégiques de l’administration, et garantir
+                                   ainsi le conformité et la sécurité au sein de l'administration. Ces politiques
+                                   sont garantes d’une mise en œuvre transparente des technologies, elles
+                                   guident l’affectation des ressources aux projets technologiques critiques
+                                   et soutiennent l’innovation.
+ Planification stratégique         Faire correspondre l’adoption des technologies avec les buts de l’organi-
+ et gestion des change-            sation et gérer la transition afin de garantir l’engagement des parties pre-
+ ments                             nantes et leur soutien.
+ Architecture de base de           Concevoir et gérer des bases de données pour optimiser le stockage, la
+ données                           récupération et la gestion des données pour de nouvelles solutions tech-
+                                   niques.
+ Processus et gouver-              Établir des procédures et des politiques visant la gestion systématique et
+ nance                             transparente de la prise de décisions relatives à l’adoption de technolo-
+                                   gies, au suivi des performances et à la conformité. En effet, des processus
+                                   rationalisés facilitent l’adoption technique et appuient la gestion du chan-
+                                   gement. Des processus bien définis rendent possible l’identification pré-
+                                   coce des potentiels risques et permettent d'élaborer des stratégies d'at-
+                                   ténuation afin de prévenir les défaillances relatives à l'adoption de
+
+
+
+                                                                                                               15
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+                                   technologies. Grâce aux structures de gouvernance, des indicateurs et
+                                   indicateurs clés de performance peuvent être établis, ce qui facilite le
+                                   suivi et l’évaluation de la réussite de l'adoption des technologies.
+ Gestion de projets                Planifier, exécuter et superviser les projets technologiques pour garantir
+                                   leur réalisation dans les délais, mais aussi dans le respect de leur champ
+                                   d'application et des budgets.
+ Considérations éthiques           Comprendre les implications morales et les répercussions sociétales de
+                                   l’adoption de nouvelles technologies et y répondre.
+
+
+Voici les autres besoins en renforcement des capacités signalés : signatures numériques ; architecture
+d’entreprise ; administration des réseaux et des systèmes ; réseaux MPLS (MultiProtocol Label Swit-
+ching) ; systèmes de stockage ; bases de données Oracle ; MicroStrategy ; sauvegarde et restauration
+des données ; modélisation des données ; gestion informatique ; financement de recherche et dévelop-
+pement ; analyse scientifique de documents ; financement des priorités organisationnelles ; combinai-
+son entre connaissance de l’activité et vision/connaissances techniques (médiation) ; stimulation du
+soutien de la direction et de sa volonté à prendre des risques ; gestion des changements ; bases juri-
+diques ; création de connaissances et vulgarisation des complexités, présentées sous des abords
+simples et compréhensibles ; acquisition simple pour essais pilotes et applications de l’IA et des méga-
+données en administration fiscale.
+
+La répartition régionale illustrée ci-dessous détaille l’importance des besoins en renforcement des capa-
+cités en fonction des contextes régionaux.
+
+
+
+                 Besoins en matière de renforcement des capacités : répartition régionale
+
+                  Compétences techniques                   18                        20                         23                 18    7   11
+
+
+          Sensibilisation à la cybersécurité              12               14             15                14           7     12
+
+
+ Politique et gouvernance en matière de…                  13                    16        17                    11       6     9
+
+
+     Planification stratégique et gestion du…              14               16             17                   8    5        11
+
+
+                Processus et gouvernance                  12           8             15         12          3        9
+
+
+         Architecture de base de données              10               13            16         6       3       10
+
+
+                           Gestion de projet          9            8                 17    7        6           9
+
+
+                   Considérations éthiques            8        4       11        4 14
+
+
+                                        Autres     4 1 212
+
+
+                                                  0                        20              40                            60             80        100   120
+
+                                     AOA      EUR          AP               AMS            MENA                          AOC
+
+
+
+
+16
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+    VII.      Sélection des technologies-phares
+L’un des buts de l’enquête de l’OMD sur les douanes intelligentes était d’identifier jusqu’à trois techno-
+logies sur lesquelles axer le Projet, et au sujet desquelles l’équipe du projet devait rédiger des rapports
+détaillés, exposant les spécifications techniques minimales (pour la mise en œuvre et l’intégration), les
+coûts et les tendances, sans oublier les cas d’utilisation, les processus opérationnels et les exigences
+légales.
+À cette fin, les Membres ont été priés d’indiquer les trois principales technologies/applications de tech-
+nologies que leur administration est susceptible d'adopter dans un avenir proche, et sur lesquelles ils
+souhaiteraient voir le projet Douanes intelligentes se concentrer. Membres ont déclaré avoir besoin
+d’un accompagnement en termes
+
+Voici les trois technologies le plus souvent citées par les Membres :
+
+    ▪    mégadonnées et AD,
+    ▪    IA/AA,
+    ▪    chaîne de blocs.
+
+Cette sélection dégage les technologies présentant le plus fort « potentiel de développement » et réunit
+des technologies que les Membres prévoient ou envisagent de développer.
+
+
+
+
+La sélection des trois technologies sur lesquelles centrer le projet est également corroborée par d’autres
+éléments probants issus de l’enquête, notamment liés à l’effet estimé de ces technologies et à leur diffi-
+culté d'adoption.
+
+
+
+
+                                                                                                         17
+OMD I Résultats de l’enquête de l’OMD sur les douanes intelligentes
+
+
+
+
+L’IA/AA, les mégadonnées et l’AD semblent être les technologies dont l’impact escompté est le plus
+élevé, et sont combinées à des scores de difficulté relativement modérés. La chaîne de blocs et l’infor-
+matique en nuage sont considérées comme les plus difficiles à adopter, malgré un effet estimé qui reste
+substantiel.
+En outre, pour des raisons d’efficacité, lors de la sélection des trois technologies-phares, il convient de
+garder à l’esprit que le champ d'application du projet ne doit pas faire double emploi avec d'autres outils
+de l’OMD ni avec d'autres activités et programmes que l’OMD mène en simultané.
+
+En conséquence des considérations énoncées ci-avant, les technologies sélectionnées respecteront les
+préférences des Membres, et le projet portera sur les trois technologies qui présentent le plus fort po-
+tentiel de développement et pour lesquels il n’existe aucun risque de doublon avec d'autres activités et
+programmes de l’OMD. Ces technologies sont les suivantes :
+
+     ▪   intelligence artificielle/apprentissage automatique, et leurs composantes de mégadonnées et
+         analyse des données ;
+     ▪   chaîne de blocs ;
+     ▪   informatique en nuage.
+
+L'équipe du projet examinera toutes les autres technologies qui ne figurent pas dans cette liste et mettra
+à jour le Rapport d'étude au fur et à mesure. Elle se basera également sur les discussions menées par
+l’intermédiaire du portail de la communauté et des ateliers régionaux.
+
+
+
+
+18
+                                                  Veuillez nous contacter à :
+
+                                                 smartcustoms@wcoomd.org
+                                                 Visitez notre site internet :
+
+                                             wcoomd.org/SmartCustoms.aspx
+
+
+                 Droits d’auteur © Juillet 2024, Organisation mondiale des douanes (OMD). Tous droits réservés.
+La version originale de ce rapport a été produite par l'OMD en anglais, puis traduite en français avec l'autorisation de l'OMD et le
+soutien financier des Douanes chinoises. L'OMD est le seul détenteur de tous les droits de propriété intellectuelle sur ce rapport
+ et sa traduction en français. Veuillez noter que la qualité de la traduction de cette publication en français et la cohérence de la
+ traduction avec le texte officiel en anglais incombent exclusivement à la Sous-direction des Procédures et de la Facilitation de
+                                                               l'OMD.
+
+
+
+La version originale de ce rapport a été produite initialement par l'OMD en anglais, puis traduite en français avec l'autorisation de
+  l'OMD et le soutien financier des Douanes chinoises. L'OMD est le seul détenteur de tous les droits de propriété intellectuelle
+ sur ce rapport et sa traduction en français. Veuillez noter que la qualité de la traduction de cette publication en français et la co-
+   hérence de la traduction avec le texte officiel en anglais incombent exclusivement à la Sous-direction des Procédures et de la
+                                                        Facilitation de l'OMD.
+Rue du Marché 30, B-1210             #WCOOMD
+Bruxelles, Belgique                  wcoomd.org
+facilitation.department@wcoomd.org
+

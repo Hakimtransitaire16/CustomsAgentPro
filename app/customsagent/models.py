@@ -124,6 +124,8 @@ class TariffLine:
     vat_rate: float
     daps_rate: float = 0.0
     licence_required: bool = False
+    source: str = "sample"  # sample | dgd-2016 (official tariff, D.D only; VAT assumed) | lf-2026
+    rate_note: str = ""  # why the duty rate differs from the base tariff (e.g. finance law article)
 
 
 @dataclass

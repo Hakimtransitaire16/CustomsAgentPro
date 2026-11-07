@@ -15,6 +15,11 @@ class Engine:
         self.tariff = tariff or Tariff.load()
         self.rulings = rulings or RulingRegistry.load()
 
+    @classmethod
+    def official(cls) -> "Engine":
+        """Engine on the official DGD documents (knowledge-base/) instead of the samples."""
+        return cls(Tariff.load_official(), RulingRegistry.load_official())
+
     def classify(self, description: str) -> list[dict]:
         return [s.to_dict() for s in classify(description, self.tariff, self.rulings)]
 

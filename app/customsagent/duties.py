@@ -39,6 +39,8 @@ def landed_cost(dossier: Dossier, tariff: Tariff) -> dict:
             "duty_rate": line.duty_rate, "duty": _r(duty),
             "daps_rate": line.daps_rate, "daps": _r(daps),
             "vat_rate": line.vat_rate, "vat": _r(vat),
+            "vat_assumed": line.source != "sample",
+            **({"rate_note": line.rate_note} if line.rate_note else {}),
             "taxes": _r(duty + daps + vat),
         })
         totals["customs_value"] += value_dzd
@@ -49,4 +51,7 @@ def landed_cost(dossier: Dossier, tariff: Tariff) -> dict:
     totals = {k: _r(v) for k, v in totals.items()}
     totals["taxes"] = _r(totals["duty"] + totals["daps"] + totals["vat"])
     totals["landed"] = _r(totals["customs_value"] + totals["taxes"])
-    return {"currency": "DZD", "illustrative_rates": True, "lines": lines, "totals": totals}
+    official = any(l.source != "sample" for l in tariff.lines.values())
+    return {"currency": "DZD", "illustrative_rates": not official,
+            "rates_source": "Tarif DGD 2016 (D.D) — vérifier les modifications des lois de finances" if official else "sample",
+            "lines": lines, "totals": totals}
