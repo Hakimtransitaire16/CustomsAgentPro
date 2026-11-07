@@ -157,7 +157,8 @@ def parse_tariff() -> tuple[list[dict], dict]:
         it["dd_rate"] = 0.0 if raw_rate == "ex" else (int(raw_rate) / 100 if raw_rate else None)
         it["dd_exempt"] = raw_rate == "ex"
         it["label"] = clean(it["label"].rstrip(":"))
-        it["context"] = [clean(c.rstrip(":")) for c in it["context"]]
+        # a page number sometimes lands after a header's colon ("Autres : 485"): drop it
+        it["context"] = [clean(re.sub(r"\s*:\s*\d{3}\s*$", "", c).rstrip(":")) for c in it["context"]]
         parts = [it["heading_label"]] + it["context"] + [it["label"]]
         it["full_label"] = " > ".join(p for p in parts if p)
     notes = {k: "\n".join(v) for k, v in notes.items() if v}
