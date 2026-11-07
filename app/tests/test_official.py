@@ -29,6 +29,22 @@ class OfficialDataTest(unittest.TestCase):
         self.assertEqual(str(rtc.valid_from), "2025-03-06")
         self.assertEqual(str(rtc.valid_to), "2028-03-05")
 
+    def test_precedent_contradiction_warns(self):
+        res = self.engine.analyze_dict({
+            "direction": "import", "origin_country": "CN", "destination_country": "DZ", "exchange_rate": 150,
+            "items": [{"description": "Boitier de l'unité extérieure de climatiseur", "hs_code": "8415.90.11.00", "value": 1000}],
+            "documents": [{"type": "invoice", "number": "F"}, {"type": "transport", "number": "B"}],
+        })
+        pre = [f for f in res["findings"] if f["rule"] == "R-PRE-01"]
+        self.assertTrue(pre and "RTC 001/DGD du 06.03.2025" in pre[0]["message"], res["findings"])
+
+    def test_precedent_agreement_is_silent(self):
+        res = self.engine.analyze_dict({
+            "direction": "import", "origin_country": "CN", "destination_country": "DZ",
+            "items": [{"description": "Boitier de l'unité extérieure de climatiseur", "hs_code": "8415.90.19.00", "value": 1000}],
+        })
+        self.assertFalse([f for f in res["findings"] if f["rule"] == "R-PRE-01"])
+
     def test_cost_flags_assumed_vat(self):
         res = self.engine.analyze_dict({
             "direction": "import", "origin_country": "FR", "destination_country": "DZ", "exchange_rate": 150,

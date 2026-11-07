@@ -12,6 +12,9 @@ from datetime import date
 from .classifier import LOW_CONFIDENCE, classify
 from .knowledge import RulingRegistry, Tariff
 from .models import Direction, Dossier, Finding, Severity
+from .text import tokens
+
+PRECEDENT_MATCH = 0.6  # share of the description's words found in a precedent's title
 
 EU_COUNTRIES = {
     "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV",
@@ -115,6 +118,22 @@ def check(dossier: Dossier, tariff: Tariff, rulings: RulingRegistry, today: date
                 if r.reference in suggestions[0].precedents and r.hs_code != item.hs_code:
                     f.append(Finding("R-RTC-01", Severity.BLOCKING,
                                      f"لديك قرار ساري {r.reference} لبضاعة مماثلة برمز {r.hs_code}، والرمز المصرّح {item.hs_code}", idx))
+
+        # R-PRE-01 a published precedent classifies similar goods under another code
+        if item.hs_code and not item.ruling_ref:
+            query = tokens(item.description)
+            shown = 0
+            for r in rulings.rulings:
+                if r.holder_nif and r.holder_nif == dossier.holder_nif:
+                    continue  # the holder's own rulings are handled by R-RTC-01
+                common = query & rulings.index(r.reference)
+                if query and len(common) / len(query) >= PRECEDENT_MATCH and r.hs_code != item.hs_code:
+                    f.append(Finding("R-PRE-01", Severity.WARNING,
+                                     f"سابقة منشورة: القرار {r.reference} صنّف بضاعة مشابهة ({r.description[:70]}) "
+                                     f"في الرمز {r.hs_code}، والرمز المصرّح {item.hs_code}. راجع التصنيف", idx))
+                    shown += 1
+                    if shown == 2:
+                        break
 
         # Import licences
         line = tariff.get(item.hs_code)
