@@ -40,6 +40,7 @@ def landed_cost(dossier: Dossier, tariff: Tariff) -> dict:
             "daps_rate": line.daps_rate, "daps": _r(daps),
             "vat_rate": line.vat_rate, "vat": _r(vat),
             "vat_assumed": line.source != "sample",
+            **({"rate_note": line.rate_note} if line.rate_note else {}),
             "taxes": _r(duty + daps + vat),
         })
         totals["customs_value"] += value_dzd
