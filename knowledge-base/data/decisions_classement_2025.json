@@ -1,0 +1,1438 @@
+{
+ "count": 83,
+ "decisions": [
+  {
+   "type": "RTC",
+   "reference": "RTC 001/DGD du 06.03.2025",
+   "number": 1,
+   "decision_date": "2025-03-06",
+   "valid_from": "2025-03-06",
+   "valid_to": "2028-03-05",
+   "designation": "BOITIER DE L’UNITE EXTERIEUR DE CLIMATISEUR",
+   "hs_code": "8415.90.19.00",
+   "hs_codes": [
+    "8415.90.19.00"
+   ],
+   "description": "Un produit dénommé « BOITIER D’UNITE EXTERIEURE DE CLIMATISEUR », consistant en boitier métallique à l’intérieur duquel sont monté (i) un condenseur (tuyau en cuivre avec des élettes) équipé de plaques de séparation (ii) un support pour le moteur de ventilation (iii) un support de carte électronique. Ce boitier est équipé également d’un couvercle (toiture), de deux vannes pour le refoulement de gaz et l’aspiration de gaz, d’une électrovanne, d’un cache ventilateur en plastique et d’un couvercle pour boite électrique. Le boitier en cause est destiné à être équipé et complété par d’autres composants, non présentés dans le cas d’espèce, à savoir : un ventilateur, un compresseur et un moteur, à l’effet de constituer une unité extérieure complète d’un climatiseur du type « split-system ».",
+   "justification": "Le produit en cause est un boitier pour l’unité extérieure d’un climatiseur, reconnaissable en l’état comme étant exclusivement destiné aux appareils pour le conditionnement de l'air du type « split-system » du n° 84.15. De ce fait, il est à classer comme partie desdits appareils par application de la Note 2-b) de la Section XVI). S’agissant du classement au niveau de la sous position tarifaire et étant donné que le produit en cause est dépourvu des éléments essentiels constituant l’unité extérieure d’un climatiseur à savoir le compresseur et le ventilateur à moteur, il ne peut pas être qualifié comme étant une unité extérieure incomplète possédant les caractéristiques essentielles d’une unité extérieure au sens de la RGI 2-a). De ce fait, il est à classer au n° 8415.90.19.00, en tant que autres parties d’un climatiseur de type split-système. Application des RGI 1 (Note 2-b de la Section XVI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 2-b de la Section XVI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 002/DGD du 10.03.2025",
+   "number": 2,
+   "decision_date": "2025-03-10",
+   "valid_from": "2025-03-10",
+   "valid_to": "2028-03-09",
+   "designation": "HERBICIDE GLYPHOSATE",
+   "hs_code": "3808.93.99.19",
+   "hs_codes": [
+    "3808.93.99.19"
+   ],
+   "description": "Un produit dénommé « Glyphosate 62% SL », consistant en un herbicide formulé à base de Glyphosate-isopropylammonium comme ingrédient actif, présenté sous forme liquide, d’une couleur jaune claire et pratiquement inodore à légère odeur d’amine. Il est conditionné dans des réservoirs IBC en matière plastique d’un poids de 1275 kg et il est destiné à être reconditionner dans des bouteilles de 1 litre et des bidons de 5 litres avant sa mise en vente au détail en tant qu’herbicide à usage non agricole tel que le désherbage des voies ferrées, des pistes d’aéroports, des bas-côtés de routes, des voies de passage, etc.",
+   "justification": "Le produit en question est un herbicide présenté sous forme d’une préparation liquide, non conditionnée pour la vente au détail, consistant en une suspension du Glyphosate-isopropylammonium, comme ingrédient actif, dans l’eau, répondant ainsi à la définition énoncée au paragraphe 2) des notes explicatives de la position tarifaire 38.08. Ainsi, s’agissant d’un herbicide non présenté dans des formes ou emballages de vente au détail, d'une contenance nette de 1kg au maximum, d’une part, et non destiné pour un usage agricole, il est à classer à la position tarifaire 38.08, plus précisément à la sous position tarifaire 3808.93.99.19. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 003/DGD du 11.03.2025",
+   "number": 3,
+   "decision_date": "2025-03-11",
+   "valid_from": "2025-03-11",
+   "valid_to": "2028-03-10",
+   "designation": "COMPRESSEUR FRIGORIFIQUE AVEC SA PARTIE ELECTRIQUE",
+   "hs_code": "8414.30.21.00",
+   "hs_codes": [
+    "8414.30.21.00"
+   ],
+   "description": "Un compresseur frigorifique à moteur hermétique de réfrigération à piston, présenté sous forme d’un boitier cylindrique hermétiquement scellé, enfermant la partie moteur et la partie compression. Il est d’une puissance excédent 0.4 KW et il est conditionné dans une boite en carton contenant le kit de démarrage pour ledit compresseur qui est présenté sous forme d’un boitier en plastique, enfermant un relais fixe, un condensateur de démarrage et un condensateur de marche ou de fonctionnement. Le boitier est destiné à être relié au compresseur via des câbles de connexion pour permettre sa mise en marche.",
+   "justification": "Le produit en cause est un ensemble composé d’un compresseur frigorifique à moteur hermétique de réfrigération à piston et d’un boitier électrique nécessaire pour son fonctionnement. L’ensemble est considéré comme étant une unité fonctionnelle en vertu de la Note 4 de la Section XVI. De ce fait, l’ensemble (compresseur et sa partie électrique) est à classer à la position tarifaire 84.14, et plus précisément à la sous position tarifaire 8414.30.21.00, en tant que compresseur hermétique, d’une puissance excédent 0.4 KW, des types utilisés dans les équipements frigorifiques. Application des RGI 1(Note 4 de la section XVI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1(Note 4 de la section XVI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 004/DGD du 13.03.2025",
+   "number": 4,
+   "decision_date": "2025-03-13",
+   "valid_from": "2025-03-13",
+   "valid_to": "2028-03-12",
+   "designation": "VAPORISATEUR A GACHETTE",
+   "hs_code": "8424.89.99.00",
+   "hs_codes": [
+    "8424.89.99.00"
+   ],
+   "description": "Un produit dénommé « TRIGGER SPRAYER », consistant en un vaporisateur à gâchette, constitué i) d’un corps de vaporisateur en matière plastique, muni d’une gâchette et d’un levier, ii) d’une valve à coupelle en métal commun et iii) d’un tube plongeur en matière plastique. Il est destiné à être monté par sertissage sur un contenant de type aérosol, à l’effet de projeter, sous forme de fines gouttelettes ou d’une vapeur, une préparation pour parfumer ou désodoriser les locaux se trouvant à l’intérieur dudit contenant.",
+   "justification": "Le produit en cause est un vaporisateur à gâchette en matière plastique destiné à être serti sur un contenant de type aérosol à l’effet de projeter, sous forme de fines gouttelettes ou d’une vapeur, une préparation pour parfumer ou désodoriser les locaux se trouvant à l’intérieur dudit contenant. Ainsi, étant donné que le vaporisateur en cause est destiné à être utilisé pour projeter une préparation pour parfumer ou désodoriser les locaux et non pas un produit de toilette (ceux destinés aux soins de propreté ou de beauté du corps) son classement, de ce fait, à la position tarifaire 96.16 ne peut être retenu et il est à classer à la position tarifaire 84.24 et plus précisément à la sous position tarifaire 8424.89.99.00 couvrant les autres appareil et dispositifs mécaniques à projeter, disperser ou pulvériser des matières liquides ou en poudre. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 005/DGD du 13.03.2025",
+   "number": 5,
+   "decision_date": "2025-03-13",
+   "valid_from": "2025-03-13",
+   "valid_to": "2028-03-12",
+   "designation": "DISQUE DENTAIRE EN ZIRCONE",
+   "hs_code": "3824.99.99.99",
+   "hs_codes": [
+    "3824.99.99.99"
+   ],
+   "description": "Un produit dénommé « disque dentaire en zircone », de forme ronde, de différents diamètres et épaisseurs, composé de 94 à 95% de Dioxyde de Zirconium, de 4,5 à 5,5% d’oxyde d’Yttrium, de moins de 0.5% d’oxyde d’aluminium et de moins de 0.5% d’autres oxydes. Il est obtenu en mélangeant la poudre de zirconium avec d’autres oxydes métalliques pour améliorer ses propriétés physiques, avant qu’elle soit compactée sous haute pression pour former un bloc dense et solide. Il est destiné à être utilisé dans le domaine de la dentisterie, aux fins de restauration dentaire ou pour la réalisation de dents artificielles et ce, après avoir subi plusieurs opérations telles que le fraisage, la coloration, le séchage, le frittage et le vernissage, en vue de prendre la forme finale de dents artificielles ou de restauration dentaire.",
+   "justification": "Le produit en question est un produit en zircone dentaire à base d’oxyde de zirconium, obtenu suivant le procédé du moulage, sous haute pression, n’impliquant pas une opération de cuisson après sa mise en forme ou son façonnage. De ce fait, il ne peut pas relever du 81.09 du fait qu’il est à base d’un composé chimique (dioxyde de zirconium), ni du Chapitre 69 du fait qu’il ne constitue pas un produit céramique obtenu par cuisson mais plutôt, par moulage sous haute pression, ni encore de la position tarifaire 30.06 dans la mesure où il ne représente pas en un ciment ou un autre produit d’obturation dentaire. Dans ces conditions et s’agissant d’un produit composé principalement de zircone et d'autres oxydes métalliques, appartenant ainsi aux industries chimiques d’une part, et devant l’absence d’une position spécifique couvrant ce type de produit d’autre part, il est à classer à la position tarifaire 38.24, couvrant entre, autres, les préparations pour certaines fabrications céramiques (dents artificielles, par exemple), citées à la partie (B), point (25) des Notes explicatives de la position tarifaire 38.24. Par ailleurs, un produit similaire dénommé « Bloc de zircone », a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 62 ème Session, tenue en Septembre 2018, à la sous position tarifaire 3824.99, par application de la RG1 et 6 du SH. Eu égard à ce qui précède, le produit en question est à classer à la position tarifaire 38.24, plus précisément à la sous position tarifaire 3824.99.99.99. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 006/DGD du 13.03.2025",
+   "number": 6,
+   "decision_date": "2025-03-13",
+   "valid_from": "2025-03-13",
+   "valid_to": "2028-03-12",
+   "designation": "TOLE EN ALUMINIUM NON ALLIE, LAQUEE",
+   "hs_code": "7606.11.10.00",
+   "hs_codes": [
+    "7606.11.10.00"
+   ],
+   "description": "Une tôle en aluminium non allié, laminée plate, contenant plus de 99,5% en poids d’aluminium, d’une épaisseur de 0,94 mm et dont la face extérieure est revêtue d’une couche en matière plastique d’une couleur noire. Elle est présentée sous forme rectangulaire, en bobine ou enroulée, d’une largeur de 109,6 à 113,6 mm et d’une longueur allant jusqu’à 600 mètres. Elle est destinée à être utilisée pour la fabrication d’articles et ouvrages en aluminium.",
+   "justification": "Le produit en cause est une tôle en aluminium non allié, d’une épaisseur excédant 0,2 mm, nommément désignée à la position tarifaire 76.06. S’agissant du classement au niveau de la sous position, celui-ci est à déterminer en fonction de la forme géométrique de la tôle en cause ainsi que sa forme géométrique. A ce titre, il convient de préciser que le fait que la tôle en cause soit présentée en rouleau (bobine) n’affecte nullement sa forme géométrique. Ainsi, étant donné que la tôle en cause est en aluminium non allié, présentée sous forme rectangulaire enroulé et que sa face extérieure est revêtue d’une couche en matière plastique, elle est à classer à la sous position tarifaire 7606.11.10.00, couvrant les tôles et bandes en aluminium non allié, d’une épaisseur excédant 0,2 mm, de forme carrée ou rectangulaire, peintes, vernies ou revêtues de matières plastiques. Application des RGI 1 (Note 1-a) du Chapitre76) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 1-a) du Chapitre76) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 007/DGD du 24.03.2025",
+   "number": 7,
+   "decision_date": "2025-03-24",
+   "valid_from": "2025-03-24",
+   "valid_to": "2028-03-23",
+   "designation": "PREPARATION DIETETIQUE DESTINEE A DES FINS MEDICALES SPECIALES",
+   "hs_code": "2106.90.99.30",
+   "hs_codes": [
+    "2106.90.99.30"
+   ],
+   "description": "Un produit dénommé « *** Hydrolysat de Caséine », consistant en une préparation alimentaire pour enfants allergiques aux protéines de lait de vaches, de la naissance jusqu’à 36 mois. Elle est composée de maltodextrine, des huiles végétales (soja, coco, huile de tournesol oléique, bourrache), d’hydrolysat poussé de caséine (lait), de triglycérides à chaîne moyenne (TCM), de minéraux, d’huile extraite de microalgue Schizochytrium sp, de chlorure de choline, de vitamines, de L-cystine, de L-tryptophane, d’inositol, de L-histidine, de taurine, de L- carnitine. Elle est présentée sous forme de poudre dans des boites hermétiquement fermées d’une contenance de 400 g. Son mode d’utilisation consiste à rajouter le nombre de meurettes correspondant à l’eau tiède dans un biberon et de l’agiter jusqu'à dissolution complète de la poudre.",
+   "justification": "Le produit en question est une préparation alimentaire infantile, fabriquée à partir d’hydrolysat de caséine. S’agissant d’une préparation alimentaire, obtenue à partir des produits autres que ceux relevant des n° 04.01 à 04.04, à savoir les peptones de caséine du n° 35.04, son classement à la position tarifaire 19.01 ne peut de ce fait être retenu et elle est à classer à la position tarifaire 21.06, plus précisément à la sous position tarifaire 2106.90.99.30, en tant qu’autres préparations diététiques destinées à des fins médicales spéciales, conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 008/DGD du 24.03.2025",
+   "number": 8,
+   "decision_date": "2025-03-24",
+   "valid_from": "2025-03-24",
+   "valid_to": "2028-03-23",
+   "designation": "AMIDON MODIFIE PREGELATINISE OU GONFLANT",
+   "hs_code": "3505.10.22.00",
+   "hs_codes": [
+    "3505.10.22.00"
+   ],
+   "description": "Un produit dénommé « *** enfant et adulte », consistant en l’amidon de maïs modifié, sans gluten, présenté sous forme d’une poudre dans une boite métallique d’un poids net de 300 g. Le produit en question est destiné à être utilisé en tant qu’une poudre épaississante des denrées alimentaires, destinées à des fins médicales spéciales pour des enfants et adultes à partir de 3 ans, sans altérer le gout ou la couleur. Le mode d’emploi du produit en cause consiste à saupoudrer en pluie fine la poudre sur le liquide ou le plat à épaissir tout en remuant et d’attendre deux (02) minutes pour obtenir un épaississement optimal.",
+   "justification": "Le produit en cause est un amidon de maïs modifié ne contenant aucun autre ingrédient ou substance lui conférant les caractéristiques d’une préparation alimentaire. De ce fait, son classement à la position tarifaire 19.01 ne peut être effectué et il est à classer à la position tarifaire 35.05, couvrant nommément les amidons modifiés, plus précisément à la sous position tarifaire 3505.10.22.00, en tant qu’amidon modifié pré-gélatinisé ou gonflant. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 009/DGD du 24.03.2025",
+   "number": 9,
+   "decision_date": "2025-03-24",
+   "valid_from": "2025-03-24",
+   "valid_to": "2028-03-23",
+   "designation": "PREPARATION DESTINEE A DES FINS MEDICALES SPECIALES POUR NOURRISSONS ET ENFANTS EN BAS AGE",
+   "hs_code": "1901.10.91.00",
+   "hs_codes": [
+    "1901.10.91.00"
+   ],
+   "description": "Un produit dénommé « *** dès la naissance », consistant en une poudre épaississante des préparations infantiles sans altérer le gout ou la couleur, composée de l’amidon de maïs et du Maltodextrine de maïs, sans gluten et sans lait. Elle est présentée sous forme de poudre dans une boite métallique d’un poids net de 350 g et elle est adaptée aux enfants de 0 à 3 ans, atteint des troubles de la déglutition ou ayant des problèmes de passage de bol alimentaire. Son mode d’utilisation consiste à l’ajout, dans le biberon de la préparation infantile habituelle, de la quantité recommandée de ladite poudre avant d’agiter le biberon et d’attendre 3 à 5 minutes pour un épaississement optimal et le présenter.",
+   "justification": "Le produit en cause est une préparation alimentaire à base de l’amidon de maïs et du Maltodextrine de maïs, présentée sous forme de poudre et destinée à la confection rapide d’aliments pour nourrissons, par simple dissolution ou légère ébullition dans le lait. De ce fait, elle est à classer à la position tarifaire 19.01, plus précisément à la sous position tarifaire 1901.10.91.00, en tant que préparation destinée à des fins médicales spéciales pour l’alimentation des nourrissons et des enfants en bas âge, conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 010/DGD du 28.04.2025",
+   "number": 10,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "TERMINAL MOBILE AVEC LECTEUR DE CODES-BARRES ET UNE CONNECTIVITE GSM 4G ET WIFI",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un produit dénommé « terminal mobile avec lecteur de codes-barres et une connectivité GSM 4G et Wifi », modèle ***, présentant les caractéristiques techniques ainsi que l’apparence physique d’un téléphone intelligent classique, pouvant se connecter aux réseaux cellulaires. Il est d’une dimension de 157 x 78,2 x 16,9 mm et d’un poids de 272 g et il est équipé d’un écran tactile de 5 pouces, d’un emplacement pour une carte SIM, d'un emplacement pour carte mémoire, de modules Wi-Fi, Bluetooth et GPS, d'une batterie rechargeable, d’une unité centrale de traitement et d’une application de scannage, d’une mémoire interne, d’un port pour le rechargement de batterie et sa connexion à un PC, d’un appareil photo et d’une caméra frontale, de touches de commande, d’un haut-parleur, de touches de commandes d’un connecteur permettant sa liaison avec une poignée. Il est destiné à être utilisé pour scanner et prendre des photos, à passer des appels téléphoniques, à lancer des applications Android et à communiquer avec le serveur après le scannage d’une balise RFID/d’un code-barres.",
+   "justification": "Le produit en question est un lecteur de code à barres présentant les mêmes caractéristiques physiques et techniques d'un téléphone intelligent, destiné à assurer la fonction de lecteur de code à barres et de communication. Les appareils à fonctions multiples sont à classer suivant la fonction principale qui caractérise l'ensemble. Au cas présent, la fonction principale de l’appareil étant celle de la communication via un réseau cellulaire dans la mesure où tout téléphone intelligent peut assurer la fonction d’un lecteur de code-barres à travers l’installation d’une application appropriée. Un produit similaire a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 68ème Session, tenue en Septembre 2021, le classant à la sous position tarifaire 8517.12 (l’actuelle 8517.13), par application de la RGI 1 (Note 3 de la section XVI) et 6 du SH. Eu égard à ce qui précède, le produit en question est à classer à la 85.17, plus précisément à la sous position tarifaire 8517.13.90.00. Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 011/DGD du 28.04.2025",
+   "number": 11,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "TERMINAL MOBILE AVEC LECTEUR DE CODES-BARRES ET UNE CONNECTIVITE GSM 4G ET WIFI",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un produit dénommé « terminal mobile avec lecteur de codes-barres et une connectivité GSM 4G et Wifi », modèle ***, présentant les caractéristiques techniques ainsi que l’apparence physique d’un téléphone intelligent classique, pouvant se connecter aux réseaux cellulaires. Il est d’une dimension de 214 x 118 x 21 mm et d’un poids de 550 g et il est équipé d’un écran tactile de 7 pouces, d’un emplacement pour une carte SIM, d'un emplacement pour carte mémoire, de modules Wi-Fi, Bluetooth et GPS, d'une batterie rechargeable, d’une unité centrale de traitement et d’une application de scannage, d’une mémoire interne, d’un port pour le rechargement de batterie et sa connexion à un PC, d’un appareil photo et d’une caméra frontale, de touches de commande, d’un haut-parleur, de touches de commandes d’un connecteur permettant sa liaison avec une poignée. Il est destiné à être utilisé pour scanner et prendre des photos, à passer des appels téléphoniques, à lancer des applications Android et à communiquer avec le serveur après le scannage d’une balise RFID/d’un code-barres.",
+   "justification": "Le produit en question est un lecteur de code à barres présentant les mêmes caractéristiques physiques et techniques d'un téléphone intelligent, destiné à assurer la fonction de lecteur de code à barres et de communication. Les appareils à fonctions multiples sont à classer suivant la fonction principale qui caractérise l'ensemble. Au cas présent, la fonction principale de l’appareil étant celle de la communication via un réseau cellulaire dans la mesure où tout téléphone intelligent peut assurer la fonction d’un lecteur de code-barres à travers l’installation d’une application appropriée. Un produit similaire a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 68ème Session, tenue en Septembre 2021, le classant à la sous position tarifaire 8517.12 (l’actuelle 8517.13), par application de la RGI 1 (Note 3 de la section XVI) et 6 du SH. Eu égard à ce qui précède, le produit en question est à classer à la 85.17, plus précisément à la sous position tarifaire 8517.13.90.00. Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 012/DGD du 28.04.2025",
+   "number": 12,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "TERMINAL MOBILE AVEC LECTEUR DE CODES-BARRES ET UNE CONNECTIVITE GSM 4G ET WIFI",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un Produit dénommé « terminal mobile avec lecteur de codes-barres et une connectivité GSM 4G et Wifi », modèle ***, présentant les caractéristiques techniques ainsi que l’apparence physique d’un téléphone intelligent classique, pouvant se connecter aux réseaux cellulaires. Il est d’une dimension de 157,6 x 73,8 x 12,15 mm et d’un poids de 220 g et il est équipé d’un écran tactile de 5,5 pouces, d’un emplacement pour une carte SIM, d'un emplacement pour carte mémoire, de modules Wi-Fi, Bluetooth et GPS, d'une batterie rechargeable, d’une unité centrale de traitement et d’une application de scannage, d’une mémoire interne, d’un port pour le rechargement de batterie et sa connexion à un PC, d’un appareil photo et d’une caméra frontale, de touches de commande, d’un haut-parleur, de touches de commandes d’un connecteur permettant sa liaison avec une poignée. Il est destiné à être utilisé pour scanner et prendre des photos, à passer des appels téléphoniques, à lancer des applications Android et à communiquer avec le serveur après le scannage d’une balise RFID/d’un code-barres.",
+   "justification": "Le produit en question est un lecteur de code à barres présentant les mêmes caractéristiques physiques et techniques d'un téléphone intelligent, destiné à assurer la fonction de lecteur de code à barres et de communication. Les appareils à fonctions multiples sont à classer suivant la fonction principale qui caractérise l'ensemble. Au cas présent, la fonction principale de l’appareil étant celle de la communication via un réseau cellulaire dans la mesure où tout téléphone intelligent peut assurer la fonction d’un lecteur de code-barres à travers l’installation d’une application appropriée. Un produit similaire a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 68ème Session, tenue en Septembre 2021, le classant à la sous position tarifaire 8517.12 (l’actuelle 8517.13), par application de la RGI 1 (Note 3 de la section XVI) et 6 du SH. Eu égard à ce qui précède, le produit en question est à classer à la 85.17, plus précisément à la sous position tarifaire 8517.13.90.00. Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 3 de la Section XVI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 013/DGD du 28.04.2025",
+   "number": 13,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "TUYAU FLEXIBLE ONDULE EN ACIER INOXYDABLE",
+   "hs_code": "8307.10.20.00",
+   "hs_codes": [
+    "8307.10.20.00"
+   ],
+   "description": "Un produit dénommé « Tube inox annelé », consistant en un tuyau flexible ondulé en acier inoxydable étanche, soudé latéralement, d’un diamètre intérieur de 12,5 mm et d’un diamètre extérieur de 16,4 mm. Il est présenté sous forme de rouleau d’un poids de 1500 MT et il est destiné à être découpé à la longueur souhaitée et à être équipé à ses extrémités d’un écrou raccord, d’un joint, d’un segment de renfort et d’un accord en vue de son utilisation en tant que tuyau ou flexible de raccordement pour l’eau potable, sanitaire, de chauffage centrale, etc.",
+   "justification": "Le produit en cause est un tuyau flexible ondulé en acier inoxydable, soudé latéralement et destiné à être découpé et équipé de pièces et accessoires de connexion en vue de son utilisation en tant que tuyau ou flexible de raccordement pour l’eau potable, sanitaire, de chauffage centrale, etc. En effet, les tuyaux flexibles en métaux communs onduleux obtenus, par exemple, par déformation d'un tube sont nommément citées par le paragraphe 2) des Notes explicatives de la position tarifaire 83.07. De ce fait, le tuyau en question est à classer à la position tarifaire 83.07 et plus précisément à la sous position tarifaire 8307.10.20.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 014/DGD du 28.04.2025",
+   "number": 14,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "TUYAUX DE CUVELAGE EN ACIER",
+   "hs_code": "7304.29.20.00",
+   "hs_codes": [
+    "7304.29.20.00"
+   ],
+   "description": "Un produit dénommé « TUYAUX DE CUVELAGE EN ACIER », de type API 5CT, sans soudure, destiné à être introduit dans les puits de forage (hydrocarbures, gaz naturel et hydrauliques) afin d’assurer la protection desdits puits contre les efforts physiques exercés par les parois des puits et de permettre l’introduction de l’outil de forage à l’intérieur desdits puits. Le tube en cause est d’un diamètre de 339.7 mm, d’une épaisseur de 10.92 mm, d’une longueur R3 (10.36 à 14.63 m) et d’un Steele grade (nuance d’acier) K55 (ne contient pas de carbones et du chrome et contenant 0.03% maximum de soufre et 0.03% maximum du phosphore).",
+   "justification": "Le produit en cause est un tube de cuvelage ou de production, sans soudure, en acier autre que l’acier inoxydable (ne contient pas de Carbone et du Chrome) et dont son diamètre extérieur est de 339.7 mm. De ce fait, il est à classer à la position tarifaire 73.04 et plus précisément à la sous position tarifaire 7304.29.20.00, couvrant les tuyaux et tubes de cuvelage ou de production, des types utilisés pour l'extraction du pétrole ou du gaz, en acier autre que l’acier inoxydable, d'un diamètre extérieur excédant 168,3 mm, mais n'excédant pas 406,4 mm. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 015/DGD du 28.04.2025",
+   "number": 15,
+   "decision_date": "2025-04-28",
+   "valid_from": "2025-04-28",
+   "valid_to": "2028-04-27",
+   "designation": "CONDITIONNEUR DE L’EAU UTILISEE POUR LA PULVERISATION DES PESTICIDES",
+   "hs_code": "3824.99.99.99",
+   "hs_codes": [
+    "3824.99.99.99"
+   ],
+   "description": "Un produit dénommé « *** », consistant en un conditionneur de l’eau utilisée pour l’application, par pulvérisation, des pesticides sensibles à l’eau dure ou aux PH alcalins. Il est présenté dans des bidons d’une contenance de 5 litres sous forme d’une préparation liquide, d’une couleur jaune-brun, contenant 7.9% d’acide 2-hydrox propane - 1,2,3 - tricarboxylique, de 1 à 10% de D- Glucopyranose, oligomers decyl octyl glycosides, et de 1 à 10% d’acide étidronique. Il est destiné à être rajouté, à une concentration maximale de 0.25% de la solution finale diluée, à l’eau avant de rajouter le produit de protection des plantes à pulvériser, en vue d’améliorer la qualité de l’eau utilisée et d’empêcher ainsi la neutralisation du produit de protection des cultures et de garantir son efficacité.",
+   "justification": "Le produit en cause est une préparation composée d’un mélange de produits chimiques, destinés à améliorer la qualité de l’eau utilisée pour la pulvérisation des pesticides. De ce fait, il est à classer à la position tarifaire 38.24 et plus précisément à la sous position tarifaire 3824.99.99.99. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 016/DGD du 04.05.2025",
+   "number": 16,
+   "decision_date": "2025-05-04",
+   "valid_from": "2025-05-04",
+   "valid_to": "2028-05-03",
+   "designation": "CENDRE FINE DE ZINC",
+   "hs_code": "2620.19.20.00",
+   "hs_codes": [
+    "2620.19.20.00"
+   ],
+   "description": "Un produit dénommé « CENDRE FINE DE ZINC », composé de 95,30% de Zinc, de 0,084% de Titane, de 4,37% du Plomb et de 0,24% de l’Antimoine. Il est obtenu à partir d’un co-produit dénommé « cendres écumées » (un résidu produit par l’oxydation du Zinc au cours du processus de galvanisation), chauffé dans un four tournant entre 450 et 500°C à l’effet de fusionner le Zinc et permettre sont écoulement par gravité dans le collecteur du four. Le Zinc en fusion est évacué par la suite à travers un conduit qui alimente une installation de mise en lingots pour obtenir ainsi du Zinc dit « de deuxième fusion ». Après l’évacuation de tout le Zinc et le refroidissement du four, une couche de résidu se dépose à l’intérieur dudit four. Ce résidu constitue le produit objet de la présente description qui est « la cendre fine de Zinc ».",
+   "justification": "Le produit en cause est un résidu (scorie) riche en Zinc (contenant 95,30% de zinc), résultant du traitement thermique des cendres écumées (un produit métallurgique intermédiaire) n'impliquant pas de procédés mécaniques. De ce fait, son classement à la position tarifaire 79.03 ne peut être retenu et il est à classer à la position tarifaire 26.20 et plus précisément à la sous position tarifaire 2620.19.20.00 en tant que cendres contenant 80% ou plus de zinc. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 017/DGD du 04.05.2025",
+   "number": 17,
+   "decision_date": "2025-05-04",
+   "valid_from": "2025-05-04",
+   "valid_to": "2028-05-03",
+   "designation": "STRATIFIE DECORATIF HAUTE PRESSION (HPL)",
+   "hs_code": "3921.90.20.00",
+   "hs_codes": [
+    "3921.90.20.00"
+   ],
+   "description": "Un produit dénommé « STRATIFIE DECORATIF HAUTE PRESSION (HPL) », présenté sous forme de plaques de différentes dimensions (2800 x 2040, 3050 x 1300, 4200 x 1300 et 5600 x 2040 mm), de différents épaisseurs (6, 8 et 10 mm) et d’une densité supérieure ou égale à 1350 Kg/m3. Elles sont constituées d’une âme composée de plusieurs couches en papier imprégné de résine phénolique, recouverte sur ses deux faces d’une couche en papier imprégné d’une résine mélamine et vernissé. L’ensemble desdites couches est pressé à haute température et sous une haute pression. Ces plaques sont destinées à être utilisées pour le revêtement mural (décoration des façades, des balcons, etc.).",
+   "justification": "Le produit en cause est un stratifié décoratif haute pression (HPL), présenté sous forme de plaques à base de résines thermodurcissables destinées à être utilisées comme revêtement mural. Le papier ne joue qu’un rôle de matières de charge. Ainsi, s’agissant d’un produit présenté sous forme de plaques en matière plastique (résine thermodurcissable), pour le revêtement des murs, son classement à la position tarifaire 39.18 ne peut être effectué car il n’est pas présenté sous forme de rouleau. Etant donné que les plaques en cause n’ont pas reçu des ouvraisons supplémentaires dépassant celles autorisées par la Note 10 du Chapitre 39 d’une part, et composées d’une matière plastique associée au papier, elles sont à classer à la position tarifaire 39.21 et plus précisément à la sous position tarifaire 3921.90.20.00. Application des RGI 1 (Note 10 du Chapitre 39), 3b et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 10 du Chapitre 39), 3b et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 018/DGD du 19.05.2025",
+   "number": 18,
+   "decision_date": "2025-05-19",
+   "valid_from": "2025-05-19",
+   "valid_to": "2028-05-18",
+   "designation": "ARGENT FIN EN GRENAILLE",
+   "hs_code": "7106.91.90.00",
+   "hs_codes": [
+    "7106.91.90.00"
+   ],
+   "description": "Un produit dénommé « ARGENT FIN EN GRENAILLE », consistant en des grenailles d’argent (teneur d’argent égale ou supérieure à 99,99%), d’une couleur blanche, issues d’affinage simple ou double et transformées en grenailles par fusion sous forme de billes de diamètre irrégulier pouvant être tamisées dans une plage de diamètre compris entre 3 et 8 mm. Les grenailles en cause sont destinées à être utilisées en galvanoplastie pour les bains d’argenture destinés à la bijouterie, la décoration, les industries électriques et électroniques, …etc.",
+   "justification": "Le produit en cause consiste en des grenailles d’argent, pouvant être tamisées dans une plage de diamètre compris entre 3 et 8 mm. Selon les Notes explicatives de la position 71.06, l’argent à l’état brut se présente en masses, grenailles, grains, lingots, barres coulées, etc., ainsi qu'à l'état natif séparé de sa gangue, sous forme de masses, pépites, cristaux, etc. De ce fait et étant donné que le produit en cause est présenté sous l’une des formes brutes de l’argent du n° 71.06, il est à classer à la position 71.06 et plus précisément à la sous position tarifaire 7106.91.90.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 019/DGD du 27.05.2025",
+   "number": 19,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en une préparation à base d’huiles essentielles de menthe (110 g), d’etocas (80 g), d’huile d’eucalyptus (180 g), d’une petite quantité de vitamine A (6 millions d’UI) et de 660 g d’eau. Elle est présentée sous forme d’un liquide, d’une couleur blanche opaque et d’une odeur mentholée spécifique, dans des bouteilles en plastiques d’une contenance de 01 litre. Il est destiné à être administré, par inhalation ou dans l’eau de boisson, à toutes les espèces de volailles exposées à des températures élevées, à une poussière excessive, à une concentration élevée de gaz nocif pendant la convalescence et au cours des maladies des voies respiratoires supérieurs ainsi que pour la désinfection des muqueuses de nez, des sinus et de la trachée.",
+   "justification": "Le produit en question est une préparation alimentaire pour volailles destinée à être administrée aux volailles en tant que complément alimentaire pendant les périodes de problèmes respiratoires en leur apportant un soulagement à travers la facilitation de la respiration, le nettoyage des voies respiratoire et de réduire les effets négatifs des conditions environnementales défavorables. De ce fait, cette préparation ne peut être considérée comme étant un médicament à usage vétérinaire et elle est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 020/DGD du 27.05.2025",
+   "number": 20,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en une préparation composée d’extraits de plantes, de glycérine, de vitamines, de chlorure de choline, de Bétaine, d’acides aminés et de l’eau purifiée. Elle est présentée sous forme d’un liquide, d’une couleur brune à odeur sucrée/végétale, conditionnée dans des bouteilles d’une contenance de 01 litre et elle est destinée à être administrée à toutes les espèces de volailles, par dissolution de 250 à 500 ml dans 1000 litres d’eau de boisson, à l’effet de réduire, durant la période d’élevage intensif ou après administration d’antibiotiques, ou encore, en cas de problèmes de toxines hépatiques, les dysfonctionnements hépatiques et l’apparition des stéatoses hépatiques.",
+   "justification": "Le produit en question est une préparation à base d’extraits de plantes mélangés avec des acides aminés et de vitamines, destinée à être administrée aux volailles en tant que complément alimentaire pour réduire les dysfonctionnements hépatiques. De ce fait, elle ne peut être considérée comme étant un médicament à usage vétérinaire et elle est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 021/DGD du 27.05.2025",
+   "number": 21,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en un complément alimentaire pour volailles, présenté sous forme d’une préparation composée du sulfate de sodium anhydre (255 g), du sulfate de magnésium (170 g), du chlorure de potassium (150 g), d’acide citrique (137 g), du glucose (148 g), du chlorure de sodium (120 g) et de la silice (20 g). Il est présenté sous forme d’une poudre blanche dans des sacs d’une contenance de 1 kg et il est destiné à être administré à toutes les espèces de volailles, après dissolution de 500 à 1000 g dans 1000 litres d’eau potable et ce, en vue de protéger, en cas de stress hydrique ou d’une carence minérale, l’organisme desdits volailles contre les troubles électrolytiques et la déshydratation et de contrecarrer les effets métaboliques des températures élevées.",
+   "justification": "Le produit en question est une préparation alimentaire pour volailles, destinée à être administré aux volailles en tant que complément alimentaire pour réduire le risque de troubles hydriques et électrolytiques. De ce fait, cette préparation ne peut être considérée comme étant un médicament à usage vétérinaire et elle est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 022/DGD du 27.05.2025",
+   "number": 22,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en un complément alimentaire pour volailles, présenté sous forme d’une préparation composée de Sulfate de sodium (187 g), de Sulfate de magnésium (94 g), de Chlorure de sodium (80 g), de Chlorure de potassium (114 g), d’acide citrique (92 g), de Vitamine C (400 g), d’huile d’anis étoilé (10 g), de Ricioléate de Glycéryle polyéthylène glycol (1 g), de Monopropylène glycol (10 g), d’un brillant bleu (0,12 g) et de la silice colloïdale comme support (12 g). Il est présenté sous forme d’une poudre, d’une couleur bleue, dans des sacs d’une contenance de 01 kg et il est destiné à être administré à toutes les espèces de volailles, après dissolution de 250 g dans 1000 litres d’eau de boisson, en vue de protéger, lors des temps chand, leur organisme contre les effets du stress thermique tels que la déshydratation et la surchauffe et de favoriser le bon fonctionnement de leur tube digestif et la digestion.",
+   "justification": "Le produit en question est une préparation alimentaire pour volailles, destinée à être administrée aux volailles en tant que complément alimentaire lors d’un stress thermique. De ce fait, cette préparation ne peut être considérée comme étant un médicament à usage vétérinaire et elle est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 023/DGD du 27.05.2025",
+   "number": 23,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en un complément alimentaire pour volailles, présenté sous forme d’une préparation composée de Carvacrol (60 g), de Cinnamaldéhyde (80 g), d’huile d’arbre à thé (60 g), de Glycol propylène (190 g), de Glycérine (01 g), d’Etocas (415 g), de Vitamine B2 (0.4 g) et de l’eau (210 g). Il est présenté sous forme liquide, d’une couleur jaune/orange et d’une odeur végétale spécifique, dans des bouteilles d’une contenance de 01 litre et il est destiné à être administré à toutes les espèces de volailles, dans la proportion de 500 ml sur 1000 litres d’eau de boisson, après et avant l’invasion d’Eineria, à l’effet de stimuler l’appétit lors d’infections coccidioses.",
+   "justification": "Le produit en question est une préparation constituée par un mélange de plusieurs éléments nutritifs, destinée à entrer dans la fabrication des aliments pour volailles, répondant ainsi à la définition des préparations désignées commercialement « prémélanges », visées aux Notes explicatives de la position tarifaire 23.09. De ce fait, il est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 024/DGD du 27.05.2025",
+   "number": 24,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "COMPLEMENT ALIMENTAIRE POUR VOLAILLES",
+   "hs_code": "2309.90.99.00",
+   "hs_codes": [
+    "2309.90.99.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en un mélange d’extrait d’Allium sativum (899 g) avec de l’acide acétique (100 g), de la glycérine (01 g) et de l’eau purifiée (jusqu’à 1 litre), présenté sous forme d’un liquide d’une couleur marron clair et d’une odeur spécifique et conditionné dans des bouteilles d’une contenance de 01 litre. Il est destiné à être administré à toute les espèces de volailles, dans la proportion de 500 ml dans 1000 litres d’eau de boisson, en vue de soutenir leurs intestins et leurs systèmes immunitaires lors de l’infection bactériennes fongiques ou virales et d’empêcher ainsi le développement desdites infections.",
+   "justification": "Le produit en question est une préparation alimentaire pour volailles, destinée à être administré aux volailles à l’effet de soutenir leurs intestins et leurs systèmes immunitaires pour empêcher le développement des symptômes de l’infection et de contribuer ainsi au bon état général et au bien-être desdits volailles. De ce fait, cette préparation ne peut être considérée comme étant un médicament à usage vétérinaire et elle est à classer à la position tarifaire 23.09 et plus précisément à la sous position tarifaire 2309.90.99.00, en tant que complément alimentaire. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 025/DGD du 27.05.2025",
+   "number": 25,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "BATONS EN BOIS (BAMBOU) ARRONDIS",
+   "hs_code": "4221.91.99.00",
+   "hs_codes": [
+    "4221.91.99.00"
+   ],
+   "description": "Des bâtons en bois (BAMBOU) arrondis, d’un diamètre de 3 mm et d’une longueur de 58 cm. Ils disposent d’une coupe transversale circulaire et ils sont destinés à être coupés en longueurs requises et aiguisés d’un seul ou des deux côtés avant leur mise pour la vente en au détail en tant que brochettes pour enfiler la viande, le poisson, des fruits, des légumes ou des fruits de mer à cuire au feu.",
+   "justification": "Le produit en cause consiste en des bâtons en bois ayant subi des ouvraisons leur conférant les caractéristiques et la forme de brochettes en bois, dépassant ainsi le cadre d’un bois simplement arrondi. De ce fait, son classement à la position tarifaire 44.04 en tant que bois simplement arrondi ne peut être effectué. Son classement à la position tarifaire 44.19 comme étant un article pour la table ou la cuisine ne peut également être retenu dans la mesure où il ne présente aucune similitude aux articles couverts par ladite position tels que les cuillères, les fourchettes, les pots, les tasses, …etc. Ainsi, s’agissant d’un ouvrage en bois, non couvert spécifiquement par l’une des positions tarifaires du 44.01 à 44.20, il est à classer à la position tarifaire 44.21, plus précisément à la sous position tarifaire 4421.91.99.00, couvrant d’autres ouvrages similaires en bois tels que les cure-dents, les chevilles en bois, …etc. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)",
+   "warnings": [
+    "Code retenu 4221.91.99.00 absent de la motivation, qui cite 4421.91.99.00. Probable erreur de saisie dans le recueil : vérifier la décision originale."
+   ]
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 026/DGD du 27.05.2025",
+   "number": 26,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "MASSES ADHESIVES EN ACIER ZINGUE POUR L’EQUILIBRAGE DES JANTES ALLIAGE DES VEHICULES AUTOMOBILES",
+   "hs_code": "8707.70.93.00",
+   "hs_codes": [
+    "8707.70.93.00"
+   ],
+   "description": "Un produit dénommé « STEEL WHEEL SEGMENTS 5g/10g », consistant en des masses adhésives en acier zingué pour l’équilibrage des jantes alliage des véhicules automobiles. Elles sont présentées sous forme de barrettes prédécoupées en huit (08) segments dont quatre sont d’un poids unitaire de 5 g et quatre d’un poids unitaire de 10 g. Chaque barrette est d’une longueur de 141,1 mm, d’une largeur de 19 mm et d’une épaisseur de 3 mm et elles sont pourvues d’une bande adhésive recouverte d’un film de protection. Elles sont destinées à être fixées directement sur la roue (au point de déséquilibre) et ce, après avoir nettoyé la jante, sélectionner les segments du poids en fonction du déséquilibre constaté.",
+   "justification": "Le produit en cause est une masse en acier conçus pour équilibrer les roues des véhicules automobiles, reconnaissable comme étant destiné exclusivement à être fixée sur les roues des véhicules automobiles et de faire partie intégrante de celle-ci pour obtenir un équilibrage précis. Ainsi, s’agissant d’un article reconnaissable comme étant destiné à faire partie d’une roue de véhicules automobiles, il est à classer à la position tarifaire 87.08, plus précisément à la sous position tarifaire 8708.70.93.00. Application des RGI 1 (Note 3 de la Section XVII) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 3 de la Section XVII) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)",
+   "warnings": [
+    "Code retenu 8707.70.93.00 absent de la motivation, qui cite 8708.70.93.00. Probable erreur de saisie dans le recueil : vérifier la décision originale."
+   ]
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 027/DGD du 27.05.2025",
+   "number": 27,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "PREPARATIONS ALIMENTAIRES A BASE DU LAIT RECONSTITUE ECREME",
+   "hs_code": "1901.90.20.00",
+   "hs_codes": [
+    "1901.90.20.00"
+   ],
+   "description": "Un produit dénommé « *** », consistant en deux préparations alimentaires au gout de Cheddar, obtenues principalement à partir du lait reconstitué écrémé auquel il a été rajouté, respectivement : 14% et 8,5 % du fromage Cheddar ; 9% et 15% d’huile de palme non hydrogénée ; des additifs alimentaires ; du sel et d’arôme. Elles sont présentées sous forme de barres d’un poids de 75g, conditionnées dans une boite en carton contenant quatre barres et elles sont destinées à être utilisées à des fins culinaires ou à être consommées en l’état.",
+   "justification": "Le produit en question est une préparation alimentaire à base du lait reconstitué écrémé, auquel d’autres substances non autorisées pour les produits du Chapitre 04, telle que l’huile de palme, a été rajoutée, dépassant ainsi le cadre d’une simple préparation fromagère du n° 04.06. De ce fait, elle est à classer à la position tarifaire 19.01, plus précisément à la sous position tarifaire 1901.90.20.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 028/DGD du 27.05.2025",
+   "number": 28,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "BANDE A LED FLEXIBLE",
+   "hs_code": "8539.51.00.00",
+   "hs_codes": [
+    "8539.51.00.00"
+   ],
+   "description": "Un produit dénommé « Bande LED flexible », consistant en un ensemble composé de plusieurs diodes émettrices de lumières (LED), interconnectées au moyen d’un conducteur électrique encastré dans un circuit imprimé, et assemblées avec d’autres éléments passifs (résistances SMD) sur un circuit imprimé. La présente bande est dotée à ses extrémités de connecteurs prêts à être soudés à des conducteurs électriques en vue de son alimentation électrique en une puissance de 12V DC. Elle comporte également des lignes de coupe, délimitant la fin d’un circuit et le début d’un autre, permettant ainsi sa découpe à la longueur souhaitée. Elle est destinée à être utilisée comme source lumineuse pour l’éclairage et la décoration des immeubles, meubles, panneaux publicitaires, ... etc.",
+   "justification": "Le produit en question est un assemblage comportant des LED assemblées avec d’autres éléments passifs (résistances SMD) sur un circuit imprimé, en vue de de limiter le passage du courant électrique permettant ainsi de contrôler le courant continu à un niveau utilisable par les LED. Ainsi, s’agissant d’un module à LED comportant des circuits (résistances SMD) dans le but de contrôler la puissance à un niveau utilisable par les LED, répondant ainsi à la définition des sources lumineuses énoncée par la Note 11-a) du Chapitre 85), son classement à la position tarifaire 85.41 ne peut être effectué et il est à classer à la position tarifaire 85.39, et plus précisément à la sous position tarifaire 8539.51.00.00. Par ailleurs, un produit similaire a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 70 ème Session, tenue en Septembre 2022, le classant à la sous position tarifaire 8539.51, par application des RGI 1 (Notre 11 a) du Chapitre 85 et Note 1 f) du Chapitre 94) et 6. Application des RGI 1 (Note 11-a du Chapitre 85) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 11-a du Chapitre 85) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 029/DGD du 27.05.2025",
+   "number": 29,
+   "decision_date": "2025-05-27",
+   "valid_from": "2025-05-27",
+   "valid_to": "2028-05-26",
+   "designation": "FLACON POUR VERNIS A ONGLES, EN VERRE",
+   "hs_code": "7010.90.13.00",
+   "hs_codes": [
+    "7010.90.13.00"
+   ],
+   "description": "Un produit dénommé « flacon pour vernis à ongles en verre », consistant en un flacon en verre transparent, d’une contenance de 12 ml, présenté avec un bouchon en matière plastique, un pinceau applicateur de vernis à ongles et une petite bille en acier pour mélanger le vernis à ongles. Le pinceau est destiné à être monté à l’intérieur du bouchon en plastique lequel est destiné à être serti sur le flacon en verre après l’avoir rempli du vernis à ongles. Tous ces articles sont présentés ensemble en même nombre.",
+   "justification": "Le produit en cause est un flacon pour vernis en verre présenté avec un pinceau applicateur et un dispositif de fermeture et destiné à contenir le vernis à ongles. Cet ensemble est à considérer comme un récipient en verre des types servant à l’emballage ou au transport de produits, présenté à l’état non monté, par application de la RGI 2-a) du SH. De ce fait, l’ensemble est à classer au n° 70.10 et plus précisément à la sous position tarifaire 7010.90.13.00. Ce produit a fait déjà une décision RTC portant référence n° 119/2021 du 28/11/2021. Application des RGI 1, 2-a) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 2-a) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 030/DGD du 03.06.2025",
+   "number": 30,
+   "decision_date": "2025-06-03",
+   "valid_from": "2025-06-03",
+   "valid_to": "2028-06-02",
+   "designation": "FLOCONS DE POMME DE TERRE",
+   "hs_code": "1105.20.00.00",
+   "hs_codes": [
+    "1105.20.00.00"
+   ],
+   "description": "Un produit dénommé « FLOCONS DE POMME DE TERRE », obtenu à partir de pommes de terre solanum tuberosum, propres à l’alimentation humaine, qui ont subi des opérations de sélection, de lavage, de dénoyautage, de pelage à la vapeur et du découpage, avant d’être blanchies et refroidies, en vue d’obtenir une texture homogène et cuites à la vapeur. La purée ainsi obtenue est séchée, par la suite, dans des séchoirs à tambour et coupée en flocons de taille, d’aspect et de couleur homogène. Le produit en question est composé de 99.4% de pommes de terre, de 0,3 à 0,5% d’un émulsifiant (E 471), de 0,1% au plus d’un stabilisateur (E 450i), de 0,01% au plus d’acide citrique, de 0,02% au plus de palmitate d’ascorbyle, de 0,01% au plus de métabisulfure de sodium et de 0,03% au plus de curcuma. Il est présenté dans des sacs d’une contenance de 25 kg et il est destiné à être utilisé pour la fabrication de pellets de chips.",
+   "justification": "Le produit en question consiste en des flocons de pomme de terre répondant parfaitement, du point de vue composition et mode d’obtention, à la définition des flocons de pomme de terre, énoncée aux Notes explicatives de la position tarifaire 11.05. De ce fait, il est à classer à la position tarifaire 11.05, plus précisément à la sous position tarifaire 1105.20.00.00, en tant que flocons de pomme de terre. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 031/DGD du 03.06.2025",
+   "number": 31,
+   "decision_date": "2025-06-03",
+   "valid_from": "2025-06-03",
+   "valid_to": "2028-06-02",
+   "designation": "PEAU DE CHAMOIS SYNTHETIQUE",
+   "hs_code": "5603.94.20.00",
+   "hs_codes": [
+    "5603.94.20.00"
+   ],
+   "description": "Un produit dénommé « peau de chamois - *** », consistant en un produit textile non-tissé, fabriqué à partir de fibres synthétiques dont 65% en polyamide et 35% en polyuréthane, avec un poids au mètre carré de 300 grammes. Il est présenté sous forme de rouleaux d’une longueur de 100 mètres, d’une largeur de 160 cm et il est destiné à être découpé en dimensions souhaitées en vue d’obtenir des chamoisettes servant pour l’essuyage des vitres et d’autres surfaces.",
+   "justification": "Le produit en cause est une peau de chamois synthétique, présentée sous forme d’un article textile non-tissé, fabriqué à partir de fibres synthétiques et présenté sous forme de rouleaux. De ce fait, s’agissant d’un non-tissé ne répondant pas à la définition des articles confectionnés énoncée par la Note 7) de la Section XVI), son classement à la position tarifaire 63.07 ne peut être effectué et il est à classer à la position tarifaire 56.03, plus précisément à la sous position tarifaire 5603.94.20.00, en tant que non-tissé de fibres synthétiques, non imprégné, ni enduit, ni recouvert ou stratifié, d'un poids supérieur à 150g/m2. Application des RGI 1 (Notes 7 et 8-a de la Section XI) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Notes 7 et 8-a de la Section XI) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 032/DGD du 03.06.2025",
+   "number": 32,
+   "decision_date": "2025-06-03",
+   "valid_from": "2025-06-03",
+   "valid_to": "2028-06-02",
+   "designation": "CARTE MERE D’UN LAPTOP COMPORTANT UN CPU",
+   "hs_code": "8473.30.11.00",
+   "hs_codes": [
+    "8473.30.11.00"
+   ],
+   "description": "Un produit dénommé « Carte mère avec CPU », consistant en un assemblage électronique constitué d’un circuit imprimé équipé d’un processeur, de composants graphiques, réseau et audio ainsi que d’autres composants actifs et passifs et d’un emplacement pour RAM, de ports USB et HDMI et d’un connecteur pour casque/microphone. La carte mère en question ne contient pas d’unités de mémoire et elle est destinée exclusivement pour l’équipement des machines automatiques de traitement de l’information portatives (laptop).",
+   "justification": "Le produit en question est une carte mère pour ordinateurs portables, équipée essentiellement d’un processeur, ne contenant pas d’unités de mémoire. Ainsi, s’agissant d’un assemblage électronique comportant un microprocesseur intégré dans une carte mère qui est équipé d’autres composants actifs et passifs et de ports de connexion, dépassant ainsi le cadre d’un simple microprocesseur et le rendant reconnaissable comme étant destinée exclusivement pour l’équipement ordinateurs portables (laptop), son classement, de ce fait, à la position tarifaire 85.42, en tant que microprocesseur ne peut être effectué. De plus, étant donné que l’assemblage en question ne comporte pas des unités de mémoire, il ne peut être considéré comme étant une unité centrale de traitement incomplète, par application de la RGI 2-a). Eu égard à ce qui précède, l’assemblage électronique en question est à classer à la position tarifaire 84.73, plus précisément à la sous position tarifaire 8473.30.11.00, en tant que carte mère pour machines automatiques de traitement de l’information portatives. Application des RGI 1 (Note 2-b de la section XVI), 3-b et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 2-b de la section XVI), 3-b et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 033/DGD du 15.07.2025",
+   "number": 33,
+   "decision_date": "2025-07-15",
+   "valid_from": "2025-07-15",
+   "valid_to": "2028-07-14",
+   "designation": "MODULE A DIODES EMETTRICES DE LUMIERE (LED)",
+   "hs_code": "8539.51.00.00",
+   "hs_codes": [
+    "8539.51.00.00"
+   ],
+   "description": "Un produit dénommé « PCB-LED CHIP BOARD », consistant en un assemblage de 184 LED, montées sur une carte de circuit imprimé en aluminium, de dimension de (1165x48x1) mm, interconnectées au moyen d’un conducteur électrique encastré dans le circuit imprimé. L’assemblage en question inclut également des éléments thermiques (résistances), des fusibles de protection et d’autres composants pour la stabilisation du flux lumineux et sa surface est revêtue de matériau fluorescent. Il est destiné à être complété par un transformateur du courant alternatif en courant continu et des condensateurs, non présentés dans le cas d’espèce, et déposé sur un socle à couvrir par un diffuseur en matière plastique, en vue de former une réglette lumineuse à LED.",
+   "justification": "Le produit en cause est un assemblage comportant des LED assemblées avec d’autres éléments passifs (résistances), des fusibles de protection et d’autres composants pour la stabilisation du flux lumineux. Ainsi, étant donné que le module en cause comporte des éléments discrets actifs (résistances) ou passifs ou des articles des n°s 85.36 ou 85.42 (fusibles), dans le but de fournir l’alimentation ou de contrôler la puissance, répondant ainsi à la définition des modules à diodes émettrices de lumière (LED), énoncée par la Note 11-a) du Chapitre 85), son classement à la position tarifaire 85.41 ne peut être effectué et il est à classer à la position tarifaire 85.39, et plus précisément à la sous position tarifaire 8539.51.00.00. Un produit similaire a déjà fait l’objet d’une décision de classement tarifaire par le Comité du SH de l’OMD lors de sa 70ème Session, tenue en Septembre 2022, le classant à la sous position tarifaire 8539.51, par application des RGI 1 (Notre 11 a) du Chapitre 85 et Note 1 f) du Chapitre 94) et 6. La présente décision modifie la décision RTC portant référence n° 044/2024 du 03.07.2024. Cette dernière cesse d’être valide et elle ne couvre que la période de sa validité. Application des RGI 1 (Note 11-a du chapitre 85) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 11-a du chapitre 85) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 034/DGD du 17.07.2025",
+   "number": 34,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "COLONNE D’ENDOSCOPIE",
+   "hs_code": "9018.90.20.00",
+   "hs_codes": [
+    "9018.90.20.00"
+   ],
+   "description": "Un produit dénommé « colonne d’endoscopie », consistant en un équipement médical présenté sous forme d’un système constitué, entre autres, d’une caméra HD, d’endoscopes, de sources lumineuses, d’un moniteur, d’un processeur vidéo, d’un insufflateur et d’autres instruments chirurgicaux (pinces, aiguilles, etc.). Il est destiné à être utilisé dans diverses spécialités médicales (gastro, pneumologie, l’urologie, etc.) en vue de permettre aux médecins spécialiste d’explorer les cavités internes du corps telles que l’estomac, les intestins ou les voies respiratoires, en temps réel et de leur permettre une visualisation précise et d’effectuer ainsi un diagnostic précis et efficace.",
+   "justification": "Le produit en cause est une colonne d’endoscopie, présentée sous forme d’un système constitué de plusieurs appareils et instruments médicaux, combinés ensemble en vue d’assurer concurremment une fonction bien déterminée, à savoir l’exploration visuelle de l’intérieur de l’organisme en vue d’établir un diagnostic ou un examen médical efficace et d’effectuer des interventions chirurgicales. De ce fait, il est à considérer comme étant une unité fonctionnelle au sens de la Note 3 du Chapitre 90) et il est à classer à la position tarifaire 90.18, plus précisément à la sous position tarifaire 9018.90.20.00, en tant qu’un appareil spécial pour le diagnostic. Application des RGI 1 (Note 3 du Chapitre 90)) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 3 du Chapitre 90)) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 035/DGD du 17.07.2025",
+   "number": 35,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "GRANULES DE BASALTE COLORES ARTIFICIELLEMENT",
+   "hs_code": "6802.10.20.00",
+   "hs_codes": [
+    "6802.10.20.00"
+   ],
+   "description": "Un produit dénommé « granules de basalte colorés », obtenus suivant un processus de fabrication impliquant les étapes successives suivantes : i) l’extraction de la matière première dans la carrière de basalte, ii) le broyage et le concassage de la matière première extraite, iii) le criblage du matériau concassé en divers grades, iv) l’enrobage du matériau concassé et tamisé avec divers agents colorants à une certaine température, v) le criblage final du matériau broyé coloré et vi) l’emballage en jumbo bags pour stockage et expédition vers les clients. Les granules en question sont présentés sous différents couleurs et ils sont destinés à être utilisés pour la production de bardeaux, de membranes et de tuiles métalliques.",
+   "justification": "Le produit en question consiste en des granules de pierres de basalte colorés artificiellement. De ce fait, leur classement à la position tarifaire 25.17 est exclu et ils sont à est à classer à la position tarifaire 68.02, et plus précisément à la sous position tarifaire 6802.10.20.00, couvrant nommément les granules colorés artificiellement. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 036/DGD du 17.07.2025",
+   "number": 36,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "FLACON A URINE EN MATIERE PLASTIQUE",
+   "hs_code": "3923.30.29.00",
+   "hs_codes": [
+    "3923.30.29.00"
+   ],
+   "description": "Un produit dénommé « flacon à urine 60 ml », consistant en un récipient en polypropylène transparent, stérile et gradué, doté d’un capuchon à visser en polyéthylène d’une couleur rouge. Il est d’une contenance de 60 ml et destiné à être utilisé pour la collecte et le transport d’urine (spécimen biologique) pour être analysée ou examiné dans un laboratoire.",
+   "justification": "Le produit en cause est un récipient en matières plastiques destiné à être utilisé pour la collecte et le transport d’urine pour être analysée ou examiné dans un laboratoire. De ce fait, il est à classer à la position tarifaire 39.23, couvrant nommément les articles de transport ou d’emballage en matières plastiques, plus précisément à la sous position tarifaire 3923.30.29.00 en tant que flacon en matières plastiques d’une contenance n’excédant pas 2 L. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 037/DGD du 17.07.2025",
+   "number": 37,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "LIGNE DE PERFUSION STERILE",
+   "hs_code": "9018.39.10.00",
+   "hs_codes": [
+    "9018.39.10.00"
+   ],
+   "description": "Un produit dénommé « Alpha infusion set », consistant en une ligne de perfusion stérile et à usage unique, composée d’une aiguille perforatrice, d’un tube en latex, d’un tuyau en PVC transparent, d’un régulateur à molette pour le réglage du débit des fluides, d’une chambre compte-gouttes dotée d’un filtre et d’un embout perforant avec filtre à air permettant le raccordement étanche de la ligne au flacon ou le contenant du fluide. Le ligne de perfusion en cause est destinée à être utilisée en tant que dispositif médical pour l’administration intraveineuse des substances pharmaceutiques (médicaments, nutriments, etc.).",
+   "justification": "Le produit en cause est une ligne de perfusion stérile et à usage unique, destinée à être utilisée en tant que dispositif médical pour l’administration intraveineuse des substances pharmaceutiques (médicaments, nutriments, etc.). Ainsi, s’agissant d’un instrument destiné à être utilisé exclusivement en tant que dispositif médical en vue d’administrer des médicaments et des liquides de perfusion dans le veine du patient, il est à classer à la position tarifaire 90.18, plus précisément à la sous position tarifaire 9018.39.10.00, couvrant nommément les lignes de perfusion et de transfusion. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 038/DGD du 17.07.2025",
+   "number": 38,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "CANULE INTRAVEINEUSE",
+   "hs_code": "9018.39.92.00",
+   "hs_codes": [
+    "9018.39.92.00"
+   ],
+   "description": "Un produit dénommé « Alpha flow I.V cannula », consistant en une canule intraveineuse, composée d’un cathéter (tube en fluoro-polymère), d’une aiguille en acier inoxydable avec biseau tranchant, d’un bouchon Luer Lock qui assure la connexion de la canule aux autres dispositifs médicaux, d’une chambre transparente pour le retour du sang, d’une poignée de l’aiguille, d’un connecteur Luer servant d’interface pour connecter la canule à des dispositifs extérieurs, des ailes servants d’ancrages et assurant la stabilité et le maintien de la canule sur place, d’une soupape positionnée à l’intérieur de la canule pour réguler le flux des fluides, d’un port d’injection offrant la possibilité d’administrer des médicaments ou des liquides supplémentaires sans perturber la ligne principale, d’une bague assurant l’intégrité structurelle entre la cathéter et le noyau et empêchant les fuites. Il est conçu pour des applications médicales, principalement pour l’administration de liquides, médicaments ou des produits sanguins directement dans la circulation sanguine du patient.",
+   "justification": "Le produit en cause est une canule intraveineuse, destinée à être utilisée en tant que dispositif médical pour l’administration intraveineuse de fluides (médicaments, nutriments, etc.) dans la circulation sanguine du patient. Ainsi, s’agissant d’un dispositif médical composée de plusieurs éléments, entre autres, un cathéter, il est à classer à la position tarifaire 90.18, plus précisément à la sous position tarifaire 9018.39.92.00, en tant qu’autres canules. Le classement du produit en question à la sous position tarifaire 9018.39.91.00 ne peut être effectué dans la mesure où il dépasse le cadre d’un simple cathéter qui constitue d’ailleurs l’un des composants dudit instrument. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 039/DGD du 17.07.2025",
+   "number": 39,
+   "decision_date": "2025-07-17",
+   "valid_from": "2025-07-17",
+   "valid_to": "2028-07-16",
+   "designation": "DEMI-SPHERE EN ALUMINIUM POUR BROYEUR",
+   "hs_code": "7616.99.99.00",
+   "hs_codes": [
+    "7616.99.99.00"
+   ],
+   "description": "Un produit dénommé « demi sphérique » présenté sous forme de demi-boule de section pleine en alliages d’aluminium, d’un diamètre de 240 mm et d’une épaisseur de 120 mm, obtenues par moulage ou coulage, dans un moule en sable à vert, à partir des déchets d’aluminium. Il est composé de 84.88% d’aluminium, de 11.45% de silicium, de 1.68% de cuivre, de 0.74% de fer, de 0.82% de zinc, etc. Ces demi-boules sont destinées à être utilisées dans un broyeur des composants du ciment. L’opération de broyage se fait par choc et par friction sous l’action des demi-boules, d’une part et de la rotation du tambour du broyeur, d’autre part. Ces boules sont obtenues suivant les étapes suivantes (i) triage et préparation des déchets d’aluminium (ii) fusion au gaz des déchets (iii) coulage de l’aluminium liquide dans un moule en sable vert (iv) contrôle et analyse de qualité et ajout éventuel des métaux pour atteindre les normes souhaitées (v) préparation des moules des pièces à couler (vi) transport de l’aluminium liquide du four aux moules de coulée (vii) refroidissement et solidification des demi- boules (viii) ébarbage et finition des demi-boules.",
+   "justification": "Le produit en question est une demi-boule en alliages d’aluminium obtenue par coulage/moulage, destinée à être placée dans un tambour d’un broyeur. Les demi-boules en cause dépassent le cadre des formes primaires de l’aluminium de la position 76.01 dans la mesure où elles ont été présentées sous forme de pièces moulues pour une utilisation particulière dans un broyeur. Les Notes explicatives de la position 76.16, alinéa 5) précisent que cette position couvre les ouvrages en aluminium de la nature de ceux visés dans les Notes explicatives des n°s 73.25 et 73.26. Parmi les produits couverts par la position tarifaire 73.25, sont cités les boulets et articles similaires pour broyeurs en fonte, fer ou acier, obtenus par moulage. De ce fait, les demi-boules pour broyeur en question sont à classer à la position tarifaire 76.16 et plus particulièrement à la sous position 7616.99.99.00 couvrant les autres ouvrages en aluminium. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 040/DGD du 22.07.2025",
+   "number": 40,
+   "decision_date": "2025-07-22",
+   "valid_from": "2025-07-22",
+   "valid_to": "2028-07-21",
+   "designation": "FEUILLE DETACHEE D’ALBUM PHOTO, EN PAPIER AUTO- ADHESIF",
+   "hs_code": "4811.41.21.00",
+   "hs_codes": [
+    "4811.41.21.00"
+   ],
+   "description": "Un produit dénommé « Self adhésive sheet 315•325mm », consistant en une feuille en papier auto-adhésif des deux côtés, présentée sous forme rectangulaire d’un grammage de 300 g/m2, et de dimensions de 315•325mm. La feuille auto- adhésive en question comporte des lignes obliques dorées et elle est entièrement recouverte d’un film protecteur en matière plastique (BOPP) d’une épaisseur de 0.045 mm. Elle est reliée à une bande en papier, à travers un film en plastique, comportant trois trous pour sa fixation à un classeur à anneaux. Les feuilles en question sont des feuilles d’détachées d’albums pour photos, avec système à anneaux.",
+   "justification": "Le produit en cause est une feuille détachée d’album photo, en papier auto- adhésif, recouverte sur les deux faces d’une fine couche protectrice de matière plastique comportant trois trous verticaux permettant son insertion facile dans l’album photos de type classeur. Selon les Notes explicatives de la position tarifaire 48.20, les feuilles détachées d'albums sont classées distinctement selon leurs caractéristiques. Dans ces conditions et étant donné que l’épaisseur de la couche en papier est largement supérieure à celle du plastique et que le film en plastique n’assure qu’un rôle de protection des photos, cette feuille est à classer selon la matière constitutive qui est le papier, à la position tarifaire 4811, et plus précisément à la sous position tarifaire 4811.41.21.00, en tant papier auto-adhésive. Application des RGI 1 (Note 2-g du Chapitre 48) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 2-g du Chapitre 48) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 041/DGD du 14.08.2025",
+   "number": 41,
+   "decision_date": "2025-08-14",
+   "valid_from": "2025-08-14",
+   "valid_to": "2028-08-13",
+   "designation": "BOUCHON DE TYPE BOUTON-POUSSOIR, EN MATIERE PLASTIQUE",
+   "hs_code": "3926.90.99.90",
+   "hs_codes": [
+    "3926.90.99.90"
+   ],
+   "description": "Un produit dénommé « SPRAYCAP », consistant en un bouchon, de type bouton- poussoir, en matière plastique, destiné à être monté sur des aérosols (sur la valve) à l’effet d’actionner le système de pulvérisation.",
+   "justification": "Le produit en question est un ouvrage en matière plastique destiné à actionner le système de pulvérisation d’un aérosol, dépassant ainsi le cadre d’un simple bouchon de fermeture en matière plastique du n° 39.23. Il est à exclure du n° 84.24 également du fait qu’il ne comporte aucun dispositif mécanique. Ainsi et en l’absence d’une position tarifaire spécifique couvrant l’article en cause, il est à classer en tant qu’autre ouvrage en matière plastique au n° 39.26, plus précisément à la sous position tarifaire résiduelle 3926.90.99.90. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 042/DGD du 14.08.2025",
+   "number": 42,
+   "decision_date": "2025-08-14",
+   "valid_from": "2025-08-14",
+   "valid_to": "2028-08-13",
+   "designation": "POMPE ACTIONNEE A LA MAIN POUR DISTRIBUTION DES SAVONS LIQUIDES ET GELS HYDRO-ALCOOLIQUE.",
+   "hs_code": "8413.20.90.00",
+   "hs_codes": [
+    "8413.20.90.00"
+   ],
+   "description": "Un produit dénommé « POMPE », consistant en une pompe à piston en matière plastique, actionnée à la main, pourvue (i) d’un tube plongeur (ii) d’une sortie pour distribuer des matières présentées sous forme de liquide ou de gel et (iii) d’un dispositif de verrouillage. Cette pompe est destinée à être vissée sur une bouteille, non présentée dans le cas d’espèce, à l’effet d'élever la matière se trouvant à l’intérieur du récipient (le savon liquide pour mains ou le gel hydro-alcoolique) et de le distribuer sous forme de doses.",
+   "justification": "Le produit en cause est une pompe à main présentée isolement et destinée à être vissée sur une bouteille à l’effet de distribuer et non pas pour projeter, disperser ou pulvériser son contenu liquide ou gel. De ce fait, son classement à la position tarifaire 84.24 ne peut être retenu et elle est à classer à la position tarifaire 84.13, plus précisément au n° 8413.20.90.00 en tant que pompe actionnée à la main. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 043/DGD du 14.08.2025",
+   "number": 43,
+   "decision_date": "2025-08-14",
+   "valid_from": "2025-08-14",
+   "valid_to": "2028-08-13",
+   "designation": "MONTURE DE VAPORISATEUR",
+   "hs_code": "9616.10.20.00",
+   "hs_codes": [
+    "9616.10.20.00"
+   ],
+   "description": "Un produit dénommé « PULSADOR + VALVE », consistant en une monture de vaporisateur, constituée (i) d’une valve comportant une coupelle en étain et d’un tube plongeur en matière plastique et (ii) d’un bouton poussoir en matière plastique. Cette monture est destinée à être sertie sur une bombe aérosol, non présentée dans le cas d’espèce, à l’effet de vaporiser le produit se trouvant à l’intérieur de la bombe aérosol (des désodorisants ou des produits d’entretien des chaussures en cuir (rénovateur Daim)).",
+   "justification": "Le produit en cause est une monture destinée à être fixée sur un récipient de type bombe aérosol. A cet effet et s’agissant d’une monture de vaporisation destinée à être utilisée pour la vaporisation des produits de toilettes (des désodorisants) ou pour d’autres produits d’entretien des chaussures, les deux positions tarifaires 84.24 et 96.16, sont envisageables. Etant donné qu’il n’est pas possible de déterminer le caractère essentiel (vaporisation des produits de toilettes ou de produits d’entretien des chaussures) par application de la RGI 3-b), cette monture est à classer par application de la RGI 3-c) du SH, à la dernière position par ordre de numérotation, à savoir le n° 96.16 et plus particulièrement à la sous position tarifaire 9616.10.20.00 à titre de monture de vaporisateur de toilettes. Application des RGI 1, 3-c) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 3-c) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 044/DGD du 21.08.2025",
+   "number": 44,
+   "decision_date": "2025-08-21",
+   "valid_from": "2025-08-21",
+   "valid_to": "2028-08-20",
+   "designation": "RECIPIENT METALLIQUE AVEC SON DISPOSITIF DE PULVERISATION",
+   "hs_code": "8424.89.91.00",
+   "hs_codes": [
+    "8424.89.91.00"
+   ],
+   "description": "Un produit dénommé « METAL CAN WITH CAR SPRAY », consistant en des récipients métalliques de type « bombe aérosol », d’une contenance de 120 et 400 ml, présentés avec des pulvérisateurs manuels. Les récipients métalliques sont imprimés d’illustrations et de textes relatifs au produit à contenir (une colle adhésive), non présenté dans le cas d’espèce, et ils sont destinés, après leur remplissage de ladite colle adhésive, à être équipés par sertissage, de montures, présentées avec lesdites bombes aérosols, à l’effet de pulvériser la colle adhésive, sous forme de fines particules, lors de son utilisation.",
+   "justification": "Le produit en cause est un ensemble constitué d’un récipient en métal de type « bombe aérosol » et d’un dispositif vaporisateur, destinés à être assemblés au moyen de sertissage, après avoir rempli le récipient d’une colle adhésive, en vue de former un appareil mécanique, à commande manuelle, pour la pulvérisation de ladite colle adhésive. Ainsi, étant donné que l’ensemble en question est constitué d’un récipient métallique présenté avec un dispositif mécanique permettant la pulvérisation de son contenu (colle adhésive), il est à considérer de ce fait, comme étant un appareil mécanique, à commande manuelle, pour la pulvérisation des matières au sens du n° 84.24. De ce fait, il est à classer à la position tarifaire 84.24, plus précisément à la sous position tarifaire 8424.89.91.00. Application des RGI 1, 2-a) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 2-a) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 045/DGD du 21.08.2025",
+   "number": 45,
+   "decision_date": "2025-08-21",
+   "valid_from": "2025-08-21",
+   "valid_to": "2028-08-20",
+   "designation": "LATTES EN BOIS MULTIPLIES",
+   "hs_code": "4412.52.00.00",
+   "hs_codes": [
+    "4412.52.00.00"
+   ],
+   "description": "Un produit dénommé « Lattes en bois multipliés », consistant en des lattes en bois pour sommiers, lit-coffres, etc., composées d’une âme, constituée de cinq (05) lattes en bois de bouleau disposées et collées de manière rectangulaire, recouverte sur ses deux faces extérieures d’une couche ou d’un pli en bois hêtre. Elles sont présentées sous forme rectangulaire à bords arrondis d’une longueur de 80 cm à 2 m, d’une largeur de 08 cm et d’une épaisseur de 08 mm. Les lattes en question sont destinées à être utilisées pour la fabrication des sommiers, de lits ou autres meubles en bois.",
+   "justification": "Le produit en question consiste en des lattes ou des planches en bois à âme lattée ayant les deux plis extérieurs en bois autre que de tropicaux ou de conifères, répondant parfaitement à la définition des bois stratifies à âme épaisse (âme lattée), énoncée au paragraphe 3) des Notes explicatives de la position tarifaire 44.12. Ainsi, s’agissant de lattes en bois autre que le contre-plaqué et le bois de placage stratifié, il est à classer à la position tarifaire 44.12, plus précisément à la sous position tarifaire 4412.52.00.00, en tant que bois stratifié à âme lattée, ayant au moins un pli extérieur en bois autres que de conifères. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 046/DGD du 21.08.2025",
+   "number": 46,
+   "decision_date": "2025-08-21",
+   "valid_from": "2025-08-21",
+   "valid_to": "2028-08-20",
+   "designation": "SACS D’EMBALLAGE EN FILM MULTICOUCHES",
+   "hs_code": "3923.21.90.00",
+   "hs_codes": [
+    "3923.21.90.00"
+   ],
+   "description": "Des sacs d’emballage en film multicouches, d’une épaisseur totale de 100 microns, constitué de trois couches collées entre elles : i) une couche en polypropylène orienté bi-axialement (BOPP), d’une épaisseur de 18 microns, ii) une couche en polyester métallisé (aluminisée) (VMPET), d’une épaisseur de 12 microns et iii) d’une couche en polyéthylène basse densité linéaire (LLDPE), d’une épaisseur de 65 microns. Les sacs d’emballage en question sont scellés de trois côtés et présentés sous différentes dimensions et capacités et Ils sont revêtus d’impressions et d’illustrations quant aux produits à contenir (fongicides, insecticides, acaricides, etc.).",
+   "justification": "Le produit en cause consiste en des sacs d’emballage, fabriqués à partir d’un film en matière plastique multicouches (composite) et dont la couche en polyéthylène basse densité linéaire (LLDPE) prédomine en poids par rapport aux deux autres couches en matières plastiques. Ainsi, étant donné que le produit en question est fabriqué à partir d’un film en matière plastique composite dont la couche en LLDPE représente la matière prédominante en poids et qu’il est destiné à être utilisé en tant que sac l’emballage pour des produits autres que pharmaceutiques ou alimentaires, il est à classer à la position tarifaire 39.23, plus précisément à la sous position tarifaire 3923.21.90.00. Application des RGI 1, 3-b) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 3-b) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 047/DGD du 21.08.2025",
+   "number": 47,
+   "decision_date": "2025-08-21",
+   "valid_from": "2025-08-21",
+   "valid_to": "2028-08-20",
+   "designation": "PUREE DE MANGUE",
+   "hs_code": "2007.99.29.90",
+   "hs_codes": [
+    "2007.99.29.90"
+   ],
+   "description": "Un produit dénommé « Purée de mangue », obtenu suivant un processus de fabrication incluant essentiellement : 1) la collecte des pulpes de mangues, 2) un préchauffage à 60 - 75 °C, 3) la décantation, 4) le tamisage en vue d’obtenir une purée homogène, 5) l’évaporation, 6) l’homogénéisation, 7) la pasteurisation, 8) le refroidissement et 9) le conditionnement dans des sacs aseptiques. Il est présenté sous forme d’une purée, d’une texture homogène légèrement granulée et d’un état physique fluide peu danse ou sous écoulement libre, d’une couleur jaune doré et d’une valeur Brix de 17,35 à 18,12°. Le produit en question est conditionné dans des sacs aseptiques, placés dans des drums métalliques d’un poids de 215 kg chacun et il est destiné à être utilisé pour la fabrication des boissons à base de jus et de nectars.",
+   "justification": "Le produit en cause est une purée de mangue obtenue suivant un procédé impliquant la cuisson (un préchauffage à 60-75° C), correspondant au mode d’obtention des purées de fruits du n° 20.07, énoncé à la Note 5) du Chapitre 20. De ce fait, la purée de mangue en question est à classer à la position tarifaire 20.07, plus précisément à la sous position tarifaire 2007.99.29.90. Application des RGI 1 (Note 5 du Chapitre 20) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 5 du Chapitre 20) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 048/DGD du 22.09.2025",
+   "number": 48,
+   "decision_date": "2025-09-22",
+   "valid_from": "2025-09-22",
+   "valid_to": "2028-09-21",
+   "designation": "UNE COLONNE DE DOUCHE DEPOURVUE DE L'ARTICLE DE ROBINETTERIE",
+   "hs_code": "8424.89.99.00",
+   "hs_codes": [
+    "8424.89.99.00"
+   ],
+   "description": "Un produit dénommé « KIT COLONNE DE DOUCHE », consistant en un ensemble d’articles formant une colonne de douche à l’exception de l’article de robinetterie non présenté dans le cas d’espèce. Il est composé (i) d’un pommeau de douche de tête en matière plastique, orientable et comportant des picots anticalcaires et offrant un seul type de jet d’eau, (ii) d’une douchette à main permettant un flux d’écoulement d’eau à trois (03) façons ( trois types de jets), (iii) d’un bras de douche en métal chromé rotatif, assurant la conduction de l'eau, (iv) d’un inverseur mécanique permettant l'orientation de l'écoulement de l'eau vers la douchette à main ou bien la douche de tête, (v) d’un (01) tuyaux flexible avec double agrafages anti-torsion, (vi) d’un porte-savon et (vii) de deux (02) supports de fixation. Ce ensemble est présenté à l’état non monté et conditionné pour la vente au détail dans une boite en carton et il est destiné à être monté en vue d’obtenir une colonne de douche à fixer au mur d’une salle de bain, à l’effet de pulvériser ou disperser de l’eau après l’avoir connectée à un article de robinetterie, non présenté dans le cas d’espèce.",
+   "justification": "Le produit en cause est une colonne de douche présentée à l’état non monté et sans l’article de robinetterie dont sa douchette à main est équipée d’un dispositif mécanique réglant la dispersion ou l’orientation du jet de l’eau. Ainsi, s’agissant d’un produit destiné à assurer la fonction de pulvérisation de l’eau au moyen d'un dispositif mécanique permettant l'orientation du jet de l'eau, il est à classer à la position tarifaire 84.24, couvrant ce type d’articles et plus particulièrement à la sous position tarifaire 8424.89.99.00. Application des RGI 1, 2-a), 3-b) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 2-a), 3-b) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 049/DGD du 08.10.2025",
+   "number": 49,
+   "decision_date": "2025-10-08",
+   "valid_from": "2025-10-08",
+   "valid_to": "2028-10-07",
+   "designation": "SACS D’EMBALLAGE D’UN ACARICIDE, EN FILM HYDROSOLUBLE",
+   "hs_code": "3923.29.90.00",
+   "hs_codes": [
+    "3923.29.90.00"
+   ],
+   "description": "Un produit dénommé « PVA water soluble bag », consistant en des sacs en film hydrosoluble, composés de 95% d’alcool polyvinylique (PVA) (polymère synthétique soluble dans l'eau), 3% d’amidon, 1% de glycérine, 0,6% d’isostearyl et 0,4% de poly (diethylsiloxane). Il est présenté sous forme d’une pochette de forme rectangulaire, de dimensions de 150 x 220 mm et imprimée du logo et des indications sur le produit à contenir. Les sacs en question sont destinés à être utilisés en tant qu’emballage d’un acaricide.",
+   "justification": "Le produit en question est un sac fabriqué à partir d’un film constitué majoritairement du PVA (matière plastique) et il est destiné à être utilisé en tant qu’emballage d’un acaricide. De ce fait, il est à classer à la position tarifaire 39.23 et plus précisément à la sous position tarifaire 3923.29.90.00. Application des RGI 1 (Note 1 du Chapitre 39) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 1 du Chapitre 39) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 050/DGD du 08.10.2025",
+   "number": 50,
+   "decision_date": "2025-10-08",
+   "valid_from": "2025-10-08",
+   "valid_to": "2028-10-07",
+   "designation": "M’SEMEN (CREPE FEUILLETEE)",
+   "hs_code": "1901.20.10.00",
+   "hs_codes": [
+    "1901.20.10.00"
+   ],
+   "description": "Un produit dénommé « M’SEMEN », appelé également crêpe feuilletée, obtenu par pétrissage d’une pâte composée de farine (42,80%), de l’eau (31,85%), d’une graisse végétale (margarine) (13,27%), de la semoule (10,70%), du sel (0,85%) et du sucre (0,52%). La pâte ainsi obtenue est passée dans une machine de feuilletage à la margarine avant d’être passée dans une autre machine de façonnage. Après un temps de repos de la pâte, les pièces façonnées sont pressées et surgelées avant d’être emballées dans des paquets contenant cinq (05) unités, d’un poids de 100g, lesquels seront conditionnés dans des cartons contenant 24 paquets. Le produit en question est destiné à être cuit, au moment de sa consommation, dans une poêle anti adhésive bien chaude.",
+   "justification": "Le produit en question est une pâte culinaire crue (non cuite) à base de farine et destinée à être cuite, au moment de sa consommation, dans une poêle anti adhésive bien chaude, en vue d’obtenir un produit de la boulangerie appelé « M’semen » ou « crêpe feuilletée ». Ainsi, s’agissant d’une pâte préparée, non cuite, destinée pour la préparation d’un produit de la boulangerie de la position tarifaire 19.05, elle est à classer à la position tarifaire 19.01 et plus précisément à la sous position tarifaire 1901.20.10.00, couvrant nommément ce type de pâtes. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 051/DGD du 08.10.2025",
+   "number": 51,
+   "decision_date": "2025-10-08",
+   "valid_from": "2025-10-08",
+   "valid_to": "2028-10-07",
+   "designation": "KESRA SURGELEE CRUE",
+   "hs_code": "1901.20.10.00",
+   "hs_codes": [
+    "1901.20.10.00"
+   ],
+   "description": "Un produit dénommé « KESRA », consistant en une pâte pour la préparation de galettes (pain plat et rond), présentée à l’état crue et surgelée et composée des ingrédients suivants: farine (48,36%), eau (21,76%), graisse végétale (16,33%), semoule (12,10%), sel (0,85%) et sucre (0,6%). Les pâtes en question sont conditionnées individuellement dans un film en matière plastique et présentées dans des cartons contenant 18 unités, d’un poids net de 14,04 kg et elles sont destinées à être cuites sur une poêle chaude pour obtenir un pain plat (galette traditionnelle) prête à la consommation.",
+   "justification": "Le produit en cause est une pâte culinaire crue (non cuite) à base de farine et semoule, destinée à être cuite en vue d’obtenir une galette traditionnelle (kesra) prête à la consommation. Ainsi, s’agissant d’une pâte préparée, non cuite, destinée pour la préparation d’un produit de la boulangerie de la position tarifaire 19.05, elle est à classer à la position tarifaire 19.01 et plus précisément à la sous position tarifaire 1901.20.10.00, couvrant nommément ce type de pâtes. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 052/DGD du 08.10.2025",
+   "number": 52,
+   "decision_date": "2025-10-08",
+   "valid_from": "2025-10-08",
+   "valid_to": "2028-10-07",
+   "designation": "UN VEHICULE POLYVALENT DU TYPE « PICK-UP »",
+   "hs_code": "8704.21.92.91",
+   "hs_codes": [
+    "8704.21.92.91"
+   ],
+   "description": "Un véhicule dénommé « Toyota Hilux double cabine GL 2.4L 4x4 », consistant en un véhicule polyvalent, à quatre roues motrices, du type « pick-up », conçu pour le transport, à la fois, des personnes et des marchandises. Il est constitué (i) d’une cabine double à quatre portes équipées de vitres, pourvue de deux rangés de sièges pour cinq personnes et elle est dotée des éléments de confort et de sécurité, et (ii) d’une aire de chargement ouverte située à l’arrière de la cabine. Ce véhicule est propulsé par un moteur à allumage par compression (diesel) d’une cylindrée de 2400 cm3 et une transmission manuelle et il est équipé d’une suspension arrière de type « lames ». Le véhicule en question est d’un poids total brut de 2850 kg et d’un poids à vide de 1800 kg, soit une capacité de chargement totale de 1050 kg.",
+   "justification": "Le produit en cause est un véhicule polyvalent du type « pick-up », équipé d’une suspension arrière de type « lames » et dont sa capacité de chargement utile pour les marchandises dépasse la capacité de chargement réservée aux personnes. De ce fait, s’agissant d’un véhicule automobile possédant des caractéristiques techniques et une conception générale (présence d’une plateforme arrière pour le transport de plus de 600 Kg de marchandises, le rapport entre la charge utile personnes et la charge utile marchandises, type d’amortisseurs, etc.) qui le rendant principalement conçu pour le transport de marchandises, il est à classer à la position tarifaire 87.04 et plus précisément à la sous position tarifaire 8704.21.92.91. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 053/DGD du 08.10.2025",
+   "number": 53,
+   "decision_date": "2025-10-08",
+   "valid_from": "2025-10-08",
+   "valid_to": "2028-10-07",
+   "designation": "POUSSIERE D’ACIERAGE - EAF",
+   "hs_code": "2619.00.94.00",
+   "hs_codes": [
+    "2619.00.94.00"
+   ],
+   "description": "Un produit dénommé « poussière d’aciérage - EAF », consistant en un sous- produit généré lors de la production de l’acier dans un four à arc électrique (EAF) et ce, par l'accumulation de particules fines, générées lors du processus de production d'acier dans un four à arc électrique, où la fusion de la ferraille recyclée par un arc électrique libère de la vapeur métallique, formant en mélange à l’air, un brouillard qui est ensuite capturé par le système de dépoussiérage dudit four en vue d’y collecter les particules solides sous forme de poussières. Il est présenté sous forme d’une poussière d’une couleur brunâtre et composée de 40% de fer, 32% d’oxyde de calcium (CaO) et 22% d’oxyde de magnésium (MgO) et il est destiné à être utilisé pour la récupération de métaux par des procédés métallurgiques (notamment l’extraction du zinc et du plomb) ou comme matière première secondaire dans la fabrication de ciments, béton et matériaux de construction après traitement.",
+   "justification": "Le produit en question est une poussière d’aciérage contenant des métaux qui est emportée dans les fumées résultant de la fusion de la ferraille métallique dans un four à arc et collectée au niveau du système de dépoussiérage dudit four suite au traitement de la fumée à l’aide de filtres à manche. Ainsi, s’agissant d’une poussière obtenue par filtrage du poussier (fumée) du four à arc électrique lors de la fabrication de l’acier, elle est à classer à la position tarifaire 26.19, et plus précisément à la sous position tarifaire 2619.00.94.00. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 054/DGD du 15.10.2025",
+   "number": 54,
+   "decision_date": "2025-10-15",
+   "valid_from": "2025-10-15",
+   "valid_to": "2028-10-14",
+   "designation": "MOTEURS ET ALTERNATEURS POUR GROUPES ELECTROGENES, PRESENTES ENSEMBLE",
+   "hs_code": "8502.11.10.00",
+   "hs_codes": [
+    "8502.11.10.00",
+    "8502.11.20.00",
+    "8502.11.30.00",
+    "8502.12.00.00",
+    "8502.13.10.00"
+   ],
+   "description": "Un ensemble de moteurs à piston à allumage par compression (diesel) de différentes puissances (de 1 à 3300 kw) et un ensemble d’alternateurs (génératrices électriques) de différents modèles et puissances (de 3,5 Kva à 4500 Kva), présentés en même temps mais non assemblés entre eux. Chaque moteur est destiné à être assemblé avec un alternateur à l’effet de constituer un groupe électrogène et ce, après le rajout d’autres composants non présentés dans le cas d’espèce (châssis, capot, coffret de commandes, batterie, l’huile, etc.). La puissance des groupes électrogènes à obtenir est de 7,5 Kva à 750 Kva.",
+   "justification": "Le produit en question consiste en des moteurs et des alternateurs, présentés en même temps, destinés à être montés sur un socle commun ou un châssis, à l’effet de constituer des groupes électrogènes de différentes puissances (de 7,5 à 750 Kva).De ce fait, chaque combinaison est à considérer en tant que groupe électrogène à moteur à piston à allumage par compression (diesel), incomplet mais possédant les caractéristiques essentielles d’un groupe électrogène, relevant, selon leur puissance, des n°s 8502.11.10.00, 8502.11.20.00, 8502.11.30.00, 8502.12.00.00 et 8502.13.10.00. Application des RGI 1, 2-a) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 2-a) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 055/DGD du 19.10.2025",
+   "number": 55,
+   "decision_date": "2025-10-19",
+   "valid_from": "2025-10-19",
+   "valid_to": "2028-10-18",
+   "designation": "FAÇADE VENTILEE EN CERAMIQUE",
+   "hs_code": "6907.22.29.92",
+   "hs_codes": [
+    "6907.22.29.92"
+   ],
+   "description": "Un produit dénommé « façade ventilée en céramique *** », consistant en des plaques rectangulaires et alvéolaires, de dimensions (L x l x H, en mm): 1200 x 400 x 17, fabriquées à base d’un grès cérame, suivant un processus d’extrusion impliquant i) la réception et le stockage des argiles ; ii) le broyage des matière premières ; iii) le mélange des matières premières à de l’eau selon un ratio prédéterminé, iv) l’extrusion de la pâte et la formation d’un prisme continu, v) le découpage du prisme en pièces ; vi) le séchage des pièces avec un séchoir à rouleau ; vii) l’application des émaillage sur la surface des pièces ; et viii) la cuisson à haute température des pièces. Ces plaques d’un coefficient d’absorption d’eau de moins de 4,5% (en poids), sont destinées pour le bardage de façades extérieures des bâtiments (bâtiments, maisons individuelles, grandes installations commerciales et publiques …etc.) afin d’assurer une étanchéité à la pluie et une isolation thermique et acoustique desdits bâtiments et ce, en les combinant à un système de fixation caché.",
+   "justification": "Le produit en question est un produit céramique obtenu suivant le même processus de fabrication des produits céramiques décrit dans les Considérations Générales du Chapitre 69) (la préparation de la pâte, la mise en forme, le séchage des pièces obtenues, la cuisson et la finition) et il est destiné à être utilisé en tant qu’un élément de revêtement dans le domaine de la construction à des fins d’aménagement extérieur ou intérieur et ce, en fixant lesdits carreaux, sur des profilés verticaux ou horizontaux métalliques solidarisés aux parois du gros œuvre. De ce fait, il est à classer à la position tarifaire 69.07, plus précisément à la sous position tarifaire 6907.22.29.92. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 056/DGD du 10.12.2025",
+   "number": 56,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "UNE PREPARATION ALIMENTAIRE CONTENANT DU CACAO",
+   "hs_code": "1806.90.90.00",
+   "hs_codes": [
+    "1806.90.90.00"
+   ],
+   "description": "Un produit dénommé « Préparation Coconut chocolate split 402547 LO1 », consistant en une préparation alimentaire contenant de noix de coco râpée et déshydratée (8.8%), d’éclats ou morceaux de chocolat noir (pâte de coco, beurre de cacao et sucre) (12%), de sucre (29%), de sorbate de potassium (0,1%) et de l’eau. La préparation en question est présentée sous forme pâteuse, dans des récipients en métalliques d’un poids de 600 Kg et elle est destinée à être utilisée dans la fabrication de yaourts dans lesquels elle représente 15% de leurs compositions totales.",
+   "justification": "Le produit en cause est une préparation alimentaire contenant du cacao, destinée à être utilisée dans la fabrication de yaourts. Ainsi, s’agissant d’une préparation alimentaire contenant du cacao et non exclue par les dispositions de la Note 1 du Chapitre 18, son classement est à déterminer par application de la Note 2 du Chapitre 18, selon laquelle ce type de préparations est à classer au n° 18.06. De ce fait, le produit en question est à classer à la position tarifaire 18.06 et plus précisément à la sous position tarifaire 1806.90.90.00. Application des RGI 1 (Note 2 du Chapitre 18) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 2 du Chapitre 18) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 057/DGD du 10.12.2025",
+   "number": 57,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "SERUMS POUR CHEVEUX NON CONDITIONNES POUR LA VENTE AU DETAIL",
+   "hs_code": "3305.90.90.00",
+   "hs_codes": [
+    "3305.90.90.00"
+   ],
+   "description": "Cinq (05) gammes de préparations capillaires, présentées sous forme liquide, d’une couleur jaune et composées: de l’eau purifiée comme composant essentiel servant de base (solvant), d’huiles végétales nourrissantes (graines de tournesol, de sésame, de carottes, de ricin, de jojoba, de noix de macadamia, de romarin, de germe de blé, d'olive et d'arbre à thé etc.), et de l'extrait de feuilles Aloe barbadensis (d'aloe vera). Les préparations en question sont présentées dans des fûts en matière plastique, d’une contenance de 200 Litres, et elles sont destinées à être conditionnées pour la vente au détail dans des bouteilles en PET, d’une contenance de 50 ml et ce, après le rajout de certains ingrédients, en vue de leur utilisation en tant que sérums pour cinq (05) types de cheveux (secs, endommagés, colorés, gras, anti chute), selon la gamme utilisée.",
+   "justification": "Les produits en question sont des préparations capillaires non conditionnées pour la vente au détail, présentées sous forme de préparations contenant tous les ingrédients essentiels leur conférant les caractéristiques d’un sérum pour cheveux. De ce fait, s’agissant de préparations composées de plusieurs ingrédients, dépassant le cadre de simples matières premières à base de substances odoriférantes utilisées dans l’industrie, leur classement à la position tarifaire 33.02 ne peut être effectué et elles sont à classer à la position tarifaire 33.05, plus précisément à la sous position tarifaire 3305.90.90.00, couvrant les autres préparations capillaires et ce, quand bien même elles ne sont pas conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 058/DGD du 10.12.2025",
+   "number": 58,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "APRES SHAMPOINGS NON CONDITIONNES POUR LA VENTE AU DETAIL",
+   "hs_code": "3305.90.90.00",
+   "hs_codes": [
+    "3305.90.90.00"
+   ],
+   "description": "Cinq (05) gammes de préparations capillaires, présentées sous forme liquide et contenant tous les ingrédients essentiels leur conférant la fonction d’un après shampoing, à savoir : de l’eau purifiée comme composant essentiel servant de base (solvant), des agents de surface cationiques (polyquaternium 37, polyquaternium-7), des agents hydratants et émollients (éthylhexylglycérine, panthénol, huiles végétales), des agents réparateurs, revitalisants et fortifiants (la biotine, diméthicone, biotine, trideceth-6, trideceth-12), des agents conservateurs et conditionneurs (chlorure de cétrimonium, phénoxyéthanol), etc. Les préparations en question sont présentées dans des fûts en matière plastique, d’une contenance de 200 Litres, et elles sont destinées à être conditionnées pour la vente au détail dans des bouteilles en PET, d’une contenance de 450 ml et ce, après le rajout de certains ingrédients, en vue de leur utilisation en tant que des après shampoing pour cinq (05) types de cheveux (secs, endommagés, colorés, gras, anti chute), selon la gamme utilisée.",
+   "justification": "Les produits en question sont des préparations capillaires non conditionnées pour la vente au détail, présentées sous forme de préparations contenant tous les ingrédients essentiels leur conférant les caractéristiques d’un après shampoing. De ce fait, s’agissant de préparations composées de plusieurs ingrédients, dépassant le cadre de simples matières premières à base de substances odoriférantes utilisées dans l’industrie, leur classement à la position tarifaire 33.02 ne peut être effectué et elles sont à classer à la position tarifaire 33.05, plus précisément à la sous position tarifaire 3305.90.90.00, couvrant les autres préparations capillaires et ce, quand bien même elles ne sont pas conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 059/DGD du 10.12.2025",
+   "number": 59,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "APRES SHAMPOINGS SANS RINÇAGE NON CONDITIONNES POUR LA VENTE AU DETAIL",
+   "hs_code": "3305.90.90.00",
+   "hs_codes": [
+    "3305.90.90.00"
+   ],
+   "description": "Cinq (05) gammes de préparations capillaires, présentées sous forme liquide et contenant tous les ingrédients essentiels leur conférant la fonction d’un après shampoing sans rinçage, à savoir : de l’eau purifiée comme composant essentiel servant de base (solvant), des agents hydratants, émollients et nourrissants (éthylhexylglycérine, huiles végétales, l’alcool cérylique ), des agents réparateurs et fortifiants (la biotine), des agents conservateurs et conditionneurs (propyléne glycol, behentrimonium methosulfate, alcool stéarylique, alcool benzylique, phénoxyéthanol, polyquaternium-37), etc. Les préparations en question sont présentées dans des fûts en matière plastique, d’une contenance de 200 Litres, et elles sont destinées à être conditionnées pour la vente au détail dans des bouteilles en PET, d’une contenance de 200 ml et ce, après le rajout de certains ingrédients, en vue de leur utilisation en tant qu’après shampoing sans rinçage pour cinq (05) types de cheveux (secs, endommagés, colorés, gras, anti chute), selon la gamme utilisée.",
+   "justification": "Les produits en question sont des préparations capillaires non conditionnées pour la vente au détail, présentées sous forme de préparations contenant tous les ingrédients essentiels leur conférant les caractéristiques d’un après shampoing sans rinçage. De ce fait, s’agissant de préparations composées de plusieurs ingrédients, dépassant le cadre de simples matières premières à base de substances odoriférantes utilisées dans l’industrie, leur classement à la position tarifaire 33.02 ne peut être effectué et elles sont à classer à la position tarifaire 33.05, plus précisément à la sous position tarifaire 3305.90.90.00, couvrant les autres préparations capillaires et ce, quand bien même elles ne sont pas conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 060/DGD du 10.12.2025",
+   "number": 60,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "MASQUES POUR CHEVEUX NON CONDITIONNES POUR LA VENTE AU DETAIL",
+   "hs_code": "3305.90.90.00",
+   "hs_codes": [
+    "3305.90.90.00"
+   ],
+   "description": "Cinq (05) gammes de préparations capillaires, présentées sous forme liquide et contenant tous les ingrédients essentiels leur conférant la fonction d’un masque capillaire ou pour cheveux, à savoir : de l’eau purifiée comme composant essentiel servant de base (solvant), des agents hydratants et nourrissants (huiles végétales (de graines d’helianthus annuus, d’olives, de ricin commun), panthénol, beurre de karité, etc.), des agents émollients (extrait de beurre de Butyrospermum parkii), des agents adoucissants des cheveux (alcool cétéarylique, dimenthicone), des agents réparateurs et fortifiants (la biotine, le panthénol), des agents conservateurs et protecteurs (méthylisothiazolinone, méthylchloroisothiazolinone, l'extrait de bulbe d'ail ), etc. Les préparations en question sont présentées dans des fûts en matière plastique, d’une contenance de 200 Litres, et elles sont destinées à être conditionnées pour la vente au détail dans des pots en PET, d’une contenance de 300g, et ce, après le rajout de certains ingrédients, en vue de leur utilisation en tant que masques pour cinq (05) types de cheveux (secs, endommagés, colorés, gras, anti chute), selon la gamme utilisée.",
+   "justification": "Les produits en question sont des préparations capillaires non conditionnées pour la vente au détail, présentées sous forme de préparations contenant tous les ingrédients essentiels leur conférant les caractéristiques d’un masque capillaire ou pour cheveux. De ce fait, s’agissant de préparations composées de plusieurs ingrédients, dépassant le cadre de simples matières premières à base de substances odoriférantes utilisées dans l’industrie, leur classement à la position tarifaire 33.02 ne peut être effectué et elles sont à classer à la position tarifaire 33.05, plus précisément à la sous position tarifaire 3305.90.90.00, couvrant les autres préparations capillaires et ce, quand bien même elles ne sont pas conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 061/DGD du 10.12.2025",
+   "number": 61,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "SHAMPOINGS NON CONDITIONNES POUR LA VENTE AU DETAIL",
+   "hs_code": "3305.10.20.00",
+   "hs_codes": [
+    "3305.10.20.00"
+   ],
+   "description": "Cinq (05) gammes de préparations capillaires (shampoings), présentées sous forme liquide et contenant tous les ingrédients essentiels leur conférant la fonction d’un shampoing, à savoir : les agents tensioactifs (le cocamidopropyl bétaïne, le sulfonate d'oléfine C14-16 de sodium, le Lauryl Glucoside, le coco- glucoside, le cocoamphodiacétate disodique, etc.), l’eau purifiée comme composant essentiel servant de base (solvant), les agents hydratants tel que l'acide hyaluronique, les agents réparateurs et renforçant (les protéines de blé hydrolysées, la kératine hydrolysée, etc.), les agents stabilisateurs (le chlorure de magnésium, des agents conditionneurs (le PEG-12 Dimethicone, le chlorure de guar hydroxypropyltrimonium, l'amodiméthicone, etc.), les agents conservateurs (la méthylisothiazolinone, la méthylchloroisothiazolinone, etc.). Les préparations en question sont présentées dans des fûts en matière plastique, d’une contenance de 200 Litres, et elles sont destinées à être conditionnées pour la vente au détail dans des bouteilles en PET d’une contenance de 540 ml et ce, après le rajout de certains ingrédients, en vue de leur utilisation en tant que shampoings pour cinq (05) types de cheveux (secs, endommagés, colorés, gras, anti chute), selon la gamme utilisée.",
+   "justification": "Les produits en question sont des préparations capillaires (shampoings) non conditionnées pour la vente au détail, présentées sous forme de préparations contenant tous les ingrédients essentiels leur conférant les caractéristiques d’un shampoing. De ce fait, s’agissant de préparations composées de plusieurs ingrédients, dépassant le cadre de simples matières premières à base de substances odoriférantes utilisées dans l’industrie, leur classement à la position tarifaire 33.02 ne peut être effectué et elles sont à classer à la position tarifaire 33.05, plus précisément à la sous position tarifaire 3305.10.20.00, couvrant les shampooings non médicamenteux et ce, quand bien même elles ne sont pas conditionnées pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 062/DGD du 10.12.2025",
+   "number": 62,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "STYLO DOSEUR D’INSULINE OU D’AUTRES MEDICAMENTS",
+   "hs_code": "9018.39.99.00",
+   "hs_codes": [
+    "9018.39.99.00"
+   ],
+   "description": "Un produit dénommé « Stylo doseur », composé i) du corps du stylo en matière plastique du type médical ; ii) d’un mécanisme de dosage, constitué d’une fenêtre de lecture et d’une molette de réglage de la dose ; iii) d’un ressort de poussée en acier inoxydable ; et iv) d’un capuchon protecteur en matière plastique. Cet ensemble est destiné à être assemblé après avoir y insérer une cartouche d’insuline ou une autre solution injectable (médicament biologique, hormone, etc.), à l’effet d’obtenir un stylo doseur à usage unique, permettant d’administrer aux patients, par vois sous cutanée, des doses précises de médicaments.",
+   "justification": "Le produit en cause est un stylo injecteur ou doseur d’insuline ou d’autres médicaments, présenté à l’état non monté et sans la cartouche d’insuline ou d’autres médicament. Ainsi, étant donné que la fonction du stylo doseur en question consiste à administrer aux patients, par vois sous cutanée, des doses précises de médicaments (fonction similaire à celle des seringues), il est à classer à la position tarifaire 90.18 et plus précisément à la sous position tarifaire 9018.39.99.00. Application des RGI 1, 2-a) et 6 du SH.",
+   "rules_applied": "Application des RGI 1, 2-a) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 063/DGD du 10.12.2025",
+   "number": 63,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "CREME SOLAIRE NON CONDITIONNEE POUR LA VENTE AU DETAIL",
+   "hs_code": "3304.99.70.00",
+   "hs_codes": [
+    "3304.99.70.00"
+   ],
+   "description": "Un produit dénommé « CREME SOLAIRE ANTI-TACHES *** », consistant en une préparation sous forme d’une crème blanchâtre, composée des ingrédients suivants : l’eau purifiée en tant que base (solvant), l'éthylhexyl méthoxycinnamate, le triglycéride caprylique/caprique, Le diéthylamino hydroxybenzoyl hexyl benzoate, Le salicylate d'éthylhexyle, l'homosalate, l’alcane C13-15, le myristate d'isopropyle, l'éthylhexyl triazone, le C12-15 alkyl benzoate, le butylène glycol , la glycérine, le Bis-éthylhexyloxyphénol méthoxyphényl triazine , l'alcool cétéarylique, le dioxyde de titane, le PEG-100 Stearate, Le diisostearyl malate, Le Ceteareth-25, L'acide palmitique, Le phénoxyéthanol, L'acide stéarique, l'acétate de tocophéryle, le panthénol, le collagène, le Dicaprylyl Carbonate, la triéthanolamine, l'huile de canola, le hyaluronate de sodium, le carbomère, parfum, l'éthylhexylglycérine, le bêta-carotène, le palmitate d'isopropyle, l'huile de graines de Daucus carota sativa (carotte), L'huile de graines d' Helianthus annuus (de tournesol), Le terpinéol, Le menthol, l'Hexaméthylindanopyrane, le tétraméthylacétyloctahydronaphtalène, l'acétate de linalyle, l'acide myristique et le jus de feuilles d'Aloe barbadensis. La préparation en question est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée pour la vente au détail dans des bocaux en verre, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème ou une préparation solaire, afin d’offrir à la peau une meilleure protection contre la lumière solaire et de lui procurer une Hydratation intense.",
+   "justification": "Le produit en cause est une préparation ou crème solaire, non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant ladite fonction. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.70.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 064/DGD du 10.12.2025",
+   "number": 64,
+   "decision_date": "2025-12-10",
+   "valid_from": "2025-12-10",
+   "valid_to": "2028-12-09",
+   "designation": "TERMINAL RADIO POC (PUSH-TO-TALK)",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un produit dénommé « Terminal Radio POC (Push-To-Talk) », consistant en plusieurs modèles d’appareils de communication à usage professionnel, ayant la forme d’un téléphone intelligent (smartphone), équipés d’un système d’exploitation « Android », d’un écran tactile, de caméras avant et arrière, d’un microphone et d’un hautparleur, d’un emplacement pour cartes SIM, d’une batterie et des touches de commande. Les terminaux en question sont destinés à être utilisés à des fins de communications, en utilisant les réseaux cellulaires (2G, 3G, 4G et 5G) ou wifi. Ils permettent aux utilisateurs de lancer des appels vocaux ou vidéo instantanés, en utilisant le bouton PTT dédié pour ces appels, mais également d’exécuter des applications fonctionnant sous Android de la même sorte qu’un Smartphone.",
+   "justification": "Le produit en question est un terminal radio présenté sous la forme d’un téléphone intelligent pour réseaux cellulaires et il est équipé d’un système d’exploitation lui permettant d’exécuter les fonctions d’une machine automatique de traitement de l’information, répondant ainsi à la définition de téléphones intelligents du n° 85.17, énoncée à la Note 5 du Chapitre 85. De ce fait, il est à classer à la position tarifaire 85.17 et plus précisément à la sous position tarifaire 8517.13.90.00. Application des RGI 1 (Note 5 du Chapitre 85) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 5 du Chapitre 85) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 065/DGD du 11.12.2025",
+   "number": 65,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "CREME REGENERATRICE ANTI-TACHES NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.90.00",
+   "hs_codes": [
+    "3304.99.90.00"
+   ],
+   "description": "Un produit dénommé « CREME REGENERATRICE ANTI-TACHES », consistant en une préparation sous forme d’une crème, composée des ingrédients suivants : l’eau purifiée en tant que base, la vaseline, le méthoxydibenzoylméthane de butyle, la glycérine, l'alcool cétéarylique, le propylène glycol, le stéarate de glycéryle, le myristate d’isopropyle, l’huile de ricin hydrogénée, le cetearate-25, l’alcool dénaturé, le cyclopentasiloxane, la phosphatidylcholine hydrogénée, le cholestérol, le phosphate d'ascorbyle de magnésium, le collagène soluble, le phénoxyéthanol, le hyaluronate de sodium, l'éthylhexylglycérine, la diméthicone, parfum, l'acide salicylique, huile de d’argania spinosa, le carbomère, le dioxyde de titane, l'hydroxycitronellal, l’hexyl cinnamal, le linalol, et le d-limonène. Elle est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée pour la vente au détail dans des tubes en matière plastique, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème antitaches régénératrice, à utiliser pour régénération cutanée et l'atténuation des taches, notamment le traitement des taches et de la pigmentation cutanées, la régénération, l’hydratation et l’amélioration de l’aspect de la peau, etc.",
+   "justification": "Le produit en cause est une préparation destinée pour l’entretien ou les soins de la peau, non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques de crème de pour l’entretien et les soins de la peau. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.90.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 066/DGD du 11.12.2025",
+   "number": 66,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "LOTION TONIQUE RAFRAICHISSANTE POUR LA PEAU NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.30.00",
+   "hs_codes": [
+    "3304.99.30.00"
+   ],
+   "description": "Un produit dénommé « TONIQUE RAFRAICHISSANT PREBIOTIQUE», consistant en une préparation sous forme d’une solution aqueuse transparente, composée des ingrédients suivants : l’eau purifiée en tant que base, le Polyglyceryl-4 Laurate/Sebacate, le polyglyceryl 6 caprylate/caprate, la glycérine, le propylène glycol, le phénoxyéthanol, parfum, l'inuline, le fructose, le collagène soluble, l'éthylhexylglycérine, le hyaluronate de sodium, le panthénol, l'hydroxycitronellal, l’hexyl cinnamal, d-limonène et l'alpha-isomethyl ionone. Elle est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée pour la vente au détail dans des flacons en matière plastique, d’une contenance de 150 ml, en vue de son utilisation en tant qu’une lotion tonique rafraîchissante prébiotique pour la peau, afin de lui procurer un équilibre, une hydratation et un nettoyage en profondeur, de raviver l’éclat du teint et lui donne une apparence fraîche et saine et de renforcer la barrière cutanée de la peau contre les agressions extérieures.",
+   "justification": "Le produit en cause est une préparation destinée à être utilisée en tant que lotion tonique rafraîchissante pour la peau, non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques de telle préparation. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.30.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 067/DGD du 11.12.2025",
+   "number": 67,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "CREME DE VISAGE A LA VITAMINE C, NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.50.00",
+   "hs_codes": [
+    "3304.99.50.00"
+   ],
+   "description": "Un produit dénommé « CREME DE VISAGE A LA VITAMINE C », consistant en une préparation sous forme d’un de liquide visqueux blanchâtre, composée des ingrédients suivants : l’eau purifiée en tant que base (solvant), le polyacryloyldiméthyltaurate de sodium, le polydécène hydrogéné, le trideceth- 10, le bis-phenylpropyl dimethicone, le carbomère, la triéthanolamine, parfum, l’hyaluronate de sodium, l’alcool, la phosphatidylcholine hydrogénée, le cholestérol, le phosphate ascorbyl de magnésium, l’huile d’argan, le phénoxyéthanol, l'éthylhexylglycérine, l'alcool benzylique, le benzoate de benzyle, le citronellol, l'alpha-isométhylionone, l'hexyl cinnamal, l'isoeugénol, le d-limonène et le linalol. La préparation en question est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée dans des tubes en matières plastiques, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème de jour pour visage à la vitamine C, notamment pour illuminer et unifier le teint et procurer à la peau de son utilisateur une hydratation intense, etc.",
+   "justification": "Le produit en cause est une préparation pour l’entretien ou les soins du visage, non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques d’une crème de beauté. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.50.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 068/DGD du 11.12.2025",
+   "number": 68,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "CREME DE NUIT NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.90.00",
+   "hs_codes": [
+    "3304.99.90.00"
+   ],
+   "description": "Un produit dénommé « CREME DE NUIT », consistant en une préparation sous forme d’une crème blanchâtre, composée des ingrédients suivants : l’eau purifiée en tant que base (solvant), la vaseline, le butyl méthoxydibenzoylméthane, la glycérine, l'alcool cétéarylique, le propylène glycol, le stéarate de glycéryle, le myristate d'isopropyle, l'huile de ricin hydrogénée PEG-40, le ceteareth-25, l’alcool dénaturé, le cyclopentasiloxane, le phenoxyethanol, l'hyaluronate de sodium, la niacinamide, le Palmitoyl Tripeptide-5, le Palmitoyl Tripeptide-7, le Palmitoyl Tripeptide-4, le tripeptide-1, l’hexapeptide-9, l’isomalt, le polysorbate 20, la lécithine, l'éthylhexylglycérine, la dimethicone, l 'acide salicylique, l’huile d’argan, le carbomère, le dioxyde de titane, l'hydroxycitronellal , benzoate de sodium, l'hexyl cinnamal, linalol et le d-limonène. La préparation en question est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée dans des bocaux en verre, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème ou une préparation pour les soins de la peau afin de restaurer, nourrir et hydrater la peau pendant la nuit et de contribuer à atténuer l'apparence des ridules et des rides.",
+   "justification": "Le produit en cause est une préparation pour l’entretien ou les soins de la peau (crème de nuit), non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques de telle préparation. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.90.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 069/DGD du 11.12.2025",
+   "number": 69,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "CREME REPARATRICE DES MAINS & VISAGES NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.90.00",
+   "hs_codes": [
+    "3304.99.90.00"
+   ],
+   "description": "Un produit dénommé « CREME REPARATRICE DES MAINS & VISAGES », consistant en une préparation sous forme d’une crème blanchâtre, composée des ingrédients suivants : l’eau purifiée en tant que base (solvant), le carbonate de dicaprylyle, le carbonate dipropyl heptyl, la glycérine, le polyacrylate de sodium, le phénoxyéthanol, l'extrait de beurre de Butyrospermum Parkii, l'extrait d'Aloe barbadensis, le parfum, le Sodium Stearoyl Glutamate, l'inuline, le fructose, l'extrait de feuille de Camellia sinensis, le hyaluronate de sodium et l'éthylhexylglycérine. La préparation en question est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée dans des tubes en matière plastique, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème réparatrice pour les mains ou le visage afin d’hydrater, de nourrir et de protéger la peau.",
+   "justification": "Le produit en cause est une préparation pour l’entretien ou les soins de la peau (crème réparatrice pour les mains ou le visage), non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques d’une préparation pour l’entretien et les soins de la peau. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.90.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 070/DGD du 11.12.2025",
+   "number": 70,
+   "decision_date": "2025-12-11",
+   "valid_from": "2025-12-11",
+   "valid_to": "2028-12-10",
+   "designation": "CREME HYDRATANTE NON CONDITIONNEE POUR LA VENTE AU DETAIL.",
+   "hs_code": "3304.99.90.00",
+   "hs_codes": [
+    "3304.99.90.00"
+   ],
+   "description": "Un produit dénommé « CREME HYDRATANTE AQUA BOMB », consistant en une préparation sous forme d’une crème bleuâtre, composée des ingrédients suivants : l’eau purifiée en tant que base (solvant), le copolymère d'acrylates de sodium, la lécithine, la glycérine, le squalane, le hyaluronate de sodium, le panthénol, le phénoxyéthanol, l'éthylhexylglycérine, un colorant bleu de synthèse (CI 42090), la gomme xanthane et le parfum. La préparation en question est présentée dans des fûts en matière plastique et elle est destinée à être conditionnée dans des pots ronds en matière plastique, d’une contenance de 50 ml, en vue de son utilisation en tant qu’une crème hydratante, notamment pour hydrater, nourrir, revitaliser et rajeunir la peau de son utilisateur.",
+   "justification": "Le produit en cause est une préparation pour l’entretien ou les soins de la peau (crème hydratante), non conditionnée pour la vente au détail et contenant tous les ingrédients essentiels lui conférant les caractéristiques d’une préparation pour l’entretien et les soins de la peau. De ce fait, elle est à classer à la position tarifaire 33.04, couvrant nommément ce type de préparations et plus précisément à la sous position tarifaire 3304.99.90.00 et ce, quand bien même elle n’est pas conditionnée pour la vente au détail. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 071/DGD du 15.12.2025",
+   "number": 71,
+   "decision_date": "2025-12-15",
+   "valid_from": "2025-12-15",
+   "valid_to": "2028-12-14",
+   "designation": "LINGOTS EN PLOMB ALLIE.",
+   "hs_code": "7801.99.10.00",
+   "hs_codes": [
+    "7801.99.10.00"
+   ],
+   "description": "Un produit dénommé « LINGOTS EN PLOMB ALLIE », consistant en un plomb sous forme brute (lingots), obtenu par recyclage des batteries au plomb-acide, suivant un processus impliquant les étapes suivantes : i) la récupération des batteries usagées ; ii) le vidange de l’acide sulfurique ; iii) le broyage des batteries avec les techniques de tamisage vibration et flottation ; iv) la fusion du plomb dans un four rotatif à une température de 900 à 1200° C ; v) le raffinage thermique du plomb liquide des impuretés métalliques en les transformant en oxydes ou composés insolubles et ce, en chauffant le plomb fondu et ajoutant des réactifs chimiques ; et vi) la séparation du plomb affiné qui s’accumule au fond du four des impuretés (carcasses) qui flottent en surface. Les carcasses ainsi obtenues sont coulées en des lingots et elles sont composées de : 54,54% du plomb, 23,63% du fer, 06,27% du soufre, 06,04% du silicium, 2,47% d’Etain, 01,81% d’Antimoine, 01,69% d’Aluminium, 01,61% d’Arsenic, 0,83% d’iridium, 0,66% de cadmium, 0,28% de palladium, 0,11% de zinc et 0,06% de zirconium.",
+   "justification": "Le produit en cause consiste en des lingots d’alliage de métaux communs, coulés à partir de déchets de plomb (batteries au plomb) et dont le plomb prédomine en poids sur chacun des autres constituants avec une teneur de 54,54%. De ce fait, il est à considérer comme étant une forme brute du plomb allié et il est à classer à la position tarifaire 78.01 et plus précisément à la sous position tarifaire 7801.99.10.00. Application des RGI 1 (Note 5-a de la section XV) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 5-a de la section XV) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 072/DGD du 18.12.2025",
+   "number": 72,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "UN Gel HYDROACTIF POUR LES SOINS ET L’ENTRETIEN DES PLAIES.",
+   "hs_code": "3304.99.90.00",
+   "hs_codes": [
+    "3304.99.90.00"
+   ],
+   "description": "Un gel hydroactif (crème homogène), de couleur blanc présenté en tube de 50 g avec une notice d'utilisation placée dans une boîte en carton. Il est composé d’hydrocollide, d’arginine, d’eau purifiée, de macrogol, d’acide gras à chaine ramifiée (BCFA), de parahydroxybenzoate de propyle (E216) et d’EDTA-Disodium. Ce gel est destiné au traitement des petites plaies en favorisant la cicatrisation rapide de la peau, à travers la couverture de la plaie et la création d’un milieu humide propice à la cicatrisation. Il est également utilisé après un traitement au laser pour traiter les brulures superficielles et les petites plaies.",
+   "justification": "Le produit en cause est une préparation composée de plusieurs ingrédients, destinée à être utilisée pour les soins et l’entretien des plaies en créant un milieu humide pour les protéger de l’eau, des bactéries et des chocs extérieurs, ce qui favorise la cicatrisation rapide de la peau. De ce fait et s’agissant d’une préparation ne contenant pas d’une substance active médicamenteuse et elle est utilisée pour la création d’un milieu favorable à la cicatrisation de la peau, son classement à la position tarifaire 30.04, en tant que médicament, ne peut être retenu et elle est à classer au n° 33.04 et plus précisément à la sous position tarifaire 3304.99.90.00 à titre de préparation pour l’entretien ou les soins de la peau. Application des RGI 1 (Note d’exclusion 1-e) du Chapitre 30) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note d’exclusion 1-e) du Chapitre 30) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 073/DGD du 18.12.2025",
+   "number": 73,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "UN TERMINAL DE COMMUNICATION PORTABLE",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un appareil dénommé « Terminal radio *** », consistant en un terminal de communication portable, de dimension de 161x75x21 mm, d’un poids de 360 g, doté d’un écran tactile de 5 pouces, d’un emplacement pour deux cartes SIM, d’un module émetteur-récepteur, d’une batterie, d’une caméra frontale et deux caméras arrières, de boutons physiques pour le PTT et les appels d’urgence, d’un haut-parleur, d’un microphone, de modules wifi, Bluetooth et NFC et de ports de connexion HDMI, USB, etc. Cet appareil est conçu pour fonctionner sous le système d’exploitation Android 8.0 en permettant à l’utilisateur d’effectuer des appels privés ou en groupes, de transmettre des SMS et MMS, d’accéder aux données via le réseau d’entreprise et publics LTE, etc.",
+   "justification": "Le produit en question est un appareil mobile équipé d’un système d’exploitation Android 8.0, assurant, entre autres, la communication dans un réseau cellulaire, répondant à la définition et caractéristiques des téléphones intelligents définis à la note 5) du chapitre 85. De ce fait, le produit en question est à classer à la position tarifaire 85.17, et plus précisément à la sous position tarifaire 8517.13.90.00 à titre de téléphone intelligent. Application des RGI 1 (Note 5 du chapitre 85) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 5 du chapitre 85) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 074/DGD du 18.12.2025",
+   "number": 74,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "UN TERMINAL DE COMMUNICATION PORTABLE",
+   "hs_code": "8517.13.90.00",
+   "hs_codes": [
+    "8517.13.90.00"
+   ],
+   "description": "Un appareil dénommé « Terminal radio *** », consistant en un appareil de communication mobile, d’une dimension de 139x59x30 mm et d’un poids de 312g, fonctionnant sous le système d’exploitation Android 6.0. Il est équipé d’un processeur octa-core kirin, d’un écran non tactile de 2 pouces, d’un emplacement pour deux cartes SIM, d’un module émetteur-récepteur radio, d’une batterie, d’une caméra frontale et caméra arrière, d’un clavier pour la composition des numéros et la rédaction de textes, des boutons pour la gestion des appels et du volume, d’un haut-parleur, d’un microphone, d’un port HDMI, de modules wifi, Bluetooth et GPS, etc. Cet appareil est d’une conception de convergence de réseaux publics et privés et prend en charge un large éventail de bandes de fréquences des réseaux publics et privés. Il est destiné à être utilisé pour effectuer des appels privés ou en groupe, envoyer et recevoir des SMS et des MMS, accéder aux données haut débit, de télécharger et d’enregistrer des fichiers, etc.",
+   "justification": "Le produit en cause est un appareil mobile équipé d’un système d’exploitation Android 6.0, assurant, entre autres, la communication dans un réseau cellulaire, répondant à la définition et caractéristiques des téléphones intelligents définis à la note 5) du chapitre 85. De ce fait, l’appareil en question est à classer à la position tarifaire 85.17, et plus précisément à la sous position tarifaire 8517.13.90.00. Application des RGI 1 (Note 5 du chapitre 85) et 6 du SH.",
+   "rules_applied": "Application des RGI 1 (Note 5 du chapitre 85) et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 075/DGD du 18.12.2025",
+   "number": 75,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "UNE PREPARATION COMPOSEE POUR LA FABRICATION DES BOISSONS ENERGISANTES.",
+   "hs_code": "2106.90.11.00",
+   "hs_codes": [
+    "2106.90.11.00"
+   ],
+   "description": "Un produit dénommé « VITAMIN PREMIX ENERGY *** », consistant en une préparation sous forme d’une poudre composée pour 100 g de 40 g de taurine, de 6g de caféine, de 1.84 g de niacine, de 1.2 g d’acide pantothénique, de 0.16 g de vitamine B6 et de 0.32 g de vitamine B12. Cette préparation est conditionnée dans des sacs en aluminium, d’une contenance de 25 KG, et destinée rajoutée et mélangée avec d’autres ingrédients (eau traitée, sucre blanc, aspartame, acide citrique, etc.), non présentés dans le cas d’espèce, à l’effet d’obtenir une boisson énergisante.",
+   "justification": "Le produit en cause est un mélange à base de taurine (dérivé d’un acide aminé) et de caféine, enrichi de vitamines, destiné pour l’élaboration d’une préparation alimentaire (boisson énergisante). Eu égard à la teneur importante de l’acide aminé et du caféine, contenus dans la préparation en question, par rapport à celle des vitamines, dépassant ainsi les quantités nécessaires à la conservation et au transport du produit et que cette addition modifie le caractère du produit de base en le rendant apte à un emploi particulier (fabrication de boissons) plutôt qu'à son emploi général, le produit en cause ne peut être considéré comme étant un mélange de vitamines au sens du n° 29.36. De ce fait, il est à considérer comme étant une préparation alimentaire enrichie de vitamines et il est à classer à la position tarifaire 21.06, plus précisément à la sous position tarifaire 2106.90.11.00, à titre de préparation composée des types utilisés pour la fabrication des boissons. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 076/DGD du 18.12.2025",
+   "number": 76,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "JOINTS DE FRAPPE ET D’ETANCHEITE EN MATIERE PLASTIQUE.",
+   "hs_code": "3916.90.10.00",
+   "hs_codes": [
+    "3916.90.10.00"
+   ],
+   "description": "Un produit dénommé « JOINTS DE FRAPPE ET D’ETANCHEITE », consistant en un profilé creux en un élastomère thermoplastique à base de styrène-éthylène- butylène-styrène (SEBS), obtenu par extrusion, présentant des rainures sur toute sa longueur et présenté en deux couleurs (marron et gris). Il présenté enroulé autour d’une bobine de 900 mètres linéaires et destiné à être placé sur le dévidoir de l’extrudeuse des profilés en PVC, afin d’assurer son insertion sur la rainure du profilé lors de l’opération de son extrusion et sa découpe en fonction de la dimension du profilé. Ce produit sert de joint de frappe et d’étanchéité pour les portes et fenêtres fabriqués à partir de profilés en PVC.",
+   "justification": "Le produit en question est un profilé à base de styrène –éthylène-butylène- styrène (SEBS), matière thermoplastique appartenant à la famille des matières plastiques. Il est destiné à être utilisé comme joint de frappe et d’étanchéité pour les portes et fenêtres. De ce fait, le produit en question est à classer à la position tarifaire 39.16, et plus précisément à la sous position tarifaire 3916.90.10.00 couvrant les profilés des types utilisés dans la construction des portes, fenêtres ou leurs cadres, en autres matières plastiques. Application des RGI 1 et 6 du SH.",
+   "rules_applied": "Application des RGI 1 et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "RTC",
+   "reference": "RTC 077/DGD du 18.12.2025",
+   "number": 77,
+   "decision_date": "2025-12-18",
+   "valid_from": "2025-12-18",
+   "valid_to": "2028-12-17",
+   "designation": "UNE CAMERA THERMIQUE.",
+   "hs_code": "9025.19.30.00",
+   "hs_codes": [
+    "9025.19.30.00"
+   ],
+   "description": "Un produit dénommé « CAMERA THERMIQUE *** », consistant en un appareil de thermographie, présenté sous la forme d’un caméscope doté, notamment (i) d’un écran couleur LCD, rotatif à 180° et d’une résolution de 464*348 pixel, capable de mesures des températures comprises entre 20°C à 1500°C ; un objectif amovible (ii) d’un micro bolomètre (iii) d’un emplacement pour une carte mémoire SD (iv) des ports de connexion USB, HDMI, Display port (v) des interfaces de connexion Bluetooth, Wifi et Display port (vi) d’une batterie rechargeable an lithium-ion. Cet appareil est destiné à être utilisée dans divers secteurs (industries l’électricité et mécanique), à l’effet de mesures la température et de détecter ainsi les points chauds et ce, en captant des images de rayonnement infrarouge à l’aide du détecteur micro bolomètre et de les afficher sur l’écran en couleurs, représentant les différentes températures mesurées et de mesurer également la température sur un point précis et d’afficher le résultat chiffré.",
+   "justification": "Le produit en cause est un appareil présenté sous forme d’une caméra, destiné à la mesure de la température et sa conversion sous forme d’une image de plusieurs couleurs, représentant les différentes températures mesurées et d’indiquer la valeur mesurée sous forme chiffrée, dépassant ainsi le cadre d’une caméra pour la capture des images du n° 85.25. De ce fait et s’agissant d’un appareil assurant la mesure de la température, il est à classer à la position tarifaire 90.25 et plus précisément 9025.19.30.00 couvrant les thermomètres optiques ou à infrarouge. Application des RGI 1et 6 du SH.",
+   "rules_applied": "Application des RGI 1et 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 093/DGD/D042.25 du 19.02.2025",
+   "decision_date": "2025-02-19",
+   "requesting_service": "DR – Alger Port",
+   "designation": "HUILE DE BASE POUR LA FORMULATION DES PREPARATIONS LUBRIFIANTES.",
+   "codes_considered": [
+    "2710.19.38.00",
+    "2710.19.39.10",
+    "2710.19.39.90"
+   ],
+   "hs_code": "2710.19.39.90",
+   "hs_codes": [
+    "2710.19.39.90"
+   ],
+   "description": "L’examen du dossier transmis, notamment le rapport d’essai du 29.12.2024 ainsi que le bulletin d’analyse n°*** du 25.12.2024, établis respectivement par le laboratoire de *** et le laboratoire central de ***, fait ressortir qu’il s’agit d’un produit dénommé « BASE OIL 6 CST », consistant en une huile minérale hautement raffinée, ne contenant pas de biodiesel. Elle est présentée sous forme d’un liquide visqueux, d’une couleur claire et limpide, d’un indice de viscosité supérieur à 120, d’une très faible teneur en soufre (0,0001 %) et d’un point d’écoulement de -18° C. L’huile en question est conditionnée dans des futs et destinée à être utilisée en tant qu’huile de base pour la formulation des préparations lubrifiantes à travers le rajout des additifs. Les rapports d’analyse suscités indiquent que l’huile en question est une huile de base et ne correspond pas d’un brut réduit importé (BRI).",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. En effet, s’agissant d’une huile de pétrole ayant subi d'autres traitements que ceux dont il est fait mention dans la Note explicative du n° 27.09, entre autres, la distillation, celle-ci est à classer à la position tarifaire 27.10. En ce qui concerne le classement au niveau de la sous position tarifaire à six (06) chiffres, cette huile ne répond pas à la définition des huiles légères et préparations du n°2710.12 prévue par la Note 4 de sous positions du Chapitre 27 et elle est, de ce fait, couverte par la sous position tarifaire 2710.19. Pour le classement au niveau de la sous position tarifaire à dix (10) chiffre, il est nécessaire d’examiner, dans un premier lieu, si le produit en question consiste en un Brut Réduit Importé (BRI) du n° 2710.19.38.00 ou non. A ce titre, il importe de préciser que l’Administration centrale de la Direction Générale des Douanes a déjà instruit les services extérieurs des douanes, suivant la Note n°117/DGD/D0420/00 du 27/02/2000, sur le classement tarifaire du Brut Réduit Importé (BRI) à la sous position tarifaire à huit (08) chiffres 2710.00.40, devenue 2710.19.39 suite à la mise en œuvre des amendements SH 2002 depuis le 1er Janvier 2002, et pour lequel une nouvelle sous position tarifaire à huit (08) chiffres 2710.19.38 lui a été créée, par les dispositions de l’article 34 de la loi de finances pour 2004. En effet, il a été indiqué que les huiles brutes de distillation primaire sont des produits résiduels qui demeurent après élimination des gaz, du naphta, du pétrole lampant et du gazole par distillation atmosphérique des huiles brutes et qu’ils sont utilisés comme charge de départ nécessitant un traitement complémentaire dans une raffinerie afin de séparer les fractions restantes après distillation atmosphérique. La sous position tarifaire 2710.19.38.00 ne couvre que le Brut Réduit Importé (BRI) qui est une charge de départ nécessitant un traitement complémentaire dans une raffinerie afin de séparer les fractions restantes après distillation atmosphérique, pour la fabrication des bitumes. Dans ces conditions et étant donné que l’huile objet de l’examen a déjà subi une opération de raffinage et elle est destinée à être mélangée avec des additifs en vue de la formulation des lubrifiants sans avoir subi des traitements complémentaires dans des raffineries pour la production des bitumes d’une part, et que les conclusions des bulletins d’analyse suscités confirment que les spécifications de l’huile en question ne correspondent pas à celles d’un brut réduit importé (BRI), son classement à la sous position tarifaire 2710.19.38.00 en tant que brut réduit importé (BRI) ne peut être effectué. S’agissant de la sous position tarifaire 2710.19.39.10, celle-ci couvre, quant à elle, les huiles de graissage et lubrifiants. Les lubrifiants sont formés par le mélange d'huiles de graissage avec des quantités très variables d'autres produits (produits améliorant leur onctuosité, tels que des huiles ou graisses végétales, antioxygènes, antirouille, antimousses, tels que les silicones). Les huiles de graissage font partie des lubrifiants qui sont obtenues à travers le mélange des huiles légères avec des huiles lourdes. De ce fait, les produits classés à la sous position tarifaire 2710.19.39.10 relative aux huiles de graissage et lubrifiants, sont prêts à l’usage pour réduire le frottement entre les pièces mécaniques. Or, telle que décrite supra, l’huile en cause est destinée à être utilisée comme huile de base en tant que composant principal pour la formulation des lubrifiants, à travers son mélange avec d’autres additifs et elle ne constitue pas un lubrifiant ou une huile de graissage, prêt à être utilisé en l’état en tant que tel. De ce fait, son classement à la sous position tarifaire 2710.19.39.10 est exclu. Eu égard à ce qui précède, et étant donné que le produit en question consiste en une huile de pétrole raffinée, destinée à être utilisée comme huile de base pour la formulation des préparations lubrifiantes, elle est à classer à la position tarifaire 27.10 et plus particulièrement à la sous position tarifaire résiduelle 2710.19.39.90, couvrant les autres huiles de pétrole ou de minéraux bitumineux, et ce par application des RGI 1 et 6 du SH. Par conséquent, l’avis du Directeur Régional est partagé.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 094/DGD/D042.25 du 19.02.2025",
+   "decision_date": "2025-02-19",
+   "requesting_service": "DR – Tlemcen",
+   "designation": "PUREE DE POMME CONSERVEES PAR PASTEURISATION",
+   "codes_considered": [
+    "2007.99.99.00",
+    "2008.97.90.00",
+    "2008.99.99.00"
+   ],
+   "hs_code": "2008.99.99.00",
+   "hs_codes": [
+    "2008.99.99.00"
+   ],
+   "description": "L’examen du dossier transmis ainsi que les documents joints, notamment le rapport d’analyse n° *** du 22/12/2024 établi par le Laboratoire *** et la fiche technique, fait ressortir qu’il s’agit d’un produit dénommé, « Purée de pomme », d’une texture homogène légèrement granulée et d’un état physique fluide peu dense ou sou écoulement libre. Il est obtenu suivant un processus de fabrication incluant (i) le lavage et le tri des pommes fraiches pour éliminer les impuretés (ii) le broyage et le tamisage afin d’obtenir une pulpe homogène (iii) la pasteurisation à travers un traitement thermique à 105-110°c pendant 90 secondes et (iv) le refroidissement et le conditionnement aseptique dans des sacs stériles logés dans des fûts métalliques. Il est d’une valeur Brix de 13,8%, d’une teneur en eau de 85,57%, d’une couleur jaune clair brunâtre, d’une odeur et d’un goût caractéristique de la pomme et il est conditionné dans des fûts métalliques d’une contenance de 220L. Le rapport d’analyse indique que ce produit ne représente aucune caractéristique d’un produit cuit ni par sa texture ou son aspect physique et que la teneur élevée en eau à l’ordre de 85,57% (84% ou plus d’eau dans la pomme) confirme que ce produit n’a pas subi une opération de cuisson. Le produit en cause est destiné à être utilisé dans l’industrie agroalimentaire notamment pour la fabrication de purée de pomme pour nourrissons.",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. A ce titre, il y a lieu de vous rappeler encore une fois que l’identification des produits selon les critères et exigences du Système harmonisé, constitue l’élément majeur et essentiel pour déterminer leur classement tarifaire correct dans le tarif des douanes. Cette identification doit refléter tous les éléments et indications objectifs exigés par les dispositions du SH d’où la nécessité de recourir aux fiches techniques, l’examen visuelle, les expertises orientées selon les critères exigibles par les SH pour chaque produits, etc, et de ne pas se limiter uniquement à la désignation commerciale du produit. La position tarifaire 20.07 couvre les confitures, les gelées, les marmelades, les purées et les pâtes de fruits, obtenues par cuisson, avec ou sans addition de sucre ou d'autres édulcorants. Conformément à la Note légale 5 du Chapitre 20, aux fins de l’application du n° 20.07, l’expression « obtenue par cuisson » signifie obtenues par traitement thermique à la pression atmosphérique ou sous vide partiel en vue d’accroître la viscosité du produit par réduction de sa teneur en eau ou par d’autres moyens. De plus, selon les Notes explicatives de la position tarifaire 20.07, les purées de fruits sont préparées avec des pulpes de fruits tamisées ou de la poudre de fruits à coques additionnées ou non de sucre, dont la cuisson est prolongée afin d'obtenir une consistance plus ou moins pâteuse. Il s’avère des dispositions précédentes que les produits de la position tarifaire 20.07 doivent subir une opération de cuisson suffisante afin de modifier leur apparence et leurs caractéristiques physico-chimiques, traduite principalement par la réduction de leur teneur en eau pour obtenir une consistance plus ou moins pâteuse. Or, tel qu’indiqué dans la description supra, le produit en question n’a subi qu’une opération de pasteurisation qui est un procédé de conservation à travers lequel les produits sont soumis à un traitement thermique qui consiste à chauffer un aliment pendant un certain temps pour détruire et éliminer les bactéries et micro-organismes, suivi d’un refroidissement directe et rapide. De ce fait et étant donné que le produit en cause n’a subi qu’une opération de pasteurisation pour sa conservation pour une longue durée, ne pouvant être qualifiée comme étant obtenu par cuisson aux sens des dispositions susvisées et par conséquent, il est à exclure de la position tarifaire 20.07. Quant à la position tarifaire 20.08, celle-ci couvre les fruits et autres parties comestibles de plantes, autrement préparés ou conservés, avec ou sans addition de sucre ou d'autres édulcorants ou d'alcool, non dénommés ni compris ailleurs. Selon les Notes Explicatives de la position tarifaire 20.08, cette dernière couvre les fruits et autres parties comestibles de plantes, y compris les mélanges de ces produits, entiers, en morceaux ou écrasés, préparés ou conservés autrement que par l'un des procédés spécifiés dans d'autres Chapitres ou dans les positions précédentes du présent Chapitre. A cet effet et en absence d’une position spécifique dans la Nomenclature couvrant les fruits écrasés conservés ou stérilisés par pasteurisation, le produit en cause est à classer à la position tarifaire 20.08 par application de la RGI 1 du SH. D’ailleurs, la pulpe de fruits stérilisée, citée au point 4) des Notes Explicatives de cette position tarifaire, en est la parfaite illustration. S’agissant du classement tarifaire dudit produit au niveau de la sous position tarifaire, il est à préciser que la sous position tarifaire déclarée et retenue par le Directeur Régional à savoir 2008.97.90.00 ne peut être retenu étant donné que ce produit ne constitue pas un mélange de fruits et/ou d’autres parties comestibles de plantes. De ce qui précède, le produit objet de l’examen est à classer à la sous position tarifaire 2008.99.99.00 couvrant les autres fruits et autres parties comestibles de plantes, autrement préparés ou conservés et ce, conformément à la RGI 6 du SH.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 122/DGD/D042.25 du 05.03.2025",
+   "decision_date": "2025-03-05",
+   "requesting_service": "DR – Alger Extérieur",
+   "designation": "BLOC EN ZIRCONE DENTAIRE",
+   "codes_considered": [
+    "3006.40.00.00",
+    "3824.99.99.99",
+    "6909.19.90.00"
+   ],
+   "hs_code": "3824.99.99.99",
+   "hs_codes": [
+    "3824.99.99.99"
+   ],
+   "description": "L’examen du dossier transmis, notamment la fiche technique et la fiche de données de sécurité jointes, fait ressortir qu’il s’agit d’un produit dénommé « bloc en zircone dentaire », de forme ronde, d’un diamètre de 98 mm et d’une épaisseur de 16, 18, 20, 22 et 25 mm. Il est composé de 94 à 95% de Dioxyde de Zirconium, de 4,5 à 5,5% d’oxyde d’Yttrium, de moins de 0.5% d’oxyde d’aluminium et de moins de 0.5% d’autres oxydes. Le produit en question est obtenu à travers le mélange de la poudre de zirconium avec d’autres oxydes métalliques pour améliorer ses propriétés physiques, avant qu’elle soit compactée sous haute pression pour former un bloc dense et solide. Il est destiné à être utilisé dans le domaine de la dentisterie, aux fins de restauration dentaire ou pour la réalisation de dents artificielles et ce, après avoir subi plusieurs opérations telles que le fraisage, la coloration, le séchage, le frittage et le vernissage, en vue de prendre la forme finale de dents artificielles ou de restauration dentaire.",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. La position tarifaire 81.09 couvre, entre autres, le zirconium et ouvrages en zirconium qui selon les Notes explicatives de la même position tarifaire, consiste en un métal gris-argent, malléable et ductile. Or, tel que décrit supra, le produit en question est fabriqué à base de dioxyde de zirconium qui est un composé chimique de formule ZrO2, couvert par la position tarifaire 28.25, appelé couramment « zircone » et non pas à partir du métal zirconium. De ce fait, il ne peut être considéré comme étant un ouvrage en zirconium et par conséquent, son classement à la position tarifaire 81.09 est à exclure. S’agissant de la position tarifaire 69.09, celle-ci couvre, entre autres, les articles pour usages techniques, en céramique. A ce titre, convient-il de préciser que la Note 1) du Chapitre 69) disposent que : « Le présent Chapitre ne comprend que les produits céramiques qui ont été cuits après avoir été préalablement mis en forme ou façonnés ». De plus, le deuxième paragraphe de l’alinéa 4 des Considérations générales du même Chapitre, précise qu’ils ne sont pas considérés comme cuits au sens de la Note 1 susvisée les produits qui ont été chauffés à des températures inférieures à 800 °C pour provoquer le durcissement des résines qu'ils contiennent, l'accélération des réactions d'hydratation ou l'élimination de l'eau ou d'autres substances volatiles éventuellement présentes. Ces produits sont exclus du Chapitre 69. Ainsi, en tenant compte de son mode d’obtention, à savoir un procédé de moulage sous haute pression n’impliquant pas une opération de cuisson après sa mise en forme ou son façonnage, le produit en question ne peut être considéré comme étant un produit céramique. Par conséquent, son classement à la position tarifaire 69.09 ne peut être effectué. En ce qui concerne la position tarifaire 30.06, celle-ci s’applique, quant à elle, uniquement aux préparations et articles pharmaceutiques visés à la Note 4 du Chapitre 30, parmi lesquels figurent « les ciments et autres produits d’obturation dentaire », cités à l’alinéa f) de ladite Note. Selon le point 6) des Notes explicatives de la position tarifaire 30.06, inhérent aux « ciments et autres produits d'obturation dentaire et les ciments pour la réfection osseuse », il est précisé que les ciments et autres produits d'obturation dentaire, les plus employés, sont constitués par des préparations à base de sels métalliques (phosphate de zinc, chlorure de zinc, etc.), d'oxydes métalliques, de gutta-percha ou de matières plastiques; ils peuvent également consister en alliages métalliques (y compris des alliages de métaux précieux), spécialement préparés comme produits d'obturation dentaire. Bien que ne contenant généralement pas de mercure, des alliages sont parfois appelés amalgames. Cette position couvre aussi bien les produits destinés à des obturations provisoires que ceux utilisés pour les obturations définitives et comprend également les ciments et produits d'obturation dentaire qui, contenant des substances pharmaceutiques, possèdent des propriétés prophylactiques. Tous ces produits sont habituellement en poudre ou sous forme de tablettes ; certains d'entre eux sont quelquefois présentés avec des produits liquides destinés à leur préparation au moment de l'emploi. Ils sont généralement conditionnés dans des emballages faisant état de leur utilisation. Sont également comprises dans cette position les pointes pour l'obturation du canal dentaire (en argent, en gutta-percha ou en papier, notamment). De la lecture des dispositions susvisées, il ressort que la note 4 (f) du chapitre 30 susvisée, limite le champ d’application de la position 30.06 aux « ciments et autres produits d’obturation dentaire », sans pour autant, l’étendre à tous les produits chimiques dentaires. Ainsi, étant donné que le produit en question ne consiste pas en un ciment ou en un autre produit d’obturation dentaire, son classement à la position tarifaire ne peut par conséquent être retenu. Par ailleurs, s’agissant d’un produit composé principalement de zircone et d'autres oxydes métalliques, appartenant ainsi aux industries chimiques, d’une part, et devant l’absence d’une position spécifique couvrant ce type de produit, d’autre part, la position tarifaire 38.24 couvrant, entre autres, les préparations des industries chimiques, non dénommées ni comprises ailleurs, mérite valablement d’être prise en considération pour le cas d’espèce. Les préparations pour certaines fabrications céramiques (dents artificielles, par exemple), spécifiées à la partie (B), point (25) des notes explicatives de la position tarifaire 38.24, en est la parfaite illustration. En effet, selon les mêmes Notes explicatives, il est précisé que cette catégorie comprend également les produits en zircone dentaire à base d’oxyde de zirconium (ZrO2) et d’autres oxydes métalliques. Ces produits ne peuvent pas être utilisés en dentisterie sans avoir subi plusieurs opérations telles que le fraisage, le frittage et le vernissage afin de prendre leur forme finale de restauration dentaire ou de dents artificielles. De plus, convient-il de préciser que lors de sa 62ème session, tenue en Septembre 2018, le Comité du SH de l’OMD, a classé un produit similaire à la sous position tarifaire 3824.99, par application des RGI 1 et 6 du SH. Le produit est décrit comme étant « Bloc de zircone, de forme ronde, d’un diamètre de 98 mm et d’une hauteur de 14 mm. Il est composé essentiellement d’oxyde de zirconium et en moindre quantité d’autres oxydes métalliques. Après l’importation, le produit est destiné à être utilisé par des laboratoires dentaires ou des dentistes. Avant utilisation en dentisterie, ce bloc doit être fraisé, fritté et verni afin de prendre sa forme finale aux fins de restauration dentaire ou de réalisation de dents artificielles ». De ce qui précède, le produit en question est à classer à la position tarifaire 38.24, et plus précisément à la sous position tarifaire 3824.99.99.99 et ce, par application des RGI 1et 6 du SH. Par conséquent, l’avis du Directeur Régional quant au classement dudit produit à la sous position tarifaire 8109.99.90.00, n’est pas partagé.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 359/DGD/D042.25 du 06.08.2025",
+   "decision_date": "2025-08-06",
+   "requesting_service": "DR – Sétif",
+   "designation": "TUYAUX FLEXIBLES DE RACCORDEMENT, EN PVC RENFORCE PAR UNE GAINE EN ACIER INOXYDABLE",
+   "codes_considered": [
+    "3917.39.10.00",
+    "4009.22.00.00",
+    "8307.10.10.00"
+   ],
+   "hs_code": "3917.39.10.00",
+   "hs_codes": [
+    "3917.39.10.00"
+   ],
+   "description": "L’examen du dossier transmis, notamment la fiche technique et les échantillons joints, fait ressortir qu’il s’agit de plusieurs modèles de tuyaux flexibles de raccordement, constitués d’un tuyau en matière plastique (PVC) autour duquel est tressée une gaine en acier inoxydable, munis à ses extrémités des pièces de raccordement femelles ou mâles. Les tuyaux flexibles en question sont d’une longueur de 20 à 100 cm, d’un diamètre de 14 mm et ils sont destinés à être utilisés en tant que raccordements pour la distribution d’eau chaude et froide sanitaire pour une pression maximale admissible de 16 bars.",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. A ce titre, convient-il de rappeler que l’identification des produits, selon les critères et les exigences du Système harmonisé, constitue l’élément majeur et essentiel pour la détermination de leur classement tarifaire. Cette identification doit refléter tous les éléments et indications objectifs exigés par les dispositions du SH d’où la nécessité de recourir aux fiches techniques, l’examen visuel, les expertises orientées selon les critères prévus et exigibles par le SH pour chaque produit, etc. et de ne pas se limiter uniquement à la désignation commerciale des produits. En effet, tel que décrit supra, le produit en question consiste en un ouvrage composé de différents matériaux, à savoir la matière plastique (PVC) et l’acier inoxydable. De ce fait, son classement est à déterminer par application de la RGI 3-b) du Système harmonisé, selon laquelle le classement de ce type de produits est à classer dans la position tarifaire de la matière qui confère à l’ensemble son caractère essentiel. A ce titre, il est à préciser qu’aux fins d’application de cette Règle, le facteur qui détermine le caractère essentiel varie suivant le genre de marchandises. Il peut, par exemple, ressortir de la nature de la matière constitutive ou des articles qui les composent, de leur volume, leur quantité, leur poids ou leur valeur, de l'importance d'une des matières constitutives en vue de l'utilisation des marchandises. Au cas présent, l’article qui détermine le caractère essentiel pour l’ouvrage en question étant le tuyau en PVC, au motif que la fonction de conduite ou du transport de l’eau est assurée par le tuyau en plastique et que la gaine en acier n’assure qu’un rôle de support de protection dudit tuyau notamment contre les surpressions d’eau et d’éviter ainsi les déchirures ou les ruptures du tuyau en plastique. De plus, selon les Notes explicatives de la position tarifaire 39.17, il est précisé que cette dernière couvre, entre autres, les tuyaux et leurs accessoires en matières plastiques qui peuvent être rigides ou souples et peuvent être renforcés ou autrement combinés à d'autres matières. Par ailleurs, en tenant compte de son mode d’obtention, le produit en question ne répond pas à la définition des tuyaux métalliques flexibles du n° 83.07 dans la mesure où il n’est pas constitué par un feuillard profilé enroulé en hélices avec ou sans agrafage et il ne peut être considéré comme étant un tuyau flexible onduleux lesquels sont obtenus, par exemple, par déformation d'un tube. Aussi, la Note d’exclusion a) des Notes explicatives de la même position tarifaire, exclut de la présente position et renvoi au n° 40.09, les tuyaux en caoutchouc avec armature métallique noyée dans la masse, ainsi que ceux renforcés extérieurement de métal et qui consistent d’ailleurs en des articles similaires aux présents, à la différence qu’ils sont en matière plastique (PVC) renforcés d’une gaine métallique. En conséquence, le classement des tuyaux flexibles en question à la position tarifaire 83.07 ne peut être effectué et ils sont à classer à la position tarifaire 39.17 couvrant, les tuyaux et leurs accessoires en matières plastiques. En ce qui concerne la position 40.09, celle-ci ne peut en aucun cas être envisageable du fait que ces tuyaux sont en matière plastique et non pas en caoutchouc. Eu égard à ce qui précède, et étant donné que le produit en question consiste en un tuyau flexible en PVC renforcé par une gaine en acier inoxydable, destiné à être utilisé pour acheminer, conduire ou distribuer des liquides (l’eau), il est à classer à la position tarifaire 39.17 et plus particulièrement à la sous position tarifaire résiduelle 3917.39.10.00 et ce, par application des RGI 1 (Note 8 du Chapitre 39), 3-b) et 6 du SH. Par conséquent, l’avis du Directeur Régional est partagé.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 431/DGD/D042.25 du 30.09.2025",
+   "decision_date": "2025-09-30",
+   "requesting_service": "DR – Annaba",
+   "designation": "MODULE DE COMMUNICATION RADIO RS-485",
+   "codes_considered": [
+    "8517.62.99.80",
+    "8517.62.99.99",
+    "9031.80.00.00"
+   ],
+   "hs_code": "8517.62.99.99",
+   "hs_codes": [
+    "8517.62.99.99"
+   ],
+   "description": "L’examen du dossier transmis, notamment la fiche technique et les photos jointes, fait ressortir qu’il s’agit d’un produit dénommé « unité de communication radio RS-485 », consistant en un système de communication sans fil, composé d’un émetteur-récepteur sans fil (module radio), fonctionnant sur la bande ISM 434 MHZ et intégrant une interface de communication RS-485. Le module en question est logé dans un boitier en matière plastique avec son bloc d’alimentation et il est destiné à faire partie d’un système de test des performances des appareils électroménagers sur une chaine de production et dans lequel il assure la fonction de réception, sans fil, des données collectées par le poste de contrôle sur la ligne de test fonctionnel, non présenté dans le cas d’espèce, les convertir au protocole de communication 485 et les transmettre au serveur.",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. La position tarifaire 90.31 couvre, entre autres, les instruments, appareils et machines de mesures ou de contrôle, non dénommés ni compris ailleurs dans le chapitre 90. Tel que décrit supra, le module en question est destiné à faire partie d’un système de contrôle et de test de performances des appareils électroménagers sur une chaine de production et dans lequel il assure la fonction de réception de données, collectées et transmises par un poste de contrôle sur la ligne de test fonctionnel, non présenté dans le cas d’espèce, en vue de les convertir au protocole de communication 485 avant de les transmettre au serveur. De ce fait, étant donné que le module en cause n’est pas destiné à assurer, en l’état, une fonction de mesure ou de contrôle, mais plutôt à être combiné avec d’autres éléments, non présentés dans le cas d’espèce, à l’effet de constituer un système de contrôle et de test de performances des appareils électroménagers, il ne peut de ce fait, être considéré comme étant un instrument, un appareil ou une machine de mesures ou de contrôle, au sens n° 90.31. Par ailleurs, s’agissant d’un article reconnaissable comme étant destiné à faire partie d’un système de mesures ou de contrôle, la question de son classement en tant qu’une partie d’un tel système de mesures ou de contrôle, mérite d’être examinée. A ce titre, il convient de souligner que le classement tarifaire des parties de machines et appareils du Chapitre 90, est régi par la Note 2) dudit Chapitre, selon son alinéa a), les parties et accessoires consistant en articles compris dans l'une quelconque des positions du présent Chapitre ou des Chapitres 84, 85 ou 91 (autres que les n°s 84.87, 85.48 ou 90.33) relèvent de ladite position quels que soient les machines, appareils ou instruments auxquels ils sont destinés. Autrement dit, les articles de l'espèce suivent leur régime propre dans tous les cas, même si en fait ils sont spécialement conçus pour être utilisés comme parties d'une machine déterminée couverte par le Chapitre 90. Dans ces conditions, il y a lieu d’examiner l’existence d’une position tarifaire spécifique dans les Chapitres 84, 85, 90 et 91, décrivant le produit objet de l’examen. La position tarifaire 85.17 couvre, entre autres, les appareils pour l'émission, la transmission ou la réception de la voix, d’images ou d'autres données, y compris les appareils pour la communication dans un réseau filaire ou sans fil (tel qu'un réseau local ou étendu). Selon les Notes explicatives de la position tarifaire 85.17, il est clairement précisé que cette position couvre les appareils de communication pour l’émission, la transmission ou la réception de paroles ou d’autres sons, d’images ou d’autres données, entre deux points, par modulation d’un courant électrique ou d’une onde optique circulant dans un support filaire ou par ondes électromagnétiques dans un réseau sans fils. Le signal peut être analogique ou numérique. Parmi ces réseaux, qui peuvent être interconnectés, on peut citer la téléphonie, la télégraphie, la radiotéléphonie, la radiotélégraphie, les réseaux locaux ou les réseaux étendus. Tel que décrit supra, le module objet de l’examen assure la fonction de réception des données relatives aux résultats des tests collectés par un poste de contrôle, les convertir au protocole de communication RS-485 en vue de leur transmission à un serveur et ce, en utilisant un réseau sans fil (bande ISM 434 MHZ), répondant ainsi parfaitement à la définition des appareils de communication couverts par la position tarifaire 85.17. Les appareils pour la réception, la conversion et l’émission, la transmission ou la régénération de la voix, d’images ou d'autres données, y compris les appareils de commutation et de routage, sont nommément désignés à la sous position tarifaire à six (06) chiffres 8517.62. S’agissant du classement au niveau de la sous position tarifaire à dix (10) chiffres, celle-ci est à déterminer en fonction de la nature exacte du module objet de l’examen. La sous position tarifaire 8517.62.99.80 relative aux modules émetteur-récepteur pour la conversion des signaux (électrique/optique), ne peut être retenue dans la mesure où le module de communication en cause n’assure pas la conversion des signaux électriques en signaux optiques pour la transmission via la fibre optique. De ce fait, s’agissant d’un appareil présenté isolément et destiné à assurer une fonction de réception et de conversion des données en utilisant un réseau sans fil via des ondes radio, il est à classer à la position tarifaire 85.17 et plus précisément à la sous position tarifaire 8517.62.99.99 et ce, par application des RGI 1 (Note 2-a) du Chapitre 90) et 6 du SH. Par conséquent, l’avis du Directeur Régional est partagé.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  },
+  {
+   "type": "Modèle 110",
+   "reference": "Modèle 110 n° 571/DGD/D042.25 du 11.12.2025",
+   "decision_date": "2025-12-11",
+   "requesting_service": "DR – Annaba",
+   "designation": "CAMERA PORTATIVE POUR LA DETECTION DES FUITES DE GAZ",
+   "codes_considered": [
+    "8525.89.21.00",
+    "8531.10.30.00",
+    "9027.50.90.00"
+   ],
+   "hs_code": "9027.50.90.00",
+   "hs_codes": [
+    "9027.50.90.00"
+   ],
+   "description": "L’examen du dossier transmis, notamment la fiche technique et les photos jointes, fait ressortir qu’il s’agit d’un appareil dénommé « caméra portative pour la détection des fuites de gaz – modèle *** », consistant en un appareil de contrôle et d’inspection, présenté sous la forme d’une caméra infrarouge, de conception classique (caméscope), fonctionnant sur batterie lithium-ion, d’une dimension de 251,6 x 164,5 x 170,9 mm et d’un poids de 3 kg. Elle est équipée d’un détecteur infrarouge, de type Matrice à Plan Focal (FPA) et utilisant une gamme spectrale de 30 micromètres, d’un refroidisseur du capteur, d’un écran tactile ACL couleur rotatif, d’une résolution de 640*480 pixels, d’un viseur escamotable (ou rabattable), des objectifs, des interfaces de communications WIFI, USB, HDMI et Bluetooth, d’un support de stockage (carte SD amovible), d’un GPS, d’une boussole et d’une batterie rechargeable. Cet appareil est destiné à être utilisé essentiellement pour la détection, à des distances sécuritaires, des fuites d’hydrocarbures, de méthane (CH4) et d’autres composés volatils dans des environnements industriels, notamment les secteurs du pétrole et de gaz (raffineries, les installations pétrochimiques, les plateformes d’exploitation de gaz naturel, etc.) qui ne peuvent être visualiser à l’œil nue. Son principe de fonctionnement consiste à mesurer la différence de température entre les molécules d’un gaz hydrocarboné, qui se refroidit en s'échappant d'une vanne, d'un raccord ou d'une canalisation et qui absorbe des rayonnements infrarouges à des longueurs d'onde spécifiques, et l’air de son environnement et à effectuer des analyses de la température de chaque pixel de l'image, à l'aide d'un algorithme spécifique, pour produire et afficher l'image infrarouge de la fuite capturée, en blanc chaud ou en noir chaud, selon les préférences de l'utilisateur et la gravité de la fuite.",
+   "justification": "De prime abord, il est nécessaire de rappeler que le classement des marchandises doit s’opérer sur la base de leurs caractéristiques objectives telles que présentées au moment de dédouanement. Ainsi, le classement tarifaire est un élément neutre et objectif. La fiscalité ainsi que les mesures du commerce extérieur, applicables aux produits, sont la conséquence du classement tarifaire ainsi légalement retenu. Aux termes de la Règle Générale Interprétative n° 1 du Système harmonisé, qui est la règle fondamentale, le classement des produits est déterminé légalement d'après les libellés des positions et des Notes de Sections ou de Chapitres, et au besoin, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les dispositions des Règles 2, 3, 4 et 5. La RGI 6 quant à elle, détermine le classement au niveau de la sous position tarifaire. A ce titre, convient-il de rappeler que l’identification des produits constitue l’élément majeur et essentiel pour déterminer leur classement tarifaire. En effet, la position tarifaire 85.25 couvre, entre autres, les caméras de télévision, appareils photographiques numériques et caméscopes. Selon les Notes explicatives de ladite position tarifaire, Titre B, il est précisé que le groupe « caméras de télévision; appareils photographiques numériques et caméscopes », comprend les caméras pour la capture des images et leur conversion en un signal électronique qui est : 1) transmis comme images vidéo vers un emplacement externe à la caméra pour qu’elles soient visionnées ou enregistrées à distance (caméras de télévision); ou 2) enregistré dans la caméra comme images fixes ou images animées (appareils photographiques numériques et caméscopes, par exemple). Ainsi, compte tenu de ses caractéristiques objectives et bien que l’appareil en question présente une apparence tout à fait semblable à celle des caméscopes du n°85.25, son classement à ladite position tarifaire ne peut, toutefois être effectué, au motif que la fonction de l'appareil ne se limite pas à la capture et à l'enregistrement des images vidéo, mais plutôt, intégrant des fonctions additionnelles (l’analyse physique et la mesure de températures) et que la fonction de capture et d’enregistrement des vidéos et des images ne constitue qu’une partie intégrante d’un système complexe ayant pour fonction la détection de fuites de gaz et dépassant ainsi le cadre d’une simple caméra ordinaire. Par conséquent, son classement à la position tarifaire 85.25 ne peut être retenu. La position tarifaire 85.31 couvre les appareils électriques de signalisation acoustique ou visuelle. Selon les Notes explicatives de ladite position tarifaire, il est précisé que cette dernière comprend l'ensemble des appareils électriques de signalisation acoustique (sonneries, ronfleurs et autres avertisseurs sonores) ou visuelle (appareils de signalisation par lampes, volets mobiles, chiffres, etc.), qu'ils soient à commande manuelle, comme les sonneries d'entrée pour appartements, ou automatique, comme les appareils de protection contre le vol. Parmi les appareils relevant de cette position tarifaire, il est cité à l’alinéa G), « les appareils avertisseurs de fuites de gaz, de vapeur, par exemple », définis par les même Notes explicatives comme étant des appareils « comportant un détecteur et un dispositif avertisseur électrique, acoustique ou visuel, utilisés pour détecter notamment la présence de mélanges gazeux dangereux (gaz naturel, méthane, etc.) ». Il résulte de ces dispositions que les appareils avertisseurs de la position tarifaire 85.31, comportent : (i) un organe détecteur, et (ii) un organe avertisseur (ronfleur, sonnerie, voyant, etc.). Or, tel que décrit supra, l’appareil en cause ne comporte pas un dispositif avertisseur de présence de gaz, d’une part, et il est équipé de dispositifs lui permettant d’analyser la température des images de fumées détectées, de mesurer sa concentration, d’afficher et d’enregistrer les résultats obtenus d’autre part, dépassant ainsi le cadre d’un simple détecteur de gaz de la position tarifaire 85.31. De ce fait, son classement à la position tarifaire 85.31 ne peut être effectué. La position tarifaire 90.31 couvre quant à elle, entre autres, les instruments, appareils et machines de mesure ou de contrôle, non dénommés ni compris ailleurs dans le Chapitre 90. Autrement dit, cette position constitue une position résiduelle qui n’a, par conséquent, vocation à s’appliquer qu’en l’absence d’une position plus spécifique au niveau du Chapitre 90 couvrant le produit en question. Or, tel que décrit et présenté supra, l’appareil en cause utilise les rayonnements optiques (infrarouges), à l’effet de détecter des fuites de gaz et ce, en mesurant la température entre les molécules dudit gaz et l’air de son environnement et l’analyse de chaque pixel de l'image capturée pour produire et afficher l'image infrarouge de la fuite capturée. Ainsi, et s’agissant d’un appareil utilisant les rayonnements optiques pour la détection des fuites de gaz en procédant par l’analyse des caractéristiques physiques des gaz capturés, fonction couverte par la position 90.27, il est à classer dans cette position et plus précisément à la sous position tarifaire 9027.50.90.00 et ce, par application des RGI 1 et 6 du SH. Par conséquent, l’avis du DR quant au classement de cet appareil à la sous position tarifaire 9027.50.90.00 est partagé.",
+   "source": "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"
+  }
+ ]
+}

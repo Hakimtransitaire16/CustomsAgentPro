@@ -9,6 +9,11 @@ from .models import Ruling, TariffLine
 from .text import tokens
 
 DATA_DIR = Path(__file__).parent / "data"
+# Official documents parsed by knowledge-base/tools/build_kb.py
+KB_DATA = Path(__file__).resolve().parents[2] / "knowledge-base" / "data"
+# The 2016 tariff carries customs duty (D.D) only. VAT is not in it: the standard
+# 19 % rate is assumed and flagged in every cost line (reduced 9 % not distinguished).
+DEFAULT_VAT = 0.19
 
 
 class Tariff:
@@ -20,6 +25,16 @@ class Tariff:
     def load(cls, path: Path = DATA_DIR / "tariff_sample.json") -> "Tariff":
         raw = json.loads(path.read_text(encoding="utf-8"))
         return cls([TariffLine(**l) for l in raw["lines"]])
+
+    @classmethod
+    def load_official(cls, path: Path = KB_DATA / "tarif_2016.json") -> "Tariff":
+        """DGD tariff, 2016 edition: 15 946 ten-digit lines with their D.D rate."""
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        return cls([
+            TariffLine(code=l["code"], label_fr=l["full_label"], label_ar="", keywords=[],
+                       duty_rate=l["dd_rate"], vat_rate=DEFAULT_VAT, source="dgd-2016")
+            for l in raw["lines"]
+        ])
 
     def get(self, code: str | None) -> TariffLine | None:
         return self.lines.get(code) if code else None
@@ -44,6 +59,25 @@ class RulingRegistry:
             )
             for r in raw["rulings"]
         ]
+        return cls(rulings)
+
+    @classmethod
+    def load_official(cls, path: Path = KB_DATA / "decisions_classement_2025.json") -> "RulingRegistry":
+        """Real DGD decisions published in the 2025 collection (77 RTC + 6 modèle 110).
+        Holders are not published, so these serve as classification precedents only.
+        Modèle 110 decisions carry no validity period: they are kept open-ended."""
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        rulings = []
+        for r in raw["decisions"]:
+            start = date.fromisoformat(r.get("valid_from") or r["decision_date"])
+            end = date.fromisoformat(r["valid_to"]) if r.get("valid_to") else date.max
+            for code in r["hs_codes"] or [r["hs_code"]]:
+                rulings.append(Ruling(
+                    reference=r["reference"] if len(r["hs_codes"]) <= 1 else f'{r["reference"]} [{code}]',
+                    kind="classification", source="DGD", holder_nif=None,
+                    description=r["designation"],  # short title: the long text would match any query
+                    hs_code=code, valid_from=start, valid_to=end,
+                ))
         return cls(rulings)
 
     def get(self, reference: str | None) -> Ruling | None:
