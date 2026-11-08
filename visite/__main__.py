@@ -6,7 +6,8 @@
   python -m visite mobile    DOSSIER.json   # page de visite pour téléphone
   python -m visite pv        DOSSIER.json visite_XXX.json   # réinjecte la visite dans la fiche
   python -m visite registre  DOSSIER.json   # ajoute au registre + tableau de bord
-  python -m visite tout      DOSSIER.json   # contrôler + fiche + mobile + registre
+  python -m visite app       DOSSIER.json   # application unique : fiche + visite + contrôles + registre + données
+  python -m visite tout      DOSSIER.json   # contrôler + fiche + registre + application unique
 
 Sorties dans DOSSIER/sortie/ ; registre dans le dossier parent : ../registre/.
 """
@@ -15,7 +16,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import calc, data, mobile, ocr, registry, render, verify
+from . import app as appmod, calc, data, mobile, ocr, registry, render, verify
 
 SYM = {"ok": "✓", "alerte": "!", "erreur": "✕"}
 
@@ -90,16 +91,29 @@ def cmd_registre(d, a):
     return kpi
 
 
+def cmd_app(d, a):
+    s = _sortie(d)
+    pngs = _pages(d) if d.get("scan") else {}
+    ff = s / "fidelite.json"
+    fid = json.loads(ff.read_text(encoding="utf-8")) if ff.exists() else (ocr.fidelite(d, pngs, s / "extraits") if pngs else [])
+    rj = Path(d["_dir"]).parent / "registre" / "registre.json"
+    rows = json.loads(rj.read_text(encoding="utf-8")) if rj.exists() else None
+    f = s / f"Dossier_{d['meta']['id']}.html"
+    f.write_text(appmod.construire(d, fidelite=fid, pngs=pngs, registre=rows), encoding="utf-8")
+    print(f"Application unique : {f} ({f.stat().st_size // 1024} Ko)")
+    return f
+
+
 def cmd_tout(d, a):
     cmd_controler(d, a)
     cmd_fiche(d, a)
-    cmd_mobile(d, a)
     cmd_registre(d, a)
+    cmd_app(d, a)
 
 
 def main(argv=None):
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "tout"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)

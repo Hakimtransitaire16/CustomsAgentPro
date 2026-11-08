@@ -5,7 +5,7 @@ from pathlib import Path
 
 import jsonschema
 
-from visite import calc, data, mobile, registry, render
+from visite import app, calc, data, mobile, registry, render
 
 EX = Path(__file__).resolve().parents[1] / "exemples" / "dossier_exemple.json"
 
@@ -57,6 +57,13 @@ class TestVisite(unittest.TestCase):
         h = mobile.page(self.d)
         self.assertIn("Exporter la visite", h)
         self.assertIn(self.d["transport"]["scelle"], h)
+
+    def test_application_unique(self):
+        h = app.construire(self.d)
+        for v in ('id="t-fiche"', 'id="t-visite"', 'id="t-controles"', 'id="t-registre"', 'id="t-donnees"', 'data-pv="observations"', "srcdoc="):
+            self.assertIn(v, h)
+        self.assertIn(self.d["declaration"]["mrn"], h)
+        self.assertNotIn("</script><", h.split('id="dossier">')[1].split("</script>")[0])
 
     def test_registre(self):
         tmp = Path(__file__).parent / "_tmp_registre"

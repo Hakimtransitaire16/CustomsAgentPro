@@ -61,14 +61,14 @@ def checklist(d):
     return out
 
 
-def contexte(d, fidelite=None, visite=None, pngs=None):
+def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
     arts = d["articles"]
     ctrls = calc.controles(d)
     r = calc.resume(ctrls)
     nom = d["meta"]["declarant"]["nom"].split()
     pv_vals = (visite or {}).get("constatations", {})
-    pv = [("Lieu de la visite", f"<b>{d.get('visite', {}).get('lieu', '')}</b>")] + [
-        (lab, pv_vals.get(k, "")) for k, lab in [
+    pv = [("lieu", "Lieu de la visite", f"<b>{d.get('visite', {}).get('lieu', '')}</b>")] + [
+        (k, lab, pv_vals.get(k, "")) for k, lab in [
             ("date", "Date et heure de la visite"), ("scelle", f"État du scellé {d['transport'].get('scelle')}"),
             ("comptage", "Colis / unités comptés"), ("etiquettes", "Marquages et étiquettes"),
             ("pesee", "Pesée de contrôle"), ("echantillons", "Échantillons prélevés"), ("observations", "Observations")]]
@@ -94,7 +94,7 @@ def contexte(d, fidelite=None, visite=None, pngs=None):
         qtes=[f"{a['quantite'].get('nombre', '')} {a['quantite'].get('unite', '')}" for a in arts],
         pbruts=[f"{n(a.get('poids_brut'))} kg ({a.get('poids_brut_source', '')})" if a.get("poids_brut") else "—" for a in arts],
         checklist=checklist(d), pv=pv, thumbs=thumbs, photos=photos,
-        ctrl_ok=r["ok"], ctrl_tot=len(ctrls), conformite=d.get("conformite"),
+        ctrl_ok=r["ok"], ctrl_tot=len(ctrls), conformite=d.get("conformite"), live=live,
     )
 
 
