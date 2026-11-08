@@ -1,0 +1,116 @@
+"""Ligne de commande.
+
+  python -m visite extraire  DOSSIER.json   # OCR du scan → suggestions de références
+  python -m visite controler DOSSIER.json   # contrôles automatiques
+  python -m visite fiche     DOSSIER.json   # OCR + fidélité + PDF + relecture
+  python -m visite mobile    DOSSIER.json   # page de visite pour téléphone
+  python -m visite pv        DOSSIER.json visite_XXX.json   # réinjecte la visite dans la fiche
+  python -m visite registre  DOSSIER.json   # ajoute au registre + tableau de bord
+  python -m visite tout      DOSSIER.json   # contrôler + fiche + mobile + registre
+
+Sorties dans DOSSIER/sortie/ ; registre dans le dossier parent : ../registre/.
+"""
+import argparse
+import json
+import sys
+from pathlib import Path
+
+from . import calc, data, mobile, ocr, registry, render, verify
+
+SYM = {"ok": "✓", "alerte": "!", "erreur": "✕"}
+
+
+def _sortie(d):
+    s = Path(d["_dir"]) / "sortie"
+    s.mkdir(exist_ok=True)
+    return s
+
+
+def _pages(d):
+    s = _sortie(d) / "pages"
+    existing = {int(p.stem[4:]): p for p in s.glob("page*.png")} if s.exists() else {}
+    return existing or ocr.pages(d, s)
+
+
+def cmd_extraire(d, a):
+    sugg = ocr.extraire(_pages(d))
+    f = _sortie(d) / "suggestions.json"
+    f.write_text(json.dumps(sugg, ensure_ascii=False, indent=1), encoding="utf-8")
+    for k, v in sugg.items():
+        print(f"{k:14}", ", ".join(sorted({x['valeur'] for x in v}))[:120])
+    print("→", f)
+
+
+def cmd_controler(d, a):
+    ctrls = calc.controles(d)
+    for c in ctrls:
+        print(f" {SYM[c['statut']]} {c['id']:6} {c['titre']} — {c['detail']}")
+    (_sortie(d) / "controles.json").write_text(json.dumps(ctrls, ensure_ascii=False, indent=1), encoding="utf-8")
+    r = calc.resume(ctrls)
+    print(f"\n{r['ok']} conformes · {r['alerte']} alertes · {r['erreur']} erreurs")
+    return r
+
+
+def cmd_fiche(d, a, visite=None):
+    s = _sortie(d)
+    pngs = _pages(d) if d.get("scan") else {}
+    fid = ocr.fidelite(d, pngs, s / "extraits") if pngs else []
+    (s / "fidelite.json").write_text(json.dumps(fid, ensure_ascii=False, indent=1), encoding="utf-8")
+    html = render.html(d, fidelite=fid, visite=visite, pngs=pngs)
+    pdf = s / f"Fiche_technique_{d['meta']['id']}.pdf"
+    deb = render.pdf(html, pdf)
+    corpus = "".join(ocr.corpus(pngs, s / "ocr_corpus.json").values()) if pngs else ""
+    rel = verify.relire(pdf, d, corpus)
+    (s / "relecture.json").write_text(json.dumps(rel, ensure_ascii=False, indent=1), encoding="utf-8")
+    ok = sum(1 for f in fid if f["score"] >= 0.95)
+    print(f"PDF : {pdf} ({pdf.stat().st_size // 1024} Ko)")
+    print(f"Fidélité : {ok}/{len(fid)} identiques, {len(fid) - ok} à confirmer visuellement")
+    print(f"Relecture : {rel['references_presentes']}/{rel['references']} références présentes · nombres inconnus : {rel['nombres_inconnus'] or 'aucun'}")
+    print("Mise en page :", "OK" if not deb else f"débordements {deb}")
+    return pdf
+
+
+def cmd_mobile(d, a):
+    f = _sortie(d) / f"visite_{d['meta']['id']}.html"
+    f.write_text(mobile.page(d), encoding="utf-8")
+    print("Page de visite :", f)
+    return f
+
+
+def cmd_pv(d, a):
+    v = json.loads(Path(a.visite).read_text(encoding="utf-8"))
+    return cmd_fiche(d, a, visite=v)
+
+
+def cmd_registre(d, a):
+    reg = Path(d["_dir"]).parent / "registre"
+    rows = registry.enregistrer(d, reg)
+    kpi = registry.tableau_de_bord(reg, reg / "tableau_de_bord.html")
+    print(f"Registre : {len(rows)} dossier(s) · {reg / 'registre.csv'} · {reg / 'tableau_de_bord.html'}")
+    return kpi
+
+
+def cmd_tout(d, a):
+    cmd_controler(d, a)
+    cmd_fiche(d, a)
+    cmd_mobile(d, a)
+    cmd_registre(d, a)
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "tout"])
+    p.add_argument("dossier")
+    p.add_argument("visite", nargs="?")
+    a = p.parse_args(argv)
+    try:
+        d = data.load(a.dossier)
+    except Exception as e:
+        print("Dossier invalide :", e)
+        return 2
+    globals()[f"cmd_{a.commande}"](d, a)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

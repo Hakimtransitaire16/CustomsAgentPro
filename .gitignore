@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 knowledge-base/kb.sqlite
+dossiers/
+visite/tests/_tmp_registre/
+**/sortie/

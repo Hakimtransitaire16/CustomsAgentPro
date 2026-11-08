@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visite — {{ d.transport.conteneur }}</title>
+<style>
+:root{--ink:#0E1A2B;--muted:#6B7685;--line:#DCE1E8;--navy:#0F2D4F;--blue:#2C66A8;--blue-l:#E8F0F9;--ok:#1D7A4C;--ok-l:#E7F4EC;--crit:#B3261E;--crit-l:#FBE9E7;--bg:#F3F5F8;--card:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#E8EDF3;--muted:#9AA6B4;--line:#2A3646;--navy:#9FC0E6;--blue:#6FA3E0;--blue-l:#1A2A3D;--ok:#5CC48C;--ok-l:#173025;--crit:#F08A80;--crit-l:#3A1C1A;--bg:#0D141D;--card:#151F2B}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,"Segoe UI",Inter,Roboto,sans-serif;padding:0 0 96px}
+header{background:#0F2D4F;color:#fff;padding:16px 16px 14px;position:sticky;top:0;z-index:5}
+header .k{font-size:11px;letter-spacing:.14em;color:#9FC0E6;font-weight:700}
+header h1{margin:2px 0 4px;font-size:20px}
+header .r{font-size:12px;color:#C9D6E5;font-family:ui-monospace,monospace;word-break:break-all}
+.prog{height:4px;background:rgba(255,255,255,.15);margin-top:10px;border-radius:2px}.prog i{display:block;height:100%;background:#5CC48C;border-radius:2px;width:0}
+main{padding:12px 16px;max-width:720px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:0 0 10px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}.kv b{font-family:ui-monospace,monospace;word-break:break-all}.kv span{color:var(--muted)}
+label.ck{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+label.ck:last-child{border:none}
+label.ck input{width:24px;height:24px;flex:none;accent-color:var(--ok);margin:0}
+.cnt{display:grid;grid-template-columns:1fr 92px 84px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cnt input{width:100%;padding:10px;font-size:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.st{font-size:12px;font-weight:700;text-align:center;border-radius:6px;padding:6px 4px}
+.st.ok{background:var(--ok-l);color:var(--ok)}.st.ko{background:var(--crit-l);color:var(--crit)}.st.na{color:var(--muted)}
+.ph{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.slot{border:1.5px dashed var(--line);border-radius:10px;overflow:hidden;position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--muted);padding:6px;background:var(--bg)}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slot input{position:absolute;inset:0;opacity:0}
+.slot .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(15,45,79,.85);color:#fff;font-size:11px;padding:4px 6px}
+textarea,select,input[type=text],input[type=datetime-local]{width:100%;padding:10px;font-size:16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-family:inherit}
+.f{margin-bottom:10px}.f label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px;font-weight:600}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:10px}
+button{flex:1;padding:14px;font-size:15px;font-weight:700;border-radius:10px;border:none;background:#0F2D4F;color:#fff}
+button.sec{background:var(--blue-l);color:var(--navy)}
+.who{display:flex;gap:8px;flex-wrap:wrap}.who div{flex:1;min-width:120px;background:var(--bg);border-radius:8px;padding:8px}.who small{display:block;color:var(--muted);font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <div class="k">VISITE DOUANE · {{ (d.visite.lieu or '')|upper }}</div>
+  <h1>{{ d.meta.produit_titre or d.articles[0].designation }} {{ d.meta.produit_sous_titre or '' }}</h1>
+  <div class="r">D10 {{ d.declaration.numero }} · MRN {{ d.declaration.mrn }}</div>
+  <div class="prog"><i id="prog"></i></div>
+</header>
+<main>
+  <div class="card"><h2>Références</h2>
+    <div class="kv"><span>Conteneur</span><b>{{ d.transport.conteneur }}</b><span>Scellé</span><b>{{ d.transport.scelle }}</b>
+    <span>Colis</span><b>{{ d.declaration.nb_colis }}</b><span>Poids brut</span><b>{{ d.declaration.poids_brut|n }} kg</b>
+    <span>Origine</span><b>{{ d.origine.pays }} ({{ d.origine.code }})</b><span>Importateur</span><b>{{ d.parties.importateur.nom }}</b></div>
+    <div class="who" style="margin-top:10px"><div><small>Inspecteur</small>{{ d.visite.inspecteur }}</div><div><small>Agent</small>{{ d.visite.agent }}</div><div><small>Déclarant</small>{{ d.meta.declarant.nom }}</div></div>
+  </div>
+
+  <div class="card"><h2>Check-list</h2>
+    {% for x in checklist %}<label class="ck"><input type="checkbox" data-k="ck{{ loop.index }}"><span>{{ x }}</span></label>{% endfor %}
+  </div>
+
+  <div class="card"><h2>Comptage</h2>
+    <div class="cnt" style="font-size:11px;color:var(--muted);font-weight:700"><span>ÉLÉMENT · ATTENDU</span><span>COMPTÉ</span><span>RÉSULTAT</span></div>
+    {% for lab, att in comptages %}<div class="cnt"><span>{{ lab }} · <b>{{ att }}</b></span><input inputmode="numeric" data-k="cnt{{ loop.index }}" data-att="{{ att }}"><span class="st na">—</span></div>{% endfor %}
+  </div>
+
+  <div class="card"><h2>Photos</h2>
+    <div class="ph">{% for p in slots %}<div class="slot" data-i="{{ loop.index0 }}"><span>📷 {{ p }}</span><input type="file" accept="image/*" capture="environment"><div class="cap">{{ p }}</div></div>{% endfor %}</div>
+  </div>
+
+  <div class="card"><h2>Constatations (procès-verbal)</h2>
+    <div class="f"><label>Date et heure de la visite</label><input type="datetime-local" data-k="date"></div>
+    <div class="f"><label>État du scellé {{ d.transport.scelle }}</label><select data-k="scelle"><option value="">—</option><option>Intact, conforme au B/L</option><option>Rompu</option><option>Non conforme au B/L</option></select></div>
+    <div class="f"><label>Colis / unités comptés</label><input type="text" data-k="comptage"></div>
+    <div class="f"><label>Marquages et étiquettes</label><input type="text" data-k="etiquettes"></div>
+    <div class="f"><label>Pesée de contrôle</label><input type="text" data-k="pesee"></div>
+    <div class="f"><label>Échantillons prélevés</label><input type="text" data-k="echantillons"></div>
+    <div class="f"><label>Observations</label><textarea rows="3" data-k="observations"></textarea></div>
+  </div>
+</main>
+<div class="bar"><button class="sec" id="reset">Effacer</button><button id="export">Exporter la visite</button></div>
+
+<script>
+const ID = {{ d.meta.id|tojson }}, KEY = 'visite-' + ID, SLOTS = {{ slots|tojson }};
+const state = {champs: {}, photos: []};
+const st = {get(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){return null}}, set(v){try{localStorage.setItem(KEY, JSON.stringify(v))}catch(e){}}};
+function save(){ st.set(state); prog(); }
+function prog(){ const cks=[...document.querySelectorAll('input[type=checkbox]')]; const p=cks.filter(c=>c.checked).length/cks.length; document.getElementById('prog').style.width=(p*100)+'%'; }
+function evalCnt(inp){ const s=inp.nextElementSibling, v=inp.value.trim(); if(!v){s.className='st na';s.textContent='—';return}
+  const ok=Number(v.replace(/\s/g,''))===Number(String(inp.dataset.att).replace(/\s/g,'')); s.className='st '+(ok?'ok':'ko'); s.textContent=ok?'Conforme':'Écart'; }
+document.querySelectorAll('[data-k]').forEach(el=>{
+  const k=el.dataset.k, ev=el.type==='checkbox'?'change':'input';
+  el.addEventListener(ev,()=>{ state.champs[k]=el.type==='checkbox'?el.checked:el.value; if(k.startsWith('cnt'))evalCnt(el); save(); });
+});
+function shrink(file){ return new Promise(res=>{ const img=new Image(), u=URL.createObjectURL(file); img.onload=()=>{ const m=1280, s=Math.min(1, m/Math.max(img.width,img.height));
+  const c=document.createElement('canvas'); c.width=img.width*s; c.height=img.height*s; c.getContext('2d').drawImage(img,0,0,c.width,c.height); URL.revokeObjectURL(u); res(c.toDataURL('image/jpeg',.72)); }; img.src=u; }); }
+function showPhoto(i, data){ const sl=document.querySelector(`.slot[data-i="${i}"]`); let im=sl.querySelector('img'); if(!im){im=document.createElement('img'); sl.prepend(im);} im.src=data; }
+document.querySelectorAll('.slot input').forEach(inp=>inp.addEventListener('change', async ()=>{
+  const i=+inp.parentElement.dataset.i; if(!inp.files[0])return; const data=await shrink(inp.files[0]);
+  state.photos[i]={legende:SLOTS[i], data}; showPhoto(i,data); save(); }));
+const saved=st.get(); if(saved){ Object.assign(state, saved);
+  document.querySelectorAll('[data-k]').forEach(el=>{ const v=state.champs[el.dataset.k]; if(v===undefined)return; if(el.type==='checkbox')el.checked=v; else el.value=v; if(el.dataset.k.startsWith('cnt'))evalCnt(el); });
+  (state.photos||[]).forEach((p,i)=>p&&showPhoto(i,p.data)); }
+prog();
+document.getElementById('export').onclick=()=>{
+  const c=state.champs, out={dossier:ID, exporte_le:new Date().toISOString(),
+    constatations:{date:c.date||'', scelle:c.scelle||'', comptage:c.comptage||'', etiquettes:c.etiquettes||'', pesee:c.pesee||'', echantillons:c.echantillons||'', observations:c.observations||''},
+    checklist:Object.fromEntries(Object.entries(c).filter(([k])=>k.startsWith('ck'))),
+    comptages:Object.fromEntries(Object.entries(c).filter(([k])=>k.startsWith('cnt'))),
+    photos:(state.photos||[]).filter(Boolean)};
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(out)],{type:'application/json'})); a.download='visite_'+ID+'.json'; a.click();
+};
+document.getElementById('reset').onclick=()=>{ if(confirm('Effacer toutes les saisies de cette visite ?')){ try{localStorage.removeItem(KEY)}catch(e){} location.reload(); } };
+</script>
+</body>
+</html>

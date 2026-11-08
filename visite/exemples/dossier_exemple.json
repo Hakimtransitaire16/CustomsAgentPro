@@ -1,0 +1,541 @@
+{
+ "meta": {
+  "id": "EXEMPLE-0001",
+  "date_fiche": "2026-11-08",
+  "version": "01.00",
+  "declarant": {
+   "nom": "DÉCLARANT EXEMPLE",
+   "qualite": "Déclarant en douane"
+  },
+  "produit_titre": "ADHESIF EXEMPLE 100",
+  "produit_sous_titre": "+ DURCISSEUR"
+ },
+ "declaration": {
+  "numero": "0000000002026DED000000X",
+  "date_heure": "05/11/2026 10:11:09",
+  "bureau": "16.202 — Bureau de douane Alger-Pins",
+  "regime": "40XX — mise à la consommation directe",
+  "regime_fiscal": "400",
+  "type_operation": "PRODUCTION",
+  "financement": "004",
+  "incoterm": "CFR",
+  "devise": "USD",
+  "montant_facture": 62269.0,
+  "fret": 2077.0,
+  "assurance": 0.0,
+  "autres_frais": 0.0,
+  "taux_change": 135.7327,
+  "valeur_da": 8451938,
+  "domiciliation": {
+   "banque": "BANQUE EXEMPLE",
+   "numero": "000000202600000000USD",
+   "date": "23/09/2026"
+  },
+  "mrn": "26A0000000000X",
+  "ligne_sommier": "19/10/2026",
+  "nb_colis": 10,
+  "poids_brut": 13436,
+  "localisation": "51303000003005",
+  "circuit": "rouge",
+  "paiement": "comptant",
+  "code_fiscal": "00000000000000000000"
+ },
+ "parties": {
+  "importateur": {
+   "nom": "SPA EXEMPLE MENUISERIE",
+   "adresse": "Zone industrielle, Algérie",
+   "nif": "000000000000000",
+   "rc": "00B0000000000"
+  },
+  "fournisseur": {
+   "nom": "FOURNISSEUR EXEMPLE A.S.",
+   "adresse": "Türkiye"
+  },
+  "declarant_societe": {
+   "nom": "SARL COMMISSIONNAIRE EXEMPLE",
+   "agrement": "00000000000000000000"
+  },
+  "transporteur": {
+   "nom": "Compagnie maritime exemple"
+  }
+ },
+ "transport": {
+  "bl": "BL0000000000",
+  "date_bl": "11/10/2026",
+  "navire": "NAVIRE EXEMPLE",
+  "voyage_bl": "V001W",
+  "voyage_bad": "V001E",
+  "escale": "2026000000",
+  "port_chargement": "Evyap, Kocaeli (Türkiye)",
+  "port_dechargement": "Alger",
+  "date_accostage": "19/10/2026 11:10",
+  "quai": "20/1",
+  "conteneur": "CSQU3054383",
+  "type_conteneur": "20' Box",
+  "tare": 2160,
+  "scelle": "S0000000",
+  "franchise_jours": 14,
+  "bad": {
+   "reference": "0000/2026",
+   "date": "05/11/2026",
+   "gros": "26A0000000000XCS",
+   "agent": "Agent exemple"
+  }
+ },
+ "visite": {
+  "lieu": "Port sec exemple",
+  "inspecteur": "INSPECTEUR",
+  "agent": "AGENT",
+  "date": ""
+ },
+ "origine": {
+  "pays": "Türkiye",
+  "code": "TR",
+  "certificat": "F 0000000",
+  "date_certificat": "29/09/2026",
+  "emetteur": "Chambre de commerce d'Istanbul",
+  "preference": "aucune — régime général"
+ },
+ "articles": [
+  {
+   "num": 1,
+   "designation": "ADHESIF EXEMPLE 100",
+   "designation_claire": "Adhésif préparé à base de polymères en solution dans des solvants, pour l'enrobage de profilés",
+   "code_sh": "3506999000",
+   "code_origine": "3506.91.90.90.13",
+   "origine": "TR",
+   "quantite": {
+    "nombre": 480,
+    "unite": "seaux métalliques",
+    "contenance_kg": 25
+   },
+   "poids_net": 12000,
+   "poids_brut": 12920,
+   "poids_brut_source": "déclaration d'export TR",
+   "prix_unitaire": 4.67,
+   "valeur_facture": 56040.0,
+   "valeur_da": 7877130,
+   "pieces": "610",
+   "taxes": [
+    {
+     "code": "CS",
+     "quotite": 3,
+     "assiette": 7877130,
+     "montant": 236313.9
+    },
+    {
+     "code": "DD",
+     "quotite": 30,
+     "assiette": 7877130,
+     "montant": 2363139.0
+    },
+    {
+     "code": "TVA",
+     "quotite": 19,
+     "assiette": 10476583,
+     "montant": 1990550.75
+    }
+   ],
+   "description": {
+    "definition": "Colle liquide prête à l'emploi qui sert à coller en continu un film de décor (PVC, papier décor ou placage) sur un profilé ou une moulure ; avec son durcisseur, elle forme un joint souple, solide et durable.",
+    "nature": "Polymère (polyuréthane ou caoutchouc synthétique) en solution dans des solvants organiques volatils",
+    "presentation": "Liquide visqueux, incolore à jaunâtre, odeur de solvant ; seaux métalliques fermés de 25 kg net, 48 par palette",
+    "fonction": "Coller (adhésion d'un film de décor sur un support bois ou dérivé du bois)",
+    "usages": [
+     "Enrobage de moulures et plinthes en MDF",
+     "Enrobage de chambranles, cadres et couvre-joints",
+     "Enrobage de profils de façades de meubles"
+    ],
+    "n_est_pas": [
+     "Pas une colle pour la vente au détail (seaux de 25 kg ; le n° 3506.10 vise ≤ 1 kg)",
+     "Pas une peinture ni un vernis : elle colle, elle ne décore pas",
+     "Pas un polymère brut : préparation prête à l'emploi"
+    ],
+    "identification": [
+     "Étiquette : ADHESIF EXEMPLE 100, Fabricant exemple, 25 kg, lot, dates, pictogrammes",
+     "Seau ouvert loin de toute flamme : liquide visqueux à odeur de solvant",
+     "Échantillon : 1 seau d'origine fermé, scellé"
+    ]
+   }
+  },
+  {
+   "num": 2,
+   "designation": "DURCISSEUR",
+   "designation_claire": "Durcisseur (agent de réticulation) en solution, pour adhésif d'enrobage",
+   "code_sh": "3824999999",
+   "code_origine": "3824.99.96.90.68",
+   "origine": "TR",
+   "quantite": {
+    "nombre": 480,
+    "unite": "unités de 1 kg en 10 cartons",
+    "contenance_kg": 1
+   },
+   "poids_net": 480,
+   "poids_brut": 516,
+   "poids_brut_source": "13 436 − 12 920",
+   "prix_unitaire": 8.65,
+   "valeur_facture": 4152.0,
+   "valeur_da": 574808,
+   "pieces": "648",
+   "taxes": [
+    {
+     "code": "CS",
+     "quotite": 3,
+     "assiette": 574808,
+     "montant": 17244.24
+    },
+    {
+     "code": "DD",
+     "quotite": 15,
+     "assiette": 574808,
+     "montant": 86221.2
+    },
+    {
+     "code": "TVA",
+     "quotite": 19,
+     "assiette": 678273,
+     "montant": 128871.95
+    }
+   ],
+   "description": {
+    "definition": "Liquide ajouté en petite quantité à la colle juste avant l'emploi ; il réticule le joint et le rend résistant à la chaleur et à l'humidité. Seul, il ne colle pas.",
+    "nature": "Agent de réticulation (type isocyanate) en solution dans un solvant",
+    "presentation": "Liquide fluide, incolore à brunâtre ; unités de 1 kg fermées hermétiquement, cartons de 50 (et 1 de 30)",
+    "fonction": "Durcir (réticuler) le joint de la colle ADHESIF EXEMPLE 100",
+    "usages": [
+     "1 unité de 1 kg dans 1 seau de 25 kg (100 : 4)",
+     "Mélange préparé pour la journée de production"
+    ],
+    "n_est_pas": [
+     "Pas une colle : seul, il n'assure aucun collage",
+     "Emballé et facturé à part : article distinct"
+    ],
+    "identification": [
+     "10 cartons DURCISSEUR : 9 de 50 unités et 1 de 30",
+     "Ne pas ouvrir (réagit avec l'humidité) : contrôle par l'étiquette",
+     "Échantillon : 1 unité d'origine fermée"
+    ]
+   }
+  }
+ ],
+ "liquidation": {
+  "DD": 2449360,
+  "TVA": 2119422,
+  "CS": 253558,
+  "RPS": 2500,
+  "total": 4824840
+ },
+ "colisage": [
+  {
+   "type": "A",
+   "palettes": 7,
+   "contenu": "48 seaux ADHESIF EXEMPLE 100",
+   "net": 8400,
+   "brut": 9023,
+   "cartons": 0
+  },
+  {
+   "type": "B",
+   "palettes": 2,
+   "contenu": "48 seaux + 4 cartons DURCISSEUR (50 u.)",
+   "net": 2800,
+   "brut": 3031,
+   "cartons": 4
+  },
+  {
+   "type": "C",
+   "palettes": 1,
+   "contenu": "48 seaux + 1 carton (50 u.) + 1 carton (30 u.)",
+   "net": 1280,
+   "brut": 1382,
+   "cartons": 2
+  }
+ ],
+ "documents": [
+  {
+   "code": "D10",
+   "titre": "Déclaration en douane (D10)",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "05/11/2026",
+   "page_scan": 2
+  },
+  {
+   "code": "FAC",
+   "titre": "Facture commerciale",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "29/09/2026",
+   "page_scan": 3
+  },
+  {
+   "code": "PL",
+   "titre": "Liste de colisage",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "15/09/2026",
+   "page_scan": 8
+  },
+  {
+   "code": "BL",
+   "titre": "Connaissement",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "11/10/2026",
+   "page_scan": 4
+  },
+  {
+   "code": "BAD",
+   "titre": "Bon à délivrer",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "05/11/2026",
+   "page_scan": 1
+  },
+  {
+   "code": "CO",
+   "titre": "Certificat d'origine",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "29/09/2026",
+   "page_scan": 6
+  },
+  {
+   "code": "CC",
+   "titre": "Certificat de conformité",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "20/10/2026",
+   "page_scan": 5
+  },
+  {
+   "code": "EX",
+   "titre": "Déclaration d'export TR",
+   "emetteur": "exemple",
+   "numero": "exemple",
+   "date": "29/09/2026",
+   "page_scan": 7
+  }
+ ],
+ "concordance": {
+  "pieces": [
+   "D10",
+   "Facture",
+   "Colisage",
+   "B/L",
+   "BAD",
+   "C. origine",
+   "C. conform.",
+   "Export TR"
+  ],
+  "lignes": [
+   {
+    "donnee": "Importateur (nom ou NIF)",
+    "valeurs": [
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok"
+    ]
+   },
+   {
+    "donnee": "Facture FAC-EXEMPLE",
+    "valeurs": [
+     "-",
+     "ok",
+     "-",
+     "-",
+     "-",
+     "ok",
+     "ok",
+     "ok"
+    ]
+   },
+   {
+    "donnee": "Montant 62 269,00 USD CFR",
+    "valeurs": [
+     "ok",
+     "ok",
+     "-",
+     "-",
+     "-",
+     "-",
+     "-",
+     "ok"
+    ]
+   },
+   {
+    "donnee": "Conteneur CSQU3054383",
+    "valeurs": [
+     "-",
+     "-",
+     "-",
+     "ok",
+     "ok",
+     "-",
+     "-",
+     "ok"
+    ]
+   },
+   {
+    "donnee": "Poids brut 13 436 kg",
+    "valeurs": [
+     "ok",
+     "-",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "-"
+    ]
+   },
+   {
+    "donnee": "10 colis / palettes",
+    "valeurs": [
+     "ok",
+     "-",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok"
+    ]
+   },
+   {
+    "donnee": "Origine Türkiye",
+    "valeurs": [
+     "ok",
+     "ok",
+     "-",
+     "-",
+     "-",
+     "ok",
+     "-",
+     "ok"
+    ]
+   }
+  ]
+ },
+ "precisions": [
+  {
+   "point": "Exemple",
+   "explication": "Dossier fictif fourni pour les tests ; aucune donnée réelle."
+  }
+ ],
+ "references_scan": [],
+ "technique": {
+  "systeme": "Système adhésif bicomposant pour l'enrobage de profilés",
+  "procede": [
+   [
+    "Mélanger",
+    "1 kg de B dans 25 kg de A"
+   ],
+   [
+    "Enduire",
+    "le film par rouleau"
+   ],
+   [
+    "Activer",
+    "évaporation, chaleur"
+   ],
+   [
+    "Presser",
+    "le film sur le profilé"
+   ]
+  ],
+  "description": "ADHESIF EXEMPLE 100 (A) est une colle liquide prête à l'emploi, à base de polymères en solution dans des solvants ; DURCISSEUR (B) est son durcisseur, ajouté juste avant l'emploi. Seul, B ne colle pas.",
+  "domaines": [
+   "Moulures, plinthes, couvre-joints en MDF",
+   "Chambranles, cadres de portes et de placards",
+   "Profils de façades de cuisine et de meubles",
+   "Films : PVC, papier décor, placage · supports : MDF, aggloméré, bois"
+  ],
+  "donnees": [
+   {
+    "propriete": "Base chimique",
+    "valeurs": [
+     "Polymère (polyuréthane ou caoutchouc synthétique) en solution",
+     "Agent de réticulation (type isocyanate) en solution"
+    ],
+    "indicatif": true
+   },
+   {
+    "propriete": "Aspect · odeur",
+    "valeurs": [
+     "Liquide visqueux, incolore à jaunâtre · solvant",
+     "Liquide fluide, incolore à brunâtre · solvant"
+    ],
+    "indicatif": true
+   },
+   {
+    "propriete": "Proportion de mélange",
+    "valeurs": [
+     "100 parts en poids",
+     "4 parts en poids"
+    ],
+    "indicatif": false
+   },
+   {
+    "propriete": "Conditionnement",
+    "valeurs": [
+     "Seau métallique 25 kg",
+     "Unité 1 kg · carton de 50"
+    ],
+    "indicatif": false
+   }
+  ],
+  "performance": {
+   "reference": "KLEIBERIT (Allemagne)",
+   "source": "Fiches techniques KLEIBERIT 114.5 et 704.3",
+   "lignes": [
+    [
+     "Dosage du durcisseur",
+     "4 % (quantités du dossier)",
+     "3 % en poids"
+    ],
+    [
+     "Durée de vie du mélange",
+     "—",
+     "4 à 6 heures"
+    ],
+    [
+     "Temps d'évaporation",
+     "—",
+     "10 à 15 minutes"
+    ],
+    [
+     "Résistance à la chaleur",
+     "—",
+     "≈ 80 °C sans durcisseur · 100 °C avec"
+    ],
+    [
+     "Résistance finale",
+     "—",
+     "après ≈ 3 jours"
+    ],
+    [
+     "Température de mise en œuvre",
+     "—",
+     "18–20 °C · pas sous 15 °C"
+    ],
+    [
+     "Grammage en enrobage",
+     "—",
+     "films 30–60 · papiers 30–70 · placages 80–100 g/m²"
+    ],
+    [
+     "Stockage",
+     "—",
+     "15–25 °C · ≈ 12 mois"
+    ]
+   ]
+  }
+ },
+ "conformite": "Certificat de conformité du fabricant (exemple)"
+}
