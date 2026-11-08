@@ -128,6 +128,12 @@ def chercher(code: str):
             else f" ; remplacée en 2022 par {cibles}"
     else:
         transfert = ""
+    if len(c) < 10 and not any(d.startswith(c) for d in k["lignes"]):  # position créée après 2016
+        n2 = next((v for d, v in sorted(k["sh2022"].items()) if d.startswith(c) and v.get("libelle")), None)
+        if n2:
+            nb = sum(1 for d, v in k["sh2022"].items() if d.startswith(c) and v.get("libelle"))
+            return "position", _synthese(chiffres(n2["code"]), n2["libelle"], n2["dd"]), (
+                f"position {fmt(c)} créée par les amendements SH 2022 : {nb} ligne(s) dans la table de corrélation DGD")
     if len(c) < 10:  # code partiel : première ligne qui commence par ces chiffres
         l = next((x for d, x in k["lignes"].items() if d.startswith(c)), None)
         if l:
@@ -174,6 +180,12 @@ def daps(code: str) -> dict | None:
         if c == d or (len(d) < 10 and c.startswith(d)):
             return l
     return None
+
+
+def daps_lignes(code: str) -> list[dict]:
+    """Toutes les lignes DAPS 2019 sous un code partiel (position, sous-position)."""
+    c = chiffres(code)
+    return [l for l in _kb()["daps"] if chiffres(l["code"]).startswith(c)]
 
 
 def taux_en_vigueur(code: str, ligne=None) -> dict:
@@ -265,7 +277,7 @@ def fiche(code: str) -> dict:
                   "hierarchie": ligne.get("context", []), "libelle_complet": ligne["full_label"]} if ligne else None,
         "droit_douane": dd, "droit_douane_source": dd_src,
         "tva": tx["tva"], "tva_source": tx["tva_source"], "autres_taxes": tx["autres_taxes"], "fap": tx["fap"],
-        "daps": tx["daps"],
+        "daps": tx["daps"], "daps_sous_code": daps_lignes(c) if len(c) < 10 else [],
         "lignes_position": [{"code": l["code"], "libelle": " > ".join(l.get("context", [])[1:] + [l["label"]]),
                              "dd": 0 if l["dd_exempt"] else round(l["dd_rate"] * 100)}
                             for l in k["par_position"].get(c[:4], [])],

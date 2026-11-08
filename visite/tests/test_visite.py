@@ -5,7 +5,7 @@ from pathlib import Path
 
 import jsonschema
 
-from visite import app, calc, data, mobile, registry, render, tarif
+from visite import app, calc, data, mobile, moteur, registry, render, tarif
 
 EX = Path(__file__).resolve().parents[1] / "exemples" / "dossier_exemple.json"
 
@@ -124,6 +124,29 @@ class TestVisite(unittest.TestCase):
         d["articles"][0]["code_sh"] = "9403701000"
         ids = {c["id"]: c["statut"] for c in calc.controles(d)}
         self.assertEqual(ids["DAPS-1"], "alerte")
+
+    def test_moteur_lecture(self):
+        L = moteur.lire("DAPS sur 8415.10 ? facture de 1500 DA en 2025, article 16 bis")
+        self.assertEqual(L["codes"], ["841510"])
+        self.assertIn("daps", L["themes"])
+        self.assertEqual(L["articles"][0][0], "16 bis")
+        self.assertIn("admission temporaire", moteur.traduire("شروط القبول المؤقت"))
+
+    def test_moteur_toutes_sources(self):
+        r = moteur.analyser("herbicide glyphosate", preparation=False)
+        self.assertEqual(r["candidats"][0]["position"], "38.08")
+        r = moteur.analyser("8415.10 DAPS", preparation=False)
+        self.assertTrue(r["positions"][0]["daps_sous_code"])
+        self.assertTrue(any("18-13" in s for s in r["sources"]))
+        r = moteur.analyser("article 16 du code des douanes", preparation=False)
+        self.assertIn("valeur", r["articles"][0]["texte"].lower())
+        self.assertFalse(moteur.utile("bonjour, ça va ?"))
+
+    def test_note_risques(self):
+        n = moteur.note_risques(self.d, calc.controles(self.d))
+        self.assertIn("FAM-1", n)
+        self.assertIn("RGI 6", n)
+        self.assertIn("ne pas joindre", n)
 
 
 if __name__ == "__main__":

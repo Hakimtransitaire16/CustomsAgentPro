@@ -57,7 +57,8 @@ Lancer le sous-agent **`verificateur`** sur `dossiers/<id>/`. Corriger chaque é
 ## 6. Livrer
 - `sortie/Dossier_<id>.html` (application unique : fiche, visite, contrôles, registre, données) ;
 - `sortie/Fiche_technique_<id>.pdf` ;
-- registre mis à jour (`dossiers/registre/`).
+- registre mis à jour (`dossiers/registre/`) ;
+- `sortie/Note_risques_<id>.md` (produite par `tout`) : base de la note de risques donnée à l'utilisateur seul.
 
 Ajouter une ligne à `dossiers/INDEX.md` : date, dossier, fichiers produits. Envoyer les fichiers à l'utilisateur.
 

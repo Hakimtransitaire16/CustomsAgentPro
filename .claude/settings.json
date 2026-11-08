@@ -12,6 +12,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/contexte_auto.py\"",
+            "timeout": 20
+          }
+        ]
+      }
     ]
   },
   "permissions": {

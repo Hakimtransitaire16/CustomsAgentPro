@@ -7,6 +7,9 @@ description: Recherche et vérification d'une position tarifaire dans les source
 
 Toute réponse sur un code SH s'appuie sur `knowledge-base/`, jamais sur la mémoire seule. On cite la source de chaque affirmation (document, section, note, article).
 
+## 0. Le moteur d'abord
+Le hook injecte déjà les sources pertinentes à chaque message. Pour aller plus loin : `python -m visite demande "<code ou désignation>"`. Il consulte toutes les sources en une fois et propose des positions candidates pour une désignation.
+
 ## 1. Ouvrir la fiche de la position
 ```bash
 python -m visite tarif 3506.99.90.00            # fiche complète

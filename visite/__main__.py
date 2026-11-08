@@ -7,9 +7,11 @@
   python -m visite pv        DOSSIER.json visite_XXX.json   # réinjecte la visite dans la fiche
   python -m visite registre  DOSSIER.json   # ajoute au registre + tableau de bord
   python -m visite app       DOSSIER.json   # application unique : fiche + visite + contrôles + registre + données
-  python -m visite tout      DOSSIER.json   # contrôler + fiche + registre + application unique
+  python -m visite tout      DOSSIER.json   # contrôler + fiche + registre + application unique + note de risques
+  python -m visite risques   DOSSIER.json   # note de risques pour le déclarant seul (alertes + sources)
   python -m visite tarif     3506.99.90.00 [--notes]   # position tarifaire : section, chapitre, position, notes, DD, LF 2026, décisions
   python -m visite tarif     DOSSIER.json [--notes]    # la même fiche pour chaque article + famille du code d'origine
+  python -m visite demande   "question, code, désignation ou article"   # moteur unique : toutes les sources à la fois
 
 Sorties dans DOSSIER/sortie/ ; registre dans le dossier parent : ../registre/.
 """
@@ -18,7 +20,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import app as appmod, calc, data, mobile, ocr, registry, render, tarif, verify
+from . import app as appmod, calc, data, mobile, moteur, ocr, registry, render, tarif, verify
 
 SYM = {"ok": "✓", "alerte": "!", "erreur": "✕"}
 
@@ -106,11 +108,20 @@ def cmd_app(d, a):
     return f
 
 
+def cmd_risques(d, a):
+    f = _sortie(d) / f"Note_risques_{d['meta']['id']}.md"
+    f.write_text(moteur.note_risques(d, calc.controles(d)), encoding="utf-8")
+    print("Note de risques (déclarant seul) :", f)
+    return f
+
+
 def cmd_tout(d, a):
+    moteur.preparer(silencieux=True)
     cmd_controler(d, a)
     cmd_fiche(d, a)
     cmd_registre(d, a)
     cmd_app(d, a)
+    cmd_risques(d, a)
 
 
 def cmd_tarif(argv):
@@ -143,8 +154,14 @@ def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     if argv and argv[0] == "tarif":
         return cmd_tarif(argv[1:])
+    if argv and argv[0] == "demande":
+        if len(argv) < 2:
+            print(__doc__)
+            return 2
+        print(moteur.texte(moteur.analyser(" ".join(argv[1:]))))
+        return 0
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)

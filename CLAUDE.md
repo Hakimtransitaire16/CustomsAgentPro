@@ -37,6 +37,16 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 - `dossiers/` contient des données clients (NIF, RC, banque, montants). Il est exclu par `.gitignore` et **ne doit jamais être commité ni poussé**, même si on le demande en passant. Avant chaque `git push`, vérifier avec `git status` qu'aucun fichier client n'est suivi.
 - Exemples et tests : uniquement des données fictives (`visite/exemples/`).
 
+## Un seul moteur (automatique)
+Toutes les sources fonctionnent ensemble, en une seule passe ; on ne désigne jamais un fichier à la main.
+- **À chaque message** qui touche la douane, le hook `contexte_auto.py` lance le moteur et ajoute au contexte ce que disent toutes les sources (codes, articles, thèmes, désignations ; arabe compris). La réponse s'appuie sur ce contexte et le cite.
+- **Toute question** : `python -m visite demande "<question, code, désignation ou article>"`. Le moteur :
+  - lit la demande (codes SH, articles, thèmes ; arabe traduit en termes douaniers) ;
+  - consulte en une fois le tarif (2016, 2020, SH 2022, LF 2026, DAPS), les notes et les RGI, les décisions de classement, le code des douanes consolidé, les lois de finances, les décrets, les guides et la veille ;
+  - répond avec chaque source citée.
+- **Tout dossier** : `python -m visite tout` fait aussi le classement, les taux, le DAPS et la TVA, puis écrit `Note_risques_<id>.md` (pour moi seul : alertes expliquées + textes applicables).
+- **Base toujours à jour** : un PDF déposé dans `knowledge-base/inbox/` est intégré à la commande suivante, et l'index se reconstruit seul quand les données changent.
+
 ## Sources de travail (obligatoires)
 Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent **à chaque réponse** tarifaire, réglementaire ou de classement, et pas seulement le tarif. On cite la source (document, section, note, article) avant toute affirmation.
 
@@ -77,6 +87,7 @@ Faits tirés de sources secondaires (presse, cabinets, administrations étrangè
 - Skill `position-tarifaire` : recherche et vérification de classement.
 - Sous-agent `verificateur` : relit le scan sans se fier à la transcription, recalcule et contrôle le classement. Il est lancé avant chaque livraison.
 - Hook `.claude/hooks/garde_donnees_clients.py` : bloque tout `git add`, `commit` ou `push` de données clients.
+- Hook `.claude/hooks/contexte_auto.py` : à chaque message, consulte toutes les sources et les injecte dans le contexte.
 
 ## Commandes utiles
 ```bash
@@ -85,4 +96,6 @@ python -m visite controler dossiers/X/dossier.json
 python -m visite app dossiers/X/dossier.json     # application unique
 python -m visite tarif 3506.99.90.00 --notes     # fiche de position tarifaire
 python -m visite tarif dossiers/X/dossier.json   # classement de chaque article
+python -m visite demande "question libre"        # moteur unique : toutes les sources
+python -m visite risques dossiers/X/dossier.json # note de risques (déclarant seul)
 ```

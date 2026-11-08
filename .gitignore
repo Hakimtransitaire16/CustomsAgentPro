@@ -11,3 +11,7 @@ CamScanner*.pdf
 Fiche_technique_*.pdf
 Dossier_*.html
 visite_*.json
+
+# documents déposés pour intégration (copiés ensuite dans sources/)
+knowledge-base/inbox/*.pdf
+knowledge-base/inbox/integres/

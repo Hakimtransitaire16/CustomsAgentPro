@@ -406,7 +406,9 @@ def build_sqlite(tarif, rulings, loi, decret, extra_chunks):
     rows += [("decision", r["reference"], f'{r["designation"]} → {r["hs_code"]}',
               " ".join([r["description"], r["justification"]])) for r in rulings]
     rows += [("article", f'{a["instrument"]} art. {a["article"]}', a["scope"], a["text"]) for a in loi + decret]
-    rows += [("texte", f'{c["source"]} #{c["chunk"]}', c["source"], c["text"]) for c in extra_chunks]
+    rows += [("tarif", c["chunk"], c["text"], c["text"]) for c in extra_chunks if c["source"] == "__tarif__"]
+    rows += [("texte", f'{c["source"]} #{c["chunk"]}', c["source"], c["text"]) for c in extra_chunks
+             if c["source"] != "__tarif__"]
     db.executemany("INSERT INTO search VALUES (?,?,?,?)", rows)
     db.commit()
     db.close()
@@ -499,6 +501,14 @@ def main():
     import parse_sources
     rapport += [f"tableau {r}" for r in parse_sources.main()]
     autres = [a for arts in textes.values() for a in arts]
+    connus = {t["code"] for t in tarif}
+    for nom, cle in (("correlation_sh2022.json", "nouvelles"), ("tarif_maj_2020.json", "lignes")):
+        f = DATA / nom
+        if f.exists():  # lignes postérieures à 2016 : cherchables comme le tarif
+            for c, v in json.loads(f.read_text(encoding="utf-8")).get(cle, {}).items():
+                if c not in connus and v.get("libelle"):
+                    connus.add(c)
+                    chunks.append({"source": "__tarif__", "chunk": c, "text": re.sub(r"^[-\s]+", "", v["libelle"])})
     n = build_sqlite(tarif, rulings, loi, decret + lf_rows + autres, chunks)
     print(f"tarif: {len(tarif)} lignes | décisions: {len(rulings)} "
           f"({', '.join(f'{y}: {len(r)}' for y, r in by_year.items())}) | loi 17-04: {len(loi)} | "
