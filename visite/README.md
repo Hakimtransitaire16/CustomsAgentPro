@@ -50,3 +50,15 @@ python -m visite tout      dossiers/X/dossier.json   # الكل
 python -m unittest visite.tests.test_visite -v    # 10 اختبارات
 ```
 المتطلبات: Python 3.10+، jinja2، jsonschema، Pillow، pytesseract (مع tesseract)، playwright (مع Chromium)، poppler-utils (`pdftoppm`، `pdftotext`).
+
+## التصنيف التعريفي (من مصادر knowledge-base/)
+
+```bash
+python -m visite tarif 3506.99.90.00 --notes     # القسم، الفصل، البند، السطر، الحق الجمركي، الملاحظات، قانون المالية 2026، قرارات التصنيف
+python -m visite tarif dossiers/X/dossier.json   # نفس البطاقة لكل مادة + مقارنة مع رمز بلد المنشأ
+```
+
+المراقبات الجديدة في `controler`:
+- `TAR`: هل الرمز موجود في التعريفة؟
+- `DD`: هل نسبة الحق الجمركي المصرّح بها مطابقة للتعريفة؟
+- `FAM`: هل رمز بلد المنشأ من نفس العائلة (نفس SH6)؟

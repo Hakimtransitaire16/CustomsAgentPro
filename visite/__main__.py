@@ -8,6 +8,8 @@
   python -m visite registre  DOSSIER.json   # ajoute au registre + tableau de bord
   python -m visite app       DOSSIER.json   # application unique : fiche + visite + contrôles + registre + données
   python -m visite tout      DOSSIER.json   # contrôler + fiche + registre + application unique
+  python -m visite tarif     3506.99.90.00 [--notes]   # position tarifaire : section, chapitre, position, notes, DD, LF 2026, décisions
+  python -m visite tarif     DOSSIER.json [--notes]    # la même fiche pour chaque article + famille du code d'origine
 
 Sorties dans DOSSIER/sortie/ ; registre dans le dossier parent : ../registre/.
 """
@@ -16,7 +18,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import app as appmod, calc, data, mobile, ocr, registry, render, verify
+from . import app as appmod, calc, data, mobile, ocr, registry, render, tarif, verify
 
 SYM = {"ok": "✓", "alerte": "!", "erreur": "✕"}
 
@@ -111,9 +113,38 @@ def cmd_tout(d, a):
     cmd_app(d, a)
 
 
+def cmd_tarif(argv):
+    notes = "--notes" in argv
+    args = [x for x in argv if x != "--notes"]
+    if not args:
+        print(__doc__)
+        return 2
+    if not tarif.disponible():
+        print("knowledge-base/data/tarif_2016.json introuvable.")
+        return 2
+    cible = " ".join(args)
+    if cible.endswith(".json"):
+        d = data.load(cible)
+        for a in d["articles"]:
+            print("=" * 100 + f"\nARTICLE {a['num']} — {a['designation']}  ({a.get('designation_claire', '')})")
+            print(tarif.texte(tarif.fiche(a["code_sh"]), notes=notes))
+            if a.get("code_origine"):
+                fam = tarif.famille(a["code_sh"], a["code_origine"])
+                print(f"\nCode du pays d'origine {a['code_origine']} : "
+                      + ("même sous-position" if fam["sous_position"] else "même position, autre sous-position" if fam["position"]
+                         else "même chapitre, autre position" if fam["chapitre"] else "autre chapitre")
+                      + f" — {tarif.libelle_sh6(a['code_origine'])}")
+        return 0
+    print(tarif.texte(tarif.fiche(cible), notes=notes))
+    return 0
+
+
 def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    if argv and argv[0] == "tarif":
+        return cmd_tarif(argv[1:])
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)

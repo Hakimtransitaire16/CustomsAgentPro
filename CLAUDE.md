@@ -36,12 +36,38 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 - `dossiers/` contient des données clients (NIF, RC, banque, montants). Il est exclu par `.gitignore` et **ne doit jamais être commité ni poussé**, même si on le demande en passant. Avant chaque `git push`, vérifier avec `git status` qu'aucun fichier client n'est suivi.
 - Exemples et tests : uniquement des données fictives (`visite/exemples/`).
 
-## Références officielles
-`knowledge-base/` : tarif douanier, décisions de classement 2020 et 2025, loi 17-04 (code des douanes), décret 18-165, loi de finances 2026 (loi 25-17), guide EBTI. Les citer avant toute affirmation tarifaire ou réglementaire. Contrôle de conformité aux frontières : décret exécutif n° 05-467 du 10/12/2005.
+## Sources de travail (obligatoires)
+Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent **à chaque réponse** tarifaire, réglementaire ou de classement, et pas seulement le tarif. On cite la source (document, section, note, article) avant toute affirmation.
+
+| Source | Données | Usage |
+|---|---|---|
+| Tarif douanier DGD 2016 | `data/tarif_2016*.json` (lignes, notes de chapitres, sections, RGI) | section, chapitre, position, libellé, notes, DD |
+| Recueils des décisions de classement 2020 et 2025 | `data/decisions_classement_2020.json`, `…2025.json` | précédents RTC |
+| Loi de finances 2026 (loi 25-17) | `data/loi_finances_2026.json`, `data/mesures_tarifaires_lf2026.json` | taux modifiés, exonérations, conditions |
+| Code des douanes (loi 17-04) | `data/loi_17-04_code_douanes.json` | procédure, valeur, origine, régimes |
+| Décret exécutif 18-165 | `data/decret_18-165.json` | décisions anticipées |
+| Guide EBTI (UE) | `text/ebti_general_information_en.txt` | description de la marchandise |
+| Rapport OMD « douanes intelligentes » | `text/smart-customs_public_report_fr_1.txt` | méthodes, gestion des risques |
+
+Contrôle de conformité aux frontières : décret exécutif n° 05-467 du 10/12/2005.
+
+### Règles de recherche
+- **Question sur une position** : `python -m visite tarif <code> [--notes]`. On répond avec la section, le chapitre, la position (libellé), la ligne nationale (DD), la définition et les notes applicables, les RGI, les décisions liées et les mesures LF 2026. Skill : `position-tarifaire`.
+- **Dossier reçu** : vérifier que la position déclarée existe au tarif, que sa quotité DD est la bonne et qu'elle est **de la même famille** que le code du pays d'origine (contrôles TAR, DD, FAM). Toute divergence est expliquée à moi seul.
+- **Recherche libre** : `cd knowledge-base && python tools/kb.py search "<mots>"` (tous les documents), `kb.py article <n>`.
+- Tarif fourni = édition 2016 (SH 2012). Un code SH 2017/2022 est donné avec sa ligne 2016 correspondante, et on le signale.
+
+## Outils Claude Code du dépôt
+- Skill `fiche-douane` : flux complet d'un dossier (déclenché par « شغل التحليل الجمركي »).
+- Skill `position-tarifaire` : recherche et vérification de classement.
+- Sous-agent `verificateur` : relit le scan sans se fier à la transcription, recalcule et contrôle le classement. Il est lancé avant chaque livraison.
+- Hook `.claude/hooks/garde_donnees_clients.py` : bloque tout `git add`, `commit` ou `push` de données clients.
 
 ## Commandes utiles
 ```bash
 python -m unittest visite.tests.test_visite -v   # tests du moteur
 python -m visite controler dossiers/X/dossier.json
 python -m visite app dossiers/X/dossier.json     # application unique
+python -m visite tarif 3506.99.90.00 --notes     # fiche de position tarifaire
+python -m visite tarif dossiers/X/dossier.json   # classement de chaque article
 ```

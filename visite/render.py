@@ -8,7 +8,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from PIL import Image
 
-from . import calc
+from . import calc, tarif
 from .data import n, sh
 
 TPL = Path(__file__).parent / "templates"
@@ -93,6 +93,7 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
         codes_sh=" · ".join(sh(a["code_sh"]) for a in arts),
         qtes=[f"{a['quantite'].get('nombre', '')} {a['quantite'].get('unite', '')}" for a in arts],
         pbruts=[f"{n(a.get('poids_brut'))} kg ({a.get('poids_brut_source', '')})" if a.get("poids_brut") else "—" for a in arts],
+        classements=[tarif.classement(a) or "—" for a in arts],
         checklist=checklist(d), pv=pv, thumbs=thumbs, photos=photos,
         ctrl_ok=r["ok"], ctrl_tot=len(ctrls), conformite=d.get("conformite"), live=live,
     )

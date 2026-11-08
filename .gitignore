@@ -5,3 +5,9 @@ knowledge-base/kb.sqlite
 dossiers/
 visite/tests/_tmp_registre/
 **/sortie/
+# données clients hors de dossiers/ (garde-fou supplémentaire)
+registre/
+CamScanner*.pdf
+Fiche_technique_*.pdf
+Dossier_*.html
+visite_*.json

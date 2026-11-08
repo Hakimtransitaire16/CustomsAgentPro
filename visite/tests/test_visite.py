@@ -5,7 +5,7 @@ from pathlib import Path
 
 import jsonschema
 
-from visite import app, calc, data, mobile, registry, render
+from visite import app, calc, data, mobile, registry, render, tarif
 
 EX = Path(__file__).resolve().parents[1] / "exemples" / "dossier_exemple.json"
 
@@ -78,6 +78,36 @@ class TestVisite(unittest.TestCase):
             for f in tmp.glob("*"):
                 f.unlink()
             tmp.rmdir()
+
+    def test_tarif_position_exacte(self):
+        f = tarif.fiche("3506.99.90.00")
+        self.assertEqual(f["statut"], "exact")
+        self.assertEqual(f["section"]["numero"], "VI")
+        self.assertEqual(f["chapitre"]["numero"], 35)
+        self.assertEqual(f["position"]["code"], "35.06")
+        self.assertEqual(f["droit_douane"], 30)
+        self.assertTrue(any("35.06" in x for x in f["section"]["notes_citant_position"]))
+
+    def test_tarif_correspondance_sh2017(self):
+        f = tarif.fiche("3824999999")
+        self.assertEqual(f["statut"], "correspondance")
+        self.assertEqual(f["ligne"]["code"], "3824.90.99.99")
+        self.assertEqual(f["droit_douane"], 15)
+
+    def test_controle_quotite_dd(self):
+        d = copy.deepcopy(self.d)
+        next(t for t in d["articles"][0]["taxes"] if t["code"] == "DD")["quotite"] = 15
+        ids = {c["id"]: c["statut"] for c in calc.controles(d)}
+        self.assertEqual(ids["DD-1"], "erreur")
+
+    def test_controle_famille(self):
+        ids = {c["id"]: c["statut"] for c in calc.controles(self.d)}
+        self.assertEqual(ids["FAM-1"], "alerte")   # 3506.99 déclaré, 3506.91 au pays d'origine
+        self.assertEqual(ids["FAM-2"], "ok")
+        d = copy.deepcopy(self.d)
+        d["articles"][0]["code_origine"] = "3920.10"
+        det = next(c for c in calc.controles(d) if c["id"] == "FAM-1")["detail"]
+        self.assertIn("chapitres différents", det)
 
 
 if __name__ == "__main__":

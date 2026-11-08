@@ -87,6 +87,7 @@
     {% set rows = [
       ('Article du D10', arts|map(attribute='num')|map('string')|map('add_suffix', ' / ' ~ arts|length)|list),
       ('Code SH (case 40)', arts|map(attribute='code_sh')|map('sh')|list),
+      ('Classement (tarif douanier)', classements),
       ('Origine (case 39)', arts|map(attribute='origine')|list),
       ("Code du pays d'origine", arts|map(attribute='code_origine')|list),
       ('Quantité', qtes),
@@ -139,7 +140,7 @@
       {% for code in ['DD', 'CS', 'TVA'] %}<tr><td>{{ code }}</td>{% for a in arts %}{% set t = taxe(a, code) %}<td class="num">{{ t.montant|n(2) if t else '' }}</td>{% endfor %}<td class="num">{{ d.liquidation[code]|n }}</td></tr>{% endfor %}
       {% if d.liquidation.RPS %}<tr><td>RPS</td>{% for a in arts %}<td></td>{% endfor %}<td class="num">{{ d.liquidation.RPS|n }}</td></tr>{% endif %}
       <tr class="tot"><td colspan="{{ arts|length + 1 }}">Total</td><td class="num">{{ d.liquidation.total|n }}</td></tr></table>
-      <div class="panel mt2"><div class="lab">Contrôles automatiques</div><p style="margin:0">{{ ctrl_ok }} contrôles conformes sur {{ ctrl_tot }} : valeur, conversion, liquidation par article, récapitulatif, poids, colis, quantités, domiciliation, conteneur (ISO 6346).</p></div>
+      <div class="panel mt2"><div class="lab">Contrôles automatiques</div><p style="margin:0">{{ ctrl_ok }} contrôles conformes sur {{ ctrl_tot }} : valeur, conversion, liquidation par article, récapitulatif, poids, colis, quantités, domiciliation, conteneur (ISO 6346), position tarifaire et quotité au tarif douanier.</p></div>
     </div>
   </div>
   {{ foot() }}

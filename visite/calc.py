@@ -98,6 +98,44 @@ def controles(d):
     c = t.get("conteneur", "")
     if len(c) == 11:
         out.append(_c("ISO-1", "Chiffre de contrôle du conteneur (ISO 6346)", iso6346_ok(c), c, "alerte"))
+
+    # 10. Classement tarifaire : tarif DGD, notes, loi de finances 2026 (knowledge-base/)
+    out += classement_tarifaire(d)
+    return out
+
+
+def classement_tarifaire(d):
+    """TAR : code présent au tarif · DD : quotité = tarif · FAM : même famille que le code du pays d'origine."""
+    from . import tarif
+    if not tarif.disponible():
+        return []
+    out = []
+    for a in d["articles"]:
+        num, f = a["num"], tarif.fiche(a["code_sh"])
+        st, s, ch, p, l = f["statut"], f["section"], f["chapitre"], f["position"], f["ligne"]
+        lieu = f"Section {s['numero']} · ch. {ch['numero']} · pos. {p['code']}" if s else f"pos. {p['code']}"
+        lib = f" — {l['libelle'][:70]}" if l else ""
+        out.append(_c(f"TAR-{num}", f"Position tarifaire art. {num} au tarif", st == "exact",
+                      f"{f['code']} : {lieu}{lib}" + (f" ({f['remarque']})" if f["remarque"] else ""),
+                      "erreur" if st == "absent" else "alerte"))
+        dd = next((t for t in a["taxes"] if t["code"] == "DD"), None)
+        if dd and f["droit_douane"] is not None:
+            out.append(_c(f"DD-{num}", f"Quotité DD art. {num} = tarif", abs(dd["quotite"] - f["droit_douane"]) < 0.01,
+                          f"déclaré {n(dd['quotite'])} % · tarif {f['droit_douane']:g} % ({f['droit_douane_source']}"
+                          + (f", ligne {l['code']}" if l and st != "exact" else "") + ")",
+                          "erreur" if st == "exact" else "alerte"))
+        if a.get("code_origine"):
+            fam = tarif.famille(a["code_sh"], a["code_origine"])
+            if fam["sous_position"]:
+                det = f"même sous-position {fam['a'][:7]}"
+            elif fam["position"]:
+                det = (f"même position {p['code']}, sous-positions différentes : D10 {fam['a'][:7]} "
+                       f"({tarif.libelle_sh6(fam['a'])}) · pays d'origine {fam['b'][:7]} ({tarif.libelle_sh6(fam['b'])})")
+            elif fam["chapitre"]:
+                det = f"même chapitre {fam['a'][:2]}, positions différentes : D10 {fam['a'][:5]} · pays d'origine {fam['b'][:5]}"
+            else:
+                det = f"chapitres différents : D10 {fam['a'][:5]} · pays d'origine {fam['b'][:5]}"
+            out.append(_c(f"FAM-{num}", f"Famille du code art. {num} (D10 / pays d'origine)", fam["sous_position"], det, "alerte"))
     return out
 
 
