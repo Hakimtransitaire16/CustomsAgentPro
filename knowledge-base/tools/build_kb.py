@@ -15,6 +15,7 @@ import csv
 import json
 import re
 import sqlite3
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,12 +23,6 @@ TEXT = ROOT / "text"
 DATA = ROOT / "data"
 
 TARIF_TXT = TEXT / "tarif-douanier-2016-10-chiffres-pour-telechargement.txt"
-RECUEILS = [  # (text file, label): collection published in January of year N covers year N-1
-    (TEXT / "recueil_des_decisions_de_classement_tarifaire_2026.txt",
-     "DGD — Recueil des décisions de classement tarifaire 2025 (publié janvier 2026)"),
-    (TEXT / "recueil_des_decisions_de_classement_tarifaire_2021.txt",
-     "DGD — Recueil des décisions de classement tarifaire 2020 (publié janvier 2021)"),
-]
 LF2026_TXT = TEXT / "loi_de_finances_2026.txt"
 LOI_TXT = TEXT / "loi_no_17-04_du_16_fevrier_2017_code_des_douanes.txt"
 DECRET_TXT = TEXT / "decret_executif_no_18-165_du_14_juin2018.txt"
@@ -418,10 +413,59 @@ def build_sqlite(tarif, rulings, loi, decret, extra_chunks):
     return len(rows)
 
 
+# ------------------------------------------------- sources du référentiel (tools/referentiel.py)
+SPECIAL = {"tarif-2016", "loi-17-04", "lf-2026", "decret-18-165"}  # parseurs dédiés ci-dessus
+
+
+def text_of(src: dict) -> Path:
+    return TEXT / (Path(src["fichier"]).stem + ".txt")
+
+
+def referentiel_sources():
+    """Traite toute source présente dans sources/ selon son type : recueil → décisions,
+    texte → articles, sinon → paragraphes pour la recherche plein texte."""
+    sys.path.insert(0, str(Path(__file__).parent))
+    from referentiel import catalogue
+    recueils, textes, chunks, rapport = {}, {}, [], []
+    for src in catalogue():
+        if src["statut"] != "base" or src["id"] in SPECIAL or not text_of(src).exists():
+            continue
+        txt = text_of(src)
+        if src["type"] == "recueil":
+            rs = parse_recueil(txt, "DGD — " + src["titre"])
+            if rs:
+                recueils[src["id"].removeprefix("rtc-")] = rs
+                rapport.append(f"{src['id']}: {len(rs)} décisions")
+                continue
+        if src["type"] == "texte":
+            arts = parse_articles(txt, src["titre"])
+            if len(arts) >= 3:
+                textes[src["id"]] = arts
+                rapport.append(f"{src['id']}: {len(arts)} articles")
+                continue
+        c = paragraphs(txt, src["titre"])
+        chunks += c
+        rapport.append(f"{src['id']}: {len(c)} paragraphes indexés")
+    ajouts = DATA / "sources_ajoutees.json"
+    for a in json.loads(ajouts.read_text(encoding="utf-8")) if ajouts.exists() else []:
+        if text_of(a).exists():
+            c = paragraphs(text_of(a), a["titre"])
+            chunks += c
+            rapport.append(f"{a['id']}: {len(c)} paragraphes indexés (hors référentiel)")
+    veille = DATA / "veille_secondaire.json"
+    if veille.exists():
+        faits = json.loads(veille.read_text(encoding="utf-8"))["faits"]
+        chunks += [{"source": f"Veille (secondaire) — {f['sujet']}", "chunk": i,
+                    "text": f"{f['fait']} Source : {f['source']}. À confirmer : {f['officiel_a_verifier']}."}
+                   for i, f in enumerate(faits)]
+        rapport.append(f"veille secondaire: {len(faits)} faits sourcés")
+    return recueils, textes, chunks, rapport
+
+
 def main():
     DATA.mkdir(exist_ok=True)
     tarif, tarif_meta = parse_tariff()
-    by_year = {path.stem[-4:]: parse_recueil(path, label) for path, label in RECUEILS}
+    by_year, textes, chunks, rapport = referentiel_sources()
     rulings = [r for rs in by_year.values() for r in rs]
     lf_articles, lf_measures = parse_finance_law()
     loi = parse_articles(LOI_TXT, "Loi 17-04 du 16.02.2017")
@@ -440,22 +484,26 @@ def main():
         for t in tarif:
             w.writerow([t["code"], t["chapter"], t["heading"], t["unit"], t["dd_rate"], t["dd_exempt"],
                         t["label"], t["full_label"]])
-    for pub_year, rs in by_year.items():
-        dump(f"decisions_classement_{int(pub_year) - 1}.json", {"count": len(rs), "decisions": rs})
+    for annee, rs in by_year.items():
+        dump(f"decisions_classement_{annee}.json", {"count": len(rs), "decisions": rs})
+    (DATA / "textes").mkdir(exist_ok=True)
+    for sid, arts in textes.items():
+        dump(f"textes/{sid}.json", {"count": len(arts), "articles": arts})
     dump("loi_finances_2026.json", {"count": len(lf_articles), "articles": lf_articles})
     dump("mesures_tarifaires_lf2026.json", {"count": len(lf_measures), "measures": lf_measures})
     dump("loi_17-04_code_douanes.json", {"count": len(loi), "articles": loi})
     dump("decret_18-165.json", {"count": len(decret), "articles": decret})
 
-    chunks = paragraphs(EBTI_TXT, "EBTI — information générale BTI (UE)") + \
-        paragraphs(SMART_TXT, "OMD — Enquête douanes intelligentes (juillet 2024)")
     lf_rows = [{"instrument": a["instrument"], "scope": a["domain"], "article": a["article"], "text": a["text"]}
                for a in lf_articles]
-    n = build_sqlite(tarif, rulings, loi, decret + lf_rows, chunks)
+    autres = [a for arts in textes.values() for a in arts]
+    n = build_sqlite(tarif, rulings, loi, decret + lf_rows + autres, chunks)
     print(f"tarif: {len(tarif)} lignes | décisions: {len(rulings)} "
-          f"({', '.join(f'{int(y) - 1}: {len(r)}' for y, r in by_year.items())}) | loi 17-04: {len(loi)} | "
+          f"({', '.join(f'{y}: {len(r)}' for y, r in by_year.items())}) | loi 17-04: {len(loi)} | "
           f"décret 18-165: {len(decret)} | LF 2026: {len(lf_articles)} articles, {len(lf_measures)} mesures "
           f"tarifaires | index FTS: {n} entrées")
+    for r in rapport:
+        print("  ·", r)
 
 
 if __name__ == "__main__":

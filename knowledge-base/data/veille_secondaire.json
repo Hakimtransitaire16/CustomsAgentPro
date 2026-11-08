@@ -1,0 +1,70 @@
+{
+ "_notice": "Faits relevés dans des sources secondaires (presse, cabinets, administrations étrangères) en attendant le texte officiel. Chaque fait porte sa source et sa date ; il doit être confirmé au Journal officiel ou au texte DGD avant d'être appliqué.",
+ "releve_le": "2026-11-08",
+ "faits": [
+  {
+   "sujet": "DAPS — base légale",
+   "fait": "Le droit additionnel provisoire de sauvegarde (DAPS) a été institué par la loi de finances complémentaire 2018 (loi n° 18-13 du 11/07/2018).",
+   "source": "ACTE International, 03/02/2022",
+   "url": "https://www.acte-international.com/web/aw_49751/en/export-algerie-elargissement-de-la-liste-des-produits-soumis-au-daps",
+   "officiel_a_verifier": "loi-18-13 (référentiel lfc-2018)"
+  },
+  {
+   "sujet": "DAPS — taux et liste initiale",
+   "fait": "Taux de 30 % à 200 % ; liste initiale de 1 095 produits (janvier 2019). Exemples : 30 % parfums, savons, papeterie, profilés aluminium ; 50 % viande bovine, couches ; 60 % électroménager, meubles, téléphones, matériaux de construction ; 70 % confiserie, pâtes, jus, produits laitiers, conserves ; 120 % fruits et légumes frais ; 200 % ciments hydrauliques (clinker).",
+   "source": "TSA, 29/01/2019",
+   "url": "https://www.tsa-algerie.com/surtaxe-des-importations-quels-sont-les-produits-concernes-quel-est-leur-taux/",
+   "officiel_a_verifier": "arrêté du 26/01/2019 (référentiel daps-arrete-2019) et arrêté du 8/04/2019"
+  },
+  {
+   "sujet": "DAPS — extension 2022",
+   "fait": "Extension annoncée de la liste de 992 à 2 608 articles, plus 141 clauses tarifaires pour les produits des zones de libre-échange (UE, ZALE, ZLECAf).",
+   "source": "ACTE International, 03/02/2022",
+   "url": "https://www.acte-international.com/web/aw_49751/en/export-algerie-elargissement-de-la-liste-des-produits-soumis-au-daps",
+   "officiel_a_verifier": "texte d'application publié au JO (non identifié)"
+  },
+  {
+   "sujet": "DAPS — produits agricoles",
+   "fait": "DAPS en vigueur depuis janvier 2019 ; la plupart des produits alimentaires concernés sont à 60 % ; non concernés notamment : soja, blé, maïs, huile de soja, produits laitiers, semences, aliments du bétail, légumes secs, animaux vivants.",
+   "source": "U.S. International Trade Administration, Algeria Country Commercial Guide — Customs Regulations (publié 31/01/2023)",
+   "url": "https://trade.gov/country-commercial-guides/algeria-customs-regulations",
+   "officiel_a_verifier": "arrêtés DAPS"
+  },
+  {
+   "sujet": "Contribution de solidarité",
+   "fait": "Le taux de la contribution de solidarité sur les importations de marchandises mises à la consommation passe à 3 % (2 % auparavant) à partir de la loi de finances 2025.",
+   "source": "KPMG Algérie, newsletter loi de finances 2025",
+   "url": "https://assets.kpmg.com/content/dam/kpmgsites/dz/pdf/newsletter/loi-de-finances-2025-fr.pdf.coredownload.inline.pdf",
+   "officiel_a_verifier": "loi de finances 2025 (référentiel lf-2025)",
+   "confirme_par": "LF 2026 (loi 25-17), art. 136 : « Art. 109 [LF 2018]. — Il est institué une contribution de solidarité au taux de 3% »"
+  },
+  {
+   "sujet": "Taxe de domiciliation bancaire",
+   "fait": "Taxe de domiciliation fixée à 5 % et étendue à certains contrats de licence et de redevances (LF 2025).",
+   "source": "KPMG Algérie, newsletter loi de finances 2025",
+   "url": "https://assets.kpmg.com/content/dam/kpmgsites/dz/pdf/newsletter/loi-de-finances-2025-fr.pdf.coredownload.inline.pdf",
+   "officiel_a_verifier": "loi de finances 2025"
+  },
+  {
+   "sujet": "Exonération — terminaux de paiement",
+   "fait": "Kits destinés au montage de terminaux de paiement électronique exonérés de TVA et de droits de douane du 01/01/2025 au 31/12/2027.",
+   "source": "KPMG Algérie, newsletter loi de finances 2025",
+   "url": "https://assets.kpmg.com/content/dam/kpmgsites/dz/pdf/newsletter/loi-de-finances-2025-fr.pdf.coredownload.inline.pdf",
+   "officiel_a_verifier": "loi de finances 2025"
+  },
+  {
+   "sujet": "Valeur en douane",
+   "fait": "Les droits et taxes sont calculés sur la valeur CIF ; les formalités de dédouanement restent obligatoires même pour une opération exonérée.",
+   "source": "U.S. International Trade Administration, Algeria Country Commercial Guide (31/01/2023)",
+   "url": "https://trade.gov/country-commercial-guides/algeria-customs-regulations",
+   "officiel_a_verifier": "code des douanes art. 16 et guide sur la valeur (référentiel guide-valeur)"
+  },
+  {
+   "sujet": "Taux en vigueur par ligne (contrôle croisé)",
+   "fait": "ConformePro publie pour chaque ligne du tarif algérien le DD, la TVA, la contribution de solidarité (TCS 3 %) et le précompte (PRCT 2 %), sans citer de source ni de date d'édition. Exemple : 4002.99.90.00 — DD 5 %, TVA 19 %.",
+   "source": "conformepro.dz (tiers, non officiel)",
+   "url": "https://conformepro.dz/resources/tarif-douanier",
+   "officiel_a_verifier": "tarif DGD en vigueur"
+  }
+ ]
+}

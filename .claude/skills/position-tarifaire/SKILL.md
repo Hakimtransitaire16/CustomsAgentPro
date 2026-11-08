@@ -62,7 +62,12 @@ Puis on conclut quelle sous-position est la plus spécifique (RGI 3 a).
 
 **Où va le résultat.** Les risques de classement (sous-position contestable, assortiment selon la note 3 de la section VI, etc.) se donnent **à l'utilisateur seul**, jamais dans la fiche destinée à l'inspecteur. La fiche n'affiche que la ligne « Classement (tarif douanier) » : section, chapitre, position.
 
-## 4. Toujours utiliser toutes les sources fournies
+## 4. Taux en vigueur et veille
+- Le tarif de la base date de 2016. Quand le taux compte, chercher le code sur le web (`conformepro.dz <code>`), lire la page de la ligne (DD, TVA, TCS, PRCT) et comparer ; signaler tout écart comme « tarif 2016 ≠ taux publié (source tierce) ».
+- `knowledge-base/data/veille_secondaire.json` : DAPS, contribution de solidarité, domiciliation, exonérations LF 2025, chaque fait avec sa source et le texte officiel à confirmer.
+- Source officielle manquante : la nommer à l'utilisateur avec son lien (`knowledge-base/REFERENTIEL.md`) ; une fois téléchargée, `python knowledge-base/tools/ingest.py <fichier>`.
+
+## 5. Toujours utiliser toutes les sources fournies
 | Source (`knowledge-base/sources/`) | Données | Quand l'utiliser |
 |---|---|---|
 | Tarif douanier DGD 2016 | `tarif_2016.json`, `tarif_2016_notes.json`, `tarif_2016_sections.json` | tout code, DD, notes, RGI |

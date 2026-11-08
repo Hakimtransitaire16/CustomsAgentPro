@@ -64,8 +64,9 @@ def _kb():
     notes = load("tarif_2016_notes.json")
     secs = load("tarif_2016_sections.json")
     decisions = []
-    for an, f in (("2020", "decisions_classement_2020.json"), ("2025", "decisions_classement_2025.json")):
-        for r in load(f, "decisions"):
+    for f in sorted(KB.glob("decisions_classement_*.json")):
+        an = f.stem.removeprefix("decisions_classement_")
+        for r in load(f.name, "decisions"):
             decisions.append(dict(r, recueil=an))
     return {
         "lignes": {chiffres(l["code"]): l for l in lines},

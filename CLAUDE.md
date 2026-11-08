@@ -6,6 +6,7 @@ Instructions permanentes pour Claude Code dans ce dépôt. Elles s'appliquent à
 - **ABDEL HAKIM HADJALLAH**, déclarant en douane (Algérie). Ce nom et cette qualité figurent sur chaque document produit.
 - Langues : je parle arabe et français. Documents destinés à la douane : **français**. Explications orales : **arabe** si je l'écris en arabe.
 - Ne me dis pas « fais ceci / va vérifier » : fais toi-même la recherche, le calcul ou la vérification, et donne-moi le résultat.
+- Sois mon partenaire : travaille de bout en bout sans attendre mes consignes, repère toi-même ce qui manque (sources, contrôles, risques) et fais ce qui sert mon intérêt. Seules les actions irréversibles ou qui engagent des tiers attendent mon accord.
 
 ## Commande récurrente
 Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce dossier ») avec un dossier scanné : lance immédiatement le flux ci-dessous, sans poser de questions, et annonce en une ligne l'hypothèse retenue si une information manque.
@@ -51,11 +52,18 @@ Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent 
 
 Contrôle de conformité aux frontières : décret exécutif n° 05-467 du 10/12/2005.
 
+Le catalogue complet des sources (47 références, statut, lien officiel) est `knowledge-base/REFERENTIEL.md`. Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : je télécharge les fichiers moi-même, puis
+`python knowledge-base/tools/ingest.py <dossier ou fichiers>` les identifie, extrait le texte (OCR si scan), les structure, les indexe et met le référentiel à jour. Un extrait ne remplace jamais une version complète déjà présente.
+
+Faits tirés de sources secondaires (presse, cabinets, administrations étrangères) : `data/veille_secondaire.json`, avec source et date. Ils restent « à confirmer » tant que le texte officiel n'est pas dans la base.
+
 ### Règles de recherche
 - **Question sur une position** : `python -m visite tarif <code> [--notes]`. On répond avec la section, le chapitre, la position (libellé), la ligne nationale (DD), la définition et les notes applicables, les RGI, les décisions liées et les mesures LF 2026. Skill : `position-tarifaire`.
 - **Dossier reçu** : vérifier que la position déclarée existe au tarif, que sa quotité DD est la bonne et qu'elle est **de la même famille** que le code du pays d'origine (contrôles TAR, DD, FAM). Toute divergence est expliquée à moi seul.
 - **Recherche libre** : `cd knowledge-base && python tools/kb.py search "<mots>"` (tous les documents), `kb.py article <n>`.
 - Tarif fourni = édition 2016 (SH 2012). Un code SH 2017/2022 est donné avec sa ligne 2016 correspondante, et on le signale.
+- Taux en vigueur : quand le taux compte (liquidation, litige), comparer avec la ligne publiée sur conformepro.dz (recherche web du code, source tierce non officielle) et signaler tout écart avec le tarif 2016.
+- Chaque nouvelle source téléchargée passe par `ingest.py` le jour même ; une réponse ne cite jamais une source qui n'a pas été lue.
 
 ## Outils Claude Code du dépôt
 - Skill `fiche-douane` : flux complet d'un dossier (déclenché par « شغل التحليل الجمركي »).
