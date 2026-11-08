@@ -34,7 +34,9 @@ AJOUTS = ROOT / "data" / "sources_ajoutees.json"
 def norm(s: str) -> str:
     s = unicodedata.normalize("NFD", s.lower())
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
-    return re.sub(r"[^a-z0-9]+", "", re.sub(r"\(\d+\)|-\d+$", "", s))  # « fichier (1).pdf », « fichier-2.pdf »
+    s = re.sub(r"^[0-9a-f]{8}-", "", s)                 # préfixe ajouté par l'envoi en pièce jointe
+    s = re.sub(r"\s*\(\d+\)$|[-_]\d$|_+$", "", s)       # « fichier (1) », « fichier-2 », « fichier_1 »
+    return re.sub(r"[^a-z0-9]+", "", s)
 
 
 def premiere_page(pdf: Path) -> str:

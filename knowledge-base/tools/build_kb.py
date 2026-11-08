@@ -496,6 +496,8 @@ def main():
 
     lf_rows = [{"instrument": a["instrument"], "scope": a["domain"], "article": a["article"], "text": a["text"]}
                for a in lf_articles]
+    import parse_sources
+    rapport += [f"tableau {r}" for r in parse_sources.main()]
     autres = [a for arts in textes.values() for a in arts]
     n = build_sqlite(tarif, rulings, loi, decret + lf_rows + autres, chunks)
     print(f"tarif: {len(tarif)} lignes | décisions: {len(rulings)} "

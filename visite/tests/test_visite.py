@@ -109,6 +109,22 @@ class TestVisite(unittest.TestCase):
         det = next(c for c in calc.controles(d) if c["id"] == "FAM-1")["detail"]
         self.assertIn("chapitres différents", det)
 
+    def test_sources_recentes(self):
+        f = tarif.fiche("2404.12.90.00")            # ligne créée en 2022
+        self.assertEqual(f["statut"], "exact")
+        self.assertIn("SH 2022", f["droit_douane_source"])
+        f = tarif.fiche("8424.10.10.00")            # mise à jour 2020 : DD, TVA, FAP
+        self.assertEqual((f["droit_douane"], f["tva"]), (30, 19))
+        self.assertIn("C.C", f["fap"])
+        self.assertEqual(tarif.daps("9403.70.10.00")["taux"], 60)
+        self.assertIsNone(tarif.daps("3506.99.90.00"))
+
+    def test_controle_daps(self):
+        d = copy.deepcopy(self.d)
+        d["articles"][0]["code_sh"] = "9403701000"
+        ids = {c["id"]: c["statut"] for c in calc.controles(d)}
+        self.assertEqual(ids["DAPS-1"], "alerte")
+
 
 if __name__ == "__main__":
     unittest.main()

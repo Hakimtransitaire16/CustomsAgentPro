@@ -124,6 +124,18 @@ def classement_tarifaire(d):
                           f"déclaré {n(dd['quotite'])} % · tarif {f['droit_douane']:g} % ({f['droit_douane_source']}"
                           + (f", ligne {l['code']}" if l and st != "exact" else "") + ")",
                           "erreur" if st == "exact" else "alerte"))
+        tva = next((t for t in a["taxes"] if t["code"] == "TVA"), None)
+        if tva and not f["tva_source"].startswith("taux normal"):
+            out.append(_c(f"TVA-{num}", f"Quotité TVA art. {num} = tarif", abs(tva["quotite"] - f["tva"]) < 0.01,
+                          f"déclaré {n(tva['quotite'])} % · {f['tva']:g} % ({f['tva_source']})", "alerte"))
+        if f.get("daps"):
+            dp = f["daps"]
+            declare = any(t["code"] == "DAPS" for t in a["taxes"])
+            out.append(_c(f"DAPS-{num}", f"DAPS art. {num}", declare,
+                          f"ligne {dp['code']}{' (EX)' if dp['ex'] else ''} inscrite à {dp['taux']} % sur la liste de "
+                          f"l'arrêté du 26/01/2019 (n° {dp['ordre']}) ; "
+                          + ("DAPS liquidé" if declare else "non liquidé : vérifier la liste en vigueur et une "
+                             "éventuelle exemption (accord préférentiel)"), "alerte"))
         if a.get("code_origine"):
             fam = tarif.famille(a["code_sh"], a["code_origine"])
             if fam["sous_position"]:

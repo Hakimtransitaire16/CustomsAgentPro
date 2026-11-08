@@ -43,7 +43,14 @@ Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent 
 | Source | Données | Usage |
 |---|---|---|
 | Tarif douanier DGD 2016 | `data/tarif_2016*.json` (lignes, notes de chapitres, sections, RGI) | section, chapitre, position, libellé, notes, DD |
-| Recueils des décisions de classement 2020 et 2025 | `data/decisions_classement_2020.json`, `…2025.json` | précédents RTC |
+| Mise à jour du tarif 2020 (DGD) | `data/tarif_maj_2020.json` (923 lignes) | DD, TVA, autres taxes, formalités (FAP) |
+| Table de corrélation SH 2022 (DGD) | `data/correlation_sh2022.json` (1 137 lignes, 1 113 correspondances) | codes en vigueur depuis 2022, DD, TVA, ancien ↔ nouveau |
+| Arrêté DAPS du 26/01/2019 + LFC 2018 (loi 18-13) | `data/daps_2019.json` (1 095 lignes) | DAPS par ligne (liste initiale, à vérifier) |
+| Recueils des décisions de classement 2020, 2024 et 2025 | `data/decisions_classement_*.json` (294 décisions) | précédents RTC |
+| Code des douanes consolidé (loi 79-07 modifiée) | `data/textes/code-douanes-consolide.json` (449 articles) | tous les articles en vigueur |
+| Code des TCA (TVA, édition 2017) | `data/textes/code-tca.json` | taux 19 % / 9 %, exonérations |
+| Décret exécutif 10-288 | `data/textes/decret-10-288.json` | commissionnaire et déclarant : agrément, obligations |
+| Guides DGD : valeur, origine, origine UE, régimes économiques ; guide du contrôle aux frontières (Commerce) ; annexes du tarif 2020 | index de recherche | méthodes et procédures |
 | Loi de finances 2026 (loi 25-17) | `data/loi_finances_2026.json`, `data/mesures_tarifaires_lf2026.json` | taux modifiés, exonérations, conditions |
 | Code des douanes (loi 17-04) | `data/loi_17-04_code_douanes.json` | procédure, valeur, origine, régimes |
 | Décret exécutif 18-165 | `data/decret_18-165.json` | décisions anticipées |

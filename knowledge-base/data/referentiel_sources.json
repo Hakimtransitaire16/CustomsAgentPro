@@ -21,7 +21,7 @@
    "fichier": "amendements_systeme_harmonise_2022_table_de_correlation_nationale_.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/amendements_systeme_harmonise_2022_table_de_correlation_nationale_.pdf",
    "usage": "Passer des codes 2016 aux codes en vigueur ; détecter les lignes supprimées ou éclatées",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "tarif-maj-2020",
@@ -32,7 +32,7 @@
    "fichier": "mise_a_jour_du_tarif_2020.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/mise_a_jour_du_tarif_2020.pdf",
    "usage": "Taux DD modifiés depuis 2016, dispositions préliminaires du tarif",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "tarif-annexes-2020",
@@ -43,7 +43,7 @@
    "fichier": "annexes_tarif_d_usague_2020.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/annexes_tarif_d_usague_2020.pdf",
    "usage": "Annexes : TVA réduite, DAPS, mesures particulières par code",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "tarif-eclatements",
@@ -109,7 +109,7 @@
    "fichier": "recueil_des_decisions_de_classement_tarifaire_2024-.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/recueil_des_decisions_de_classement_tarifaire_2024-.pdf",
    "usage": "Précédents RTC",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "rtc-2022",
@@ -175,7 +175,7 @@
    "fichier": "loi_no79-07_du_21_juillet_1979.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/loi_no79-07_du_21_juillet_1979.pdf",
    "usage": "Tous les articles en vigueur (la loi 17-04 seule ne donne que les articles modifiés)",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "loi-17-04",
@@ -197,7 +197,7 @@
    "fichier": "code_des_taxes_sur_le_chiffre_d_affaire.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/code_des_taxes_sur_le_chiffre_d_affaire.pdf",
    "usage": "Taux de TVA 19 % / 9 %, listes du taux réduit et exonérations à l'importation (vérifier l'édition)",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "code-impots-indirects",
@@ -241,7 +241,7 @@
    "fichier": "loi_no_18-13_du_11_juillet_2018.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/loi_no_18-13_du_11_juillet_2018.pdf",
    "usage": "Base légale du DAPS (30 % à 200 %)",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "daps-arrete-2019",
@@ -252,7 +252,7 @@
    "fichier": "arreteedu_26_janvier_2019_fr.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/arreteedu_26_janvier_2019_fr.pdf",
    "usage": "Liste DAPS par code et taux",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "daps-arrete-2019-mod",
@@ -285,7 +285,7 @@
    "fichier": "decret_executif_no_10-288_du_14_novembre_2010.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/decret_executif_no_10-288_du_14_novembre_2010.pdf",
    "usage": "Agrément, obligations et responsabilité du commissionnaire et du déclarant",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "decret-10-286",
@@ -351,7 +351,7 @@
    "fichier": "04-contr-front-fran.pdf",
    "url": "https://www.commerce.gov.dz/events/claff/guides/04-contr-front-fran.pdf",
    "usage": "Procédure, délais et pièces du contrôle de conformité",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "circulaire-419",
@@ -373,7 +373,7 @@
    "fichier": "guide_sur_la_valeur_en_douane.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/guide_sur_la_valeur_en_douane.pdf",
    "usage": "Méthodes de valeur, éléments à ajouter (fret, assurance), contrôle de la valeur",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "manuel-origine",
@@ -384,7 +384,7 @@
    "fichier": "manuel_sur_les_regles_d_origine_applicables_en_algerie.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/manuel_sur_les_regles_d_origine_applicables_en_algerie.pdf",
    "usage": "Origine non préférentielle et preuves",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "manuel-origine-ue",
@@ -395,7 +395,7 @@
    "fichier": "manuel_sur_les_regles_de_lorigine_des_marchandisses_dans_le_cadre_de_laccord_dassociation_algerie_ue.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/manuel_sur_les_regles_de_lorigine_des_marchandisses_dans_le_cadre_de_laccord_dassociation_algerie_ue.pdf",
    "usage": "EUR.1, déclaration d'origine, cumul, ouvraisons suffisantes",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "rco",
@@ -417,7 +417,7 @@
    "fichier": "guideoperateur.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/guideoperateur.pdf",
    "usage": "Entrepôt, admission temporaire, transit, perfectionnement",
-   "statut": "a_telecharger"
+   "statut": "base"
   },
   {
    "id": "circulaire-157",

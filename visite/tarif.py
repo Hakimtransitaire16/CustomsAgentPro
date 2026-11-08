@@ -77,6 +77,11 @@ def _kb():
         "rgi": secs.get("rgi", ""),
         "decisions": decisions,
         "mesures": load("mesures_tarifaires_lf2026.json", "measures"),
+        "maj2020": {chiffres(c): v for c, v in load("tarif_maj_2020.json").get("lignes", {}).items()},
+        "sh2022": {chiffres(c): v for c, v in load("correlation_sh2022.json").get("nouvelles", {}).items()},
+        "sh2021": {chiffres(c): v for c, v in load("correlation_sh2022.json").get("anciennes", {}).items()},
+        "vers2022": {chiffres(c): v for c, v in load("correlation_sh2022.json").get("ancien_vers_nouveau", {}).items()},
+        "daps": load("daps_2019.json", "lignes"),
     }
 
 
@@ -110,6 +115,19 @@ def chercher(code: str):
         return "absent", None, "code trop court"
     if c in k["lignes"]:
         return "exact", k["lignes"][c], ""
+    if c in k["maj2020"]:  # ligne créée ou modifiée par la mise à jour 2020
+        m = k["maj2020"][c]
+        return "exact", _synthese(c, m["libelle"], m["dd"], m.get("unite", "")), "ligne de la mise à jour du tarif 2020"
+    n = k["sh2022"].get(c)
+    if n and n.get("libelle"):  # ligne de la structure SH 2022 (en vigueur depuis le 01/01/2022)
+        anc = ", ".join(("ex " if a["partiel"] else "") + a["code"] for a in n.get("anciens", [])) or "nouvelle"
+        return "exact", _synthese(c, n["libelle"], n["dd"]), f"ligne SH 2022 (table de corrélation DGD) ← {anc}"
+    if c in k["vers2022"]:
+        cibles = ", ".join(x["nouveau"] for x in k["vers2022"][c])
+        transfert = f" ; transferts partiels en 2022 vers {cibles}" if all(x["partiel"] for x in k["vers2022"][c]) \
+            else f" ; remplacée en 2022 par {cibles}"
+    else:
+        transfert = ""
     if len(c) < 10:  # code partiel : première ligne qui commence par ces chiffres
         l = next((x for d, x in k["lignes"].items() if d.startswith(c)), None)
         if l:
@@ -121,7 +139,7 @@ def chercher(code: str):
         if cand in k["lignes"]:
             return "correspondance", k["lignes"][cand], (
                 f"sous-position {hs6[:4]}.{hs6[4:]} créée après 2016 (SH 2017/2022) ; "
-                f"ligne correspondante de l'édition 2016 : {fmt(cand)}")
+                f"ligne correspondante de l'édition 2016 : {fmt(cand)}{transfert}")
     meme_pos = k["par_position"].get(c[:4], [])
     meme_sh6 = [l for l in meme_pos if chiffres(l["code"]).startswith(hs6)]
     if len(c) < 10 and meme_sh6:
@@ -135,6 +153,52 @@ def chercher(code: str):
     if meme_pos:
         return "position", meme_pos[0], f"{fmt(c)} absent de l'édition 2016 ; la position {pos(c)} existe ({len(meme_pos)} lignes)"
     return "absent", None, f"position {pos(c)} absente du tarif 2016"
+
+
+def _synthese(c: str, libelle: str, dd: int, unite: str = "") -> dict:
+    """Ligne reconstituée à partir d'une source postérieure à 2016, avec la hiérarchie de la position 2016."""
+    k = _kb()
+    parent = next((l for d, l in k["lignes"].items() if d.startswith(c[:6])), None) or \
+        next((l for d, l in k["lignes"].items() if d.startswith(c[:4])), None)
+    lib = re.sub(r"^[-\s]+", "", libelle).strip()
+    return {"code": fmt(c), "unit": unite or (parent or {}).get("unit", ""), "label": lib, "context": [],
+            "heading_label": (parent or {}).get("heading_label", ""), "dd_rate": dd / 100, "dd_exempt": dd == 0,
+            "full_label": f"{(parent or {}).get('heading_label', '')} > {lib}"}
+
+
+def daps(code: str) -> dict | None:
+    """Ligne de la liste DAPS (arrêté du 26/01/2019) qui vise ce code."""
+    c = chiffres(code)
+    for l in _kb()["daps"]:
+        d = chiffres(l["code"])
+        if c == d or (len(d) < 10 and c.startswith(d)):
+            return l
+    return None
+
+
+def taux_en_vigueur(code: str, ligne=None) -> dict:
+    """DD, TVA, autres taxes, FAP et DAPS de la source la plus récente disponible, chacun avec sa source."""
+    k, c = _kb(), chiffres(code)
+    out = {"dd": None, "dd_source": "", "tva": 19, "tva_source": "taux normal présumé (code des TCA, art. 21)",
+           "autres_taxes": "", "fap": "", "daps": daps(c)}
+    for m in mesures_lf2026(c):
+        if m["applicable"] and m["taux"] is not None and not m["ex"]:
+            out["dd"], out["dd_source"] = round(m["taux"] * 100, 2), f"LF 2026 art. {m['article']}"
+            break
+    for src, lab in ((k["sh2022"].get(c), "table de corrélation SH 2022 (DGD)"),
+                     (k["maj2020"].get(c), "mise à jour du tarif 2020 (DGD)"),
+                     (k["sh2021"].get(c), "structure tarif 2021 (table de corrélation DGD)")):
+        if src and src.get("dd") is not None:
+            if out["dd"] is None:
+                out["dd"], out["dd_source"] = src["dd"], lab
+            if out["tva_source"].startswith("taux normal"):
+                out["tva"], out["tva_source"] = src["tva"], lab
+            if src.get("autres_taxes") or src.get("fap"):
+                out["autres_taxes"], out["fap"] = src.get("autres_taxes", ""), src.get("fap", "")
+    if out["dd"] is None and ligne:
+        out["dd"] = 0.0 if ligne["dd_exempt"] else round(ligne["dd_rate"] * 100, 2)
+        out["dd_source"] = "tarif 2016"
+    return out
 
 
 def mesures_lf2026(code: str):
@@ -184,24 +248,31 @@ def fiche(code: str) -> dict:
     sec = _section(chap) if chap else None
     p = pos(c)
     notes_chap = k["notes_chapitres"].get(str(chap), "")
-    dd, dd_src = taux_dd(ligne, c) if statut in ("exact", "correspondance") else (None, "")
+    tx = taux_en_vigueur(c, ligne if statut in ("exact", "correspondance") else None)
+    if statut not in ("exact", "correspondance"):
+        tx["dd"], tx["dd_source"] = None, ""
+    dd, dd_src = tx["dd"], tx["dd_source"]
     return {
         "code": fmt(c), "statut": statut, "remarque": remarque,
         "section": {"numero": sec["section"], "titre": sec["titre"], "chapitres": sec["chapitres"],
                     "notes": sec["notes"], "notes_citant_position": _cite(sec["notes"], p)} if sec else None,
         "chapitre": {"numero": chap, "titre": notes_chap.split("\n", 1)[0].strip(), "notes": notes_chap,
                      "notes_citant_position": _cite(notes_chap, p)} if chap else None,
-        "position": {"code": p, "libelle": k["titres_positions"].get(p, (ligne or {}).get("heading_label", ""))},
+        "position": {"code": p, "libelle": k["titres_positions"].get(p, (ligne or {}).get("heading_label", ""))
+                     or "position absente de l'édition 2016 (créée par les amendements du SH ; voir la table de corrélation)"},
         "sous_position": f"{c[:4]}.{c[4:6]}" if len(c) >= 6 else None,
         "ligne": {"code": ligne["code"], "unite": ligne["unit"], "libelle": ligne["label"],
                   "hierarchie": ligne.get("context", []), "libelle_complet": ligne["full_label"]} if ligne else None,
         "droit_douane": dd, "droit_douane_source": dd_src,
+        "tva": tx["tva"], "tva_source": tx["tva_source"], "autres_taxes": tx["autres_taxes"], "fap": tx["fap"],
+        "daps": tx["daps"],
         "lignes_position": [{"code": l["code"], "libelle": " > ".join(l.get("context", [])[1:] + [l["label"]]),
                              "dd": 0 if l["dd_exempt"] else round(l["dd_rate"] * 100)}
                             for l in k["par_position"].get(c[:4], [])],
         "mesures_lf2026": mesures_lf2026(c),
         "decisions": decisions(c),
-        "avertissement": "Tarif DGD édition 2016 (SH 2012) : vérifier la ligne et le taux dans le tarif en vigueur.",
+        "avertissement": ("Sources : tarif DGD 2016 (SH 2012), mise à jour 2020, table de corrélation SH 2022, "
+                          "LF 2026, liste DAPS 2019. Vérifier la ligne et les taux dans le tarif en vigueur."),
     }
 
 
@@ -254,6 +325,13 @@ def texte(f: dict, notes=False) -> str:
         L.append(f"LIGNE {l['code']} ({l['unite']}) — {' > '.join(l['hierarchie'] + [l['libelle']])}")
     if f["droit_douane"] is not None:
         L.append(f"DROIT DE DOUANE : {f['droit_douane']:g} %  ({f['droit_douane_source']})")
+        L.append(f"TVA : {f['tva']:g} %  ({f['tva_source']})")
+        if f["autres_taxes"] or f["fap"]:
+            L.append(f"AUTRES TAXES : {f['autres_taxes'] or '—'} · FORMALITÉS (FAP) : {f['fap'] or '—'}")
+    if f.get("daps"):
+        d = f["daps"]
+        L.append(f"DAPS : {d['taux']} % — liste de l'arrêté du 26/01/2019, n° {d['ordre']}"
+                 + (" (EX : partie de la ligne seulement)" if d["ex"] else "") + " — vérifier la liste en vigueur")
     L.append(f"\nLignes nationales de la position {p['code']} ({len(f['lignes_position'])}) :")
     for x in f["lignes_position"][:30]:
         mark = "→" if l and x["code"] == l["code"] else " "
