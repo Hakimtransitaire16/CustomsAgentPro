@@ -8,6 +8,8 @@ from .ocr import NORM
 
 def relire(pdf_path, d, corpus=None):
     txt = subprocess.run(["pdftotext", "-layout", str(pdf_path), "-"], capture_output=True, text=True).stdout
+    # l'empreinte SHA-256 du pied de page est un contrôle d'intégrité, pas une donnée du dossier
+    txt = re.sub(r"empreinte\s+SHA-256\s+(?:[0-9a-f]{8}\s*){1,4}", " ", txt)
     nt = NORM(txt)
     refs = d.get("references_scan", [])
     manquantes = [r["id"] for r in refs if NORM(r["valeur"]) not in nt]

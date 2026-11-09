@@ -33,10 +33,29 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 - Je ne remplis **jamais** une information de visite (lieu, inspecteur, agent, date) par supposition. Si je dois retenir une hypothèse ailleurs, je l'inscris dans `meta.hypotheses` (ex. `"visite.lieu"`) : elle sort alors dans la liste « à confirmer ».
 - Lieux de visite connus : Port sec TERPORR, Entrepôt EPMA.
 
+## Expertises appliquées à chaque dossier et à chaque question (sans qu'on me le demande)
+Je ne réponds jamais en « simple déclarant ». Je regarde le même dossier avec chaque métier, et je ne garde que ce qui change une décision ou un coût :
+- **Douane** (Algérie, UE, international) : classement, origine, valeur, régimes, délais, contentieux.
+- **Commerce international** : incoterm, contrat, rôle de chaque partie, documents.
+- **Logistique** : transit, séjour, franchise, **surestaries**, magasinage, restitution du conteneur.
+- **Banque et finance** : domiciliation, mode de paiement, change (taux, sensibilité), trésorerie.
+- **Comptabilité et gestion** : coût de revient complet, par unité.
+- **Droit et fiscalité** : texte exact, conditions, pression fiscale réelle, exonérations.
+- **Économie et marché** : prix, programme d'importation, offre et demande (Algérie, Europe, monde).
+- **Données, algorithmes et IA** : tout calcul est fait par le moteur, vérifiable, testé.
+- **Marketing et marque** : chaque livrable porte la même identité, sobre et haut de gamme.
+
+Règles :
+- `python -m visite tout` produit l'**Analyse 360°** (`visite/expertise.py`, pages C9 du dossier complet, `Analyse_360_<id>.md`) : coût de revient, logistique, finance et banque, fiscalité, commerce. Elle est **pour moi seul**.
+- À la transcription, lire aussi sur l'avis d'arrivée : **barème des surestaries** (franchise, paliers, devise), frais de l'agent (HT, TVA, TTC), taux de change, lieu de restitution → `transport.surestaries`, `frais_locaux`. Programme d'importation → `programme` (quantité, prix, validité).
+- Un chiffre estimé est marqué « estimation » avec ses hypothèses ; ce qui manque pour conclure est listé. Un texte absent de la base est dit absent : jamais d'article cité de mémoire.
+- La réponse commence par ce qui pèse le plus en argent ou en risque, pas par l'ordre des rubriques.
+
 ## Veille d'innovation (sans attendre qu'on me le demande)
 - Je cherche moi-même ce que font de mieux les pays avancés (UE, Allemagne, Royaume-Uni, États-Unis, Chine, OMD) : modèles de fiche, normes de description, contrôles, outils numériques, changements du SH.
 - Ce qui sert notre travail, je l'intègre au moteur et je le note dans `knowledge-base/VEILLE_INNOVATION.md` (adopté / proposé / à surveiller) ; je le dis au déclarant avec la source.
-- Les faits nouveaux (lois, systèmes, SH 2028) vont dans `data/veille_secondaire.json` ; ceux marqués `"portee": "tous"` sortent dans la page C9 de chaque dossier complet.
+- Les faits nouveaux (lois, systèmes, SH 2028) vont dans `data/veille_secondaire.json` ; ceux marqués `"portee": "tous"` sortent dans la page C10 de chaque dossier complet.
+- Deux tâches planifiées tournent seules : veille quotidienne (nouveautés douane, change, logistique) et veille d'innovation mensuelle. Feuille de route : `FEUILLE_DE_ROUTE.md`.
 
 ## Règles de contenu
 - Fiche **destinée à l'inspecteur** : langage clair et professionnel. Pas d'amendes, de scénarios de redressement ni de points faibles dans la fiche. Les risques (classement contestable, assurance, délais) se donnent **à moi seul**, à part.
@@ -110,4 +129,7 @@ python -m visite tarif 3506.99.90.00 --notes     # fiche de position tarifaire
 python -m visite tarif dossiers/X/dossier.json   # classement de chaque article
 python -m visite demande "question libre"        # moteur unique : toutes les sources
 python -m visite risques dossiers/X/dossier.json # note de risques (déclarant seul)
+python -m visite expertise dossiers/X/dossier.json # analyse 360° (déclarant seul)
+python -m visite manquants dossiers/X/dossier.json # pièces et informations à demander
+python -m visite complet dossiers/X/dossier.json  # un seul PDF : fiche + terrain + note interne
 ```

@@ -63,6 +63,24 @@ class TestVisite(unittest.TestCase):
         d["declaration"]["valeur_da"] += 1
         self.assertNotEqual(e1, render.empreinte(d))
 
+    def test_expertise_surestaries_et_analyse(self):
+        from visite import expertise
+        d = copy.deepcopy(self.d)
+        self.assertIn("Coût de revient", expertise.analyse(d)["sections"])  # sans barème : pas d'erreur
+        d["transport"]["date_accostage"] = "01/01/2026"
+        d["declaration"]["date_heure"] = "11/04/2026 10:00:00"  # 100 jours
+        d["transport"]["surestaries"] = {"franchise_jours": 15, "paliers": [[16, 40, 52], [41, 60, 96], [61, 90, 124]],
+                                         "devise": "USD", "taux_da": 100.0, "frais_gestion_da": 40000, "seuil_gestion_jours": 90}
+        s = expertise.surestaries(d)
+        self.assertEqual(s["jours"], 100)
+        self.assertEqual(s["total"], 25 * 52 + 20 * 96 + 30 * 124)
+        self.assertEqual(s["total_da"], 694000.0)
+        self.assertEqual(s["au_dela"], 10)
+        self.assertEqual(s["gestion_da"], 40000)
+        d["declaration"]["date_heure"] = "21/01/2026 10:00:00"  # 20 jours : 5 jours au premier palier
+        self.assertEqual(expertise.surestaries(d)["total"], 5 * 52)
+        self.assertIn("Surestaries", expertise.texte(d))
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)

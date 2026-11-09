@@ -132,6 +132,16 @@ def cmd_manquants(d, a):
     return m
 
 
+def cmd_expertise(d, a):
+    """Analyse 360° (coût de revient, logistique, finance, fiscalité, commerce) — déclarant seul."""
+    from . import expertise
+    f = _sortie(d) / f"Analyse_360_{d['meta']['id']}.md"
+    txt = expertise.texte(d)
+    f.write_text(txt, encoding="utf-8")
+    print(txt if getattr(a, "commande", "") == "expertise" else f"Analyse 360° (déclarant seul) : {f}")
+    return f
+
+
 def cmd_complet(d, a, fiche=None):
     """Un seul PDF : couverture, fiche de visite (A), fiche de terrain (B), note interne (C)."""
     from . import complet
@@ -151,6 +161,7 @@ def cmd_tout(d, a):
     cmd_registre(d, a)
     cmd_app(d, a)
     cmd_risques(d, a)
+    cmd_expertise(d, a)
     cmd_complet(d, a, fiche=f)
     cmd_manquants(d, a)
 
@@ -192,7 +203,7 @@ def main(argv=None):
         print(moteur.texte(moteur.analyser(" ".join(argv[1:]))))
         return 0
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques", "complet", "manquants"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques", "complet", "manquants", "expertise"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)
