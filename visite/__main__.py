@@ -105,6 +105,9 @@ def cmd_app(d, a):
     f = s / f"Dossier_{d['meta']['id']}.html"
     f.write_text(appmod.construire(d, fidelite=fid, pngs=pngs, registre=rows), encoding="utf-8")
     print(f"Application unique : {f} ({f.stat().st_size // 1024} Ko)")
+    fp = s / f"Dossier_{d['meta']['id']}_partage.html"
+    fp.write_text(appmod.construire(d, fidelite=fid, pngs=pngs, partage=True), encoding="utf-8")
+    print(f"Version à transmettre (fiche + visite) : {fp} ({fp.stat().st_size // 1024} Ko)")
     return f
 
 

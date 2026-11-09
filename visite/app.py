@@ -32,7 +32,9 @@ def _note_html(d, ctrls):
     return markdown.markdown(md, extensions=["fenced_code", "tables"])
 
 
-def construire(d, fidelite=None, pngs=None, registre=None, note=True):
+def construire(d, fidelite=None, pngs=None, registre=None, note=True, partage=False):
+    """partage=True : version à transmettre (fiche + visite seulement ; ni contrôles, ni registre, ni données, ni note)."""
+    note = note and not partage
     fiche = render.html(d, fidelite=fidelite, pngs=pngs, live=True)
     ctrls = calc.controles(d)
     try:
@@ -63,5 +65,5 @@ def construire(d, fidelite=None, pngs=None, registre=None, note=True):
         checklist=checklist(d), comptages=comptages, slots=slots,
         fid=fid, fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
         dossier_json=_script_json(dossier_pur), csv_text=_script_json(buf.getvalue()),
-        dossier_pretty=json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html,
+        dossier_pretty=json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html, partage=partage,
     )

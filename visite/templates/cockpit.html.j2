@@ -73,11 +73,11 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
     <div style="min-width:0"><div class="k">DOSSIER DE VISITE · {{ (vis.lieu or '')|upper }}</div><h1>{{ d.meta.produit_titre or d.articles[0].designation }} {{ d.meta.produit_sous_titre or '' }}</h1>
     <div class="refs">D10 {{ dec.numero }} · MRN {{ dec.mrn }} · {{ tr.conteneur }}</div></div></div>
   <div class="chips"><span class="chip {{ 'r' if dec.circuit == 'rouge' else 'g' }}">Circuit {{ dec.circuit }}</span>
-    <span class="chip">Contrôles ✓ {{ resume.ok }} · ! {{ resume.alerte }} · ✕ {{ resume.erreur }}</span>
+    {% if not partage %}<span class="chip">Contrôles ✓ {{ resume.ok }} · ! {{ resume.alerte }} · ✕ {{ resume.erreur }}</span>{% endif %}
     {% if fid %}<span class="chip">Fidélité {{ fid_ok }}/{{ fid|length }}</span>{% endif %}
     <span class="chip" id="chipVis">Visite 0 %</span></div>
   <nav class="tabs" role="tablist">
-    {% for id, lab in [('fiche','Fiche'), ('visite','Visite'), ('controles','Contrôles'), ('registre','Registre'), ('donnees','Données')] + ([('note','Note privée')] if note_html else []) %}
+    {% for id, lab in ([('fiche','Fiche'), ('visite','Visite')] if partage else [('fiche','Fiche'), ('visite','Visite'), ('controles','Contrôles'), ('registre','Registre'), ('donnees','Données')] + ([('note','Note privée')] if note_html else [])) %}
     <button role="tab" data-tab="{{ id }}" aria-selected="{{ 'true' if loop.first else 'false' }}">{{ lab }}</button>{% endfor %}
   </nav>
 </div>
@@ -114,7 +114,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
   </div>
 </section>
 
-<!-- ============ CONTRÔLES ============ -->
+{% if not partage %}<!-- ============ CONTRÔLES ============ -->
 <section class="tab" id="t-controles">
   <div class="kpis"><div class="kpi"><div class="l">Conformes</div><div class="v" style="color:var(--ok)">{{ resume.ok }}</div></div>
     <div class="kpi"><div class="l">Alertes</div><div class="v" style="color:var(--warn)">{{ resume.alerte }}</div></div>
@@ -151,6 +151,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
   <div class="card"><h2>Dossier JSON</h2><pre>{{ dossier_pretty|e }}</pre></div>
 </section>
 
+{% endif %}
 <!-- ============ NOTE PRIVÉE (déclarant seul) ============ -->
 {% if note_html %}<section class="tab" id="t-note">
   <div class="card priv"><h2>Note de risques — déclarant seul</h2>
