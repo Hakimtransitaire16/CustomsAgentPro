@@ -102,7 +102,7 @@ Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent 
 
 Contrôle de conformité aux frontières : décret exécutif n° 05-467 du 10/12/2005.
 
-Le catalogue complet des sources (47 références, statut, lien officiel) est `knowledge-base/REFERENTIEL.md`. Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : je télécharge les fichiers moi-même, puis
+Le catalogue complet des sources (51 références, statut, lien officiel) est `knowledge-base/REFERENTIEL.md`. Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : je télécharge les fichiers moi-même, puis
 `python knowledge-base/tools/ingest.py <dossier ou fichiers>` les identifie, extrait le texte (OCR si scan), les structure, les indexe et met le référentiel à jour. Un extrait ne remplace jamais une version complète déjà présente.
 
 Faits tirés de sources secondaires (presse, cabinets, administrations étrangères) : `data/veille_secondaire.json`, avec source et date. Ils restent « à confirmer » tant que le texte officiel n'est pas dans la base.
