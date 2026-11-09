@@ -81,6 +81,13 @@ class TestVisite(unittest.TestCase):
         self.assertEqual(expertise.surestaries(d)["total"], 5 * 52)
         self.assertIn("Surestaries", expertise.texte(d))
 
+    def test_registre_indicateurs(self):
+        from visite import registry
+        l = registry.ligne(self.d)
+        for k in ("bureau", "incoterm", "transit_jours", "surestaries_da", "cout_connu_da", "alertes", "pieces_manquantes"):
+            self.assertIn(k, l)
+        self.assertEqual(set(l), set(registry.CHAMPS))
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)

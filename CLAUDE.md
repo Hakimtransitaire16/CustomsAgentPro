@@ -55,7 +55,9 @@ Règles :
 - Je cherche moi-même ce que font de mieux les pays avancés (UE, Allemagne, Royaume-Uni, États-Unis, Chine, OMD) : modèles de fiche, normes de description, contrôles, outils numériques, changements du SH.
 - Ce qui sert notre travail, je l'intègre au moteur et je le note dans `knowledge-base/VEILLE_INNOVATION.md` (adopté / proposé / à surveiller) ; je le dis au déclarant avec la source.
 - Les faits nouveaux (lois, systèmes, SH 2028) vont dans `data/veille_secondaire.json` ; ceux marqués `"portee": "tous"` sortent dans la page C10 de chaque dossier complet.
-- Deux tâches planifiées tournent seules : veille quotidienne (nouveautés douane, change, logistique) et veille d'innovation mensuelle. Feuille de route : `FEUILLE_DE_ROUTE.md`.
+- Deux tâches planifiées tournent seules : veille quotidienne (nouveautés douane, change, logistique) et, chaque mois, veille d'innovation + analyse de marché (document en arabe). Feuille de route : `FEUILLE_DE_ROUTE.md`.
+- Chaque dossier alimente le registre avec ses indicateurs (`registry.indicateurs` : délais, surestaries, coût, alertes, pièces manquantes) : c'est le jeu de données des futures statistiques et des modèles. Pas de modèle avant 30 dossiers.
+- Marque : `visite/marque.json` (nom, signature). Vide tant que le déclarant n'a pas choisi ; jamais sur la fiche remise au service, qui reste au nom du déclarant et de la société qui déclare.
 
 ## Règles de contenu
 - Fiche **destinée à l'inspecteur** : langage clair et professionnel. Pas d'amendes, de scénarios de redressement ni de points faibles dans la fiche. Les risques (classement contestable, assurance, délais) se donnent **à moi seul**, à part.

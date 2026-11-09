@@ -6,6 +6,7 @@ La note interne (partie C) est réservée au déclarant : elle est marquée comm
 from __future__ import annotations
 
 import datetime as dt
+import json
 import re
 from pathlib import Path
 
@@ -142,7 +143,9 @@ def construire(d: dict, fiche_pdf: Path, sortie: Path) -> Path:
             textes.append((f"{'LF 2026' if instr.startswith('Loi') else 'Code des douanes'}, art. {a['article']}", t[:700] + ("…" if len(t) > 700 else "")))
     nb_fiche = len(PdfReader(str(fiche_pdf)).pages)
     from . import exigences, expertise
-    ctx = dict(d=d, manquants=exigences.manquants(d), veille=veille_dossier(d), ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
+    mq = TPL.parent / "marque.json"
+    marque = json.loads(mq.read_text(encoding="utf-8")) if mq.exists() else {}
+    ctx = dict(d=d, marque=marque, manquants=exigences.manquants(d), veille=veille_dossier(d), ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
                jours=dl[1] if dl else None, enjeux=enjeux(d), textes=textes, checklist=render.checklist(d), slots=SLOTS + (d.get("terrain") or {}).get("photos", []), a360=expertise.analyse(d),
                css=(TPL / "style.css").read_text(encoding="utf-8"), initiales="".join(w[0] for w in d["meta"]["declarant"]["nom"].split()[:2]),
                nb_fiche=nb_fiche, date_fiche=render._date_fr(d["meta"].get("date_fiche", "")))

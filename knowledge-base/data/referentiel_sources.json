@@ -1,5 +1,5 @@
 {
- "count": 47,
+ "count": 51,
  "sources": [
   {
    "id": "tarif-2016",
@@ -494,6 +494,50 @@
    "fichier": "boda_num_04_2018.pdf",
    "url": "https://www.douane.gov.dz/IMG/pdf/boda_num_04_2018.pdf",
    "usage": "Circulaires et décisions publiées",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "ba-instruction-01-2026",
+   "domaine": "Banque et change",
+   "titre": "Banque d'Algérie — instruction n° 01/2026 du 14/05/2026 : domiciliation des importations avant l'expédition",
+   "type": "texte",
+   "priorite": 1,
+   "fichier": "note-01-DGC-2026.pdf",
+   "url": "https://www.bank-of-algeria.dz/stoodroa/2026/05/note-01-DGC-2026.pdf",
+   "usage": "Domiciliation avant le B/L, délai de 45 jours (lien relevé par la recherche : vérifier à l'ouverture)",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "ba-reglement-07-01",
+   "domaine": "Banque et change",
+   "titre": "Banque d'Algérie — règlement n° 07-01 du 03/02/2007 modifié (domiciliation, rapatriement, comptes devises)",
+   "type": "texte",
+   "priorite": 1,
+   "fichier": "reglement-07-01.pdf",
+   "url": "https://www.bank-of-algeria.dz/importations-exportations-instruction/",
+   "usage": "Art. 29 : domiciliation préalable au transfert et au dédouanement",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "ba-reglement-26-02",
+   "domaine": "Banque et change",
+   "titre": "Banque d'Algérie — règlement n° 26-02 du 23/07/2026 (JO n° 58 du 12/08/2026) : rapatriement des recettes d'exportation en 120 jours",
+   "type": "texte",
+   "priorite": 2,
+   "fichier": "reglement-26-02.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Exportation : délai de rapatriement",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "plf-2027",
+   "domaine": "Fiscalité",
+   "titre": "Projet de loi de finances 2027 — dispositions douanières (articles 153 à 176)",
+   "type": "texte",
+   "priorite": 1,
+   "fichier": "plf-2027.pdf",
+   "url": "https://www.mfdgi.gov.dz",
+   "usage": "Mesures douanières à venir (projet, non adopté)",
    "statut": "a_telecharger"
   },
   {

@@ -1,6 +1,6 @@
 {
  "_notice": "Faits relevés dans des sources secondaires (presse, cabinets, administrations étrangères) en attendant le texte officiel. Chaque fait porte sa source et sa date ; il doit être confirmé au Journal officiel ou au texte DGD avant d'être appliqué.",
- "releve_le": "2026-11-09",
+ "releve_le": "2026-11-10",
  "faits": [
   {
    "sujet": "DAPS — base légale",
@@ -95,6 +95,44 @@
    "url": "https://info-aduaneiro.portaldasfinancas.gov.pt/pt/informacao_aduaneira/ICS2/Documents/guidance_acceptable_goods_description_V4.10_MAR2021_EN.pdf",
    "date": "2021-03",
    "portee": "tous"
+  },
+  {
+   "sujet": "Domiciliation avant l'expédition — instruction Banque d'Algérie n° 01/2026",
+   "fait": "Instruction n° 01/2026 du 14/05/2026 (Direction générale des changes) : la domiciliation bancaire doit être faite avant l'expédition ; le document de transport doit porter une date postérieure à la domiciliation. Pour la revente en l'état : domiciliation dans les 45 jours de l'approbation du programme prévisionnel, après dépôt du réseau de distribution. Rejoint le contrôle DAT-1 du moteur.",
+   "source": "Echorouk Online, 31/05/2026",
+   "url": "https://www.echoroukonline.com/mandatory-new-rules-for-importers-of-goods-intended-for-resale",
+   "date": "2026-05-31",
+   "portee": "tous"
+  },
+  {
+   "sujet": "Programme prévisionnel d'importation (PPI)",
+   "fait": "Note du ministère du Commerce extérieur du 09/07/2025 : le PPI est exigé pour la domiciliation bancaire et le dédouanement. Son entrée en vigueur a bloqué des conteneurs 21 à 24 jours ; 8 conteneurs ont coûté plus de 2,1 millions de DA de surestaries.",
+   "source": "Maghreb Émergent, 26/08/2025",
+   "url": "https://maghrebemergent.news/fr/commerce-exterieur-le-cout-exorbitant-de-24-jours-de-blocage-dus-a-une-mesure-ratee/",
+   "date": "2025-08-26",
+   "portee": "tous"
+  },
+  {
+   "sujet": "Rapatriement des recettes d'exportation — règlement Banque d'Algérie n° 26-02",
+   "fait": "Règlement n° 26-02 du 23/07/2026 (JO n° 58 du 12/08/2026) : les recettes d'exportation hors hydrocarbures sont rapatriées dans 120 jours (360 auparavant) ; il modifie l'article 61 du règlement 07-01. L'article 29 du règlement 07-01 impose la domiciliation avant tout transfert et avant le dédouanement.",
+   "source": "UpGrowth (résumé d'un site tiers), 12/08/2026",
+   "url": "https://www.upgrowth.dz/journal-officiel/reglement-26-02-comptes-devises-rapatriement-exportations",
+   "date": "2026-08-12"
+  },
+  {
+   "sujet": "Projet de loi de finances 2027 — douane",
+   "fait": "Projet adopté en Conseil des ministres le 04/10/2026. Les dispositions douanières sont aux articles 153 à 176 : simplification des procédures, guichet unique, numérisation (audition en commission le 15/10/2026). Texte des articles non lu ; projet non adopté par le Parlement à cette date.",
+   "source": "UpGrowth, 18/10/2026 ; Maghreb Émergent, 08/10/2026",
+   "url": "https://www.upgrowth.dz/actualites/douanes-algerie-commission-finances-examine-plf-2027-articles-153-176",
+   "date": "2026-10-18",
+   "portee": "tous"
+  },
+  {
+   "sujet": "MACF / CBAM — régime définitif",
+   "fait": "Depuis le 01/01/2026, l'importateur européen d'acier, d'aluminium, d'engrais azotés, de ciment, d'hydrogène ou d'électricité doit être « déclarant MACF autorisé » avant toute importation atteignant 50 tonnes par an ; les certificats des importations 2026 sont vendus à partir de février 2027. Concerne les exportateurs algériens de ces produits.",
+   "source": "Douane française, fiche MACF mise à jour le 24/04/2026 ; Commission européenne",
+   "url": "https://www.douane.gouv.fr/fiche/comprendre-le-mecanisme-dajustement-carbone-aux-frontieres",
+   "date": "2026-04-24"
   }
  ]
 }

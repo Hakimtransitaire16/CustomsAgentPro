@@ -137,6 +137,20 @@ SOURCES = [
      "boda_2_2018_fr.pdf", None, "Circulaires et décisions publiées"),
     ("boda-2018-t4", "Bulletin", "Bulletin officiel des douanes (BODA), 4e trimestre 2018", "guide", 3,
      "boda_num_04_2018.pdf", None, "Circulaires et décisions publiées"),
+    # ---------------------------------------------------------------- banque et change
+    ("ba-instruction-01-2026", "Banque et change", "Banque d'Algérie — instruction n° 01/2026 du 14/05/2026 : "
+     "domiciliation des importations avant l'expédition", "texte", 1, "note-01-DGC-2026.pdf",
+     "https://www.bank-of-algeria.dz/stoodroa/2026/05/note-01-DGC-2026.pdf",
+     "Domiciliation avant le B/L, délai de 45 jours (lien relevé par la recherche : vérifier à l'ouverture)"),
+    ("ba-reglement-07-01", "Banque et change", "Banque d'Algérie — règlement n° 07-01 du 03/02/2007 modifié "
+     "(domiciliation, rapatriement, comptes devises)", "texte", 1, "reglement-07-01.pdf",
+     "https://www.bank-of-algeria.dz/importations-exportations-instruction/",
+     "Art. 29 : domiciliation préalable au transfert et au dédouanement"),
+    ("ba-reglement-26-02", "Banque et change", "Banque d'Algérie — règlement n° 26-02 du 23/07/2026 "
+     "(JO n° 58 du 12/08/2026) : rapatriement des recettes d'exportation en 120 jours", "texte", 2,
+     "reglement-26-02.pdf", "https://www.joradp.dz", "Exportation : délai de rapatriement"),
+    ("plf-2027", "Fiscalité", "Projet de loi de finances 2027 — dispositions douanières (articles 153 à 176)",
+     "texte", 1, "plf-2027.pdf", "https://www.mfdgi.gov.dz", "Mesures douanières à venir (projet, non adopté)"),
     ("ebti", "Méthode", "Commission européenne — informations générales sur les RTC (EBTI)", "guide", 2,
      "ebti_general_information_en.pdf", None, "Méthode de description (case 9)"),
     ("omd-smart-customs", "Méthode", "OMD — rapport « douanes intelligentes » (2024)", "guide", 3,

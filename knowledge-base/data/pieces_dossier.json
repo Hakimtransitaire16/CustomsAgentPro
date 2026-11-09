@@ -1,162 +1,266 @@
 {
-  "titre": "Référentiel des pièces d'un dossier de dédouanement à l'importation (Algérie)",
-  "usage": "Chaque pièce : qui l'émet, ce qu'elle prouve en douane, sur quel texte elle repose, quand elle est exigée et quelles données en extraire. Le moteur (visite/exigences.py) s'en sert pour lister ce qui manque à chaque dossier. Une base marquée « à confirmer » n'a pas encore son texte officiel dans knowledge-base/.",
-  "pieces": [
-    {
-      "code": "D10",
-      "nom": "Déclaration en détail (D10)",
-      "emetteur": "Déclarant (commissionnaire agréé ou propriétaire), enregistrée dans le système de la douane",
-      "preuve": "Acte par lequel le déclarant assigne un régime aux marchandises et communique les éléments de taxation et de contrôle.",
-      "base": "Code des douanes, art. 75 (définition), 76 (dépôt sous 21 jours), 78 (qui déclare), 82 (forme, énonciations, documents annexés), 83 (un article = une sous-position)",
-      "exigee": "toujours",
-      "donnees": ["numéro et date-heure", "bureau", "régime et régime fiscal", "MRN (case 29)", "localisation", "articles : code SH, poids, colis, valeur", "liquidation", "circuit"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "FAC",
-      "nom": "Facture commerciale",
-      "emetteur": "Vendeur (fournisseur étranger)",
-      "preuve": "Prix effectivement payé ou à payer : point de départ de la valeur transactionnelle ; incoterm, devise, origine déclarée par le vendeur.",
-      "base": "Code des douanes, art. 16 ter (valeur transactionnelle) et 16 octies (ajustements) ; guide de la valeur DGD",
-      "exigee": "toujours",
-      "donnees": ["numéro, date", "vendeur et acheteur", "désignation, quantité, prix unitaire", "incoterm", "fret, assurance", "devise et total", "origine", "domiciliation (cachet bancaire)"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "PL",
-      "nom": "Liste de colisage",
-      "emetteur": "Vendeur ou chargeur",
-      "preuve": "Nombre et nature des colis, contenu de chaque colis, poids net et brut : base du comptage et de la pesée à la visite.",
-      "base": "Code des douanes, art. 82 (documents annexés fixés par décision du directeur général) — pratique du bureau",
-      "exigee": "toujours (marchandises en colis)",
-      "donnees": ["nombre de colis et type", "contenu par colis", "poids net et brut", "marques"],
-      "statut_base": "dans la base (art. 82)"
-    },
-    {
-      "code": "BL",
-      "nom": "Connaissement (B/L)",
-      "emetteur": "Compagnie maritime ou son agent",
-      "preuve": "Titre de transport et de propriété : chargement, port de chargement et de déchargement, conteneur, scellé, poids, fret payé ou dû, destinataire.",
-      "base": "Code des douanes, art. 54 (le manifeste reprend les numéros des connaissements) ; code maritime (à confirmer)",
-      "exigee": "toujours (voie maritime)",
-      "donnees": ["numéro, date et lieu d'émission", "chargeur, destinataire, notify", "navire et voyage", "ports", "conteneur, type, scellé, tare", "désignation, colis, poids", "fret"],
-      "statut_base": "partiel (code maritime absent)"
-    },
-    {
-      "code": "AA",
-      "nom": "Avis d'arrivée",
-      "emetteur": "Agent maritime (consignataire du navire)",
-      "preuve": "Arrivée de la marchandise : navire d'arrivée, date d'accostage, MRN / N° Gros du manifeste, point de départ des délais de dépôt.",
-      "base": "Code des douanes, art. 54 (déclaration de la cargaison), 71 et 76 (délais à compter du débarquement)",
-      "exigee": "toujours (voie maritime)",
-      "donnees": ["navire d'arrivée et voyage", "date d'accostage", "MRN, N° Gros, CRN", "conteneur, tare", "escale de transbordement"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "BAD",
-      "nom": "Bon à délivrer (BAD)",
-      "emetteur": "Agent maritime, contre paiement du fret dû et des frais",
-      "preuve": "Autorise la remise de la marchandise au destinataire : sans BAD, pas d'enlèvement après mainlevée. Porte souvent le N° Gros et la localisation.",
-      "base": "Pratique portuaire — texte à confirmer",
-      "exigee": "toujours (voie maritime) avant enlèvement",
-      "donnees": ["numéro et date", "N° Gros", "conteneur", "destinataire"],
-      "statut_base": "à confirmer"
-    },
-    {
-      "code": "TRF",
-      "nom": "Document de transfert ou de transit (port → port sec / entrepôt)",
-      "emetteur": "Douane du port de débarquement, à la demande du transporteur ou du destinataire",
-      "preuve": "Circulation sous douane de la marchandise jusqu'au lieu de dédouanement ; date de prise en charge à destination.",
-      "base": "Code des douanes, art. 76 (« date du document par lequel a été autorisée la circulation des marchandises ») ; régime du transit (à confirmer)",
-      "exigee": "quand le lieu de dédouanement n'est pas le port de débarquement",
-      "donnees": ["numéro et date", "bureau de départ et d'arrivée", "conteneur et scellé", "date d'arrivée à destination"],
-      "statut_base": "partiel"
-    },
-    {
-      "code": "DOM",
-      "nom": "Domiciliation bancaire",
-      "emetteur": "Banque de l'importateur",
-      "preuve": "Ouverture du dossier de paiement à l'étranger ; mode de paiement ; rattache la facture à l'importateur.",
-      "base": "Réglementation des changes de la Banque d'Algérie — texte à confirmer",
-      "exigee": "toute importation payante",
-      "donnees": ["numéro de domiciliation", "banque et agence", "date", "mode de paiement"],
-      "statut_base": "à confirmer"
-    },
-    {
-      "code": "CO",
-      "nom": "Certificat d'origine",
-      "emetteur": "Chambre de commerce ou autorité du pays d'origine (EUR.1 / EUR-MED pour l'UE, certificat ZALE pour la GZALE)",
-      "preuve": "Origine des marchandises ; obligatoire pour obtenir une préférence tarifaire.",
-      "base": "Code des douanes, art. 14 quater § 1 (« peuvent être exigés ») ; manuels de l'origine DGD",
-      "exigee": "si préférence demandée ; sinon sur demande du service",
-      "donnees": ["numéro et date", "émetteur", "pays d'origine", "références facture", "critère d'origine"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "ASS",
-      "nom": "Police ou attestation d'assurance (ou déclaration de non-assurance)",
-      "emetteur": "Assureur de l'importateur",
-      "preuve": "Montant réel de la prime d'assurance à ajouter à la valeur quand la vente est FOB ou CFR.",
-      "base": "Code des douanes, art. 16 octies § 1 e) i) et § 2 (données objectives, pas de forfait)",
-      "exigee": "incoterm EXW, FCA, FOB, CFR, CPT",
-      "donnees": ["numéro", "prime", "valeur assurée"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "MAN",
-      "nom": "Mandat de représentation de l'importateur",
-      "emetteur": "Importateur, au profit du commissionnaire en douane",
-      "preuve": "Pouvoir du commissionnaire de déclarer au nom et pour le compte de l'importateur.",
-      "base": "Code des douanes, art. 78 ; décret exécutif 10-288 (commissionnaire en douane)",
-      "exigee": "dédouanement par commissionnaire",
-      "donnees": ["mandant, mandataire", "date", "opérations couvertes"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "FT",
-      "nom": "Fiche technique, certificat d'analyse (CoA) ou catalogue du fabricant",
-      "emetteur": "Fabricant",
-      "preuve": "Nature, composition et caractéristiques : fonde le classement tarifaire et l'identification à la visite.",
-      "base": "RGI 1 et 6 ; guide EBTI (description de la marchandise) ; décret 18-165 (décision anticipée : pièces techniques)",
-      "exigee": "dès que le classement dépend d'une caractéristique technique",
-      "donnees": ["désignation commerciale et référence", "composition / matière", "caractéristiques", "lot et dates"],
-      "statut_base": "dans la base"
-    },
-    {
-      "code": "FDS",
-      "nom": "Fiche de données de sécurité",
-      "emetteur": "Fabricant",
-      "preuve": "Composition chimique et dangers : classement des produits chimiques (sections VI, VII) et réglementation des produits dangereux.",
-      "base": "Notes des sections VI et VII du tarif",
-      "exigee": "produits chimiques",
-      "donnees": ["composition (rubrique 3)", "numéros CAS", "classement de danger", "numéro ONU"],
-      "statut_base": "dans la base (tarif)"
-    },
-    {
-      "code": "PPI",
-      "nom": "Programme prévisionnel d'importation visé (MIPH)",
-      "emetteur": "Ministère de l'Industrie pharmaceutique",
-      "preuve": "Autorisation d'importer des intrants pharmaceutiques et justificatif de l'exonération (art. 39 LF 2001) ; la quantité déclarée est imputée sur le programme.",
-      "base": "Art. 39 LF 2001 rédigé par l'art. 118 LF 2018 ; décret 15-214 et note DGD du 31/12/2015 (à télécharger) ; code des douanes art. 21 § 2 (marchandise soumise à autorisation)",
-      "exigee": "régime fiscal 401 / intrants pharmaceutiques",
-      "donnees": ["numéro et page", "ligne de produit", "quantité et prix", "origines", "validité du visa", "imputations antérieures"],
-      "statut_base": "partiel"
-    },
-    {
-      "code": "AUT",
-      "nom": "Autorisation, certificat ou formalité particulière (visa, CQ, phytosanitaire, etc.)",
-      "emetteur": "Ministère ou organisme compétent",
-      "preuve": "Levée d'une restriction : sans elle la marchandise est réputée prohibée à la vérification.",
-      "base": "Code des douanes, art. 21 § 2 ; décret 05-467 (contrôle de conformité Commerce, liste à télécharger)",
-      "exigee": "selon la ligne tarifaire (colonne formalités du tarif)",
-      "donnees": ["numéro et date", "organisme", "marchandise et quantité couvertes", "validité"],
-      "statut_base": "partiel"
-    }
-  ],
-  "visite": [
-    {"champ": "lieu", "nom": "Lieu de la visite (entrepôt, port sec, magasin)", "pourquoi": "figure sur la fiche et le PV ; seul le déclarant le connaît"},
-    {"champ": "inspecteur", "nom": "Inspecteur de visite", "pourquoi": "signataire du PV"},
-    {"champ": "agent", "nom": "Agent de visite", "pourquoi": "co-signataire du PV"},
-    {"champ": "date", "nom": "Date et heure de la visite", "pourquoi": "PV et fiche de terrain"}
-  ]
+ "titre": "Référentiel des pièces d'un dossier de dédouanement à l'importation (Algérie)",
+ "usage": "Chaque pièce : qui l'émet, ce qu'elle prouve en douane, sur quel texte elle repose, quand elle est exigée et quelles données en extraire. Le moteur (visite/exigences.py) s'en sert pour lister ce qui manque à chaque dossier. Une base marquée « à confirmer » n'a pas encore son texte officiel dans knowledge-base/.",
+ "pieces": [
+  {
+   "code": "D10",
+   "nom": "Déclaration en détail (D10)",
+   "emetteur": "Déclarant (commissionnaire agréé ou propriétaire), enregistrée dans le système de la douane",
+   "preuve": "Acte par lequel le déclarant assigne un régime aux marchandises et communique les éléments de taxation et de contrôle.",
+   "base": "Code des douanes, art. 75 (définition), 76 (dépôt sous 21 jours), 78 (qui déclare), 82 (forme, énonciations, documents annexés), 83 (un article = une sous-position)",
+   "exigee": "toujours",
+   "donnees": [
+    "numéro et date-heure",
+    "bureau",
+    "régime et régime fiscal",
+    "MRN (case 29)",
+    "localisation",
+    "articles : code SH, poids, colis, valeur",
+    "liquidation",
+    "circuit"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "FAC",
+   "nom": "Facture commerciale",
+   "emetteur": "Vendeur (fournisseur étranger)",
+   "preuve": "Prix effectivement payé ou à payer : point de départ de la valeur transactionnelle ; incoterm, devise, origine déclarée par le vendeur.",
+   "base": "Code des douanes, art. 16 ter (valeur transactionnelle) et 16 octies (ajustements) ; guide de la valeur DGD",
+   "exigee": "toujours",
+   "donnees": [
+    "numéro, date",
+    "vendeur et acheteur",
+    "désignation, quantité, prix unitaire",
+    "incoterm",
+    "fret, assurance",
+    "devise et total",
+    "origine",
+    "domiciliation (cachet bancaire)"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "PL",
+   "nom": "Liste de colisage",
+   "emetteur": "Vendeur ou chargeur",
+   "preuve": "Nombre et nature des colis, contenu de chaque colis, poids net et brut : base du comptage et de la pesée à la visite.",
+   "base": "Code des douanes, art. 82 (documents annexés fixés par décision du directeur général) — pratique du bureau",
+   "exigee": "toujours (marchandises en colis)",
+   "donnees": [
+    "nombre de colis et type",
+    "contenu par colis",
+    "poids net et brut",
+    "marques"
+   ],
+   "statut_base": "dans la base (art. 82)"
+  },
+  {
+   "code": "BL",
+   "nom": "Connaissement (B/L)",
+   "emetteur": "Compagnie maritime ou son agent",
+   "preuve": "Titre de transport et de propriété : chargement, port de chargement et de déchargement, conteneur, scellé, poids, fret payé ou dû, destinataire.",
+   "base": "Code des douanes, art. 54 (le manifeste reprend les numéros des connaissements) ; code maritime (à confirmer)",
+   "exigee": "toujours (voie maritime)",
+   "donnees": [
+    "numéro, date et lieu d'émission",
+    "chargeur, destinataire, notify",
+    "navire et voyage",
+    "ports",
+    "conteneur, type, scellé, tare",
+    "désignation, colis, poids",
+    "fret"
+   ],
+   "statut_base": "partiel (code maritime absent)"
+  },
+  {
+   "code": "AA",
+   "nom": "Avis d'arrivée",
+   "emetteur": "Agent maritime (consignataire du navire)",
+   "preuve": "Arrivée de la marchandise : navire d'arrivée, date d'accostage, MRN / N° Gros du manifeste, point de départ des délais de dépôt.",
+   "base": "Code des douanes, art. 54 (déclaration de la cargaison), 71 et 76 (délais à compter du débarquement)",
+   "exigee": "toujours (voie maritime)",
+   "donnees": [
+    "navire d'arrivée et voyage",
+    "date d'accostage",
+    "MRN, N° Gros, CRN",
+    "conteneur, tare",
+    "escale de transbordement"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "BAD",
+   "nom": "Bon à délivrer (BAD)",
+   "emetteur": "Agent maritime, contre paiement du fret dû et des frais",
+   "preuve": "Autorise la remise de la marchandise au destinataire : sans BAD, pas d'enlèvement après mainlevée. Porte souvent le N° Gros et la localisation.",
+   "base": "Pratique portuaire — texte à confirmer",
+   "exigee": "toujours (voie maritime) avant enlèvement",
+   "donnees": [
+    "numéro et date",
+    "N° Gros",
+    "conteneur",
+    "destinataire"
+   ],
+   "statut_base": "à confirmer"
+  },
+  {
+   "code": "TRF",
+   "nom": "Document de transfert ou de transit (port → port sec / entrepôt)",
+   "emetteur": "Douane du port de débarquement, à la demande du transporteur ou du destinataire",
+   "preuve": "Circulation sous douane de la marchandise jusqu'au lieu de dédouanement ; date de prise en charge à destination.",
+   "base": "Code des douanes, art. 76 (« date du document par lequel a été autorisée la circulation des marchandises ») ; régime du transit (à confirmer)",
+   "exigee": "quand le lieu de dédouanement n'est pas le port de débarquement",
+   "donnees": [
+    "numéro et date",
+    "bureau de départ et d'arrivée",
+    "conteneur et scellé",
+    "date d'arrivée à destination"
+   ],
+   "statut_base": "partiel"
+  },
+  {
+   "code": "DOM",
+   "nom": "Domiciliation bancaire",
+   "emetteur": "Banque de l'importateur",
+   "preuve": "Ouverture du dossier de paiement à l'étranger ; mode de paiement ; rattache la facture à l'importateur.",
+   "base": "Règlement Banque d'Algérie n° 07-01 modifié (art. 29 : domiciliation préalable au transfert et au dédouanement) ; instruction n° 01/2026 du 14/05/2026 (domiciliation avant l'expédition) — connus par sources secondaires, textes officiels à télécharger",
+   "exigee": "toute importation payante",
+   "donnees": [
+    "numéro de domiciliation",
+    "banque et agence",
+    "date",
+    "mode de paiement"
+   ],
+   "statut_base": "à confirmer (sources secondaires)"
+  },
+  {
+   "code": "CO",
+   "nom": "Certificat d'origine",
+   "emetteur": "Chambre de commerce ou autorité du pays d'origine (EUR.1 / EUR-MED pour l'UE, certificat ZALE pour la GZALE)",
+   "preuve": "Origine des marchandises ; obligatoire pour obtenir une préférence tarifaire.",
+   "base": "Code des douanes, art. 14 quater § 1 (« peuvent être exigés ») ; manuels de l'origine DGD",
+   "exigee": "si préférence demandée ; sinon sur demande du service",
+   "donnees": [
+    "numéro et date",
+    "émetteur",
+    "pays d'origine",
+    "références facture",
+    "critère d'origine"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "ASS",
+   "nom": "Police ou attestation d'assurance (ou déclaration de non-assurance)",
+   "emetteur": "Assureur de l'importateur",
+   "preuve": "Montant réel de la prime d'assurance à ajouter à la valeur quand la vente est FOB ou CFR.",
+   "base": "Code des douanes, art. 16 octies § 1 e) i) et § 2 (données objectives, pas de forfait)",
+   "exigee": "incoterm EXW, FCA, FOB, CFR, CPT",
+   "donnees": [
+    "numéro",
+    "prime",
+    "valeur assurée"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "MAN",
+   "nom": "Mandat de représentation de l'importateur",
+   "emetteur": "Importateur, au profit du commissionnaire en douane",
+   "preuve": "Pouvoir du commissionnaire de déclarer au nom et pour le compte de l'importateur.",
+   "base": "Code des douanes, art. 78 ; décret exécutif 10-288 (commissionnaire en douane)",
+   "exigee": "dédouanement par commissionnaire",
+   "donnees": [
+    "mandant, mandataire",
+    "date",
+    "opérations couvertes"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "FT",
+   "nom": "Fiche technique, certificat d'analyse (CoA) ou catalogue du fabricant",
+   "emetteur": "Fabricant",
+   "preuve": "Nature, composition et caractéristiques : fonde le classement tarifaire et l'identification à la visite.",
+   "base": "RGI 1 et 6 ; guide EBTI (description de la marchandise) ; décret 18-165 (décision anticipée : pièces techniques)",
+   "exigee": "dès que le classement dépend d'une caractéristique technique",
+   "donnees": [
+    "désignation commerciale et référence",
+    "composition / matière",
+    "caractéristiques",
+    "lot et dates"
+   ],
+   "statut_base": "dans la base"
+  },
+  {
+   "code": "FDS",
+   "nom": "Fiche de données de sécurité",
+   "emetteur": "Fabricant",
+   "preuve": "Composition chimique et dangers : classement des produits chimiques (sections VI, VII) et réglementation des produits dangereux.",
+   "base": "Notes des sections VI et VII du tarif",
+   "exigee": "produits chimiques",
+   "donnees": [
+    "composition (rubrique 3)",
+    "numéros CAS",
+    "classement de danger",
+    "numéro ONU"
+   ],
+   "statut_base": "dans la base (tarif)"
+  },
+  {
+   "code": "PPI",
+   "nom": "Programme prévisionnel d'importation visé (MIPH)",
+   "emetteur": "Ministère de l'Industrie pharmaceutique",
+   "preuve": "Autorisation d'importer des intrants pharmaceutiques et justificatif de l'exonération (art. 39 LF 2001) ; la quantité déclarée est imputée sur le programme.",
+   "base": "Art. 39 LF 2001 rédigé par l'art. 118 LF 2018 ; décret 15-214 et note DGD du 31/12/2015 (à télécharger) ; code des douanes art. 21 § 2 (marchandise soumise à autorisation)",
+   "exigee": "régime fiscal 401 / intrants pharmaceutiques",
+   "donnees": [
+    "numéro et page",
+    "ligne de produit",
+    "quantité et prix",
+    "origines",
+    "validité du visa",
+    "imputations antérieures"
+   ],
+   "statut_base": "partiel"
+  },
+  {
+   "code": "AUT",
+   "nom": "Autorisation, certificat ou formalité particulière (visa, CQ, phytosanitaire, etc.)",
+   "emetteur": "Ministère ou organisme compétent",
+   "preuve": "Levée d'une restriction : sans elle la marchandise est réputée prohibée à la vérification.",
+   "base": "Code des douanes, art. 21 § 2 ; décret 05-467 (contrôle de conformité Commerce, liste à télécharger)",
+   "exigee": "selon la ligne tarifaire (colonne formalités du tarif)",
+   "donnees": [
+    "numéro et date",
+    "organisme",
+    "marchandise et quantité couvertes",
+    "validité"
+   ],
+   "statut_base": "partiel"
+  }
+ ],
+ "visite": [
+  {
+   "champ": "lieu",
+   "nom": "Lieu de la visite (entrepôt, port sec, magasin)",
+   "pourquoi": "figure sur la fiche et le PV ; seul le déclarant le connaît"
+  },
+  {
+   "champ": "inspecteur",
+   "nom": "Inspecteur de visite",
+   "pourquoi": "signataire du PV"
+  },
+  {
+   "champ": "agent",
+   "nom": "Agent de visite",
+   "pourquoi": "co-signataire du PV"
+  },
+  {
+   "champ": "date",
+   "nom": "Date et heure de la visite",
+   "pourquoi": "PV et fiche de terrain"
+  }
+ ]
 }

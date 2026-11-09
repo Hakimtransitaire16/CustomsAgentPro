@@ -7,7 +7,7 @@
 <div class="ref">D10 n° <b>{{ dec.numero }}</b> · {{ dec.date_heure }}<br>MRN <b>{{ dec.mrn }}</b> · conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
 {% if conf %}<div class="conf">NOTE INTERNE · CONFIDENTIELLE · RÉSERVÉE AU DÉCLARANT — À RETIRER AVANT TOUTE REMISE AU SERVICE</div>{% endif %}
 {%- endmacro -%}
-{%- macro foot(lib, p) -%}<div class="ft"><span><b>Dossier de visite</b> — {{ d.meta.declarant.nom }}, déclarant en douane · {{ lib }}</span><span>page {{ p }}</span></div>{%- endmacro -%}
+{%- macro foot(lib, p) -%}<div class="ft"><span><b>{{ marque.nom or 'Dossier de visite' }}</b>{{ (' · ' ~ marque.signature) if marque.nom and marque.signature else '' }} — {{ d.meta.declarant.nom }}, déclarant en douane · {{ lib }}</span><span>page {{ p }}</span></div>{%- endmacro -%}
 {%- macro sec(num, titre) -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2></div>{%- endmacro -%}
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Dossier de visite</title><style>{{ css }}
 .conf{background:var(--crit);color:#fff;font-size:7pt;font-weight:700;letter-spacing:.1em;text-align:center;padding:1.6mm;margin:-2mm 0 2mm}
@@ -57,7 +57,7 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   <table class="som"><tr><th style="width:8%">Partie</th><th>Contenu</th><th style="width:12%">Pages</th><th style="width:20%">Destinataire</th></tr>
     <tr><td><b>A</b></td><td><b>Fiche de visite</b> — identification, parties, transport, marchandise, description technique, classement motivé, origine, valeur, régime fiscal, formalités, pièces analysées, concordance, repères, procès-verbal</td><td>{{ p_a }} à {{ p_b - 1 }}</td><td><span class="tag ok">À REMETTRE AU SERVICE</span></td></tr>
     <tr><td><b>B</b></td><td><b>Fiche de terrain</b> — check-list, comptage, pesée, plan de photos, notes de visite</td><td>{{ p_b }}</td><td><span class="tag ok">USAGE SUR PLACE</span></td></tr>
-    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir, analyse 360° (coût, logistique, finance, fiscalité, commerce), veille réglementaire</td><td>{{ p_c }} à {{ p_c + 3 + (2 if a360 else 0) + (1 if veille else 0) }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
+    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir, analyse 360° (coût, logistique, finance, fiscalité, commerce), veille réglementaire</td><td>{{ p_c }} à {{ p_c + 3 + (2 if a360 else 0) + ((veille|length + 3) // 4) }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
   <p class="small mt2">Pièces du dossier : {% for doc in d.documents %}{{ doc.titre }} ({{ doc.numero }}){{ ' · ' if not loop.last }}{% endfor %}.</p>
   <p class="small">Toutes les données sont transcrites des pièces et citent leur source. Textes : tarif douanier DGD, code des douanes (loi 79-07 modifiée), lois de finances 2001, 2018 et 2026, code des TCA.</p>
   {{ foot('établi le ' ~ date_fiche, 1) }}
@@ -154,11 +154,11 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   {{ foot('partie C — note interne, confidentielle', p_c + 3 + loop.index) }}
 </section>{% endfor %}{% endif %}
 
-{% if veille %}<section class="page">{{ head('Note interne', True) }}
-  {{ sec('C10', 'Veille réglementaire et normes — ce qui change autour du dossier') }}
+{% for lot in veille|batch(4) %}<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C10', 'Veille réglementaire et normes — ce qui change autour du dossier' ~ (' (suite)' if not loop.first else '')) }}
   <table><tr><th style="width:24%">Sujet</th><th>Fait</th><th style="width:20%">Source</th></tr>
-    {% for v in veille %}<tr><td><b>{{ v.sujet }}</b></td><td>{{ v.fait }}{% if v.effet %}<br><b>Ce dossier :</b> {{ v.effet }}.{% endif %}</td><td class="s">{{ v.source }}</td></tr>{% endfor %}</table>
-  {{ foot('partie C — note interne, confidentielle', p_c + 4 + (2 if a360 else 0)) }}
-</section>{% endif %}
+    {% for v in lot %}<tr><td><b>{{ v.sujet }}</b></td><td>{{ v.fait }}{% if v.effet %}<br><b>Ce dossier :</b> {{ v.effet }}.{% endif %}</td><td class="s">{{ v.source }}</td></tr>{% endfor %}</table>
+  {{ foot('partie C — note interne, confidentielle', p_c + 3 + (2 if a360 else 0) + loop.index) }}
+</section>{% endfor %}
 {% endif %}
 </body></html>

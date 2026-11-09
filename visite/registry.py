@@ -12,7 +12,10 @@ from .render import TPL
 
 CHAMPS = ["id", "date_d10", "d10", "mrn", "importateur", "fournisseur", "origine", "codes_sh", "articles",
           "valeur_da", "droits_da", "taux_pression", "circuit", "delai_accostage_d10", "lieu_visite",
-          "inspecteur", "controles_ok", "controles_alerte", "controles_erreur", "maj"]
+          "inspecteur", "controles_ok", "controles_alerte", "controles_erreur",
+          # indicateurs pour l'analyse (un dossier = une ligne du jeu de données)
+          "bureau", "regime_fiscal", "incoterm", "devise", "armateur", "transit_jours", "surestaries_da",
+          "exonere_da", "cout_connu_da", "alertes", "pieces_manquantes", "maj"]
 
 
 def ligne(d):
@@ -28,7 +31,29 @@ def ligne(d):
         "circuit": dec.get("circuit", ""), "delai_accostage_d10": (d10 - acc).days if acc and d10 else "",
         "lieu_visite": (d.get("visite") or {}).get("lieu", ""), "inspecteur": (d.get("visite") or {}).get("inspecteur", ""),
         "controles_ok": r["ok"], "controles_alerte": r["alerte"], "controles_erreur": r["erreur"],
+        **indicateurs(d),
         "maj": datetime.now().strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+def indicateurs(d):
+    """Variables d'analyse d'un dossier : délais, coûts, alertes. Sert de base aux statistiques et, plus tard, aux modèles."""
+    from . import exigences, expertise
+    dec, t = d["declaration"], d["transport"]
+    bl, acc = date(t.get("date_bl")), date(t.get("date_accostage"))
+    sur = expertise.surestaries(d)
+    exo = sum(x["montant"] for a in d["articles"] for x in a.get("taxes", []) if x.get("exonere"))
+    frais = sum(f.get("ht", 0) for f in d.get("frais_locaux", []))
+    return {
+        "bureau": (dec.get("bureau") or "").split("—")[0].strip(), "regime_fiscal": dec.get("regime_fiscal", ""),
+        "incoterm": dec.get("incoterm", ""), "devise": dec.get("devise", ""),
+        "armateur": (t.get("bad") or {}).get("agent", ""),
+        "transit_jours": (acc - bl).days if acc and bl else "",
+        "surestaries_da": round(sur["total_da"] + (sur["gestion_da"] or 0)) if sur and sur["total_da"] else "",
+        "exonere_da": round(exo) if exo else "",
+        "cout_connu_da": round(dec["valeur_da"] + d["liquidation"]["total"] + frais),
+        "alertes": " ".join(c["id"] for c in calc.controles(d) if c["statut"] != "ok"),
+        "pieces_manquantes": sum(1 for x in exigences.manquants(d) if x["type"] == "pièce" and x["niveau"] == "obligatoire"),
     }
 
 

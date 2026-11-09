@@ -1,6 +1,6 @@
 # Référentiel des sources du déclarant
 
-47 sources de référence · **22 dans la base** · 25 à télécharger.
+51 sources de référence · **22 dans la base** · 29 à télécharger.
 
 Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : ces fichiers se téléchargent à la main, puis `python tools/ingest.py <dossier>` les intègre (texte, données, index) et met ce tableau à jour.
 
@@ -49,6 +49,7 @@ Priorité : 1 = indispensable au travail quotidien · 2 = utile · 3 = historiqu
 | ✅ | 1 | Arrêté du 26/01/2019 fixant la liste des marchandises soumises au DAPS | Liste DAPS par code et taux | [arreteedu_26_janvier_2019_fr.pdf](https://www.douane.gov.dz/IMG/pdf/arreteedu_26_janvier_2019_fr.pdf) |
 | ⬇ | 1 | Loi de finances pour 2025 (JORADP) | Contribution de solidarité 3 %, taxe de domiciliation 5 %, exonérations 2025-2027 | [site](https://www.joradp.dz) |
 | ⬇ | 1 | Arrêté du 8/04/2019 modifiant l'arrêté du 26/01/2019 (DAPS) | Modifications de la liste DAPS | [arrete_du_2_chaabane_1440_correspondant_au_8_avril_2019_modifiant_l_arrete_26_janvier_2019.pdf](https://www.douane.gov.dz/IMG/pdf/arrete_du_2_chaabane_1440_correspondant_au_8_avril_2019_modifiant_l_arrete_26_janvier_2019.pdf) |
+| ⬇ | 1 | Projet de loi de finances 2027 — dispositions douanières (articles 153 à 176) | Mesures douanières à venir (projet, non adopté) | [plf-2027.pdf](https://www.mfdgi.gov.dz) |
 | ⬇ | 3 | Code des impôts indirects (art. 73, édition 2012) | Droits indirects (alcools, tabacs…) | [code_des_impots_indirect_art_73._annee_2012.pdf](https://www.douane.gov.dz/IMG/pdf/code_des_impots_indirect_art_73._annee_2012.pdf) |
 | ⬇ | 3 | Loi de finances complémentaire 2015 | Historique | [lfc_2015.pdf](https://www.douane.gov.dz/IMG/pdf/lfc_2015.pdf) |
 
@@ -110,6 +111,14 @@ Priorité : 1 = indispensable au travail quotidien · 2 = utile · 3 = historiqu
 | ⬇ | 3 | Bulletin officiel des douanes (BODA), 4e trimestre 2022 | Circulaires et décisions publiées | [boda_n4_2022_francais.pdf](https://www.douane.gov.dz/IMG/pdf/boda_n4_2022_francais.pdf) |
 | ⬇ | 3 | Bulletin officiel des douanes (BODA), 2e trimestre 2018 | Circulaires et décisions publiées | [boda_2_2018_fr.pdf](https://www.douane.gov.dz/IMG/pdf/boda_2_2018_fr.pdf) |
 | ⬇ | 3 | Bulletin officiel des douanes (BODA), 4e trimestre 2018 | Circulaires et décisions publiées | [boda_num_04_2018.pdf](https://www.douane.gov.dz/IMG/pdf/boda_num_04_2018.pdf) |
+
+## Banque et change
+
+| | Prio. | Source | Apport | Lien |
+|---|---|---|---|---|
+| ⬇ | 1 | Banque d'Algérie — instruction n° 01/2026 du 14/05/2026 : domiciliation des importations avant l'expédition | Domiciliation avant le B/L, délai de 45 jours (lien relevé par la recherche : vérifier à l'ouverture) | [note-01-DGC-2026.pdf](https://www.bank-of-algeria.dz/stoodroa/2026/05/note-01-DGC-2026.pdf) |
+| ⬇ | 1 | Banque d'Algérie — règlement n° 07-01 du 03/02/2007 modifié (domiciliation, rapatriement, comptes devises) | Art. 29 : domiciliation préalable au transfert et au dédouanement | [reglement-07-01.pdf](https://www.bank-of-algeria.dz/importations-exportations-instruction/) |
+| ⬇ | 2 | Banque d'Algérie — règlement n° 26-02 du 23/07/2026 (JO n° 58 du 12/08/2026) : rapatriement des recettes d'exportation en 120 jours | Exportation : délai de rapatriement | [reglement-26-02.pdf](https://www.joradp.dz) |
 
 ## Méthode
 
