@@ -27,6 +27,7 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
 .rk{border:1px solid var(--line);border-left:3px solid var(--warn);padding:1.8mm 2.6mm;margin:1.6mm 0;break-inside:avoid}
 .rk b.t{font-size:8.2pt;color:var(--ink)}.rk p{font-size:7.5pt;margin:.8mm 0 0;line-height:1.4}.rk p.pr{color:var(--navy)}
 .st-d{color:var(--crit);font-weight:700}.st-r{color:var(--ok);font-weight:700}.st-a{color:var(--warn);font-weight:700}
+.pz{font-size:6.2pt;font-weight:700;letter-spacing:.08em;padding:.4mm 1.4mm;border-radius:1mm;margin-left:1.5mm}.pz.ob{background:var(--crit-l);color:var(--crit)}.pz.re{background:var(--warn-l);color:var(--warn)}
 .lines div{border-bottom:1px solid var(--line);height:6.5mm}
 </style></head><body>
 
@@ -55,7 +56,7 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   <table class="som"><tr><th style="width:8%">Partie</th><th>Contenu</th><th style="width:12%">Pages</th><th style="width:20%">Destinataire</th></tr>
     <tr><td><b>A</b></td><td><b>Fiche de visite</b> — identification, parties, transport, marchandise, description technique, classement motivé, origine, valeur, régime fiscal, formalités, pièces analysées, concordance, repères, procès-verbal</td><td>{{ p_a }} à {{ p_b - 1 }}</td><td><span class="tag ok">À REMETTRE AU SERVICE</span></td></tr>
     <tr><td><b>B</b></td><td><b>Fiche de terrain</b> — check-list, comptage, pesée, plan de photos, notes de visite</td><td>{{ p_b }}</td><td><span class="tag ok">USAGE SUR PLACE</span></td></tr>
-    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, pièces à réunir, contrôles automatiques</td><td>{{ p_c }} à {{ p_c + 2 }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
+    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir</td><td>{{ p_c }} à {{ p_c + 3 }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
   <p class="small mt2">Pièces du dossier : {% for doc in d.documents %}{{ doc.titre }} ({{ doc.numero }}){{ ' · ' if not loop.last }}{% endfor %}.</p>
   <p class="small">Toutes les données sont transcrites des pièces et citent leur source. Textes : tarif douanier DGD, code des douanes (loi 79-07 modifiée), lois de finances 2001, 2018 et 2026, code des TCA.</p>
   {{ foot('établi le ' ~ date_fiche, 1) }}
@@ -123,6 +124,20 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   <table><tr><th style="width:4%">#</th><th>Texte</th><th style="width:34%">Utilité pour ce dossier</th></tr>
     {% for t, u in (d.note_interne or {}).get('textes_manquants', []) %}<tr><td>{{ loop.index }}</td><td>{{ t }}</td><td>{{ u }}</td></tr>{% endfor %}</table>
   {{ foot('partie C — note interne, confidentielle', p_c + 2) }}
+</section>
+
+<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C8', 'À fournir — pièces et informations manquantes (' ~ manquants|length ~ ')') }}
+  <p class="small">Liste établie automatiquement à partir du référentiel des pièces (knowledge-base/data/pieces_dossier.json) : pour chaque pièce, son émetteur, ce qu'elle prouve en douane et le texte qui la fonde.</p>
+  {% for x in manquants if x.type == 'pièce' %}<div class="rk" style="border-left-color:{{ 'var(--crit)' if x.niveau == 'obligatoire' else 'var(--warn)' }}">
+    <b class="t">{{ loop.index }}. {{ x.nom }}</b> <span class="pz {{ 'ob' if x.niveau == 'obligatoire' else 're' }}">{{ x.niveau|upper }}</span>
+    <p><b>Pourquoi ici :</b> {{ x.motif }}. <b>Émetteur :</b> {{ x.emetteur }}.</p>
+    <p><b>Valeur douanière :</b> {{ x.preuve }}</p><p class="pr"><b>Base :</b> {{ x.base }}</p></div>{% endfor %}
+  {% set autres = manquants|rejectattr('type', 'equalto', 'pièce')|list %}
+  {% if autres %}<div class="pdsh mt2"><span>INFORMATIONS À DONNER</span></div>
+  <table><tr><th>Information</th><th style="width:16%">Niveau</th><th>Usage</th></tr>
+    {% for x in autres %}<tr><td><b>{{ x.nom }}</b></td><td>{{ x.niveau }}</td><td>{{ x.motif }}</td></tr>{% endfor %}</table>{% endif %}
+  {{ foot('partie C — note interne, confidentielle', p_c + 3) }}
 </section>
 {% endif %}
 </body></html>

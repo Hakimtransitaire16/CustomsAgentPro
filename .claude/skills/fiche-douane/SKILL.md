@@ -67,3 +67,7 @@ Séparément, **à l'utilisateur seul**, une note de risques : classement, assur
 ## Interdits
 - Pas d'amendes, de scénarios de redressement ni de points faibles dans la fiche de l'inspecteur.
 - Rien de `dossiers/` dans git. Le hook `.claude/hooks/garde_donnees_clients.py` bloque `git add`, `commit` et `push` ; ne jamais le contourner.
+
+## Fin de chaque dossier — toujours
+Lire la sortie « À DEMANDER AU DÉCLARANT » de `python -m visite tout` et la reprendre dans la réponse : chaque pièce ou information manquante, son émetteur et pourquoi elle compte (référentiel `knowledge-base/data/pieces_dossier.json`). Aucune information de visite n'est inventée ; toute hypothèse va dans `meta.hypotheses`.
+

@@ -118,6 +118,20 @@ def cmd_risques(d, a):
     return f
 
 
+def cmd_manquants(d, a):
+    """Pièces et informations à demander au déclarant, avec émetteur, valeur douanière et texte."""
+    from . import exigences
+    txt = exigences.texte(d)
+    f = _sortie(d) / f"A_fournir_{d['meta']['id']}.md"
+    f.write_text(txt, encoding="utf-8")
+    m = exigences.manquants(d)
+    print(f"\n=== À DEMANDER AU DÉCLARANT : {len(m)} élément(s) ===")
+    for x in m:
+        print(f"  [{x['niveau']}] {x['nom']} — {x['motif']}")
+    print(f"Détail : {f}")
+    return m
+
+
 def cmd_complet(d, a, fiche=None):
     """Un seul PDF : couverture, fiche de visite (A), fiche de terrain (B), note interne (C)."""
     from . import complet
@@ -138,6 +152,7 @@ def cmd_tout(d, a):
     cmd_app(d, a)
     cmd_risques(d, a)
     cmd_complet(d, a, fiche=f)
+    cmd_manquants(d, a)
 
 
 def cmd_tarif(argv):
@@ -177,7 +192,7 @@ def main(argv=None):
         print(moteur.texte(moteur.analyser(" ".join(argv[1:]))))
         return 0
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques", "complet"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques", "complet", "manquants"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)

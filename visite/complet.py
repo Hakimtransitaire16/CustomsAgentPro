@@ -116,7 +116,8 @@ def construire(d: dict, fiche_pdf: Path, sortie: Path) -> Path:
             t = re.split(r"\s(?:CHAPITRE|Section \d)\s", t)[0]
             textes.append((f"{'LF 2026' if instr.startswith('Loi') else 'Code des douanes'}, art. {a['article']}", t[:700] + ("…" if len(t) > 700 else "")))
     nb_fiche = len(PdfReader(str(fiche_pdf)).pages)
-    ctx = dict(d=d, ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
+    from . import exigences
+    ctx = dict(d=d, manquants=exigences.manquants(d), ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
                jours=dl[1] if dl else None, enjeux=enjeux(d), textes=textes, checklist=render.checklist(d), slots=SLOTS + ["Étiquette d'une boîte", "Ampoules (gros plan)", "Pesée de contrôle"],
                css=(TPL / "style.css").read_text(encoding="utf-8"), initiales="".join(w[0] for w in d["meta"]["declarant"]["nom"].split()[:2]),
                nb_fiche=nb_fiche, date_fiche=render._date_fr(d["meta"].get("date_fiche", "")))

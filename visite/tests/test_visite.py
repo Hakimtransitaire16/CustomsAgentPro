@@ -37,6 +37,19 @@ class TestVisite(unittest.TestCase):
             self.assertIn(t, html)
         self.assertNotIn("DOSSIER CONFORME", html)
 
+    def test_manquants_signale_visite_et_pieces(self):
+        from visite import exigences
+        d = copy.deepcopy(self.d)
+        d["visite"] = {"lieu": "Port sec X", "inspecteur": "", "agent": "", "date": ""}
+        d.setdefault("meta", {})["hypotheses"] = ["visite.lieu"]
+        m = exigences.manquants(d)
+        codes = {x["code"] for x in m}
+        self.assertIn("visite.inspecteur", codes)
+        self.assertIn("visite.lieu", codes)  # hypothèse à confirmer
+        for x in m:
+            if x["type"] == "pièce":
+                self.assertTrue(x["emetteur"] and x["base"])
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)

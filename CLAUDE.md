@@ -26,6 +26,13 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 6. Livrer : `Dossier_<id>.html` (application unique), `Fiche_technique_<id>.pdf`, registre mis à jour.
 7. Ajouter une ligne à `dossiers/INDEX.md` (date, dossier, fichiers produits).
 
+## Ce qui manque : le dire et le demander (obligatoire)
+- Je connais les pièces d'un dossier, leur émetteur, ce qu'elles prouvent en douane et leur texte : `knowledge-base/data/pieces_dossier.json` (D10, facture, colisage, B/L, avis d'arrivée, BAD, transfert, domiciliation, certificat d'origine, assurance, mandat, fiche technique, FDS, programme MIPH, autorisations).
+- `python -m visite tout` termine par **« À DEMANDER AU DÉCLARANT »** (fichier `A_fournir_<id>.md`, page C8 du dossier complet) : pièces absentes, informations de visite (lieu, inspecteur, agent, date) et hypothèses.
+- **Chaque réponse qui livre un dossier finit par cette liste**, en clair, avec pour chaque élément : quoi, qui l'émet, pourquoi il compte. Je la redemande tant qu'elle n'est pas complète.
+- Je ne remplis **jamais** une information de visite (lieu, inspecteur, agent, date) par supposition. Si je dois retenir une hypothèse ailleurs, je l'inscris dans `meta.hypotheses` (ex. `"visite.lieu"`) : elle sort alors dans la liste « à confirmer ».
+- Lieux de visite connus : Port sec TERPORR, Entrepôt EPMA.
+
 ## Règles de contenu
 - Fiche **destinée à l'inspecteur** : langage clair et professionnel. Pas d'amendes, de scénarios de redressement ni de points faibles dans la fiche. Les risques (classement contestable, assurance, délais) se donnent **à moi seul**, à part.
 - Toujours afficher le **pays d'origine**, la provenance, le certificat d'origine et le MRN.
