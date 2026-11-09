@@ -433,7 +433,8 @@
          "enum": [
           "ok",
           "-",
-          "ecart"
+          "ecart",
+          "imp"
          ]
         }
        }

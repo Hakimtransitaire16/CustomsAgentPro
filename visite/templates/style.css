@@ -301,3 +301,52 @@ table.rf td:first-child{color:var(--ink2);width:38%;font-weight:600}
 .ph{border:1.2px dashed #9AA6B1}
 .phb{height:52mm;display:flex;align-items:center;justify-content:center;color:#9AA6B1;font-size:8pt;font-weight:700;letter-spacing:.14em;background:#FAFBFC}
 .phc{font-size:7.4pt;padding:1.4mm 2mm;border-top:1px dashed #9AA6B1;color:var(--ink2)}
+
+/* v2 : classement motivé, analyse des pièces, illustration */
+ol.mot{margin:0;padding-left:5mm;font-size:8.6pt;line-height:1.45}ol.mot li{margin:0 0 1.4mm}
+.txt{font-size:8.2pt;line-height:1.4;margin:0 0 1.6mm;color:#1d2b3a}.txt b{color:#0F2D4F}
+.src{font-size:7.4pt;color:#6b7a8c;margin-top:1mm}
+.illu{border:1px solid #d5dde7;border-radius:3mm;padding:2mm;margin:1mm 0 2mm}.illu img{width:100%;display:block}
+.illu-t{font-size:7.4pt;color:#6b7a8c;text-align:center;letter-spacing:.04em;margin-top:1mm}
+ul.chk.two{columns:2;column-gap:8mm}
+.anl{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.ac{border:1px solid #d5dde7;border-radius:2.5mm;padding:2.2mm 2.6mm;break-inside:avoid}
+.ach{display:flex;gap:2mm;align-items:baseline;flex-wrap:wrap;font-size:8.8pt;color:#0F2D4F;border-bottom:1px solid #e4eaf1;padding-bottom:1mm;margin-bottom:1.2mm}
+.ach .mono-t,.ach span:last-child{font-size:7.8pt;color:#4a5b6e}
+.aco{font-size:7.6pt;line-height:1.35;margin-bottom:1mm}
+table.acd{width:100%;border-collapse:collapse}table.acd td{font-size:7.3pt;padding:.35mm 1mm;border:0;border-bottom:1px dotted #dbe2ea;vertical-align:top;line-height:1.3}table.acd td:first-child{width:30%;color:#4a5b6e;white-space:nowrap}
+.aca{font-size:7.8pt;margin-top:1mm;color:#0F2D4F}
+/* ---- fiche de visite (plan D10) ---- */
+.sec{border-bottom:1px solid var(--line);padding-bottom:1.2mm;margin-top:3.2mm}
+.sec .n{display:inline-block;min-width:5.4mm;height:5.4mm;line-height:5.4mm;text-align:center;background:var(--navy);color:#fff;font-size:7.4pt;letter-spacing:0}
+.sec h2{font-size:10.6pt}
+.sec .cases{margin-left:auto;font-size:6.6pt;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.hero.sm{padding:4mm 5mm;margin-bottom:1mm}
+table.sv{font-size:7.7pt}
+table.sv td{padding:1.15mm 1.6mm}
+table.sv td.k{color:var(--ink2);font-weight:600}
+table.sv td.s,td.s{color:var(--muted);font-size:6.9pt}
+.txt{border-left:2px solid var(--blue);background:var(--blue-l);padding:1.4mm 2.4mm;margin:1.4mm 0;font-size:7.6pt;line-height:1.42}
+.txt b{color:var(--navy)}
+.dagn{font-size:6.9pt;color:var(--muted);margin-top:1.2mm}
+.page>p.small{margin-top:1.4mm}
+.illu img{max-height:56mm;width:auto;margin:0 auto;display:block}
+.acm{font-size:6.9pt;color:var(--muted);margin:-.4mm 0 1mm}
+.anl .ac{padding:2mm 2.6mm}
+.anl .aco{font-size:7.3pt}
+.anl table.acd td{font-size:7pt;padding:.55mm 1.2mm}
+.anl .aca{font-size:7.1pt}
+table.mx td,table.mx th{padding:.75mm 1mm}
+table.visit td{height:7mm}
+ol.mot li{font-size:7.7pt;margin-bottom:.8mm}
+.illu img{max-height:50mm}
+table.visit td{height:6.2mm}
+.sigs.mt{margin-top:3mm}
+.sec{margin-top:2.6mm}
+table.visit td{height:5.8mm}
+.hero.sm{padding:3mm 5mm}
+table.mx td,table.mx th{padding:.55mm 1mm}
+.sigs .sl{margin-top:5mm}
+.ft{padding-top:2mm}
+.page{padding-top:11mm}
+.sigs .sl{margin-top:0;height:12mm}

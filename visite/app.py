@@ -41,7 +41,7 @@ def construire(d, fidelite=None, pngs=None, registre=None, note=True, partage=Fa
         note_html = _note_html(d, ctrls) if note else ""
     except Exception as e:  # la note ne doit jamais empêcher l'application de se construire
         note_html = f"<p>Note indisponible : {e}</p>"
-    rows = registre if registre is not None else [ligne(d)]
+    rows = registre if registre is not None and not partage else [ligne(d)]  # jamais le registre des autres clients
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=CHAMPS, delimiter=";")
     w.writeheader()
@@ -59,11 +59,12 @@ def construire(d, fidelite=None, pngs=None, registre=None, note=True, partage=Fa
     fid = fidelite or []
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
     env.filters.update(n=n, sh=sh)
-    dossier_pur = {k: v for k, v in d.items() if not k.startswith("_")}
+    PRIVES = {"risques_declarant", "scan"}  # réservé au déclarant : jamais dans la version transmise
+    dossier_pur = {k: v for k, v in d.items() if not k.startswith("_") and not (partage and k in PRIVES)}
     return env.get_template("cockpit.html.j2").render(
         d=d, fiche=fiche, ctrls=ctrls, resume=calc.resume(ctrls), rows=rows, kpi=kpi,
         checklist=checklist(d), comptages=comptages, slots=slots,
         fid=fid, fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
         dossier_json=_script_json(dossier_pur), csv_text=_script_json(buf.getvalue()),
-        dossier_pretty=json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html, partage=partage,
+        dossier_pretty="" if partage else json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html, partage=partage,
     )

@@ -1,0 +1,171 @@
+{#- Fiche de visite — plan des cases du D10, chaque donnée sourcée. Généré depuis dossier.json. -#}
+{%- set dec = d.declaration -%}{%- set tr = d.transport -%}{%- set imp = d.parties.importateur -%}{%- set four = d.parties.fournisseur -%}
+{%- set fab = d.parties.fabricant -%}{%- set orig = d.origine or {} -%}{%- set vis = d.visite or {} -%}{%- set arts = d.articles -%}
+{%- set vl = d.valeur or {} -%}{%- set ex = d.exoneration or {} -%}{%- set cl = d.classement or {} -%}{%- set arr = d.arrivee or {} -%}
+{%- macro head(section) -%}
+<div class="hd"><div class="brand"><div class="mono">{{ initiales }}</div><div><div class="t1">{{ d.meta.declarant.nom }}</div><div class="t2">{{ d.meta.declarant.qualite or 'Déclarant en douane' }} · {{ d.parties.declarant_societe.nom }}</div></div></div>
+<div class="ref">D10 n° <b>{{ dec.numero }}</b> · {{ dec.date_heure }}<br>MRN <b>{{ dec.mrn }}</b> · conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
+{%- endmacro -%}
+{%- macro foot() -%}<div class="ft"><span><b>Fiche de visite</b> — établie par {{ d.meta.declarant.nom }}, déclarant en douane, d'après les pièces du dossier</span><span>{PAGE}</span></div>{%- endmacro -%}
+{%- macro sec(num, titre, cases='') -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2>{% if cases %}<span class="cases">{{ cases }}</span>{% endif %}</div>{%- endmacro -%}
+{%- macro kv(rows) -%}<table class="kv">{% for k, v in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{%- endmacro -%}
+{%- macro src(rows) -%}<table class="sv"><tr><th style="width:23%">Donnée</th><th>Valeur</th><th style="width:19%">Source</th></tr>{% for k, v, s in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td><td class="s">{{ s }}</td></tr>{% endfor %}</table>{%- endmacro -%}
+{%- macro txt(ref, t) -%}<div class="txt"><b>{{ ref }}</b> — {{ t }}</div>{%- endmacro -%}
+
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Fiche de visite — {{ d.meta.produit_titre or arts[0].designation }}</title><style>{{ css }}</style></head><body>
+
+{# ============ PAGE 1 : IDENTIFICATION · PARTIES · TRANSPORT ============ #}
+<section class="page">{{ head('Identification') }}
+  <div class="hero sm"><div><div class="hk">FICHE DE VISITE · DÉCLARATION EN DÉTAIL</div>
+    <div class="hn">{{ d.meta.produit_titre or arts[0].designation }} <span>{{ d.meta.produit_sous_titre or '' }}</span></div>
+    <div class="hs">{{ imp.nom }} · {{ (orig.pays or '')|upper }} ({{ orig.code }}) · {{ arts|map(attribute='code_sh')|map('sh')|join(' · ') }}</div></div></div>
+
+  {{ sec('1', 'Identification de la déclaration', 'cases A, 1, 38, 49') }}
+  {{ src([('N° et date du D10', '<b class="mono-t">' ~ dec.numero ~ '</b> · ' ~ dec.date_heure, 'D10'),
+          ('Bureau · circuit', dec.bureau ~ ' · circuit ' ~ dec.circuit ~ ' (visite physique)', 'D10'),
+          ('Régime (case 1)', dec.regime, 'D10'),
+          ('Régime fiscal (case 38)', dec.regime_fiscal ~ (' — exonération DD et TVA, voir § 9' if ex else ''), 'D10'),
+          ('Déclarant', d.parties.declarant_societe.nom ~ ' · agrément <span class="mono-t">' ~ d.parties.declarant_societe.agrement ~ '</span> · présenté par ' ~ d.meta.declarant.nom, 'D10 · décret 10-288')]) }}
+
+  {{ sec('2', 'Parties à l\'opération', 'cases 2, 8, 15, 20, 22') }}
+  {{ src([('Importateur (case 8)', '<b>' ~ imp.nom ~ '</b> — ' ~ imp.adresse ~ '<br>NIF <span class="mono-t">' ~ imp.nif ~ '</span> · RC <span class="mono-t">' ~ imp.rc ~ '</span> · code fiscal <span class="mono-t">' ~ dec.code_fiscal ~ '</span>' ~ ((' · ' ~ imp.qualite) if imp.qualite else ''), 'D10 · B/L · programme MIPH'),
+          ('Vendeur (case 2)', '<b>' ~ four.nom ~ '</b> — ' ~ four.adresse ~ ((' · ' ~ four.role) if four.role else ''), 'Facture'),
+          ('Fabricant et chargeur', ('<b>' ~ fab.nom ~ '</b> — ' ~ fab.adresse ~ ((' · ' ~ fab.role) if fab.role else '')) if fab else '', 'B/L'),
+          ('Liens acheteur–vendeur (case 22)', vl.liens, 'D10 · art. 16 du code des douanes')]) }}
+
+  {{ sec('3', 'Transport, arrivée et localisation', 'cases 18, 29, 30, 32, 34') }}
+  {{ src([('Connaissement', '<span class="mono-t">' ~ tr.bl ~ '</span> · émis le ' ~ tr.date_bl ~ (' à ' ~ tr.lieu_bl if tr.lieu_bl else '') ~ ' · ' ~ tr.port_chargement ~ ' → ' ~ tr.port_dechargement, 'B/L'),
+          ('Navires et voyages', tr.navire_detail or tr.navire, 'B/L · avis d\'arrivée · D10'),
+          ('Provenance (art. 15)', arr.provenance, 'Code des douanes, art. 15'),
+          ('Accostage · sommier', arr.accostage ~ ' · ligne du sommier ' ~ dec.ligne_sommier, 'Avis d\'arrivée · D10 case 30'),
+          ('MRN — manifeste (case 29)', '<b class="mono-t">' ~ dec.mrn ~ '</b> · N° Gros <span class="mono-t">' ~ tr.bad.gros ~ '</span>' ~ (' · CRN ' ~ arr.crn if arr.crn else ''), 'D10 · avis d\'arrivée'),
+          ('Conteneur · scellé', '<b class="mono-t">' ~ tr.conteneur ~ '</b> (' ~ tr.type_conteneur ~ ') · scellé <b class="mono-t">' ~ tr.scelle ~ '</b>', 'B/L · avis d\'arrivée'),
+          ('Localisation · lieu de visite', '<span class="mono-t">' ~ dec.localisation ~ '</span> · ' ~ (vis.lieu or ''), 'D10')]) }}
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 2 : MARCHANDISE · DESCRIPTION ============ #}
+<section class="page">{{ head('Marchandise') }}
+  {{ sec('4', 'Marchandise déclarée', 'cases 31, 33, 35, 41, 44') }}
+  {% for a in arts %}{% set q = a.quantite %}
+  {{ src([('Désignation au D10 (case 31)', '<b>' ~ a.designation ~ '</b>', 'D10'),
+          ('Désignation claire', a.designation_claire, 'B/L · facture · programme MIPH'),
+          ('Quantité', (q.nombre|n if q.nombre is number else q.nombre) ~ ' ' ~ q.unite ~ (' — ' ~ a.quantite_detail if a.quantite_detail else ''), 'Facture · colisage · B/L'),
+          ('Colis', dec.nb_colis|n ~ ' ' ~ (d.colisage[0].contenu if d.colisage else 'colis'), 'D10 · colisage · B/L'),
+          ('Poids net · brut', a.poids_net|n ~ ' kg net · ' ~ dec.poids_brut|n ~ ' kg brut', 'D10 cases 35, 38 · colisage · B/L')]) }}{% endfor %}
+  {% if illus %}<div class="illu"><img src="{{ illus }}" alt="Illustration"><div class="illu-t">ILLUSTRATION — schéma établi d'après les pièces du dossier ; ne constitue pas une photographie</div></div>{% endif %}
+
+  {{ sec('5', 'Description technique — modèle européen (guide EBTI)') }}
+  {% for a in arts %}{% set ds = a.description or {} %}
+  <div class="dsc">
+    {% for code, titre, val in [('A','Définition', ds.definition), ('B','Nature', ds.nature), ('C','Présentation', ds.presentation), ('D','Fonction', ds.fonction)] if val %}
+    <div class="dr"><div class="dl"><span class="dk">{{ code }}</span>{{ titre }}</div><div class="db">{{ val }}</div></div>{% endfor %}
+    {% for code, titre, lst in [('E','Usages', ds.usages), ('F',"Ce qu'elle n'est pas", ds.n_est_pas)] if lst %}
+    <div class="dr"><div class="dl"><span class="dk">{{ code }}</span>{{ titre }}</div><div class="db"><ul class="sq">{% for x in lst %}<li>{{ x }}</li>{% endfor %}</ul></div></div>{% endfor %}
+  </div>{% if ds.sources %}<p class="dagn">Sources : {{ ds.sources }}</p>{% endif %}{% endfor %}
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 3 : CLASSEMENT ============ #}
+<section class="page">{{ head('Classement tarifaire') }}
+  {{ sec('6', 'Espèce tarifaire — classement motivé', 'case 33') }}
+  {% for a in arts %}{% set f = classes[loop.index0] if classes else none %}{% if f %}
+  <table class="ab cust"><tr><th style="width:20%">Niveau</th><th style="width:16%">Code</th><th>Libellé du tarif douanier</th></tr>
+    {% if f.section %}<tr><td class="p">Section</td><td class="mono-t">{{ f.section.numero }}</td><td>{{ f.section.titre|capitalize }} — {{ 'notes de section : ' ~ (f.section.notes_citant_position|length ~ ' citant la position') if f.section.notes else 'section sans notes légales' }}</td></tr>{% endif %}
+    {% if f.chapitre %}<tr><td class="p">Chapitre</td><td class="mono-t">{{ f.chapitre.numero }}</td><td>{{ f.chapitre.titre }}</td></tr>{% endif %}
+    <tr><td class="p">Position</td><td class="mono-t">{{ f.position.code }}</td><td>{{ f.position.libelle }}</td></tr>
+    {% if f.ligne %}{% set h = f.ligne.hierarchie %}{% if h %}<tr><td class="p">Sous-position</td><td class="mono-t">{{ f.sous_position }}</td><td>{{ h[0] }}</td></tr>{% endif %}
+    <tr><td class="p">Ligne nationale</td><td class="mono-t"><b>{{ f.ligne.code }}</b></td><td><b>{{ (h[1:] + [f.ligne.libelle])|join(' — ') }}</b> · unité {{ f.ligne.unite }} · DD {{ f.droit_douane|n }} %</td></tr>{% endif %}
+    {% if a.code_export %}<tr><td class="p">Code SH à l'export</td><td class="mono-t">{{ a.code_export }}</td><td>{{ a.code_export_source or 'facture, colisage, B/L' }} — même sous-position</td></tr>{% endif %}
+  </table>{% endif %}{% endfor %}
+  <div class="grid2 mt2">
+    <div><div class="pdsh"><span>MOTIVATION</span></div><ol class="mot">{% for m in cl.motivation or [] %}<li>{{ m }}</li>{% endfor %}</ol></div>
+    <div><div class="pdsh"><span>RÈGLES ET NOTES</span></div>
+      {% for k, lab in [('1', 'RGI 1'), ('6', 'RGI 6'), ('5b', 'RGI 5 b')] if rgi.get(k) %}{{ txt(lab, '« ' ~ rgi[k]|truncate(150, True, '…') ~ ' »') }}{% endfor %}
+      {% for ref, t in cl.notes or [] %}{{ txt(ref, t) }}{% endfor %}</div>
+  </div>
+  {% if cl.ecartees %}<div class="pdsh"><span>POSITIONS ET LIGNES VOISINES ÉCARTÉES</span></div>
+  <table><tr><th style="width:14%">Code</th><th style="width:34%">Libellé du tarif</th><th style="width:7%">DD</th><th>Motif</th></tr>
+  {% for c, l, t, m in cl.ecartees %}<tr><td class="mono-t">{{ c }}</td><td>{{ l }}</td><td>{{ t }}</td><td>{{ m }}</td></tr>{% endfor %}</table>{% endif %}
+  {% for x in cl.complements or [] %}<p class="small">{{ x }}</p>{% endfor %}
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 4 : ORIGINE · VALEUR ============ #}
+<section class="page">{{ head('Origine · valeur') }}
+  {{ sec('7', 'Origine et provenance', 'cases 34, 36, 39, 43') }}
+  {{ src([("Pays d'origine (case 39)", '<b>' ~ (orig.pays or '') ~ ' (' ~ orig.code ~ ')</b>', 'D10'),
+          ("Preuves de l'origine", orig.preuve if not orig.certificat else 'Certificat ' ~ orig.certificat ~ ' du ' ~ orig.date_certificat ~ ' — ' ~ orig.emetteur, 'Pièces du dossier'),
+          ('Provenance', arr.provenance, 'Code des douanes, art. 15'),
+          ('Préférence tarifaire (case 43)', orig.preference, 'D10')]) }}
+  {% for ref, t in orig.textes or [] %}{{ txt(ref, t) }}{% endfor %}
+
+  {{ sec('8', 'Valeur en douane', 'cases 22, 42, 46') }}
+  {% for ref, t in vl.textes or [] %}{{ txt(ref, t) }}{% endfor %}
+  <table class="sv mt2"><tr><th style="width:38%">Élément</th><th class="num" style="width:22%">Montant</th><th>Base et source</th></tr>
+    {% for k, v, s in vl.lignes or [] %}<tr{% if loop.last %} class="tot"{% endif %}><td class="k">{{ k }}</td><td class="num mono-t">{{ v }}</td><td class="s">{{ s }}</td></tr>{% endfor %}</table>
+  {% for x in vl.observations or [] %}<p class="small">{{ x }}</p>{% endfor %}
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 5 : RÉGIME FISCAL · LIQUIDATION · FORMALITÉS ============ #}
+<section class="page">{{ head('Régime fiscal · formalités') }}
+  {{ sec('9', 'Régime fiscal ' ~ dec.regime_fiscal ~ ' et liquidation', 'cases 38, 47') }}
+  {% for ref, t in ex.textes or [] %}{{ txt(ref, t) }}{% endfor %}
+  {% if ex.conditions %}<table class="mt2"><tr><th style="width:36%">Condition du texte</th><th>Élément du dossier</th><th style="width:20%">Pièce</th></tr>
+  {% for c, v, p in ex.conditions %}<tr><td class="k">{{ c }}</td><td>{{ v }}</td><td class="s">{{ p }}</td></tr>{% endfor %}</table>{% endif %}
+  <table class="mt2"><tr><th>Taxe</th><th class="num">Quotité</th><th class="num">Assiette DA</th><th class="num">Montant DA</th><th>Base légale</th></tr>
+    {% for a in arts %}{% for t in a.taxes %}<tr><td>{{ {'DD':'Droit de douane','CS':'Contribution de solidarité','TVA':'TVA'}.get(t.code, t.code) }}</td><td class="num">{{ t.quotite|n }} %</td><td class="num">{{ t.assiette|n }}</td><td class="num">{{ ('exonéré (' ~ t.montant|n(2) ~ ')') if t.exonere else t.montant|n(2) }}</td><td class="s">{{ t.base_legale or '' }}</td></tr>{% endfor %}{% endfor %}
+    {% if d.liquidation.RPS %}<tr><td>Redevance informatique</td><td></td><td></td><td class="num">{{ d.liquidation.RPS|n }}</td><td class="s">{{ d.liquidation.RPS_base or 'Art. 238 bis du code des douanes' }}</td></tr>{% endif %}
+    <tr class="tot"><td colspan="3">Total payé</td><td class="num">{{ d.liquidation.total|n }}</td><td class="s">récapitulatif du D10</td></tr>
+    {% if total_exonere %}<tr><td colspan="3">Total exonéré (DD + TVA)</td><td class="num">{{ total_exonere|n(2) }}</td><td class="s">régime fiscal {{ dec.regime_fiscal }}</td></tr>{% endif %}
+  </table>
+  {% for x in d.liquidation_notes or [] %}<p class="small">{{ x }}</p>{% endfor %}
+
+  {{ sec('10', 'Formalités', 'case 44') }}
+  {% if d.formalites %}<table><tr><th style="width:32%">Formalité</th><th>Situation</th></tr>
+  {% for f, s in d.formalites %}<tr><td class="k">{{ f }}</td><td>{{ s }}</td></tr>{% endfor %}</table>{% endif %}
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 6 : ANALYSE DES PIÈCES ============ #}
+<section class="page">{{ head('Pièces jointes') }}
+  {{ sec('11', 'Pièces jointes — analyse une par une', 'case 44') }}
+  <div class="anl">{% for doc in d.documents %}{% set an = doc.analyse or {} %}<div class="ac">
+    <div class="ach"><span class="dc-n">{{ '%02d' % loop.index }}</span><b>{{ doc.titre }}</b></div><div class="acm"><span>{{ doc.emetteur }}</span> · <span class="mono-t">{{ doc.numero }}</span> · <span>{{ doc.date }}</span></div>
+    {% if an.objet %}<div class="aco">{{ an.objet }}</div>{% endif %}
+    {% if an.donnees %}<table class="acd">{% for k, v in an.donnees %}<tr><td>{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{% endif %}
+    {% if an.apport %}<div class="aca"><b>Apport :</b> {{ an.apport }}</div>{% endif %}
+  </div>{% endfor %}</div>
+
+  {{ foot() }}
+</section>
+
+{# ============ PAGE 7 : REPÈRES DE VISITE · PROCÈS-VERBAL ============ #}
+<section class="page">{{ head('Visite') }}
+  {{ sec('12', 'Concordance des pièces') }}
+  {% if d.concordance %}<table class="mx"><tr><th>Concordance</th>{% for p in d.concordance.pieces %}<th>{{ p }}</th>{% endfor %}</tr>
+  {% for l in d.concordance.lignes %}<tr><td>{{ l.donnee }}</td>{% for v in l.valeurs %}<td>{{ {'ok':'✓','-':'—','ecart':'!','imp':'≤'}[v] }}</td>{% endfor %}</tr>{% endfor %}</table>
+  <p class="small">✓ identique · — absente de la pièce · ≤ imputée sur le programme</p>{% endif %}
+  {{ sec('13', 'Repères pour la visite physique') }}
+  <table><tr><th style="width:30%">Point de contrôle</th><th>Attendu d'après les pièces</th><th style="width:20%">Pièce</th></tr>
+  {% for k, v, s in d.reperes_visite or [] %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td><td class="s">{{ s }}</td></tr>{% endfor %}</table>
+  {{ sec('14', 'Constatations de la visite — réservé au service') }}
+  <table class="visit"><tr><th style="width:34%">Rubrique</th><th>Constatation</th></tr>
+    {% for k, lab, val in pv if k != 'lieu' %}<tr><td>{{ lab }}</td><td data-pv="{{ k }}">{{ val }}</td></tr>{% endfor %}</table>
+  <div class="sigs mt">
+    <div><div class="small muted">Inspecteur de visite</div><div class="nm">{{ vis.inspecteur or '' }}</div><div class="sl">Signature et cachet</div></div>
+    <div><div class="small muted">Agent de visite</div><div class="nm">{{ vis.agent or '' }}</div><div class="sl">Signature</div></div>
+    <div><div class="small muted">Déclarant</div><div class="nm">{{ d.meta.declarant.nom }}</div><div class="sl">Signature · {{ date_fiche }}</div></div>
+  </div>
+  {{ foot() }}
+</section>
+
+{% if photos or live %}
+<section class="page" id="photos-page"{% if not photos %} style="display:none"{% endif %}>{{ head('Photos de la visite') }}
+  {{ sec('15', 'Photos prises lors de la visite') }}
+  <div class="phg" id="photos-grid">{% for p in photos %}<div class="ph"><img src="{{ p.src }}" style="width:100%;height:52mm;object-fit:cover;display:block"><div class="phc">{{ p.legende }}</div></div>{% endfor %}</div>
+  {% if live %}<div class="ft"><span><b>Fiche de visite</b> · {{ d.meta.declarant.nom }}</span><span>Annexe photos</span></div>{% else %}{{ foot() }}{% endif %}
+</section>
+{% endif %}
+</body></html>

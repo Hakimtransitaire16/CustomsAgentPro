@@ -378,7 +378,8 @@ RISQUES = {  # préfixe du contrôle → (mots de recherche dans les sources, ce
              "Vérifier la liste DAPS en vigueur pour cette ligne et une éventuelle exemption (origine préférentielle, "
              "intrants) ; à défaut, liquider le DAPS."),
     "VAL": (["valeur", "assurance", "fret", "transaction"],
-            "Préparer la police ou l'attestation d'assurance ; à défaut, l'administration peut réintégrer un forfait."),
+            "Préparer la police ou l'attestation d'assurance, ou une déclaration de non-assurance : la valeur ne retient que "
+            "des frais réels, sur données objectives et quantifiables (art. 16 octies § 2) ; pas de forfait (guide de la valeur DGD)."),
     "DAT": ([], "Vérifier que la marchandise n'est pas inscrite en dépôt de douane ni proposée à la vente ; calculer "
                 "surestaries et frais de magasinage ; préparer la justification du retard."),
     "ISO": (["conteneur"], "Revérifier le numéro de conteneur sur le B/L et la porte du conteneur."),
@@ -436,6 +437,10 @@ def note_risques(d: dict, ctrls: list[dict]) -> str:
         for p in passages(mots, limite=3) if mots else []:
             L.append(f"- *{p['reference'][:110]}* : {p['extrait'][:300]}")
         L.append("")
+    for r in d.get("risques_declarant", []):
+        L += [f"## ! {r['titre']}", "", r["detail"], ""]
+        if r.get("preparer"):
+            L += [f"**À préparer :** {r['preparer']}", ""]
     L += ["## Classement de chaque article", ""]
     for a in d["articles"]:
         L += ["```", *_fiche_courte(tarif.fiche(a["code_sh"])), "```", ""]

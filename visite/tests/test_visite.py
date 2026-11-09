@@ -21,6 +21,22 @@ class TestVisite(unittest.TestCase):
         with self.assertRaises(jsonschema.ValidationError):
             jsonschema.validate({k: v for k, v in d.items() if not k.startswith("_")}, schema)
 
+    def test_partage_sans_donnees_privees(self):
+        d = copy.deepcopy(self.d)
+        d["risques_declarant"] = [{"titre": "SECRET-RISQUE", "detail": "SECRET-DETAIL"}]
+        autre = {"dossier": "AUTRE-CLIENT-XYZ"}
+        html = app.construire(d, registre=[app.ligne(d)], partage=True)
+        self.assertNotIn("SECRET-RISQUE", html)
+        self.assertNotIn("SECRET-DETAIL", html)
+        complet = app.construire(d, partage=False)
+        self.assertIn("SECRET-RISQUE", complet)
+
+    def test_fiche_visite_plan_d10(self):
+        html = render.html(self.d)
+        for t in ("Identification de la déclaration", "Espèce tarifaire", "Valeur en douane", "Constatations de la visite"):
+            self.assertIn(t, html)
+        self.assertNotIn("DOSSIER CONFORME", html)
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)

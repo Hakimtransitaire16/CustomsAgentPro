@@ -9,6 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 from PIL import Image
 
 from . import calc, tarif
+import json as _json
 from .data import n, sh
 
 TPL = Path(__file__).parent / "templates"
@@ -62,6 +63,12 @@ def checklist(d):
     return out
 
 
+def _date_fr(s):
+    """AAAA-MM-JJ → JJ/MM/AAAA (les autres formats sont rendus tels quels)."""
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", s or "")
+    return f"{m[3]}/{m[2]}/{m[1]}" if m else (s or "")
+
+
 def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
     arts = d["articles"]
     ctrls = calc.controles(d)
@@ -84,8 +91,25 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
             f["src"] = b64img(f["extrait"], q=70, gray=True)
         fid.append(f)
     photos = [{"src": p["data"], "legende": p.get("legende", "")} for p in (visite or {}).get("photos", []) if p.get("data")]
+    illus = None
+    if d.get("illustration"):
+        f = Path(d["_dir"]) / d["illustration"]
+        if f.exists():
+            illus = "data:image/svg+xml;base64," + base64.b64encode(f.read_bytes()).decode()
+    classes, rgi = [], {}
+    if tarif.disponible():
+        classes = [tarif.fiche(a["code_sh"]) for a in arts]
+        sf = tarif.KB / "tarif_2016_sections.json"
+        if sf.exists():
+            txt = re.sub(r"\s*\n\s*", " ", _json.loads(sf.read_text(encoding="utf-8")).get("rgi", ""))
+            for k, debut, fin in (("1", "1. Le libellé", " 2. a)"), ("5b", "b) Sous réserve des dispositions de la Règle 5 a)", " 6. "),
+                                  ("6", "6. Le classement", "Aux fins de cette")):
+                i = txt.find(debut)
+                if i >= 0:
+                    j = txt.find(fin, i + len(debut))
+                    rgi[k] = txt[i:j if j > 0 else i + 600].strip()
     return dict(
-        d=d, css=(TPL / "style.css").read_text(encoding="utf-8"),
+        d=d, css=(TPL / "style.css").read_text(encoding="utf-8"), illus=illus, classes=classes, rgi=rgi,
         initiales="".join(x[0] for x in nom[:2]).upper(),
         poids_net=sum(a["poids_net"] for a in arts),
         nb_pieces=len(d.get("documents", [])),
@@ -97,15 +121,17 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
         pbruts=[f"{n(a.get('poids_brut'))} kg ({a.get('poids_brut_source', '')})" if a.get("poids_brut") else "—" for a in arts],
         classements=[tarif.classement(a) or "—" for a in arts],
         checklist=checklist(d), pv=pv, thumbs=thumbs, photos=photos,
+        date_fiche=_date_fr(d["meta"].get("date_fiche", "")),
+        total_exonere=sum(t["montant"] for a in arts for t in a.get("taxes", []) if t.get("exonere")),
         ctrl_ok=r["ok"], ctrl_tot=len(ctrls), conformite=d.get("conformite"), live=live,
     )
 
 
-def html(d, **kw):
+def html(d, modele="fiche_visite.html.j2", **kw):
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
     env.filters.update(n=n, sh=sh, add_suffix=lambda s, suf: f"{s}{suf}")
     env.globals.update(icon=icon, taxe=taxe, total_art=lambda a: sum(0 if t.get("exonere") else t["montant"] for t in a["taxes"]))
-    out = env.get_template("fiche.html.j2").render(**contexte(d, **kw))
+    out = env.get_template(modele).render(**contexte(d, **kw))
     pages = out.count("{PAGE}")
     k = iter(range(1, pages + 1))
     return re.sub(r"\{PAGE\}", lambda m: f"{next(k)} / {pages}", out)
