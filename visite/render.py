@@ -58,7 +58,7 @@ def checklist(d):
         q = a.get("quantite", {})
         nb = n(q["nombre"]) if isinstance(q.get("nombre"), (int, float)) else q.get("nombre", "")
         out.append(f"<b>{nb} {q.get('unite', '')}</b> de {a['designation']} ({n(a['poids_net'])} kg net).")
-    out += ["Étiquettes : produit, fabricant, lot, dates, poids net, pays d'origine, pictogrammes.",
+    out += ["Étiquettes : produit, fabricant, lot, dates, poids net, pays d'origine.",
             "Photos : porte, scellé, chargement, étiquettes."]
     return out
 

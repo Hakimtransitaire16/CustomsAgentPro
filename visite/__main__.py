@@ -118,13 +118,26 @@ def cmd_risques(d, a):
     return f
 
 
+def cmd_complet(d, a, fiche=None):
+    """Un seul PDF : couverture, fiche de visite (A), fiche de terrain (B), note interne (C)."""
+    from . import complet
+    s = _sortie(d)
+    fiche = fiche or s / f"Fiche_technique_{d['meta']['id']}.pdf"
+    if not Path(fiche).exists():
+        fiche = cmd_fiche(d, a)
+    out = complet.construire(d, Path(fiche), s)
+    print(f"Dossier complet (un PDF) : {out} ({out.stat().st_size // 1024} Ko)")
+    return out
+
+
 def cmd_tout(d, a):
     moteur.preparer(silencieux=True)
     cmd_controler(d, a)
-    cmd_fiche(d, a)
+    f = cmd_fiche(d, a)
     cmd_registre(d, a)
     cmd_app(d, a)
     cmd_risques(d, a)
+    cmd_complet(d, a, fiche=f)
 
 
 def cmd_tarif(argv):
@@ -164,7 +177,7 @@ def main(argv=None):
         print(moteur.texte(moteur.analyser(" ".join(argv[1:]))))
         return 0
     p = argparse.ArgumentParser(prog="visite", description="Moteur visite douane — un dossier JSON, toutes les sorties")
-    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques"])
+    p.add_argument("commande", choices=["extraire", "controler", "fiche", "mobile", "pv", "registre", "app", "tout", "tarif", "risques", "complet"])
     p.add_argument("dossier")
     p.add_argument("visite", nargs="?")
     a = p.parse_args(argv)
