@@ -48,7 +48,8 @@ def controles(d):
                 ok &= abs(calc_ - t[code]["montant"]) <= TOL_DA and abs(t[code]["assiette"] - a["valeur_da"]) <= TOL_DA
                 det.append(f"{code} {t[code]['quotite']} % = {n(calc_, 2)}")
         if "TVA" in t:
-            base = a["valeur_da"] + t.get("DD", {}).get("montant", 0) + t.get("CS", {}).get("montant", 0)
+            dd_base = 0 if t.get("DD", {}).get("exonere") else t.get("DD", {}).get("montant", 0)
+            base = a["valeur_da"] + dd_base + t.get("CS", {}).get("montant", 0)
             calc_ = t["TVA"]["assiette"] * t["TVA"]["quotite"] / 100
             ok &= abs(base - t["TVA"]["assiette"]) <= TOL_DA and abs(calc_ - t["TVA"]["montant"]) <= TOL_DA
             det.append(f"assiette TVA {n(base, 2)} → TVA {n(calc_, 2)}")
@@ -58,12 +59,18 @@ def controles(d):
     tot = {}
     for a in arts:
         for x in a["taxes"]:
-            tot[x["code"]] = tot.get(x["code"], 0) + x["montant"]
+            tot[x["code"]] = tot.get(x["code"], 0) + (0 if x.get("exonere") else x["montant"])
     ok = all(abs(int(tot.get(k, 0)) - liq.get(k, 0)) <= TOL_DA for k in ("DD", "TVA", "CS"))
     total = sum(liq.get(k, 0) for k in ("DD", "TVA", "CS", "RPS"))
     ok &= abs(total - liq["total"]) <= TOL_DA
     out.append(_c("LIQ-T", "Liquidation récapitulative", ok,
                   " + ".join(f"{k} {n(liq.get(k, 0))}" for k in ("DD", "TVA", "CS", "RPS")) + f" = {n(total)} DA (déclaré {n(liq['total'])})"))
+    exo = [(a["num"], x["code"]) for a in arts for x in a["taxes"] if x.get("exonere")]
+    if exo:
+        base = (d.get("exoneration") or {}).get("base_legale")
+        out.append(_c("EXO-1", "Exonération justifiée", bool(base),
+                      f"{', '.join(f'{c} art. {num}' for num, c in exo)} exonérés · "
+                      + (base if base else "base légale non renseignée dans le dossier"), "alerte"))
 
     # 7. Poids et colis
     col = d.get("colisage", [])
@@ -74,7 +81,7 @@ def controles(d):
         net_art = sum(a["poids_net"] for a in arts)
         out.append(_c("PDS-1", "Poids net colisage = articles", abs(net - net_art) < 0.5, f"colisage {n(net)} kg · articles {n(net_art)} kg"))
         out.append(_c("PDS-2", "Poids brut colisage = D10", abs(brut - dec["poids_brut"]) < 0.5, f"{' + '.join(n(c['brut']) for c in col)} = {n(brut)} kg (D10 {n(dec['poids_brut'])})"))
-        out.append(_c("COL-1", "Nombre de colis", pal == dec["nb_colis"], f"{pal} palettes · D10 {dec['nb_colis']} colis"))
+        out.append(_c("COL-1", "Nombre de colis", pal == dec["nb_colis"], f"{n(pal)} {col[0].get('unite', 'palettes')} · D10 {n(dec['nb_colis'])} colis"))
     for a in arts:
         q = a.get("quantite", {})
         if q.get("nombre") and q.get("contenance_kg"):
@@ -93,6 +100,20 @@ def controles(d):
         j = (d10 - acc).days
         fr = t.get("franchise_jours")
         out.append(_c("DAT-2", "Délai accostage → D10", not fr or j <= fr, f"{j} jours (franchise conteneur {fr} jours)", "alerte"))
+
+        # Code des douanes : 21 jours en dépôt temporaire (art. 71), puis dépôt de douane 2 mois (art. 209)
+        out.append(_c("DAT-3", "Séjour en dépôt temporaire (art. 71 : 21 jours)", j <= 21,
+                      f"{j} jours entre l'accostage et le D10" + (
+                          "" if j <= 21 else " : au-delà, constitution d'office en dépôt de douane (art. 74)"
+                          + (" ; délai de 2 mois du dépôt (art. 209) dépassé : vente aux enchères possible (art. 210)"
+                             if j > 21 + 60 else "")), "alerte"))
+
+    # Origine : preuve
+    o = d.get("origine") or {}
+    out.append(_c("ORI-1", "Certificat d'origine au dossier", bool(o.get("certificat")),
+                  f"certificat {o.get('certificat')}" if o.get("certificat") else
+                  f"aucun certificat d'origine dans le dossier ; origine {o.get('code', '?')} déclarée sur le D10 et les pièces commerciales",
+                  "alerte"))
 
     # 9. Conteneur (chiffre de contrôle ISO 6346)
     c = t.get("conteneur", "")

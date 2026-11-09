@@ -46,8 +46,36 @@ def pages(d, out_dir):
     return res
 
 
+_OCR_CACHE = {}
+
+
 def ocr_page(png, lang="fra+eng", bandes=6):
-    """OCR par bandes (plus fiable sur les scans de documents denses)."""
+    """OCR par bandes (plus fiable sur les scans de documents denses). Mis en cache par page."""
+    cle = (str(png), Path(png).stat().st_mtime, lang, bandes)
+    if cle not in _OCR_CACHE:
+        _OCR_CACHE[cle] = _ocr_page(png, lang, bandes)
+    return _OCR_CACHE[cle]
+
+
+def _fenetres(mots, n_max=6):
+    """Groupes de 1 à n_max mots consécutifs d'une même ligne : (texte, x0, y0, x1, y1)."""
+    out = []
+    for i, m in enumerate(mots):
+        x0, y0, x1, y1, txt = m[1], m[2], m[1] + m[3], m[2] + m[4], m[0]
+        out.append((txt, x0, y0, x1, y1))
+        for k in range(1, n_max):
+            if i + k >= len(mots):
+                break
+            w = mots[i + k]
+            if abs(w[2] - m[2]) > max(12, m[4]) or w[1] < x1 - 5 or w[1] - x1 > 3 * max(m[4], 20):
+                break
+            txt += " " + w[0]
+            x1, y0, y1 = w[1] + w[3], min(y0, w[2]), max(y1, w[2] + w[4])
+            out.append((txt, x0, y0, x1, y1))
+    return out
+
+
+def _ocr_page(png, lang="fra+eng", bandes=6):
     g = ImageOps.autocontrast(Image.open(png).convert("L"))
     W, H = g.size
     mots, step = [], H // bandes
@@ -97,9 +125,10 @@ def fidelite(d, pngs, snip_dir):
         if r.get("zone"):
             crop, txts = _lire_zone(im, r["zone"])
         else:  # pas de zone : recherche dans l'OCR de la page
-            mots = ocr_page(pngs[p])
-            best = max(mots, key=lambda m: difflib.SequenceMatcher(None, NORM(r["valeur"]), NORM(m[0])).ratio())
-            z = [best[1] - 12, best[2] - 10, best[1] + best[3] + 12, best[2] + best[4] + 10]
+            nv0 = NORM(r["valeur"])
+            best = max(_fenetres(ocr_page(pngs[p])),
+                       key=lambda f: difflib.SequenceMatcher(None, nv0, NORM(f[0])).ratio() - 0.002 * abs(len(NORM(f[0])) - len(nv0)))
+            z = [best[1] - 14, best[2] - 10, best[3] + 14, best[4] + 10]
             crop, txts = _lire_zone(im, z)
         nv = NORM(r["valeur"])
         score = max(1.0 if nv and nv in NORM(t) else difflib.SequenceMatcher(None, nv, NORM(t)).ratio() for t in txts)

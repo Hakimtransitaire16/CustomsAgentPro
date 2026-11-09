@@ -379,9 +379,17 @@ RISQUES = {  # préfixe du contrôle → (mots de recherche dans les sources, ce
              "intrants) ; à défaut, liquider le DAPS."),
     "VAL": (["valeur", "assurance", "fret", "transaction"],
             "Préparer la police ou l'attestation d'assurance ; à défaut, l'administration peut réintégrer un forfait."),
-    "DAT": (["délai", "dépôt", "temporaire", "magasins", "aires"],
-            "Calculer les frais de surestaries et le délai restant avant transfert d'office ; prévoir la justification du retard."),
+    "DAT": ([], "Vérifier que la marchandise n'est pas inscrite en dépôt de douane ni proposée à la vente ; calculer "
+                "surestaries et frais de magasinage ; préparer la justification du retard."),
     "ISO": (["conteneur"], "Revérifier le numéro de conteneur sur le B/L et la porte du conteneur."),
+    "ORI": (["origine", "certificat", "preuve"],
+            "Obtenir le certificat d'origine du pays d'exportation ; indispensable pour toute préférence tarifaire, "
+            "utile si l'inspecteur demande la preuve de l'origine déclarée."),
+    "EXO": (["exonération", "exonérés", "droits", "taxes"], "Joindre la pièce qui fonde l'exonération et citer le texte."),
+}
+ARTICLES_RISQUE = {  # textes à citer en entier pour un contrôle : (instrument, article)
+    "DAT": [("Code des douanes — loi n° 79-07", "71"), ("Loi 25-17", "123"), ("Code des douanes — loi n° 79-07", "209"),
+            ("Code des douanes — loi n° 79-07", "210")],
 }
 
 
@@ -421,6 +429,10 @@ def note_risques(d: dict, ctrls: list[dict]) -> str:
                 L.append(f"- SH 2022 : {'ex ' if x['partiel'] else ''}{tarif.fmt(a['code_sh'])} → {x['nouveau']} "
                          f"{n2.get('libelle', '')} (DD {n2.get('dd', '?')} %) — vérifier que la marchandise n'en relève pas")
             L.append("")
+        for instr, num in ARTICLES_RISQUE.get(pre, []):
+            a_ = next(iter(article(num, instr)), None)
+            if a_:
+                L.append(f"- **{a_['instrument'][:60]}, art. {a_['article']}** : {re.sub(r'[(][^)]*(modifié|institué)[^)]*[)]', '', a_['texte'])[:420].strip()}…")
         for p in passages(mots, limite=3) if mots else []:
             L.append(f"- *{p['reference'][:110]}* : {p['extrait'][:300]}")
         L.append("")

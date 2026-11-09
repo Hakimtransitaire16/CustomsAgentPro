@@ -52,10 +52,11 @@ def checklist(d):
            f"Conteneur <b>{t.get('conteneur')}</b> ({t.get('type_conteneur', '')}, tare {n(t.get('tare'))} kg).",
            f"<b>{dec['nb_colis']} colis</b> à compter."]
     for c in d.get("colisage", []):
-        out.append(f"Type {c['type']} : {c['palettes']} palette(s) — {c['contenu']}.")
+        out.append(f"Type {c['type']} : {n(c['palettes'])} {c.get('unite', 'palette(s)')} — {c['contenu']}.")
     for a in d["articles"]:
         q = a.get("quantite", {})
-        out.append(f"<b>{q.get('nombre', '')} {q.get('unite', '')}</b> de {a['designation']} ({n(a['poids_net'])} kg net).")
+        nb = n(q["nombre"]) if isinstance(q.get("nombre"), (int, float)) else q.get("nombre", "")
+        out.append(f"<b>{nb} {q.get('unite', '')}</b> de {a['designation']} ({n(a['poids_net'])} kg net).")
     out += ["Étiquettes : produit, fabricant, lot, dates, poids net, pays d'origine, pictogrammes.",
             "Photos : porte, scellé, chargement, étiquettes."]
     return out
@@ -89,9 +90,10 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
         poids_net=sum(a["poids_net"] for a in arts),
         nb_pieces=len(d.get("documents", [])),
         fidelite=fid, fid_tot=len(fid), fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
-        emballages=" · ".join(f"{a['quantite'].get('contenance_kg', '')} kg" for a in arts if a.get("quantite")),
+        emballages=" · ".join(f"{a['quantite']['contenance_kg']} kg" for a in arts if a.get("quantite", {}).get("contenance_kg"))
+        or " · ".join(c["contenu"] for c in d.get("colisage", [])[:2]),
         codes_sh=" · ".join(sh(a["code_sh"]) for a in arts),
-        qtes=[f"{a['quantite'].get('nombre', '')} {a['quantite'].get('unite', '')}" for a in arts],
+        qtes=[f"{n(a['quantite']['nombre']) if isinstance(a['quantite'].get('nombre'), (int, float)) else a['quantite'].get('nombre', '')} {a['quantite'].get('unite', '')}" for a in arts],
         pbruts=[f"{n(a.get('poids_brut'))} kg ({a.get('poids_brut_source', '')})" if a.get("poids_brut") else "—" for a in arts],
         classements=[tarif.classement(a) or "—" for a in arts],
         checklist=checklist(d), pv=pv, thumbs=thumbs, photos=photos,
@@ -102,7 +104,7 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
 def html(d, **kw):
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
     env.filters.update(n=n, sh=sh, add_suffix=lambda s, suf: f"{s}{suf}")
-    env.globals.update(icon=icon, taxe=taxe, total_art=lambda a: sum(t["montant"] for t in a["taxes"]))
+    env.globals.update(icon=icon, taxe=taxe, total_art=lambda a: sum(0 if t.get("exonere") else t["montant"] for t in a["taxes"]))
     out = env.get_template("fiche.html.j2").render(**contexte(d, **kw))
     pages = out.count("{PAGE}")
     k = iter(range(1, pages + 1))
