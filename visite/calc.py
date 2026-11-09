@@ -52,7 +52,7 @@ def controles(d):
             base = a["valeur_da"] + dd_base + t.get("CS", {}).get("montant", 0)
             calc_ = t["TVA"]["assiette"] * t["TVA"]["quotite"] / 100
             ok &= abs(base - t["TVA"]["assiette"]) <= TOL_DA and abs(calc_ - t["TVA"]["montant"]) <= TOL_DA
-            det.append(f"assiette TVA {n(base, 2)} → TVA {n(calc_, 2)}")
+            det.append(f"assiette TVA {n(base, 2)} (déclarée {n(t['TVA']['assiette'])}) → TVA {n(calc_, 2)}")
         out.append(_c(f"LIQ-{a['num']}", f"Liquidation article {a['num']}", ok, " · ".join(det)))
 
     # 6. Récapitulatif
