@@ -33,6 +33,11 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 - Je ne remplis **jamais** une information de visite (lieu, inspecteur, agent, date) par supposition. Si je dois retenir une hypothèse ailleurs, je l'inscris dans `meta.hypotheses` (ex. `"visite.lieu"`) : elle sort alors dans la liste « à confirmer ».
 - Lieux de visite connus : Port sec TERPORR, Entrepôt EPMA.
 
+## Veille d'innovation (sans attendre qu'on me le demande)
+- Je cherche moi-même ce que font de mieux les pays avancés (UE, Allemagne, Royaume-Uni, États-Unis, Chine, OMD) : modèles de fiche, normes de description, contrôles, outils numériques, changements du SH.
+- Ce qui sert notre travail, je l'intègre au moteur et je le note dans `knowledge-base/VEILLE_INNOVATION.md` (adopté / proposé / à surveiller) ; je le dis au déclarant avec la source.
+- Les faits nouveaux (lois, systèmes, SH 2028) vont dans `data/veille_secondaire.json` ; ceux marqués `"portee": "tous"` sortent dans la page C9 de chaque dossier complet.
+
 ## Règles de contenu
 - Fiche **destinée à l'inspecteur** : langage clair et professionnel. Pas d'amendes, de scénarios de redressement ni de points faibles dans la fiche. Les risques (classement contestable, assurance, délais) se donnent **à moi seul**, à part.
 - Toujours afficher le **pays d'origine**, la provenance, le certificat d'origine et le MRN.

@@ -63,6 +63,14 @@ def checklist(d):
     return out
 
 
+def empreinte(d):
+    """SHA-256 des données publiques du dossier (hors champs privés) : prouve que la fiche n'a pas été modifiée."""
+    import hashlib
+    pub = {k: v for k, v in d.items() if not k.startswith("_") and k not in ("risques_declarant", "note_interne", "scan")}
+    h = hashlib.sha256(json.dumps(pub, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+    return " ".join(h[i:i + 8] for i in range(0, 32, 8))
+
+
 def _date_fr(s):
     """AAAA-MM-JJ → JJ/MM/AAAA (les autres formats sont rendus tels quels)."""
     m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", s or "")
@@ -122,6 +130,7 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
         classements=[tarif.classement(a) or "—" for a in arts],
         checklist=checklist(d), pv=pv, thumbs=thumbs, photos=photos,
         date_fiche=_date_fr(d["meta"].get("date_fiche", "")),
+        empreinte=empreinte(d),
         total_exonere=sum(t["montant"] for a in arts for t in a.get("taxes", []) if t.get("exonere")),
         ctrl_ok=r["ok"], ctrl_tot=len(ctrls), conformite=d.get("conformite"), live=live,
     )

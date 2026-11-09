@@ -350,3 +350,4 @@ table.mx td,table.mx th{padding:.55mm 1mm}
 .ft{padding-top:2mm}
 .page{padding-top:11mm}
 .sigs .sl{margin-top:0;height:12mm}
+.txt.dec{border-left-color:var(--navy);background:#EEF2F7}

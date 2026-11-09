@@ -6,7 +6,7 @@
 <div class="hd"><div class="brand"><div class="mono">{{ initiales }}</div><div><div class="t1">{{ d.meta.declarant.nom }}</div><div class="t2">{{ d.meta.declarant.qualite or 'Déclarant en douane' }} · {{ d.parties.declarant_societe.nom }}</div></div></div>
 <div class="ref">D10 n° <b>{{ dec.numero }}</b> · {{ dec.date_heure }}<br>MRN <b>{{ dec.mrn }}</b> · conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
 {%- endmacro -%}
-{%- macro foot() -%}<div class="ft"><span><b>Fiche de visite</b> — établie par {{ d.meta.declarant.nom }}, déclarant en douane, d'après les pièces du dossier</span><span>{PAGE}</span></div>{%- endmacro -%}
+{%- macro foot() -%}<div class="ft"><span><b>Fiche de visite</b> — établie par {{ d.meta.declarant.nom }}, déclarant en douane{% if empreinte %} · empreinte SHA-256 <span class="mono-t">{{ empreinte }}</span>{% endif %}</span><span>{PAGE}</span></div>{%- endmacro -%}
 {%- macro sec(num, titre, cases='') -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2>{% if cases %}<span class="cases">{{ cases }}</span>{% endif %}</div>{%- endmacro -%}
 {%- macro kv(rows) -%}<table class="kv">{% for k, v in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{%- endmacro -%}
 {%- macro src(rows) -%}<table class="sv"><tr><th style="width:23%">Donnée</th><th>Valeur</th><th style="width:19%">Source</th></tr>{% for k, v, s in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td><td class="s">{{ s }}</td></tr>{% endfor %}</table>{%- endmacro -%}
@@ -69,6 +69,7 @@
 {# ============ PAGE 3 : CLASSEMENT ============ #}
 <section class="page">{{ head('Classement tarifaire') }}
   {{ sec('6', 'Espèce tarifaire — classement motivé', 'case 33') }}
+  {% if cl.question %}<div class="txt"><b>Question</b> — {{ cl.question }}</div>{% endif %}
   {% for a in arts %}{% set f = classes[loop.index0] if classes else none %}{% if f %}
   <table class="ab cust"><tr><th style="width:20%">Niveau</th><th style="width:16%">Code</th><th>Libellé du tarif douanier</th></tr>
     {% if f.section %}<tr><td class="p">Section</td><td class="mono-t">{{ f.section.numero }}</td><td>{{ f.section.titre|capitalize }} — {{ 'notes de section : ' ~ (f.section.notes_citant_position|length ~ ' citant la position') if f.section.notes else 'section sans notes légales' }}</td></tr>{% endif %}
@@ -76,18 +77,17 @@
     <tr><td class="p">Position</td><td class="mono-t">{{ f.position.code }}</td><td>{{ f.position.libelle }}</td></tr>
     {% if f.ligne %}{% set h = f.ligne.hierarchie %}{% if h %}<tr><td class="p">Sous-position</td><td class="mono-t">{{ f.sous_position }}</td><td>{{ h[0] }}</td></tr>{% endif %}
     <tr><td class="p">Ligne nationale</td><td class="mono-t"><b>{{ f.ligne.code }}</b></td><td><b>{{ (h[1:] + [f.ligne.libelle])|join(' — ') }}</b> · unité {{ f.ligne.unite }} · DD {{ f.droit_douane|n }} %</td></tr>{% endif %}
-    {% if a.code_export %}<tr><td class="p">Code SH à l'export</td><td class="mono-t">{{ a.code_export }}</td><td>{{ a.code_export_source or 'facture, colisage, B/L' }} — même sous-position</td></tr>{% endif %}
   </table>{% endif %}{% endfor %}
   <div class="grid2 mt2">
     <div><div class="pdsh"><span>MOTIVATION</span></div><ol class="mot">{% for m in cl.motivation or [] %}<li>{{ m }}</li>{% endfor %}</ol></div>
     <div><div class="pdsh"><span>RÈGLES ET NOTES</span></div>
-      {% for k, lab in [('1', 'RGI 1'), ('6', 'RGI 6'), ('5b', 'RGI 5 b')] if rgi.get(k) %}{{ txt(lab, '« ' ~ rgi[k]|truncate(150, True, '…') ~ ' »') }}{% endfor %}
+      {% for k, lab in [('1', 'RGI 1'), ('6', 'RGI 6')] if rgi.get(k) %}{{ txt(lab, '« ' ~ rgi[k]|truncate(150, True, '…') ~ ' »') }}{% endfor %}
       {% for ref, t in cl.notes or [] %}{{ txt(ref, t) }}{% endfor %}</div>
   </div>
   {% if cl.ecartees %}<div class="pdsh"><span>POSITIONS ET LIGNES VOISINES ÉCARTÉES</span></div>
   <table><tr><th style="width:14%">Code</th><th style="width:34%">Libellé du tarif</th><th style="width:7%">DD</th><th>Motif</th></tr>
   {% for c, l, t, m in cl.ecartees %}<tr><td class="mono-t">{{ c }}</td><td>{{ l }}</td><td>{{ t }}</td><td>{{ m }}</td></tr>{% endfor %}</table>{% endif %}
-  {% for x in cl.complements or [] %}<p class="small">{{ x }}</p>{% endfor %}
+  {% if cl.decision %}<div class="txt dec"><b>Classement retenu</b> — {{ cl.decision }}{% for x in cl.complements or [] %} {{ x }}{% endfor %}</div>{% else %}{% for x in cl.complements or [] %}<p class="small">{{ x }}</p>{% endfor %}{% endif %}
   {{ foot() }}
 </section>
 

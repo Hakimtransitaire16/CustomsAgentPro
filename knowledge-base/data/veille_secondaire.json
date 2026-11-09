@@ -1,6 +1,6 @@
 {
  "_notice": "Faits relevés dans des sources secondaires (presse, cabinets, administrations étrangères) en attendant le texte officiel. Chaque fait porte sa source et sa date ; il doit être confirmé au Journal officiel ou au texte DGD avant d'être appliqué.",
- "releve_le": "2026-11-08",
+ "releve_le": "2026-11-09",
  "faits": [
   {
    "sujet": "DAPS — base légale",
@@ -65,6 +65,36 @@
    "source": "conformepro.dz (tiers, non officiel)",
    "url": "https://conformepro.dz/resources/tarif-douanier",
    "officiel_a_verifier": "tarif DGD en vigueur"
+  },
+  {
+   "sujet": "SH 2028 — amendements de l'OMD",
+   "fait": "L'OMD a publié 299 séries d'amendements du Système harmonisé, en vigueur le 1er janvier 2028 : 1 229 positions et 5 852 sous-positions. Principaux changements : vaccins de la position 30.02 déplacés vers les nouvelles positions 30.07 (usage humain) et 30.08 (autres) ; nouvelle position 21.07 pour les compléments alimentaires ; déchets plastiques alignés sur la Convention de Bâle ; nouvelles sous-positions pour les fournitures d'urgence sanitaire. Le chapitre 70 n'est pas cité dans l'annonce.",
+   "source": "OMD, communiqué de janvier 2026",
+   "url": "https://www.wcoomd.org/en/media/newsroom/2026/january/hs-2028-amendments-adapting-the-harmonized-system-to-global-priorities-and-trade-evolution.aspx",
+   "date": "2026-01",
+   "portee": "tous",
+   "chapitres": [
+    "21",
+    "30",
+    "39",
+    "90"
+   ]
+  },
+  {
+   "sujet": "ALCES — guichet unique électronique des autorisations",
+   "fait": "Un module « guichet unique électronique » du système ALCES reçoit les autorisations et certificats administratifs exigés au dédouanement. Les commissionnaires en douane doivent y déposer les autorisations délivrées par le ministère du Commerce, en parallèle du papier pendant la transition (avis du 18/08/2026, envoi n° 1128/DGD/D06/26 du 13/08/2026, Inspection divisionnaire d'Alger Commerce).",
+   "source": "Algérie Eco, 20/08/2026",
+   "url": "https://algerie-eco.com/2026/08/20/douanes-mis-en-service-dun-guichet-unique-electronique/",
+   "date": "2026-08-20",
+   "portee": "tous"
+  },
+  {
+   "sujet": "Désignation des marchandises — norme européenne",
+   "fait": "La Commission européenne publie une liste de termes génériques refusés dans les déclarations (« pièces », « produits chimiques », « verre », « machines », « médicaments »…) : la désignation doit dire la nature, la forme et l'usage. Repris dans le contrôle DES du moteur.",
+   "source": "Commission européenne (DG TAXUD), Guidance on acceptable goods description, v4.10, mars 2021",
+   "url": "https://info-aduaneiro.portaldasfinancas.gov.pt/pt/informacao_aduaneira/ICS2/Documents/guidance_acceptable_goods_description_V4.10_MAR2021_EN.pdf",
+   "date": "2021-03",
+   "portee": "tous"
   }
  ]
 }

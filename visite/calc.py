@@ -8,6 +8,32 @@ TOL_DA = 1.0          # tolérance d'arrondi en dinars
 TOL_REL = 0.0001      # 0,01 % pour les conversions de devise
 
 
+# Termes refusés seuls dans une désignation (liste de la Commission européenne, adaptée au français)
+TERMES_GENERIQUES = {
+    "divers", "marchandises", "marchandise", "general cargo", "consolidated", "groupage", "fournitures", "materiel", "matériel",
+    "equipement", "équipement", "equipements", "équipements", "accessoires", "pieces", "pièces", "pieces de rechange",
+    "pièces de rechange", "pieces detachees", "pièces détachées", "spare parts", "parts", "echantillons", "échantillons",
+    "samples", "produits chimiques", "chemicals", "medicaments", "médicaments", "pharmaceutique", "pharmaceutical", "drugs",
+    "machines", "machine", "machinery", "outillage", "outils", "tools", "consommables", "articles", "produits", "verre", "glass",
+    "plastique", "plastic", "metal", "métal", "textile", "textiles", "electronique", "électronique", "cadeaux", "gifts",
+    "rechange", "detachees", "détachées", "autres", "various", "goods", "stc", "said", "contain",
+}
+
+
+def designation_generique(des: str) -> list[str]:
+    """Termes génériques qui constituent à eux seuls la désignation (ex. « PIECES DE RECHANGE »)."""
+    import re
+    t = re.sub(r"[^\w\s]", " ", (des or "").lower())
+    t = re.sub(r"\b(\d+|de|des|du|en|et|la|le|les|pour|of|for|and)\b", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    if not t:
+        return ["(vide)"]
+    if t in TERMES_GENERIQUES:
+        return [t]
+    mots = t.split()
+    return mots if all(m in TERMES_GENERIQUES for m in mots) else []
+
+
 def _c(cid, titre, ok, detail, niveau="erreur"):
     return {"id": cid, "titre": titre, "statut": "ok" if ok else niveau, "detail": detail}
 
@@ -122,6 +148,14 @@ def controles(d):
 
     # 10. Classement tarifaire : tarif DGD, notes, loi de finances 2026 (knowledge-base/)
     out += classement_tarifaire(d)
+    # Désignation : la norme européenne refuse les termes génériques
+    # (Commission européenne, « Guidance on acceptable goods description », TAXUD v4.10, 2021)
+    for a in arts:
+        dz = designation_generique(a.get("designation", ""))
+        out.append(_c(f"DES-{a['num']}", f"Désignation de l'article {a['num']} assez précise",
+                      not dz, f"« {a.get('designation', '')} »" + (f" : terme générique {', '.join(dz)} — préciser nature, forme et usage"
+                                                                     if dz else " : nature et forme identifiables"), "alerte"))
+
     return out
 
 

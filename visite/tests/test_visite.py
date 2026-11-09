@@ -50,6 +50,19 @@ class TestVisite(unittest.TestCase):
             if x["type"] == "pièce":
                 self.assertTrue(x["emetteur"] and x["base"])
 
+    def test_designation_generique(self):
+        from visite.calc import designation_generique as g
+        self.assertTrue(g("PIECES DE RECHANGE"))
+        self.assertTrue(g("Verre"))
+        self.assertFalse(g("AMP 10 ML VERRE TRANSPARENTE"))
+        self.assertFalse(g("Colle polyuréthane bicomposant"))
+
+    def test_empreinte_change_si_donnees_changent(self):
+        d = copy.deepcopy(self.d)
+        e1 = render.empreinte(d)
+        d["declaration"]["valeur_da"] += 1
+        self.assertNotEqual(e1, render.empreinte(d))
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)

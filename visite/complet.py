@@ -102,6 +102,26 @@ def enjeux(d: dict) -> list[tuple[str, float, str]]:
     return out
 
 
+def veille_dossier(d: dict) -> list[dict]:
+    """Faits de veille qui touchent tous les dossiers ; pour le SH 2028, dit si les chapitres du dossier sont cités."""
+    f = Path(__file__).resolve().parent.parent / "knowledge-base" / "data" / "veille_secondaire.json"
+    if not f.exists():
+        return []
+    import json
+    chap = {str(a.get("code_sh", ""))[:2] for a in d.get("articles", [])}
+    out = []
+    for x in json.loads(f.read_text(encoding="utf-8"))["faits"]:
+        if x.get("portee") != "tous":
+            continue
+        y = dict(x)
+        if x.get("chapitres") is not None:
+            touches = sorted(chap & set(x["chapitres"]))
+            y["effet"] = (f"chapitre(s) {', '.join(touches)} du dossier cité(s) : vérifier la table de corrélation"
+                          if touches else f"chapitre(s) {', '.join(sorted(chap))} du dossier non cité(s) dans l'annonce")
+        out.append(y)
+    return out
+
+
 def construire(d: dict, fiche_pdf: Path, sortie: Path) -> Path:
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
     env.filters.update(n=n, sh=sh)
@@ -117,7 +137,7 @@ def construire(d: dict, fiche_pdf: Path, sortie: Path) -> Path:
             textes.append((f"{'LF 2026' if instr.startswith('Loi') else 'Code des douanes'}, art. {a['article']}", t[:700] + ("…" if len(t) > 700 else "")))
     nb_fiche = len(PdfReader(str(fiche_pdf)).pages)
     from . import exigences
-    ctx = dict(d=d, manquants=exigences.manquants(d), ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
+    ctx = dict(d=d, manquants=exigences.manquants(d), veille=veille_dossier(d), ctrls=ctrls, resume=calc.resume(ctrls), chrono=chronologie(d), delais=dl[0] if dl else [],
                jours=dl[1] if dl else None, enjeux=enjeux(d), textes=textes, checklist=render.checklist(d), slots=SLOTS + ["Étiquette d'une boîte", "Ampoules (gros plan)", "Pesée de contrôle"],
                css=(TPL / "style.css").read_text(encoding="utf-8"), initiales="".join(w[0] for w in d["meta"]["declarant"]["nom"].split()[:2]),
                nb_fiche=nb_fiche, date_fiche=render._date_fr(d["meta"].get("date_fiche", "")))
@@ -125,7 +145,9 @@ def construire(d: dict, fiche_pdf: Path, sortie: Path) -> Path:
     for part in ("couverture", "terrain", "note"):
         html = env.get_template("complet.html.j2").render(partie=part, **ctx)
         f = sortie / f"_complet_{part}.pdf"
-        render.pdf(html, f)
+        deb = render.pdf(html, f)
+        if deb:
+            print(f"  ! débordement dans la partie « {part} » : {deb}")
         parties[part] = f
     w = PdfWriter()
     for f in (parties["couverture"], fiche_pdf, parties["terrain"], parties["note"]):
