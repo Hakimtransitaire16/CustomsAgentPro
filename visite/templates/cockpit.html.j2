@@ -25,6 +25,9 @@ nav.tabs button{flex:none;background:none;border:0;color:#C9D6E5;font:600 14px i
 nav.tabs button[aria-selected="true"]{color:#fff;border-bottom-color:#6FA3E0}
 main{max-width:1100px;margin:0 auto;padding:14px 16px 110px}
 section.tab{display:none}section.tab.on{display:block}
+.priv{border-left:4px solid var(--crit,#b42318)}.pw{color:var(--crit,#b42318);font-weight:600;margin:0 0 10px}
+.note h2{font-size:15px;margin:18px 0 6px}.note p,.note li{font-size:13.5px;line-height:1.5}.note pre{white-space:pre-wrap;font-size:12px;background:#f3f5f8;padding:10px;border-radius:6px;overflow-x:auto}
+@media print{ section#t-note{display:none!important}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 h2{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:0 0 10px}
 .tool{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
@@ -74,7 +77,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
     {% if fid %}<span class="chip">Fidélité {{ fid_ok }}/{{ fid|length }}</span>{% endif %}
     <span class="chip" id="chipVis">Visite 0 %</span></div>
   <nav class="tabs" role="tablist">
-    {% for id, lab in [('fiche','Fiche'), ('visite','Visite'), ('controles','Contrôles'), ('registre','Registre'), ('donnees','Données')] %}
+    {% for id, lab in [('fiche','Fiche'), ('visite','Visite'), ('controles','Contrôles'), ('registre','Registre'), ('donnees','Données')] + ([('note','Note privée')] if note_html else []) %}
     <button role="tab" data-tab="{{ id }}" aria-selected="{{ 'true' if loop.first else 'false' }}">{{ lab }}</button>{% endfor %}
   </nav>
 </div>
@@ -147,6 +150,14 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
   </div>
   <div class="card"><h2>Dossier JSON</h2><pre>{{ dossier_pretty|e }}</pre></div>
 </section>
+
+<!-- ============ NOTE PRIVÉE (déclarant seul) ============ -->
+{% if note_html %}<section class="tab" id="t-note">
+  <div class="card priv"><h2>Note de risques — déclarant seul</h2>
+    <p class="pw">Ne pas montrer à l'inspecteur. Cette note n'est jamais imprimée avec la fiche.</p>
+    <button class="btn" id="showNote">Afficher la note</button>
+    <div id="noteBody" class="note" hidden>{{ note_html }}</div></div>
+</section>{% endif %}
 </main>
 
 <script type="application/json" id="dossier">{{ dossier_json }}</script>
@@ -172,6 +183,7 @@ function fit(){ const doc=fdoc(); if(!doc||!doc.body) return; const h=doc.docume
 frame.addEventListener('load', ()=>{ const doc=fdoc(); const css=doc.createElement('style'); css.textContent='body{background:#7d8794}.page{margin:0 auto 12px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25)}@media print{body{background:#fff}.page{margin:0;box-shadow:none}}'; doc.head.appendChild(css); applyAll(); fit(); });
 window.addEventListener('resize', fit);
 document.getElementById('print').onclick=()=>frame.contentWindow.print();
+const sn=document.getElementById('showNote'); if(sn) sn.onclick=()=>{const b=document.getElementById('noteBody'); b.hidden=!b.hidden; sn.textContent=b.hidden?'Afficher la note':'Masquer la note';};
 const ficheHTML=()=>'<!doctype html>'+fdoc().documentElement.outerHTML;
 document.getElementById('open').onclick=()=>window.open(URL.createObjectURL(new Blob([ficheHTML()],{type:'text/html'})),'_blank');
 

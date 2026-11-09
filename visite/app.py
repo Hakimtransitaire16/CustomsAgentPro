@@ -4,6 +4,7 @@
 - La fiche technique est intégrée telle quelle (impression A4 → PDF depuis le navigateur).
 - Les saisies de la visite (procès-verbal, photos) remplissent la fiche en direct.
 - Les données (dossier JSON, registre CSV, visite JSON) se téléchargent depuis l'onglet Données.
+- La note de risques (déclarant seul) est dans l'onglet « Note privée », masquée par défaut et jamais imprimée.
 """
 import csv
 import io
@@ -23,9 +24,21 @@ def _script_json(obj):
     return json.dumps(obj, ensure_ascii=False).replace("</", "<\\/")
 
 
-def construire(d, fidelite=None, pngs=None, registre=None):
+def _note_html(d, ctrls):
+    import markdown
+    from . import moteur
+    md = moteur.note_risques(d, ctrls)
+    md = md.split("\n", 1)[1] if md.startswith("# ") else md  # le titre est déjà dans l'onglet
+    return markdown.markdown(md, extensions=["fenced_code", "tables"])
+
+
+def construire(d, fidelite=None, pngs=None, registre=None, note=True):
     fiche = render.html(d, fidelite=fidelite, pngs=pngs, live=True)
     ctrls = calc.controles(d)
+    try:
+        note_html = _note_html(d, ctrls) if note else ""
+    except Exception as e:  # la note ne doit jamais empêcher l'application de se construire
+        note_html = f"<p>Note indisponible : {e}</p>"
     rows = registre if registre is not None else [ligne(d)]
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=CHAMPS, delimiter=";")
@@ -50,5 +63,5 @@ def construire(d, fidelite=None, pngs=None, registre=None):
         checklist=checklist(d), comptages=comptages, slots=slots,
         fid=fid, fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
         dossier_json=_script_json(dossier_pur), csv_text=_script_json(buf.getvalue()),
-        dossier_pretty=json.dumps(dossier_pur, ensure_ascii=False, indent=1),
+        dossier_pretty=json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html,
     )
