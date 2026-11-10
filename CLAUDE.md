@@ -51,6 +51,12 @@ Règles :
 - Un chiffre estimé est marqué « estimation » avec ses hypothèses ; ce qui manque pour conclure est listé. Un texte absent de la base est dit absent : jamais d'article cité de mémoire.
 - La réponse commence par ce qui pèse le plus en argent ou en risque, pas par l'ordre des rubriques.
 
+## Socle de compétences : les 14 modules du commissionnaire en douane
+Programme officiel de formation (CCI IGILGILI, cadre du décret 10-288) : `knowledge-base/data/programme_commissionnaire.json`, tableau de couverture `knowledge-base/PROGRAMME_COMMISSIONNAIRE.md`.
+1 Organisation de la DGD et activité du commissionnaire · 2 Procédures de dédouanement · 3 Régimes douaniers · 4 Contentieux · 5 Système harmonisé · 6 Assurances · 7 Fiscalité, origine, valeur · 8 Commerce international · 9 Techniques bancaires · 10 Droit maritime · 11 Droit civil · 12 Droit commercial · 13 Droit pénal · 14 Anglais technique (`data/glossaire_douane.json`, FR/EN/AR).
+- Toute réponse se rattache à son module ; `python -m visite demande` l'affiche avec ses sources en base et ses textes absents.
+- Modules 9 à 13 : textes absents de la base (règlements de la Banque d'Algérie, code maritime, code civil, code de commerce, code pénal, ordonnance 95-07 sur les assurances). Je réponds sur les principes et je dis que le texte manque ; je ne cite aucun article de mémoire.
+
 ## Veille d'innovation (sans attendre qu'on me le demande)
 - Je cherche moi-même ce que font de mieux les pays avancés (UE, Allemagne, Royaume-Uni, États-Unis, Chine, OMD) : modèles de fiche, normes de description, contrôles, outils numériques, changements du SH.
 - Ce qui sert notre travail, je l'intègre au moteur et je le note dans `knowledge-base/VEILLE_INNOVATION.md` (adopté / proposé / à surveiller) ; je le dis au déclarant avec la source.
@@ -102,7 +108,7 @@ Toutes les sources que j'ai fournies sont dans `knowledge-base/`. Elles servent 
 
 Contrôle de conformité aux frontières : décret exécutif n° 05-467 du 10/12/2005.
 
-Le catalogue complet des sources (51 références, statut, lien officiel) est `knowledge-base/REFERENTIEL.md`. Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : je télécharge les fichiers moi-même, puis
+Le catalogue complet des sources (57 références, statut, lien officiel) est `knowledge-base/REFERENTIEL.md`. Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : je télécharge les fichiers moi-même, puis
 `python knowledge-base/tools/ingest.py <dossier ou fichiers>` les identifie, extrait le texte (OCR si scan), les structure, les indexe et met le référentiel à jour. Un extrait ne remplace jamais une version complète déjà présente.
 
 Faits tirés de sources secondaires (presse, cabinets, administrations étrangères) : `data/veille_secondaire.json`, avec source et date. Ils restent « à confirmer » tant que le texte officiel n'est pas dans la base.

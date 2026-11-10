@@ -151,6 +151,20 @@ SOURCES = [
      "reglement-26-02.pdf", "https://www.joradp.dz", "Exportation : délai de rapatriement"),
     ("plf-2027", "Fiscalité", "Projet de loi de finances 2027 — dispositions douanières (articles 153 à 176)",
      "texte", 1, "plf-2027.pdf", "https://www.mfdgi.gov.dz", "Mesures douanières à venir (projet, non adopté)"),
+    # ---------------------------------------------------------------- formation du commissionnaire (14 modules)
+    ("programme-commissionnaire", "Profession", "CCI IGILGILI — programme de formation du commissionnaire en douane "
+     "(14 modules, 12 mois)", "guide", 2, "programme_formation_commissionnaire_cci_igilgili.pdf", "",
+     "Socle de compétences : data/programme_commissionnaire.json"),
+    ("ordonnance-95-07", "Droit général", "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée",
+     "texte", 2, "ordonnance-95-07-assurances.pdf", "https://www.joradp.dz", "Module 6 : assurances"),
+    ("code-maritime", "Droit général", "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée",
+     "texte", 2, "code-maritime.pdf", "https://www.joradp.dz", "Module 10 : transport maritime, connaissement"),
+    ("code-civil", "Droit général", "Ordonnance n° 75-58 du 26/09/1975 portant code civil, modifiée",
+     "texte", 3, "code-civil.pdf", "https://www.joradp.dz", "Module 11 : contrats, mandat, responsabilité"),
+    ("code-commerce", "Droit général", "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée",
+     "texte", 2, "code-commerce.pdf", "https://www.joradp.dz", "Module 12 : commerçants, sociétés, effets de commerce"),
+    ("code-penal", "Droit général", "Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée",
+     "texte", 3, "code-penal.pdf", "https://www.joradp.dz", "Module 13 : droit pénal"),
     ("ebti", "Méthode", "Commission européenne — informations générales sur les RTC (EBTI)", "guide", 2,
      "ebti_general_information_en.pdf", None, "Méthode de description (case 9)"),
     ("omd-smart-customs", "Méthode", "OMD — rapport « douanes intelligentes » (2024)", "guide", 3,
@@ -162,7 +176,8 @@ def catalogue() -> list[dict]:
     present = {p.name for p in (ROOT / "sources").glob("*.pdf")}
     out = []
     for sid, dom, titre, typ, prio, fichier, url, usage in SOURCES:
-        url = url or (DGD + fichier if fichier else None)
+        url = url if url is not None else (DGD + fichier if fichier else None)
+        url = url or None
         out.append({"id": sid, "domaine": dom, "titre": titre, "type": typ, "priorite": prio,
                     "fichier": fichier, "url": url, "usage": usage,
                     "statut": "base" if fichier in present else "a_telecharger"})

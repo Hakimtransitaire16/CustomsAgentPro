@@ -265,6 +265,36 @@ def veille(mots: list[str]) -> list[dict]:
     return [x for n, x in sorted(sc, key=lambda t: -t[0]) if n >= 2][:3]
 
 
+# Mots qui rattachent une question à un module du programme du commissionnaire (data/programme_commissionnaire.json)
+MOTS_MODULES = {
+    1: ["agrément", "agrement", "commissionnaire", "déclarant", "declarant", "10-288", "organisation", "obligations"],
+    2: ["dédouanement", "dedouanement", "déclaration", "manifeste", "mainlevée", "visite", "délai", "enlèvement"],
+    3: ["régime", "regime", "entrepôt", "entrepot", "admission", "transit", "perfectionnement", "réexportation"],
+    4: ["contentieux", "infraction", "amende", "transaction", "saisie", "procès-verbal", "fraude"],
+    5: ["position", "classement", "tarif", "sous-position", "nomenclature", "rgi", "chapitre"],
+    6: ["assurance", "assureur", "sinistre", "police"],
+    7: ["valeur", "origine", "tva", "droit", "taxe", "exonération", "liquidation", "daps"],
+    8: ["incoterm", "cfr", "fob", "cif", "exw", "contrat", "importateur", "exportateur", "programme"],
+    9: ["banque", "domiciliation", "crédit", "credoc", "remise", "change", "devise", "transfert", "rapatriement"],
+    10: ["maritime", "connaissement", "navire", "armateur", "surestaries", "conteneur", "port", "fret"],
+    11: ["civil", "contrat", "mandat", "responsabilité", "prescription"],
+    12: ["commercial", "commerce", "société", "registre", "sarl", "spa", "eurl"],
+    13: ["pénal", "penal", "délit", "contrebande", "poursuite"],
+    14: ["anglais", "english", "traduction"],
+}
+
+
+def modules(mots: list[str], n: int = 2) -> list[dict]:
+    """Modules du programme concernés par la question, avec les sources présentes et celles qui manquent."""
+    f = KB / "data" / "programme_commissionnaire.json"
+    if not f.exists():
+        return []
+    prog = {m["n"]: m for m in json.loads(f.read_text(encoding="utf-8"))["modules"]}
+    ms = {m.lower() for m in mots}
+    sc = sorted(((sum(1 for k in kw if any(x.startswith(k) for x in ms)), num) for num, kw in MOTS_MODULES.items()), reverse=True)
+    return [prog[num] for score, num in sc[:n] if score > 0 and num in prog]
+
+
 def analyser(q: str, preparation=True) -> dict:
     notes = preparer(silencieux=True, ingestion=preparation)
     L = lire(q)
@@ -287,6 +317,7 @@ def analyser(q: str, preparation=True) -> dict:
     if requete:
         res["passages"] = passages(requete, limite=6 if res["positions"] or res["candidats"] else 10)
     res["veille"] = veille(requete)
+    res["modules"] = modules(requete or L["mots"])
     for p in res["passages"]:
         res["sources"].add(p["source"].split(" art. ")[0].split(" #")[0])
     for a in res["articles"]:
@@ -353,6 +384,12 @@ def texte(res: dict, max_car: int | None = None) -> str:
         L.append("VEILLE (sources secondaires, à confirmer au texte officiel)")
         for v in res["veille"]:
             L.append(f"■ {v['sujet']} : {v['fait'][:300]} — {v['source']}")
+    for m in res.get("modules", []):
+        L.append(f"MODULE {m['n']} DU PROGRAMME DU COMMISSIONNAIRE — {m['titre']}")
+        if m["base"]:
+            L.append("  En base : " + " ; ".join(m["base"]))
+        if m["a_telecharger"]:
+            L.append("  Absent de la base (ne pas citer de mémoire) : " + " ; ".join(m["a_telecharger"]))
     L.append("Sources consultées : " + ("; ".join(res["sources"]) or "aucune correspondance"))
     out = "\n".join(L)
     return out if not max_car or len(out) <= max_car else out[:max_car] + "\n… (tronqué)"

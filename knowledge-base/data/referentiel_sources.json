@@ -1,5 +1,5 @@
 {
- "count": 51,
+ "count": 57,
  "sources": [
   {
    "id": "tarif-2016",
@@ -538,6 +538,72 @@
    "fichier": "plf-2027.pdf",
    "url": "https://www.mfdgi.gov.dz",
    "usage": "Mesures douanières à venir (projet, non adopté)",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "programme-commissionnaire",
+   "domaine": "Profession",
+   "titre": "CCI IGILGILI — programme de formation du commissionnaire en douane (14 modules, 12 mois)",
+   "type": "guide",
+   "priorite": 2,
+   "fichier": "programme_formation_commissionnaire_cci_igilgili.pdf",
+   "url": null,
+   "usage": "Socle de compétences : data/programme_commissionnaire.json",
+   "statut": "base"
+  },
+  {
+   "id": "ordonnance-95-07",
+   "domaine": "Droit général",
+   "titre": "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée",
+   "type": "texte",
+   "priorite": 2,
+   "fichier": "ordonnance-95-07-assurances.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Module 6 : assurances",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "code-maritime",
+   "domaine": "Droit général",
+   "titre": "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée",
+   "type": "texte",
+   "priorite": 2,
+   "fichier": "code-maritime.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Module 10 : transport maritime, connaissement",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "code-civil",
+   "domaine": "Droit général",
+   "titre": "Ordonnance n° 75-58 du 26/09/1975 portant code civil, modifiée",
+   "type": "texte",
+   "priorite": 3,
+   "fichier": "code-civil.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Module 11 : contrats, mandat, responsabilité",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "code-commerce",
+   "domaine": "Droit général",
+   "titre": "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée",
+   "type": "texte",
+   "priorite": 2,
+   "fichier": "code-commerce.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Module 12 : commerçants, sociétés, effets de commerce",
+   "statut": "a_telecharger"
+  },
+  {
+   "id": "code-penal",
+   "domaine": "Droit général",
+   "titre": "Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée",
+   "type": "texte",
+   "priorite": 3,
+   "fichier": "code-penal.pdf",
+   "url": "https://www.joradp.dz",
+   "usage": "Module 13 : droit pénal",
    "statut": "a_telecharger"
   },
   {

@@ -1,6 +1,6 @@
 # Référentiel des sources du déclarant
 
-51 sources de référence · **22 dans la base** · 29 à télécharger.
+57 sources de référence · **23 dans la base** · 34 à télécharger.
 
 Les sites officiels (douane.gov.dz, commerce.gov.dz, mfdgi.gov.dz, OMD) refusent la lecture automatique : ces fichiers se téléchargent à la main, puis `python tools/ingest.py <dossier>` les intègre (texte, données, index) et met ce tableau à jour.
 
@@ -58,6 +58,7 @@ Priorité : 1 = indispensable au travail quotidien · 2 = utile · 3 = historiqu
 | | Prio. | Source | Apport | Lien |
 |---|---|---|---|---|
 | ✅ | 1 | Décret exécutif n° 10-288 du 14/11/2010 — personnes habilitées à déclarer en détail (commissionnaires en douane) | Agrément, obligations et responsabilité du commissionnaire et du déclarant | [decret_executif_no_10-288_du_14_novembre_2010.pdf](https://www.douane.gov.dz/IMG/pdf/decret_executif_no_10-288_du_14_novembre_2010.pdf) |
+| ✅ | 2 | CCI IGILGILI — programme de formation du commissionnaire en douane (14 modules, 12 mois) | Socle de compétences : data/programme_commissionnaire.json | — |
 | ⬇ | 2 | Décret exécutif n° 10-286 (JO n° 71 de 2010) | À identifier à la lecture | [decret_executif_n10_286.pdf](https://www.douane.gov.dz/IMG/pdf/decret_executif_n10_286.pdf) |
 
 ## Réglementation
@@ -119,6 +120,16 @@ Priorité : 1 = indispensable au travail quotidien · 2 = utile · 3 = historiqu
 | ⬇ | 1 | Banque d'Algérie — instruction n° 01/2026 du 14/05/2026 : domiciliation des importations avant l'expédition | Domiciliation avant le B/L, délai de 45 jours (lien relevé par la recherche : vérifier à l'ouverture) | [note-01-DGC-2026.pdf](https://www.bank-of-algeria.dz/stoodroa/2026/05/note-01-DGC-2026.pdf) |
 | ⬇ | 1 | Banque d'Algérie — règlement n° 07-01 du 03/02/2007 modifié (domiciliation, rapatriement, comptes devises) | Art. 29 : domiciliation préalable au transfert et au dédouanement | [reglement-07-01.pdf](https://www.bank-of-algeria.dz/importations-exportations-instruction/) |
 | ⬇ | 2 | Banque d'Algérie — règlement n° 26-02 du 23/07/2026 (JO n° 58 du 12/08/2026) : rapatriement des recettes d'exportation en 120 jours | Exportation : délai de rapatriement | [reglement-26-02.pdf](https://www.joradp.dz) |
+
+## Droit général
+
+| | Prio. | Source | Apport | Lien |
+|---|---|---|---|---|
+| ⬇ | 2 | Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée | Module 6 : assurances | [ordonnance-95-07-assurances.pdf](https://www.joradp.dz) |
+| ⬇ | 2 | Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée | Module 10 : transport maritime, connaissement | [code-maritime.pdf](https://www.joradp.dz) |
+| ⬇ | 2 | Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée | Module 12 : commerçants, sociétés, effets de commerce | [code-commerce.pdf](https://www.joradp.dz) |
+| ⬇ | 3 | Ordonnance n° 75-58 du 26/09/1975 portant code civil, modifiée | Module 11 : contrats, mandat, responsabilité | [code-civil.pdf](https://www.joradp.dz) |
+| ⬇ | 3 | Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée | Module 13 : droit pénal | [code-penal.pdf](https://www.joradp.dz) |
 
 ## Méthode
 

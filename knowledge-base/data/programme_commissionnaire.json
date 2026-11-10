@@ -1,0 +1,194 @@
+{
+ "titre": "Programme de formation du commissionnaire en douane — 14 modules",
+ "source": {
+  "document": "Chambre de Commerce et d'Industrie IGILGILI (Jijel), ministère du Commerce — dépliant « Commissionnaire en douane, modules de formation »",
+  "fichier": "sources/programme_formation_commissionnaire_cci_igilgili.pdf",
+  "lu_le": "2026-11-10"
+ },
+ "formation": {
+  "duree": "12 mois, jeudi et samedi",
+  "condition_acces": "Diplôme universitaire (licence LMD, licence classique, DEUA ou plus) dans les spécialités juridiques, économiques, commerciales et financières",
+  "dossier": [
+   "01 copie du diplôme",
+   "demande manuscrite",
+   "01 photo d'identité",
+   "02 enveloppes timbrées et libellées à l'adresse du candidat",
+   "frais d'inscription : 250,00 DA"
+  ]
+ },
+ "cadre_legal": "Décret exécutif n° 10-288 du 14/11/2010 : l'agrément exige un diplôme universitaire (spécialités juridiques, économiques, commerciales et financières), une formation de commissionnaire en douane réussie dans une école publique ou privée agréée par l'État (programmes certifiés par arrêté conjoint des ministres des finances et de la formation professionnelle) et la réussite au concours d'accès organisé par la DGD (texte de la base, data/textes/decret-10-288.json).",
+ "usage": "Socle de compétences : chaque réponse et chaque dossier s'appuie sur le module concerné. 'base' = sources présentes et indexées ; 'a_telecharger' = texte de référence absent de la base ; 'moteur' = ce que le moteur visite/ applique déjà.",
+ "modules": [
+  {
+   "n": 1,
+   "titre": "Organisation et fonctionnement de l'administration des douanes ; activité du commissionnaire en douane (droits et obligations)",
+   "base": [
+    "decret-10-288",
+    "code-douanes-consolide (art. 78 : qui déclare)",
+    "loi-17-04"
+   ],
+   "a_telecharger": [
+    "Texte d'organisation de l'administration centrale et des services extérieurs de la DGD (à identifier)"
+   ],
+   "moteur": "pieces_dossier.json (mandat, agrément) ; règles de CLAUDE.md"
+  },
+  {
+   "n": 2,
+   "titre": "Procédures de dédouanement",
+   "base": [
+    "code-douanes-consolide (art. 54 manifeste, 71 et 76 délais, 75 et 82 déclaration en détail, 83 articles, 92 mainlevée et vérification)",
+    "guide-regimes",
+    "guide-controle-frontieres"
+   ],
+   "a_telecharger": [
+    "circulaire-419"
+   ],
+   "moteur": "flux complet du dossier, contrôles DAT, pièces manquantes, fiche de visite"
+  },
+  {
+   "n": 3,
+   "titre": "Régimes douaniers",
+   "base": [
+    "guide-regimes",
+    "code-douanes-consolide"
+   ],
+   "a_telecharger": [
+    "circulaire-157 (admission temporaire)",
+    "entrepot-129-164"
+   ],
+   "moteur": "régime de la case 1 et régime fiscal (case 38) lus sur le D10"
+  },
+  {
+   "n": 4,
+   "titre": "Contentieux douanier",
+   "base": [
+    "code-douanes-consolide (constatation des infractions art. 241 et 250 ; titre du contentieux)"
+   ],
+   "a_telecharger": [
+    "Texte fixant les modalités de la transaction douanière (à identifier)"
+   ],
+   "moteur": "note de risques (déclarant seul) ; jamais d'amende dans la fiche du service"
+  },
+  {
+   "n": 5,
+   "titre": "Système harmonisé de codification et de désignation des marchandises",
+   "base": [
+    "tarif-2016",
+    "correlation-sh2022",
+    "tarif-maj-2020",
+    "rtc-2025",
+    "rtc-2024",
+    "rtc-2020",
+    "decret-18-165",
+    "ebti"
+   ],
+   "a_telecharger": [
+    "Notes explicatives du SH (OMD)",
+    "Tables de corrélation SH 2022 → SH 2028 (à paraître)",
+    "omd-correlation-2017-2022"
+   ],
+   "moteur": "python -m visite tarif ; contrôles TAR, DD, FAM, DES ; classement au format décision"
+  },
+  {
+   "n": 6,
+   "titre": "Les assurances",
+   "base": [
+    "code-douanes-consolide (art. 16 octies § 1 e : assurance dans la valeur)"
+   ],
+   "a_telecharger": [
+    "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée"
+   ],
+   "moteur": "contrôle VAL-4 (assurance déclarée) ; pièce ASS"
+  },
+  {
+   "n": 7,
+   "titre": "Fiscalité douanière ; origine des marchandises ; valeur en douane",
+   "base": [
+    "code-tca",
+    "lf-2026",
+    "lfc-2018",
+    "daps-arrete-2019",
+    "guide-valeur",
+    "manuel-origine",
+    "manuel-origine-ue"
+   ],
+   "a_telecharger": [
+    "lf-2025",
+    "code-impots-indirects",
+    "daps-arrete-2019-mod",
+    "rco"
+   ],
+   "moteur": "liquidation (CS, DD, TVA, RPS, DAPS), exonérations, contrôles VAL et ORI, analyse 360°"
+  },
+  {
+   "n": 8,
+   "titre": "Commerce international",
+   "base": [
+    "veille_secondaire.json (PPI, domiciliation, MACF)"
+   ],
+   "a_telecharger": [
+    "Incoterms® 2020 (Chambre de commerce internationale, publication payante)",
+    "Textes du ministère du Commerce extérieur sur le programme prévisionnel d'importation"
+   ],
+   "moteur": "incoterm et ajustements de la valeur ; rôle des parties ; analyse de marché mensuelle"
+  },
+  {
+   "n": 9,
+   "titre": "Techniques bancaires",
+   "base": [],
+   "a_telecharger": [
+    "ba-reglement-07-01",
+    "ba-instruction-01-2026",
+    "ba-reglement-26-02",
+    "RUU 600 — crédit documentaire (Chambre de commerce internationale, publication payante)"
+   ],
+   "moteur": "domiciliation (contrôle DAT-1), change et sensibilité (analyse 360°)"
+  },
+  {
+   "n": 10,
+   "titre": "Droit maritime",
+   "base": [],
+   "a_telecharger": [
+    "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée"
+   ],
+   "moteur": "B/L, avis d'arrivée, surestaries selon le barème de l'armateur"
+  },
+  {
+   "n": 11,
+   "titre": "Droit civil",
+   "base": [],
+   "a_telecharger": [
+    "Ordonnance n° 75-58 du 26/09/1975 portant code civil, modifiée"
+   ],
+   "moteur": "—"
+  },
+  {
+   "n": 12,
+   "titre": "Droit commercial",
+   "base": [],
+   "a_telecharger": [
+    "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée"
+   ],
+   "moteur": "RC des parties, commissionnaire personne morale"
+  },
+  {
+   "n": 13,
+   "titre": "Droit pénal",
+   "base": [],
+   "a_telecharger": [
+    "Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée"
+   ],
+   "moteur": "—"
+  },
+  {
+   "n": 14,
+   "titre": "Anglais technique",
+   "base": [
+    "ebti (anglais)",
+    "glossaire_douane.json"
+   ],
+   "a_telecharger": [],
+   "moteur": "lecture des factures, B/L et certificats en anglais ; glossaire FR / EN / AR"
+  }
+ ]
+}

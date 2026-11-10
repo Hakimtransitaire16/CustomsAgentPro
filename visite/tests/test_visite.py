@@ -88,6 +88,15 @@ class TestVisite(unittest.TestCase):
             self.assertIn(k, l)
         self.assertEqual(set(l), set(registry.CHAMPS))
 
+    def test_programme_commissionnaire(self):
+        import json
+        from visite import moteur
+        prog = json.loads((moteur.KB / "data" / "programme_commissionnaire.json").read_text(encoding="utf-8"))
+        self.assertEqual([m["n"] for m in prog["modules"]], list(range(1, 15)))
+        nums = [m["n"] for m in moteur.modules(["surestaries", "connaissement", "armateur"])]
+        self.assertEqual(nums[0], 10)
+        self.assertIn(9, [m["n"] for m in moteur.modules(["domiciliation", "banque"])])
+
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))
         self.assertEqual(r["erreur"], 0)
