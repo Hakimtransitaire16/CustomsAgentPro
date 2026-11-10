@@ -10,6 +10,11 @@ from visite import app, calc, data, mobile, moteur, registry, render, tarif
 EX = Path(__file__).resolve().parents[1] / "exemples" / "dossier_exemple.json"
 
 
+def moteur_kb_tools():
+    from visite import moteur
+    return moteur.KB / "tools"
+
+
 class TestVisite(unittest.TestCase):
     def setUp(self):
         self.d = data.load(EX)
@@ -96,6 +101,19 @@ class TestVisite(unittest.TestCase):
         nums = [m["n"] for m in moteur.modules(["surestaries", "connaissement", "armateur"])]
         self.assertEqual(nums[0], 10)
         self.assertIn(9, [m["n"] for m in moteur.modules(["domiciliation", "banque"])])
+
+    def test_recherche_arabe(self):
+        from visite import moteur
+        self.assertEqual(moteur.mots_arabes("ما هي مسؤولية الناقل البحري"), ["مسؤولي", "ناقل", "بحري"])
+        q = moteur._fts(["ناقل"])
+        self.assertIn('"الناقل"*', q)
+
+    def test_articles_arabes(self):
+        import sys
+        sys.path.insert(0, str(moteur_kb_tools()))
+        import build_kb
+        arts = build_kb.parse_articles_ar("المادة 43 : نص أ\nالمادة 60 مكرر 1 : نص ب\nالمادة ٦١ : نص ج", "T")
+        self.assertEqual([a["article"] for a in arts], ["43", "60 مكرر 1", "61"])
 
     def test_controles_exemple(self):
         r = calc.resume(calc.controles(self.d))

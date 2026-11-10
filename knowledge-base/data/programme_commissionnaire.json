@@ -93,10 +93,11 @@
    "n": 6,
    "titre": "Les assurances",
    "base": [
-    "code-douanes-consolide (art. 16 octies § 1 e : assurance dans la valeur)"
+    "code-douanes-consolide (art. 16 octies § 1 e : assurance dans la valeur)",
+    "ordonnance-95-07 (texte arabe, version d'origine 1995)"
    ],
    "a_telecharger": [
-    "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée"
+    "Modifications de l'ordonnance 95-07 (loi 06-04 du 20/02/2006 et suivantes)"
    ],
    "moteur": "contrôle VAL-4 (assurance déclarée) ; pièce ASS"
   },
@@ -147,9 +148,11 @@
   {
    "n": 10,
    "titre": "Droit maritime",
-   "base": [],
+   "base": [
+    "cours-droit-maritime (support pédagogique 2020-2021, arabe)"
+   ],
    "a_telecharger": [
-    "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée"
+    "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée (texte officiel)"
    ],
    "moteur": "B/L, avis d'arrivée, surestaries selon le barème de l'armateur"
   },
@@ -165,18 +168,22 @@
   {
    "n": 12,
    "titre": "Droit commercial",
-   "base": [],
+   "base": [
+    "code-commerce (édition SGG 2007, arabe)"
+   ],
    "a_telecharger": [
-    "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée"
+    "Modifications du code de commerce postérieures à 2007"
    ],
    "moteur": "RC des parties, commissionnaire personne morale"
   },
   {
    "n": 13,
    "titre": "Droit pénal",
-   "base": [],
+   "base": [
+    "code-penal (édition SGG 2012, arabe)"
+   ],
    "a_telecharger": [
-    "Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée"
+    "Modifications du code pénal postérieures à 2012"
    ],
    "moteur": "—"
   },

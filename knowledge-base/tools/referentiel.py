@@ -155,15 +155,21 @@ SOURCES = [
     ("programme-commissionnaire", "Profession", "CCI IGILGILI — programme de formation du commissionnaire en douane "
      "(14 modules, 12 mois)", "guide", 2, "programme_formation_commissionnaire_cci_igilgili.pdf", "",
      "Socle de compétences : data/programme_commissionnaire.json"),
-    ("ordonnance-95-07", "Droit général", "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances, modifiée",
+    ("ordonnance-95-07", "Droit général", "Ordonnance n° 95-07 du 25/01/1995 relative aux assurances (JO n° 13 du 08/03/1995, texte arabe, "
+     "version d'origine : modifications ultérieures non incluses)",
      "texte", 2, "ordonnance-95-07-assurances.pdf", "https://www.joradp.dz", "Module 6 : assurances"),
     ("code-maritime", "Droit général", "Ordonnance n° 76-80 du 23/10/1976 portant code maritime, modifiée",
      "texte", 2, "code-maritime.pdf", "https://www.joradp.dz", "Module 10 : transport maritime, connaissement"),
+    ("cours-droit-maritime", "Droit général", "Cours de droit maritime algérien (université, année 2020-2021, "
+     "texte arabe) — support pédagogique, ne remplace pas le code maritime", "guide", 3,
+     "cours-droit-maritime-2020-2021.pdf", "", "Module 10 : notions (navire, armateur, connaissement, transport)"),
     ("code-civil", "Droit général", "Ordonnance n° 75-58 du 26/09/1975 portant code civil, modifiée",
      "texte", 3, "code-civil.pdf", "https://www.joradp.dz", "Module 11 : contrats, mandat, responsabilité"),
-    ("code-commerce", "Droit général", "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce, modifiée",
+    ("code-commerce", "Droit général", "Ordonnance n° 75-59 du 26/09/1975 portant code de commerce (édition SGG 2007, texte arabe ; "
+     "modifications postérieures à 2007 non incluses)",
      "texte", 2, "code-commerce.pdf", "https://www.joradp.dz", "Module 12 : commerçants, sociétés, effets de commerce"),
-    ("code-penal", "Droit général", "Ordonnance n° 66-156 du 08/06/1966 portant code pénal, modifiée",
+    ("code-penal", "Droit général", "Ordonnance n° 66-156 du 08/06/1966 portant code pénal (édition SGG à jour 2012, texte arabe ; "
+     "modifications postérieures à 2012 non incluses)",
      "texte", 3, "code-penal.pdf", "https://www.joradp.dz", "Module 13 : droit pénal"),
     ("ebti", "Méthode", "Commission européenne — informations générales sur les RTC (EBTI)", "guide", 2,
      "ebti_general_information_en.pdf", None, "Méthode de description (case 9)"),

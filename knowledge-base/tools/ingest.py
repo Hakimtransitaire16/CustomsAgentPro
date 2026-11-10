@@ -80,18 +80,31 @@ def extraire(pdf: Path, typ: str, out: Path) -> tuple[str, int]:
     pages = int(re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", str(pdf)], capture_output=True,
                                                              text=True).stdout or "Pages: 1").group(1))
     txt = out.read_text(encoding="utf-8", errors="ignore") if out.exists() else ""
-    if len(txt.strip()) >= 200 * max(pages, 1) * 0.3:
+    arabe = arabe_dominant(txt) or arabe_dominant(premiere_page(pdf))
+    # Couche texte arabe des PDF officiels : glyphes de présentation, « ك » rendu « آ », mots coupés
+    # par la justification → l'OCR arabe donne un texte bien plus fidèle (contrôlé sur le code de commerce).
+    if len(txt.strip()) >= 200 * max(pages, 1) * 0.3 and not arabe:
         return "pdftotext", len(txt)
-    with tempfile.TemporaryDirectory() as tmp:  # scan : OCR page par page
+    from concurrent.futures import ThreadPoolExecutor
+    langue = "ara" if arabe else "fra+ara"
+    # Scan sans couche texte (Journal officiel en deux colonnes) : segmentation automatique des colonnes (psm 3) ;
+    # PDF à une colonne avec couche texte défaillante : bloc unique (psm 4)
+    psm = "4" if len(txt.strip()) >= 200 * max(pages, 1) * 0.3 else "3"
+    with tempfile.TemporaryDirectory() as tmp:  # OCR page par page, en parallèle
         subprocess.run(["pdftoppm", "-r", "300", "-gray", "-png", str(pdf), f"{tmp}/p"], check=True)
-        parts = []
-        for png in sorted(Path(tmp).glob("p-*.png")):
-            r = subprocess.run(["tesseract", str(png), "-", "-l", "fra+ara", "--psm", "4"],
-                               capture_output=True, text=True)
-            parts.append(r.stdout)
+        pngs = sorted(Path(tmp).glob("p-*.png"), key=lambda p: int(re.search(r"(\d+)\.png$", p.name).group(1)))
+        ocr = lambda png: subprocess.run(["tesseract", str(png), "-", "-l", langue, "--psm", psm],
+                                         capture_output=True, text=True).stdout
+        with ThreadPoolExecutor(max_workers=2) as ex:
+            parts = list(ex.map(ocr, pngs))
         txt = "\n\f".join(parts)
     out.write_text(txt, encoding="utf-8")
-    return "ocr", len(txt)
+    return "ocr-" + langue, len(txt)
+
+
+def arabe_dominant(txt: str) -> bool:
+    lettres = re.findall(r"[^\W\d_]", txt)
+    return len(lettres) > 200 and len(re.findall(r"[\u0600-\u06FF\uFB50-\uFEFF]", txt)) > 0.5 * len(lettres)
 
 
 def nb_pages(pdf: Path) -> int:

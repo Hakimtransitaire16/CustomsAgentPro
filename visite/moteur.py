@@ -41,6 +41,9 @@ INSTRUMENTS = [  # mot-clé dans la demande → instrument visé par « article 
     (r"loi de finances 2026|lf 2026|25-17|قانون المالية 2026", "Loi 25-17"),
     (r"18-13|lfc 2018", "Loi n° 18-13"),
     (r"17-04", "Loi 17-04"),
+    (r"code de commerce|75-59|القانون التجاري|التقنين التجاري", "code de commerce"),
+    (r"code pénal|code penal|66-156|قانون العقوبات", "code pénal"),
+    (r"assurances?|95-07|التأمين|التأمينات", "relative aux assurances"),
     (r".", "Code des douanes — loi n° 79-07"),  # défaut : code des douanes consolidé
 ]
 
@@ -98,6 +101,31 @@ def traduire(q: str) -> str:
     return q + (" " + " ".join(dict.fromkeys(ajouts)) if ajouts else "")
 
 
+STOP_AR = set("""ما هي هو هل في من على عن إلى الى التي الذي الذين هذا هذه ذلك تلك كيف لماذا متى أين اين واش شنو
+كاش ماهو ماهي مع او أو كل بين عند لكن ثم قد لا لم لن كان كانت يكون تكون ليس اريد أريد نحب عطيني اعطني قولي اشرح شرح
+عندي عندك راهو راهي بصح باش ولا""".split())
+PREFIXES_AR = ("وبال", "وال", "بال", "كال", "فال", "لل", "ال")
+
+
+def mots_arabes(q: str) -> list[str]:
+    """Racines de recherche des mots arabes : sans article (ال, وال, بال…) ni ة finale ; « و » de liaison retiré."""
+    out = []
+    for w in re.findall(r"[\u0621-\u064A]{3,}", q):
+        if w in STOP_AR:
+            continue
+        for p in PREFIXES_AR:
+            if w.startswith(p) and len(w) - len(p) >= 3:
+                w = w[len(p):]
+                break
+        else:
+            if w.startswith("و") and len(w) >= 5:
+                w = w[1:]
+        w = w[:-1] if w.endswith("ة") and len(w) >= 4 else w
+        if len(w) >= 3:
+            out.append(w)
+    return list(dict.fromkeys(out))
+
+
 def lire(q: str) -> dict:
     qf = traduire(q)
     codes = []
@@ -116,6 +144,7 @@ def lire(q: str) -> dict:
         arts.append((num, instr))
     themes = [t for t, (pat, _) in THEMES.items() if re.search(pat, qf, re.I)]
     mots = [w for w in re.findall(r"[A-Za-zÀ-ÿ'’.-]{3,}", qf) if w.lower() not in STOP]
+    mots += mots_arabes(q)  # les textes arabes de la base (codes de commerce, pénal, assurances…) sont cherchés tels quels
     return {"demande": q, "traduite": qf, "codes": list(dict.fromkeys(codes)), "articles": arts,
             "themes": themes, "mots": mots}
 
@@ -155,7 +184,15 @@ def _db():
 
 def _fts(mots: list[str]) -> str:
     termes = [re.sub(r"[^\wÀ-ÿ]", "", w) for w in mots]
-    return " OR ".join(f'"{t}"*' for t in dict.fromkeys(termes) if len(t) >= 3)
+    q = []
+    for t in dict.fromkeys(termes):
+        if len(t) < 3:
+            continue
+        if re.search(r"[\u0621-\u064A]", t):  # arabe : avec et sans article, toutes terminaisons
+            q += [f'"{t}"*', f'"ال{t}"*', f'"وال{t}"*', f'"بال{t}"*', f'"لل{t}"*']
+        else:
+            q.append(f'"{t}"*')
+    return " OR ".join(q)
 
 
 # ------------------------------------------------------------------ consultation

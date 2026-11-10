@@ -266,8 +266,28 @@ ART_RE = re.compile(
     r"decies|undecies|duodecies)(?:\s+\d+)?)?)\s*\.?\s*[—–-]", re.M)
 
 
+# Textes arabes : « المادة 43 : » ; « المادة 60 مكرر 1 : » (OCR : « م ادة », chiffres arabes ou indiens)
+ART_AR_RE = re.compile(r"^\s*(ال\s?م\s?ادة)\s+([0-9٠-٩]+)\s*((?:مكرر|مكررا)\s*[0-9٠-٩]*)?\s*[:：.-]", re.M)
+IND = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+
+
+def parse_articles_ar(text: str, instrument: str) -> list[dict]:
+    matches = list(ART_AR_RE.finditer(text))
+    arts = []
+    for i, m in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        num = m.group(2).translate(IND) + (" مكرر" + (" " + m.group(3).replace("مكررا", "").replace("مكرر", "").strip().translate(IND)
+                                                     if m.group(3).replace("مكررا", "").replace("مكرر", "").strip() else "")
+                                         if m.group(3) else "")
+        arts.append({"instrument": instrument, "scope": "texte", "article": num.strip(), "langue": "ar",
+                     "text": clean(text[m.end():end].replace("\f", " "))})
+    return arts
+
+
 def parse_articles(path: Path, instrument: str) -> list[dict]:
     text = "\n".join(l for l in path.read_text(encoding="utf-8").splitlines() if not JO_NOISE.search(l))
+    if len(re.findall(r"[\u0600-\u06FF]", text)) > 0.5 * len(re.findall(r"[^\W\d_]", text)) + 1:
+        return parse_articles_ar(text, instrument)
     matches = list(ART_RE.finditer(text))
     arts = []
     for i, m in enumerate(matches):

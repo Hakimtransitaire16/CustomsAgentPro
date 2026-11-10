@@ -15,3 +15,7 @@ visite_*.json
 # documents déposés pour intégration (copiés ensuite dans sources/)
 knowledge-base/inbox/*.pdf
 knowledge-base/inbox/integres/
+
+# Supports de cours de tiers : utilisés en local, non redistribués
+knowledge-base/sources/cours-*.pdf
+knowledge-base/text/cours-*.txt
