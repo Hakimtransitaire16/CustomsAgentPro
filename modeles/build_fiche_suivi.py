@@ -55,7 +55,8 @@ def tete(sous_titre, page):
       <div class="who">{DECLARANT}<br>déclarant en douane</div>
     </div>
     <div class="hm"><div class="kick">Dédouanement jusqu'à livraison</div><h1>Suivi véhicules</h1><p>{sous_titre}</p></div>
-    <div class="hr"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">Page {page}</div></div>
+    <div class="hrs"><div class="hr"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">Page {page}</div></div>
+      <div class="hr"><div class="lb">N° D10</div><div class="v"></div></div></div>
   </header>
   <div class="stripe"><i></i></div>'''
 
@@ -90,17 +91,16 @@ def page1():
   <div class="grid">
     {case(8, "Lieu d'entreposage", '', 5)}
     {case(9, "État de dépotage · date", opts("Dépoté", "Non dépoté") + '<span class="gap"></span>' + DATE, 7)}
-    {case(10, "Groupeur", '', 4)}
-    {case(11, "Tél. groupeur", '', 4)}
-    {case(12, "Relâche du groupeur", opts("Oui", "Non"), 4)}
+    {case(10, "Groupeur", '', 7)}
+    {case(11, "Relâche du groupeur", opts("Oui", "Non"), 5)}
   </div>
   <div class="sec"><span class="sl">C</span>TC vide</div>
   <div class="grid">
-    {case(13, "Facturation du TC vide", DATE, 6)}
-    {case(14, "Livraison du TC vide", DATE, 6)}
+    {case(12, "Facturation du TC vide", DATE, 6)}
+    {case(13, "Livraison du TC vide", DATE, 6)}
   </div>
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
-  <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
+  <div class="grid">{case(14, "Nom du client", '', 8)}{case(15, "Tél. client", '', 4)}</div>
   <table class="veh">
     <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">6 derniers caractères en jaune = référence du véhicule</span></th></tr></thead>
     <tbody>{vehs}</tbody>
@@ -151,7 +151,7 @@ def page2():
 <section>{marques()}{tete_suite()}
   <div class="body">
   <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
-    <div class="case" style="flex:1"><div class="lb"><span class="no">15</span>Client</div><div class="bd"></div></div></div>
+    <div class="case" style="flex:1"><div class="lb"><span class="no">14</span>Client</div><div class="bd"></div></div></div>
   <div class="vins">{vins}</div>
   <table class="mx"><colgroup><col style="width:31mm"><col><col><col><col></colgroup>
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
@@ -181,22 +181,23 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm
 .kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
 .hm h1{font:700 24pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.03em;margin-top:1.4mm}
 .hm p{font-size:7.6pt;color:#FFFFFF;margin-top:1.4mm}
+.hrs{display:flex;flex-direction:column;gap:1.6mm}
 .hr{background:#fff;color:var(--ink);border-radius:0;padding:1.8mm 2.6mm 2mm;position:relative}
 .hr .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
-.hr .v{height:7mm;border-bottom:1.2px solid var(--navy)}
+.hr .v{height:6.4mm;border-bottom:1.2px solid var(--navy)}
 .hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
 .mx tr.st{height:22mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
-.sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.sec{display:flex;align-items:center;gap:2.8mm;margin:4mm 0 2mm;font-size:9.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
 .sec::after{content:"";flex:1;height:1.4px;background:var(--ink)}
-.sl{width:5.2mm;height:5.2mm;border-radius:0;background:var(--eu);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
+.sl{width:6.6mm;height:6.6mm;font-size:9pt!important;border-radius:0;background:var(--eu);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
 /* Cases numérotées */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm}
 .case{border:.9px solid var(--rule);border-top:1.6px solid var(--ink);border-radius:0;background:#fff;padding:1.5mm 2.2mm 1.8mm;min-height:13mm;display:flex;flex-direction:column}
-.case .lb{display:flex;align-items:center;gap:1.6mm;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.case .lb{display:flex;align-items:center;gap:1.6mm;font-size:6.6pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 .no{min-width:4.2mm;height:4.2mm;padding:0 .8mm;border-radius:0;background:var(--navy);color:#fff;font-size:6pt;letter-spacing:0;display:inline-flex;align-items:center;justify-content:center}
 .bd{flex:1;display:flex;align-items:flex-end;gap:2mm;padding-top:1.4mm;flex-wrap:wrap}
 .pre{font-weight:800;font-size:10pt;color:var(--navy);letter-spacing:.06em}
