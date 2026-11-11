@@ -163,8 +163,8 @@ def page2():
 
 CSS = '''
 @page{size:A4 portrait;margin:0}
-:root{--navy:#003399;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#DCE3F3;--tint:#F3F2F1;
-  --c1:#002F6C;--c1l:#FFF4C2;--c2:#1D5DB4;--c2l:#FFF4C2;--c3:#5B8BD0;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00}
+:root{--navy:#003399;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#FFFFFF;--tint:#F3F2F1;
+  --c1:#003399;--c1l:#FFF4C2;--c2:#003399;--c2l:#FFF4C2;--c3:#003399;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
 section{position:relative;width:210mm;height:297mm;display:flex;flex-direction:column;break-after:page;overflow:hidden}
@@ -176,10 +176,10 @@ section:last-child{break-after:auto}
 /* En-tête pleine largeur */
 header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm 1fr 42mm;align-items:end;gap:6mm;padding:9mm 10mm 6mm 22mm}
 .brand{font:800 15pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.1em}
-.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#C9D3EC;margin-top:2mm;line-height:1.45}
+.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#FFFFFF;margin-top:2mm;line-height:1.45}
 .kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
 .hm h1{font:700 24pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.03em;margin-top:1.4mm}
-.hm p{font-size:7.6pt;color:#DCE3F3;margin-top:1.4mm}
+.hm p{font-size:7.6pt;color:#FFFFFF;margin-top:1.4mm}
 .hr{background:#fff;color:var(--ink);border-radius:0;padding:1.8mm 2.6mm 2mm;position:relative}
 .hr .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .hr .v{height:7mm;border-bottom:1.2px solid var(--navy)}
@@ -214,7 +214,7 @@ header,footer{flex:none}
 table{border-collapse:separate;border-spacing:0;width:100%}
 .veh{margin-top:2mm;border:1px solid var(--rule);border-radius:0;overflow:hidden}
 .veh th{background:var(--navy);text-align:left;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:1.9mm 2.2mm}
-.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#C9D3EC;margin-left:1.4mm}
+.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#FFFFFF;margin-left:1.4mm}
 .veh td{padding:2.2mm 2.2mm;border-top:1px solid var(--hair);vertical-align:bottom;height:12.4mm}
 .veh tbody tr:first-child td{border-top:0}
 .veh td.n{width:9mm;font:800 13pt "Inter Display",Inter,sans-serif;color:var(--navy);vertical-align:middle;text-align:center;background:var(--tint)}
@@ -231,11 +231,11 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx thead th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2mm;vertical-align:top}
 .mx thead th:first-child{border-top-left-radius:0}
 .mx thead th:last-child{border-top-right-radius:0}
-.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#C9D3EC}
+.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#FFFFFF}
 .vh{font:700 8.6pt "Inter Display",Inter,sans-serif}
-.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#C9D3EC;margin-top:1.4mm;white-space:nowrap}
+.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#FFFFFF;margin-top:1.4mm;white-space:nowrap}
 .vr .comb{gap:.35mm}
-.vr .comb i{width:3.4mm;height:4.4mm;border-color:#5D74B8;border-bottom-color:#fff;background:transparent}
+.vr .comb i{width:3.4mm;height:4.4mm;border-color:#FFFFFF;border-bottom-color:#fff;background:transparent}
 .mx tr.ph td{padding:1.3mm 2mm .9mm;border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
 .mx tr.ph span{font-size:6pt;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
