@@ -98,7 +98,7 @@ def page1():
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
   <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
   <table class="veh">
-    <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">6 derniers caractères en bleu = référence du véhicule</span></th></tr></thead>
+    <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">6 derniers caractères en jaune = référence du véhicule</span></th></tr></thead>
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
@@ -163,8 +163,8 @@ def page2():
 
 CSS = '''
 @page{size:A4 portrait;margin:0}
-:root{--navy:#0B0C0C;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#DDE0E2;--tint:#F3F2F1;
-  --c1:#002F6C;--c1l:#E8EDF6;--c2:#1D5DB4;--c2l:#E8EDF6;--c3:#5B8BD0;--c3l:#E8EDF6;--gold:#FFFFFF;--eu:#003399}
+:root{--navy:#003399;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#DCE3F3;--tint:#F3F2F1;
+  --c1:#002F6C;--c1l:#FFF4C2;--c2:#1D5DB4;--c2l:#FFF4C2;--c3:#5B8BD0;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
 section{position:relative;width:210mm;height:297mm;display:flex;flex-direction:column;break-after:page;overflow:hidden}
@@ -176,10 +176,10 @@ section:last-child{break-after:auto}
 /* En-tête pleine largeur */
 header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm 1fr 42mm;align-items:end;gap:6mm;padding:9mm 10mm 6mm 22mm}
 .brand{font:800 15pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.1em}
-.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#C8CCCF;margin-top:2mm;line-height:1.45}
-.kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C8CCCF}
+.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#C9D3EC;margin-top:2mm;line-height:1.45}
+.kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
 .hm h1{font:700 24pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.03em;margin-top:1.4mm}
-.hm p{font-size:7.6pt;color:#DDE0E2;margin-top:1.4mm}
+.hm p{font-size:7.6pt;color:#DCE3F3;margin-top:1.4mm}
 .hr{background:#fff;color:var(--ink);border-radius:0;padding:1.8mm 2.6mm 2mm;position:relative}
 .hr .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .hr .v{height:7mm;border-bottom:1.2px solid var(--navy)}
@@ -187,7 +187,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
 .mx tr.st{height:19.6mm}
-.stripe i{flex:1;background:var(--eu)}
+.stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
 .sec::after{content:"";flex:1;height:1.4px;background:var(--ink)}
@@ -206,7 +206,7 @@ header,footer{flex:none}
 .comb{display:inline-flex;gap:.55mm}
 .comb i{display:block;width:4.4mm;height:6mm;border:1px solid var(--rule);border-bottom:1.3px solid var(--ink);border-radius:0;background:#fff}
 .comb i.s{margin-left:1.6mm}
-.comb i.t{background:var(--c1l);border-color:#B7C5E3;border-bottom-color:var(--c1)}
+.comb i.t{background:var(--c1l);border-color:#E6C34D;border-bottom-color:var(--ink)}
 .opts{display:inline-flex;gap:4.4mm;font-size:7.6pt;font-weight:500}
 .opts span{display:inline-flex;align-items:center;gap:1.4mm}
 .opts span::before{content:"";width:3.4mm;height:3.4mm;border:1.2px solid var(--navy);border-radius:0}
@@ -214,7 +214,7 @@ header,footer{flex:none}
 table{border-collapse:separate;border-spacing:0;width:100%}
 .veh{margin-top:2mm;border:1px solid var(--rule);border-radius:0;overflow:hidden}
 .veh th{background:var(--navy);text-align:left;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:1.9mm 2.2mm}
-.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#C8CCCF;margin-left:1.4mm}
+.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#C9D3EC;margin-left:1.4mm}
 .veh td{padding:2.2mm 2.2mm;border-top:1px solid var(--hair);vertical-align:bottom;height:12.4mm}
 .veh tbody tr:first-child td{border-top:0}
 .veh td.n{width:9mm;font:800 13pt "Inter Display",Inter,sans-serif;color:var(--navy);vertical-align:middle;text-align:center;background:var(--tint)}
@@ -231,16 +231,16 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx thead th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2mm;vertical-align:top}
 .mx thead th:first-child{border-top-left-radius:0}
 .mx thead th:last-child{border-top-right-radius:0}
-.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#C8CCCF}
+.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#C9D3EC}
 .vh{font:700 8.6pt "Inter Display",Inter,sans-serif}
-.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#C8CCCF;margin-top:1.4mm;white-space:nowrap}
+.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#C9D3EC;margin-top:1.4mm;white-space:nowrap}
 .vr .comb{gap:.35mm}
-.vr .comb i{width:3.4mm;height:4.4mm;border-color:#6F777B;border-bottom-color:#fff;background:transparent}
+.vr .comb i{width:3.4mm;height:4.4mm;border-color:#5D74B8;border-bottom-color:#fff;background:transparent}
 .mx tr.ph td{padding:1.3mm 2mm .9mm;border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
 .mx tr.ph span{font-size:6pt;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
-.mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--c1)}
-.mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--c2)}
-.mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--c3)}
+.mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
+.mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
+.mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
 .mx tr.st{height:19.6mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
