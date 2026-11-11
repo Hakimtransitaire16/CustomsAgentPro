@@ -102,7 +102,7 @@ def page1():
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
-  <div class="obs"></div>
+  <div class="obs"><i></i><i></i><i></i><i></i></div>
   </div>
   {pied("VIN : 17 caractères, jamais I, O ni Q · dates portées à la main à chaque étape")}
 </section>'''
@@ -221,7 +221,8 @@ table{border-collapse:separate;border-spacing:0;width:100%}
 .veh th:nth-child(2){width:26mm}.veh th:nth-child(3){width:27mm}
 .veh .w{height:5mm;border-bottom:1px solid var(--rule)}
 .veh .comb i{width:4.05mm}
-.obs{flex:1;border:1px solid var(--rule);border-radius:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.4mm,var(--hair) 7.4mm,var(--hair) 7.6mm);min-height:14mm}
+.obs{flex:1;border:1px solid var(--rule);background:#fff;min-height:14mm;display:flex;flex-direction:column;justify-content:space-evenly;padding:0 2.2mm}
+.obs i{display:block;height:0;border-bottom:1px solid var(--hair)}
 footer{display:flex;justify-content:space-between;gap:6mm;margin:3mm 10mm 7mm 22mm;padding-top:2mm;border-top:1px solid var(--rule);font-size:6pt;color:var(--mute)}
 footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 /* Page 2 */
