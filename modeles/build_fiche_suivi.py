@@ -59,7 +59,7 @@ def tete(sous_titre, page):
     <div class="hm"><div class="kick">Dédouanement jusqu'à livraison</div><h1>Suivi véhicules</h1><p>{sous_titre}</p></div>
     <div class="hr"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">Page {page}</div></div>
   </header>
-  <div class="stripe"><i class="c1"></i><i class="c2"></i><i class="c3"></i></div>'''
+  <div class="stripe"><i></i></div>'''
 
 
 def pied(gauche):
@@ -163,8 +163,8 @@ def page2():
 
 CSS = '''
 @page{size:A4 portrait;margin:0}
-:root{--navy:#0A1F3C;--navy2:#13335E;--ink:#0F1A2A;--mute:#5F6C80;--ghost:#AAB6C4;--rule:#C7D1DD;--hair:#E1E7EE;--tint:#F3F6F9;
-  --c1:#1D4F91;--c1l:#E6EEF8;--c2:#0E6E62;--c2l:#E3F2EF;--c3:#B4530F;--c3l:#FBEDE2;--gold:#C9A227}
+:root{--navy:#0B0C0C;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#DDE0E2;--tint:#F3F2F1;
+  --c1:#002F6C;--c1l:#E8EDF6;--c2:#1D5DB4;--c2l:#E8EDF6;--c3:#5B8BD0;--c3l:#E8EDF6;--gold:#FFFFFF;--eu:#003399}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
 section{position:relative;width:210mm;height:297mm;display:flex;flex-direction:column;break-after:page;overflow:hidden}
@@ -176,27 +176,27 @@ section:last-child{break-after:auto}
 /* En-tête pleine largeur */
 header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm 1fr 42mm;align-items:end;gap:6mm;padding:9mm 10mm 6mm 22mm}
 .brand{font:800 15pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.1em}
-.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#AFC1DA;margin-top:2mm;line-height:1.45}
-.kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#C8CCCF;margin-top:2mm;line-height:1.45}
+.kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C8CCCF}
 .hm h1{font:700 24pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.03em;margin-top:1.4mm}
-.hm p{font-size:7.6pt;color:#C9D6E8;margin-top:1.4mm}
-.hr{background:#fff;color:var(--ink);border-radius:1.6mm;padding:1.8mm 2.6mm 2mm;position:relative}
+.hm p{font-size:7.6pt;color:#DDE0E2;margin-top:1.4mm}
+.hr{background:#fff;color:var(--ink);border-radius:0;padding:1.8mm 2.6mm 2mm;position:relative}
 .hr .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .hr .v{height:7mm;border-bottom:1.2px solid var(--navy)}
 .hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
-.stripe{display:flex;height:1.6mm;flex:none}
+.stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
 .mx tr.st{height:19.6mm}
-.stripe i{flex:1}.stripe .c1{background:var(--c1)}.stripe .c2{background:var(--c2)}.stripe .c3{background:var(--c3)}
+.stripe i{flex:1;background:var(--eu)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
-.sec::after{content:"";flex:1;height:1px;background:var(--rule)}
-.sl{width:5.2mm;height:5.2mm;border-radius:1mm;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
+.sec::after{content:"";flex:1;height:1.4px;background:var(--ink)}
+.sl{width:5.2mm;height:5.2mm;border-radius:0;background:var(--eu);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
 /* Cases numérotées */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm}
-.case{border:1px solid var(--rule);border-radius:1.6mm;background:#fff;padding:1.5mm 2.2mm 1.8mm;min-height:13mm;display:flex;flex-direction:column}
+.case{border:.9px solid var(--rule);border-top:1.6px solid var(--ink);border-radius:0;background:#fff;padding:1.5mm 2.2mm 1.8mm;min-height:13mm;display:flex;flex-direction:column}
 .case .lb{display:flex;align-items:center;gap:1.6mm;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.no{min-width:4.2mm;height:4.2mm;padding:0 .8mm;border-radius:.8mm;background:var(--navy);color:#fff;font-size:6pt;letter-spacing:0;display:inline-flex;align-items:center;justify-content:center}
+.no{min-width:4.2mm;height:4.2mm;padding:0 .8mm;border-radius:0;background:var(--navy);color:#fff;font-size:6pt;letter-spacing:0;display:inline-flex;align-items:center;justify-content:center}
 .bd{flex:1;display:flex;align-items:flex-end;gap:2mm;padding-top:1.4mm;flex-wrap:wrap}
 .pre{font-weight:800;font-size:10pt;color:var(--navy);letter-spacing:.06em}
 .gap{flex:1}
@@ -204,24 +204,24 @@ header,footer{flex:none}
 .date span{display:inline-block;width:6.6mm;text-align:center;border-bottom:1px solid var(--ink);padding-bottom:.3mm}
 .date span.y{width:10.4mm}
 .comb{display:inline-flex;gap:.55mm}
-.comb i{display:block;width:4.4mm;height:6mm;border:1px solid var(--rule);border-bottom:1.3px solid var(--ink);border-radius:.4mm;background:#fff}
+.comb i{display:block;width:4.4mm;height:6mm;border:1px solid var(--rule);border-bottom:1.3px solid var(--ink);border-radius:0;background:#fff}
 .comb i.s{margin-left:1.6mm}
-.comb i.t{background:var(--c1l);border-color:#B9CCE6;border-bottom-color:var(--c1)}
+.comb i.t{background:var(--c1l);border-color:#B7C5E3;border-bottom-color:var(--c1)}
 .opts{display:inline-flex;gap:4.4mm;font-size:7.6pt;font-weight:500}
 .opts span{display:inline-flex;align-items:center;gap:1.4mm}
-.opts span::before{content:"";width:3.4mm;height:3.4mm;border:1.2px solid var(--navy);border-radius:.7mm}
+.opts span::before{content:"";width:3.4mm;height:3.4mm;border:1.2px solid var(--navy);border-radius:0}
 /* Véhicules */
 table{border-collapse:separate;border-spacing:0;width:100%}
-.veh{margin-top:2mm;border:1px solid var(--rule);border-radius:1.6mm;overflow:hidden}
+.veh{margin-top:2mm;border:1px solid var(--rule);border-radius:0;overflow:hidden}
 .veh th{background:var(--navy);text-align:left;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:1.9mm 2.2mm}
-.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#AFC1DA;margin-left:1.4mm}
+.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:#C8CCCF;margin-left:1.4mm}
 .veh td{padding:2.2mm 2.2mm;border-top:1px solid var(--hair);vertical-align:bottom;height:12.4mm}
 .veh tbody tr:first-child td{border-top:0}
 .veh td.n{width:9mm;font:800 13pt "Inter Display",Inter,sans-serif;color:var(--navy);vertical-align:middle;text-align:center;background:var(--tint)}
 .veh th:nth-child(2){width:26mm}.veh th:nth-child(3){width:27mm}
 .veh .w{height:5mm;border-bottom:1px solid var(--rule)}
 .veh .comb i{width:4.05mm}
-.obs{flex:1;border:1px solid var(--rule);border-radius:1.6mm;background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.4mm,var(--hair) 7.4mm,var(--hair) 7.6mm);min-height:14mm}
+.obs{flex:1;border:1px solid var(--rule);border-radius:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.4mm,var(--hair) 7.4mm,var(--hair) 7.6mm);min-height:14mm}
 footer{display:flex;justify-content:space-between;gap:6mm;margin:3mm 10mm 7mm 22mm;padding-top:2mm;border-top:1px solid var(--rule);font-size:6pt;color:var(--mute)}
 footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 /* Page 2 */
@@ -229,13 +229,13 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .p2ref .case{min-height:12mm}
 .mx{margin-top:3mm;table-layout:fixed}
 .mx thead th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2mm;vertical-align:top}
-.mx thead th:first-child{border-top-left-radius:1.6mm}
-.mx thead th:last-child{border-top-right-radius:1.6mm}
-.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#AFC1DA}
+.mx thead th:first-child{border-top-left-radius:0}
+.mx thead th:last-child{border-top-right-radius:0}
+.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#C8CCCF}
 .vh{font:700 8.6pt "Inter Display",Inter,sans-serif}
-.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#AFC1DA;margin-top:1.4mm;white-space:nowrap}
+.vr{display:flex;align-items:center;gap:1mm;font-size:5.8pt;color:#C8CCCF;margin-top:1.4mm;white-space:nowrap}
 .vr .comb{gap:.35mm}
-.vr .comb i{width:3.4mm;height:4.4mm;border-color:#4E6A90;border-bottom-color:#fff;background:transparent}
+.vr .comb i{width:3.4mm;height:4.4mm;border-color:#6F777B;border-bottom-color:#fff;background:transparent}
 .mx tr.ph td{padding:1.3mm 2mm .9mm;border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
 .mx tr.ph span{font-size:6pt;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--c1)}
@@ -262,9 +262,9 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.tot td{border-left:1px solid var(--hair)}
 .mx tr.tot .rail{border-left-color:var(--navy);background:var(--tint)}
 .mx tr.tot .tt{padding-left:1.8mm;font-size:6.4pt;letter-spacing:.1em;text-transform:uppercase}
-.mx tfoot tr th{border-bottom-left-radius:1.6mm}.mx tfoot tr td:last-child{border-bottom-right-radius:1.6mm}
+.mx tfoot tr th{border-bottom-left-radius:0}.mx tfoot tr td:last-child{border-bottom-right-radius:0}
 .ctl{display:grid;grid-template-columns:1fr 1fr .9fr;gap:2mm;margin-top:auto;padding-top:3mm}
-.cb{border:1px solid var(--rule);border-radius:1.6mm;padding:1.6mm 2.2mm 2mm;display:flex;flex-direction:column;gap:1.6mm}
+.cb{border:1px solid var(--rule);border-radius:0;padding:1.6mm 2.2mm 2mm;display:flex;flex-direction:column;gap:1.6mm}
 .cb .lb{font-size:5.8pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .cb.cl{background:var(--tint)}
 .sig{display:flex;align-items:flex-end;gap:1.4mm;font-size:6pt;color:var(--mute);font-weight:600}
