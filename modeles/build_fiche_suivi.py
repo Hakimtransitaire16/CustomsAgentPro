@@ -5,10 +5,9 @@ Conception :
 - mise en page DIN 5008 : marge de classement de 22 mm à gauche, repère de perforation (148,5 mm),
   repères de pliage (105 et 210 mm) ;
 - trois phases en couleur (douane, règlement, livraison) ;
-- contrôle à quatre yeux (établi par / vérifié par) et identification du formulaire (version, date).
 
 Page 1 : le conteneur (cases 1 à 16) et les 4 véhicules.
-Page 2 : les 8 étapes × 4 véhicules, totaux et contrôle.
+Page 2 : les 4 VIN, puis les 8 étapes × 4 véhicules et les totaux.
 
 Usage : python modeles/build_fiche_suivi.py <dossier de sortie>
 """
@@ -20,7 +19,6 @@ from pypdf import PdfReader
 
 TRANSITAIRE = "SARL GMOR"
 DECLARANT = "ABDEL HAKIM HADJALLAH"
-VERSION = "Formulaire SV · version 1.0 · 11/2026"
 
 DATE = '<span class="date"><span>JJ</span>/<span>MM</span>/<span class="y">AAAA</span></span>'
 
@@ -69,7 +67,7 @@ def tete_suite():
 
 
 def pied(gauche):
-    return f'<footer><span>{gauche}</span><span class="ver">{VERSION}</span></footer>'
+    return f'<footer><span>{gauche}</span></footer>'
 
 
 def page1():
@@ -159,11 +157,6 @@ def page2():
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
     <tbody>{rows}</tbody>
     <tfoot><tr class="tot"><th class="rail"><span class="tt">Totaux du véhicule</span></th>{tot}</tr></tfoot></table>
-  <div class="ctl">
-    <div class="cb"><div class="lb">Établi par</div><div class="sig"><span>Nom</span><i></i></div><div class="sig"><span>Date</span>{DATE}<span>Visa</span><i></i></div></div>
-    <div class="cb"><div class="lb">Vérifié par</div><div class="sig"><span>Nom</span><i></i></div><div class="sig"><span>Date</span>{DATE}<span>Visa</span><i></i></div></div>
-    <div class="cb cl"><div class="lb">Clôture</div>{opts("Dossier complet")}<div class="sig"><span>Classé le</span>{DATE}</div></div>
-  </div>
   </div>
   {pied("Une ligne = une étape pour les 4 véhicules · une colonne = le parcours d'un véhicule · cocher le rond quand l'étape est faite")}
 </section>'''
@@ -194,7 +187,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm
 .hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
-.mx tr.st{height:19mm}
+.mx tr.st{height:22mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
@@ -253,7 +246,7 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
 .mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
 .mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
-.mx tr.st{height:19mm}
+.mx tr.st{height:22mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
 .mx tr.st td:last-child,.mx tr.tot td:last-child{border-right:1px solid var(--rule)}
