@@ -44,7 +44,7 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
 .mx th .n{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:6pt;opacity:.7}
 .mx th .ar{color:#cfdbea;display:block;font-size:6.2pt;margin-top:.4mm;text-align:left}
 .mx th.v{width:66mm}
-.mx td{border:1px solid var(--line);vertical-align:top;padding:1.4mm 1.5mm;height:29.6mm}
+.mx td{border:1px solid var(--line);vertical-align:top;padding:1.4mm 1.5mm;height:28.4mm}
 .mx td.v{background:var(--panel)}
 .mx tbody tr{break-inside:avoid}
 .vn{display:flex;align-items:center;gap:1.6mm}
@@ -100,6 +100,15 @@ table.rg{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed}
 .rg td{border:1px solid var(--line);height:7.95mm}
 .rg td:first-child{font:600 6.8pt "DejaVu Sans Mono",monospace;color:var(--navy);padding-left:1.2mm}
 .rg tbody tr:nth-child(even) td{background:#FAFBFD}
+.refs.r6{grid-template-columns:.72fr 1.28fr 1.05fr 1.15fr .9fr .9fr;gap:2.4mm}
+.r6 .boxes{gap:.45mm}.r6 .boxes i{width:4.05mm}.r6 .boxes i.sep{margin-left:1mm}
+.ck2{display:flex;gap:3mm;font-size:7pt;margin-top:1.4mm}
+.ck2 span{display:inline-flex;align-items:center;gap:1mm}
+.ck2 span::before{content:"";width:2.8mm;height:2.8mm;border:1px solid var(--navy);background:#fff}
+.r2{display:flex;align-items:flex-end;gap:1.6mm;margin-top:1.6mm;font-size:6.8pt;color:var(--muted)}
+.r2 b{font-weight:600;color:var(--ink)}
+.r2>i{flex:1;height:4.4mm;border-bottom:1px solid var(--navy)}
+.r2 .ck2{margin-top:0;color:var(--ink)}
 </style></head><body>
 
 <!-- ============ PAGE 1 : FICHE CONTENEUR (paysage) ============ -->
@@ -111,10 +120,16 @@ table.rg{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed}
     <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-01 · 4 véhicules par conteneur</div>
   </div>
 
-  <div class="refs r4">
+  <div class="refs r6">
     <div class="ref"><div class="l">Réf. dossier</div><div class="rf">V-<i class="y"></i>-<i></i></div></div>
     <div class="ref"><div class="l">N° de conteneur</div>
       <div class="boxes"><i></i><i></i><i></i><i></i><i class="sep"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="ref"><div class="l">État de dépotage</div>
+      <div class="ck2"><span>Dépoté</span><span>Non dépoté</span></div>
+      <div class="r2"><b>Date</b><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></div></div>
+    <div class="ref"><div class="l">Groupeur</div>
+      <div class="r2"><i></i></div>
+      <div class="r2"><b>Relâche</b><span class="ck2"><span>Oui</span><span>Non</span></span></div></div>
     <div class="ref"><div class="l">CRN</div><div class="lnf"></div></div>
     <div class="ref"><div class="l">N° de B/L</div><div class="lnf"></div></div>
   </div>

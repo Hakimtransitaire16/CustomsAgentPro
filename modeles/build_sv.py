@@ -23,7 +23,7 @@ def html(lignes=4):
     for n in range(1, lignes + 1):
         rows += f'<tr><td class="v"><div class="vn"><b>{n}</b><div class="vin">' + '<i></i>' * 17 + '</div></div>'
         rows += '<div class="fl">Marque · modèle<i></i></div><div class="fl">Client · tél.<i></i></div>'
-        rows += '<div class="fl">Couleur · n° moteur<i></i></div><div class="fl">1re immat.<i></i></div>'
+        rows += '<div class="fl">Couleur<i></i>1re immat.<i></i></div>'
         rows += '<div class="ck"><span>Neuf</span><span>&lt; 3 ans</span><span>Photos</span></div></td>'
         rows += ''.join(cellule(i) for i in range(8)) + '</tr>\n'
     reg = ''.join('<tr><td>V-</td>' + '<td></td>' * 11 + '</tr>' for _ in range(19))
