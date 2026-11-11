@@ -26,20 +26,31 @@ def html(lignes=4):
         rows += '<div class="fl">Couleur · n° moteur<i></i></div><div class="fl">1re immat.<i></i></div>'
         rows += '<div class="ck"><span>Neuf</span><span>&lt; 3 ans</span><span>Photos</span></div></td>'
         rows += ''.join(cellule(i) for i in range(8)) + '</tr>\n'
-    return t.replace('__ROWS__', rows).replace('__VIN17__', '<i></i>' * 17).replace('__DATE__', DT)
+    reg = ''.join('<tr><td>V-</td>' + '<td></td>' * 11 + '</tr>' for _ in range(19))
+    return t.replace('__REG__', reg).replace('__ROWS__', rows).replace('__VIN17__', '<i></i>' * 17).replace('__DATE__', DT)
+
+def _tete(head, cls):
+    page = '@page{size:A4 portrait;margin:10mm 11mm}' if cls == 'port' else '@page{size:A4 landscape;margin:9mm 10mm}'
+    return re.sub(r'@page land\{[^}]*\}\n@page port\{[^}]*\}', page, head)
+
+def _pdf(html_text, out):
+    f = out.with_suffix('.html'); f.write_text(html_text, encoding='utf-8')
+    subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f}');await p.waitForTimeout(300);await p.pdf({{path:'{out}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
+    n = len(PdfReader(str(out)).pages)
+    if n != 1: print(f'  ! débordement : {out.name} sur {n} pages')
 
 def construire(sortie: Path) -> Path:
     t = html()
     head, body = t.split('<body>', 1)
-    parts = re.findall(r'(<section class="(land|port)">.*?</section>)', body, re.S)
+    parts = re.findall(r'(<section class="(land|port|reg)">.*?</section>)', body, re.S)
+    regs = [p for p in parts if p[1] == 'reg']
     land = [p for p in parts if p[1] == 'land']
     port = [p for p in parts if p[1] == 'port'][0]
     parts = land + [(port[0].replace('__NUM__', str(k)), 'port') for k in range(1, 5)]
     tmp = Path(tempfile.mkdtemp())
     pdfs = []
     for sec, cls in parts:
-        page = '@page{size:A4 landscape;margin:9mm 10mm}' if cls == 'land' else '@page{size:A4 portrait;margin:10mm 11mm}'
-        h = re.sub(r'@page land\{[^}]*\}\n@page port\{[^}]*\}', page, head)
+        h = _tete(head, cls)
         f = tmp / f'{cls}{len(pdfs)}.html'; f.write_text(h + '<body>' + sec + '</body></html>', encoding='utf-8')
         out = tmp / f'{cls}{len(pdfs)}.pdf'
         subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f}');await p.waitForTimeout(300);await p.pdf({{path:'{out}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
@@ -53,6 +64,9 @@ def construire(sortie: Path) -> Path:
     sortie.mkdir(parents=True, exist_ok=True)
     out = sortie / 'Suivi_vehicules_SV.pdf'
     with open(out, 'wb') as fh: w.write(fh)
+    for sec, cls in regs:
+        r = sortie / 'Registre_conteneurs_SV-03.pdf'
+        _pdf(_tete(head, cls) + '<body>' + sec + '</body></html>', r)
     return out
 
 if __name__ == '__main__':

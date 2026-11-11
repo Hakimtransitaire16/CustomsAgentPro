@@ -44,7 +44,7 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
 .mx th .n{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:6pt;opacity:.7}
 .mx th .ar{color:#cfdbea;display:block;font-size:6.2pt;margin-top:.4mm;text-align:left}
 .mx th.v{width:66mm}
-.mx td{border:1px solid var(--line);vertical-align:top;padding:1.4mm 1.5mm;height:32mm}
+.mx td{border:1px solid var(--line);vertical-align:top;padding:1.4mm 1.5mm;height:29.6mm}
 .mx td.v{background:var(--panel)}
 .mx tbody tr{break-inside:avoid}
 .vn{display:flex;align-items:center;gap:1.6mm}
@@ -83,6 +83,23 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
 .st .r i{flex:1;border-bottom:1px solid var(--line);height:4.4mm}
 .st .two{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
 .illu{font-size:6pt;color:var(--muted)}
+.refs.r4{grid-template-columns:.8fr 1.3fr 1fr 1fr}
+.rf{display:flex;align-items:flex-end;gap:1mm;margin-top:1.4mm;font:700 9pt "DejaVu Sans Mono",monospace;color:var(--navy)}
+.rf i{display:block;height:6mm;border-bottom:1.2px solid var(--navy);flex:1}
+.rf i.y{flex:0 0 11mm}
+.port .boxes i{width:4mm}
+.port .rf i.y{flex:0 0 8mm}
+.port .rf{font-size:8pt}
+.av{display:flex;flex-wrap:wrap;align-items:center;gap:1.4mm 2.2mm;margin-top:2.6mm;padding:1.8mm 2.4mm;border:1px solid var(--line);font-size:6.3pt}
+.av b{font-size:6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-right:1mm}
+.av span{display:inline-flex;align-items:center;gap:1mm}
+.av span::before{content:"";width:3mm;height:3mm;border:1px solid var(--navy)}
+.reg{page:reg;height:192mm;display:flex;flex-direction:column}
+table.rg{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed}
+.rg th{background:var(--navy);color:#fff;font-weight:600;font-size:6.4pt;text-align:left;padding:1.4mm 1.4mm;line-height:1.2}
+.rg td{border:1px solid var(--line);height:7.95mm}
+.rg td:first-child{font:600 6.8pt "DejaVu Sans Mono",monospace;color:var(--navy);padding-left:1.2mm}
+.rg tbody tr:nth-child(even) td{background:#FAFBFD}
 </style></head><body>
 
 <!-- ============ PAGE 1 : FICHE CONTENEUR (paysage) ============ -->
@@ -94,7 +111,8 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
     <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-01 · 4 véhicules par conteneur</div>
   </div>
 
-  <div class="refs">
+  <div class="refs r4">
+    <div class="ref"><div class="l">Réf. dossier</div><div class="rf">V-<i class="y"></i>-<i></i></div></div>
     <div class="ref"><div class="l">N° de conteneur</div>
       <div class="boxes"><i></i><i></i><i></i><i></i><i class="sep"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
     <div class="ref"><div class="l">CRN</div><div class="lnf"></div></div>
@@ -105,6 +123,12 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
     <span><b>Arrivée</b><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></span>
     <span><b>Lieu de dépôt</b><i></i></span>
     <span><b>Bureau</b><i></i></span>
+  </div>
+  <div class="sec">
+    <span><b>Franchise de l'armateur</b><i></i>jours</span>
+    <span><b>Fin de franchise</b><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></span>
+    <span><b>Restitution du conteneur vide</b><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></span>
+    <span><b>Surestaries facturées</b><i></i>DA</span>
   </div>
 
   <table class="mx">
@@ -123,7 +147,7 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
     __ROWS__
     </tbody>
   </table>
-  <div class="ft"><span>VIN : 17 caractères, jamais de lettres I, O ou Q (lire 1 et 0) · le 9e caractère (bleu) est le chiffre de contrôle.</span><span>Une ligne = un véhicule = une fiche SV-02 du même numéro · le conteneur ne remplace jamais le VIN.</span><span><b>SV-01</b></span></div>
+  <div class="ft"><span>VIN : 17 caractères, jamais de lettres I, O ou Q (lire 1 et 0) · le 9e caractère (bleu) est le chiffre de contrôle.</span><span>Réf. dossier V-année-n° d'ordre : la même sur les 5 feuilles et au registre SV-03 · ligne n = fiche SV-02 n.</span><span><b>SV-01</b></span></div>
 </section>
 
 <!-- ============ PAGE 2 : FICHE VÉHICULE (portrait) ============ -->
@@ -135,12 +159,15 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
     <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-02</div>
   </div>
 
-  <div class="refs">
+  <div class="refs r4">
+    <div class="ref"><div class="l">Réf. dossier</div><div class="rf">V-<i class="y"></i>-<i></i><span style="font-size:8pt">/ __NUM__</span></div></div>
     <div class="ref"><div class="l">N° de conteneur</div>
       <div class="boxes"><i></i><i></i><i></i><i></i><i class="sep"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
     <div class="ref"><div class="l">CRN</div><div class="lnf"></div></div>
     <div class="ref"><div class="l">N° de B/L</div><div class="lnf"></div></div>
   </div>
+
+  <div class="av"><b>Avancement</b><span>1 Déclaration</span><span>2 Liquidation</span><span>3 Mainlevée</span><span>4 Paiement</span><span>5 Facture</span><span>6 Livraison</span><span>7 Dem. 846</span><span>8 846 remis</span></div>
 
   <div class="idg">
     <div class="fld full"><div class="l">Numéro de châssis (VIN) — référence du suivi</div>
@@ -187,5 +214,21 @@ table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;f
       <div class="r"><b>Remis à (signature)</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
   </div>
   <div class="ft"><span>Toutes les dates sont portées à la main au moment de chaque étape.</span><span><b>SV-02</b></span></div>
+</section>
+<!-- ============ REGISTRE DES CONTENEURS (paysage) ============ -->
+<section class="reg">
+  <div class="hd">
+    <div class="mg">AH</div>
+    <div class="ttl"><div class="k">Registre · Suivi de dédouanement des véhicules</div>
+      <h1>Registre des conteneurs · année ______</h1></div>
+    <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-03 · feuille n° ____</div>
+  </div>
+  <table class="rg">
+    <thead><tr><th style="width:24mm">Réf. dossier</th><th style="width:30mm">N° de conteneur</th><th>CRN</th><th>N° de B/L</th><th style="width:19mm">Arrivée</th>
+    <th style="width:17mm">Véh. 1<br>6 dern. car. VIN</th><th style="width:17mm">Véh. 2</th><th style="width:17mm">Véh. 3</th><th style="width:17mm">Véh. 4</th>
+    <th style="width:21mm">Restitution du conteneur</th><th style="width:21mm">Dernier 846 remis</th><th style="width:17mm">Classé</th></tr></thead>
+    <tbody>__REG__</tbody>
+  </table>
+  <div class="ft"><span>Une ligne par conteneur, dans l'ordre des références : le dossier papier se retrouve par sa référence, chaque véhicule par les 6 derniers caractères de son VIN.</span><span><b>SV-03</b></span></div>
 </section>
 </body></html>
