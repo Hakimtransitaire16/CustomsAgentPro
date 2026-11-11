@@ -150,8 +150,7 @@ def page2():
     return f'''
 <section>{marques()}{tete_suite()}
   <div class="body">
-  <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
-    <div class="case" style="flex:1"><div class="lb"><span class="no">14</span>Client</div><div class="bd"></div></div></div>
+  <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div></div>
   <div class="vins">{vins}</div>
   <table class="mx"><colgroup><col style="width:31mm"><col><col><col><col></colgroup>
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
