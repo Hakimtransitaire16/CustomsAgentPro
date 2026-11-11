@@ -89,19 +89,18 @@ def page1():
   </div>
   <div class="sec"><span class="sl">B</span>Entreposage et dépotage</div>
   <div class="grid">
-    {case(8, "Nom de l'entrepôt", '', 6)}
-    {case(9, "Lieu d'entreposage", '', 6)}
-    {case(10, "État de dépotage · date", opts("Dépoté", "Non dépoté") + '<span class="gap"></span>' + DATE, 6)}
-    {case(11, "Groupeur", '', 3)}
-    {case(12, "Relâche groupeur", opts("Oui", "Non"), 3)}
+    {case(8, "Entrepôt", '', 5)}
+    {case(9, "État de dépotage · date", opts("Dépoté", "Non dépoté") + '<span class="gap"></span>' + DATE, 7)}
+    {case(10, "Groupeur", '', 7)}
+    {case(11, "Relâche du groupeur", opts("Oui", "Non"), 5)}
   </div>
   <div class="sec"><span class="sl">C</span>TC vide</div>
   <div class="grid">
-    {case(13, "Facturation du TC vide", DATE, 6)}
-    {case(14, "Livraison du TC vide", DATE, 6)}
+    {case(12, "Facturation du TC vide", DATE, 6)}
+    {case(13, "Livraison du TC vide", DATE, 6)}
   </div>
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
-  <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
+  <div class="grid">{case(14, "Nom du client", '', 8)}{case(15, "Tél. client", '', 4)}</div>
   <table class="veh">
     <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">6 derniers caractères en jaune = référence du véhicule</span></th></tr></thead>
     <tbody>{vehs}</tbody>
@@ -152,7 +151,7 @@ def page2():
 <section>{marques()}{tete_suite()}
   <div class="body">
   <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
-    <div class="case" style="flex:1"><div class="lb"><span class="no">15</span>Client</div><div class="bd"></div></div></div>
+    <div class="case" style="flex:1"><div class="lb"><span class="no">14</span>Client</div><div class="bd"></div></div></div>
   <div class="vins">{vins}</div>
   <table class="mx"><colgroup><col style="width:31mm"><col><col><col><col></colgroup>
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
