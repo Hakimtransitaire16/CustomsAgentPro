@@ -140,7 +140,8 @@ def cellule(champs):
 
 
 def page2():
-    head = ''.join(f'<th><div class="vh">Véhicule {k}</div><div class="vr"><span>VIN …</span>{comb(6)}</div></th>' for k in range(1, 5))
+    head = ''.join(f'<th><div class="vh">Véhicule {k}</div><div class="vr">VIN : voir case V{k}</div></th>' for k in range(1, 5))
+    vins = ''.join(f'<div class="case vin"><div class="lb"><span class="no">V{k}</span>Véhicule {k} · N° de châssis (VIN)</div><div class="bd">{comb(17, tint=range(12, 18))}</div></div>' for k in range(1, 5))
     rows, k = '', 0
     for phase, c, etapes in PHASES:
         rows += f'<tr class="ph {c}"><td colspan="5"><span>{phase}</span></td></tr>'
@@ -153,6 +154,7 @@ def page2():
   <div class="body">
   <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
     <div class="case" style="flex:1"><div class="lb"><span class="no">15</span>Client</div><div class="bd"></div></div></div>
+  <div class="vins">{vins}</div>
   <table class="mx"><colgroup><col style="width:31mm"><col><col><col><col></colgroup>
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
     <tbody>{rows}</tbody>
@@ -192,7 +194,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm
 .hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
-.mx tr.st{height:21.8mm}
+.mx tr.st{height:19mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
@@ -234,6 +236,9 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 /* Page 2 */
 .p2ref{display:flex;gap:2mm;margin-top:3.6mm}
 .p2ref .case{min-height:12mm}
+.vins{display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:2mm}
+.vins .case{min-height:12mm}
+.vins .comb{gap:.5mm}.vins .comb i{width:4.25mm;height:5.6mm}
 .mx{margin-top:3mm;table-layout:fixed}
 .mx thead th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2mm;vertical-align:top}
 .mx thead th:first-child{border-top-left-radius:0}
@@ -248,7 +253,7 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
 .mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
 .mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
-.mx tr.st{height:21.8mm}
+.mx tr.st{height:19mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
 .mx tr.st td:last-child,.mx tr.tot td:last-child{border-right:1px solid var(--rule)}
