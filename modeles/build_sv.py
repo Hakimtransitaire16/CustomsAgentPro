@@ -9,6 +9,8 @@ DT = '<span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i
 
 def cellule(i):
     h = '<td><div class="cell"><div>Date</div>' + DT + '<div class="r">N°<i></i></div>'
+    if i in (0, 2): h += '<div class="r">EPC<i></i></div>'
+    if i == 0: h += '<div class="r">APC<i></i></div>'
     if i in (1, 3, 4): h += '<div class="r">DA<i></i></div>'
     if i == 1: h += '<div class="r">Insp.<i></i></div>'
     if i in (5, 7): h += '<div class="r">Sign.<i></i></div>'
@@ -22,7 +24,7 @@ def html(lignes=4):
         rows += f'<tr><td class="v"><div class="vn"><b>{n}</b><div class="vin">' + '<i></i>' * 17 + '</div></div>'
         rows += '<div class="fl">Marque · modèle<i></i></div><div class="fl">Client · tél.<i></i></div>'
         rows += '<div class="fl">Couleur · n° moteur<i></i></div><div class="fl">1re immat.<i></i></div>'
-        rows += '<div class="ck"><span>Neuf 085</span><span>&lt; 3 ans 086</span><span>Photos</span></div></td>'
+        rows += '<div class="ck"><span>Neuf</span><span>&lt; 3 ans</span><span>Photos</span></div></td>'
         rows += ''.join(cellule(i) for i in range(8)) + '</tr>\n'
     return t.replace('__ROWS__', rows).replace('__VIN17__', '<i></i>' * 17).replace('__DATE__', DT)
 
