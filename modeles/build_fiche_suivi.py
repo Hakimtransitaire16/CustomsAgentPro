@@ -1,8 +1,10 @@
 """Fiche de suivi véhicules — dédouanement jusqu'à livraison (2 pages A4 portrait, à remplir à la main).
 
-Page 1 : le conteneur (transitaire, TC, compagnie, CRN, B/L, BAD, entreposage, dépotage, groupeur,
-TC vide, client) et les 4 véhicules (marque, n° de châssis).
-Page 2 : les 8 étapes en lignes, les 4 véhicules en colonnes ; chaque case a sa date et une case à cocher.
+Modèle des formulaires douaniers européens (DAU) : chaque information est une case numérotée,
+libellé en petites capitales en haut de la case, zone d'écriture dessous.
+
+Page 1 : le conteneur (cases 1 à 14) et les 4 véhicules.
+Page 2 : les 8 étapes groupées en 3 phases (douane, règlement, livraison), une colonne par véhicule.
 
 Usage : python modeles/build_fiche_suivi.py <dossier de sortie>
 """
@@ -12,173 +14,212 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-TRANSITAIRE = "SARL GMOR TRANS"
+TRANSITAIRE = "SARL GMOR"
 DECLARANT = "ABDEL HAKIM HADJALLAH"
 
-DT = '<span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span>'
-TC = '<span class="tc">' + '<i></i>' * 4 + '<i class="s"></i>' + '<i></i>' * 6 + '</span>'
-VIN = '<span class="vin">' + ''.join('<i class="c"></i>' if k == 8 else '<i></i>' for k in range(17)) + '</span>'
+DATE = '<span class="date"><span>JJ</span>/<span>MM</span>/<span class="y">AAAA</span></span>'
 
 
-def ck(*opts):
-    return '<span class="ck">' + ''.join(f'<span>{o}</span>' for o in opts) + '</span>'
+def comb(n, sep=None, tint=()):
+    out = ''
+    for k in range(1, n + 1):
+        cls = []
+        if k in tint: cls.append('t')
+        if sep and k == sep: cls.append('s')
+        out += f'<i class="{" ".join(cls)}"></i>'
+    return f'<span class="comb">{out}</span>'
 
 
-def ln(label, contenu='<i></i>', cls=''):
-    return f'<div class="f {cls}"><b>{label}</b>{contenu}</div>'
+def opts(*o):
+    return '<span class="opts">' + ''.join(f'<span>{x}</span>' for x in o) + '</span>'
 
 
-# Étapes : (titre, lignes de la case). Chaque ligne : libellé, puis « date », « ligne » ou une case à cocher.
-ETAPES = [
-    ("Déclaration D10", [("Date", "date"), ("N° D10", "ligne"), ("EPC", "ligne"), ("APC", "ligne")]),
-    ("Liquidation avec l'inspecteur", [("Date", "date"), ("Inspecteur", "ligne"), ("Montant DA", "ligne")]),
-    ("Dédouanement · mainlevée", [("Date", "date"), ("N° D10", "ligne"), ("EPC", "ligne")]),
-    ("Avis de paiement · quittance", [("Date", "date"), ("N° quittance", "ligne"), ("Montant DA", "ligne")]),
-    ("Facturation", [("Date", "date"), ("N° facture", "ligne"), ("Montant DA", "ligne")]),
-    ("Livraison au propriétaire", [("Date", "date"), ("Transporteur", "ligne"), ("Reçu par", "ligne")]),
-    ("Demande du 846", [("Date", "date"), ("N° de dépôt", "ligne")]),
-    ("846 prêt et remis", [("Date", "date"), ("N° 846", "ligne"), ("Remis à", "ligne")]),
-]
+def case(no, label, body='', span=6, cls=''):
+    return (f'<div class="case {cls}" style="grid-column:span {span}"><div class="lb"><span class="no">{no}</span>{label}</div>'
+            f'<div class="bd">{body}</div></div>')
 
 
-def case(lignes):
-    h = '<td><span class="ok"></span>'
-    for lib, kind in lignes:
-        h += f'<div class="r"><b>{lib}</b>{DT if kind == "date" else "<i></i>"}</div>'
-    return h + '<div class="r"><b>Obs.</b><i></i></div></td>'
+def tete(sous_titre, page):
+    return f'''
+  <header>
+    <div class="id"><div class="brand">{TRANSITAIRE}</div><div class="who">{DECLARANT} · déclarant en douane</div></div>
+    <div class="ttl"><h1>Suivi véhicules</h1><p>{sous_titre}</p></div>
+    <div class="ref"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">{page}</div></div>
+  </header>'''
 
 
 def page1():
-    vehs = ''.join(
-        f'<tr><td class="n">{k}</td><td><i class="l"></i></td><td><i class="l"></i></td><td>{VIN}</td><td class="six"><i class="l"></i></td></tr>'
-        for k in range(1, 5))
+    vin = comb(17, tint=range(12, 18))
+    vehs = ''.join(f'''<tr><td class="n">{k}</td><td><div class="w"></div></td><td><div class="w"></div></td><td>{vin}</td></tr>''' for k in range(1, 5))
     return f'''
-<section>
-  <div class="band"><div class="mg">AH</div><div class="tt"><div class="k">{TRANSITAIRE} · {DECLARANT}, déclarant</div>
-    <h1>Fiche de suivi véhicules</h1><div class="st">Dédouanement jusqu'à livraison · page 1/2 : conteneur</div></div>
-    <div class="rx"><b>Réf.</b><i></i></div></div>
-
+<section>{tete("Dédouanement jusqu'à livraison · conteneur", "1 / 2")}
+  <div class="sec"><span class="sl">A</span>Conteneur et transport</div>
   <div class="grid">
-    {ln("Nom du transitaire", f'<span class="pre">{TRANSITAIRE}</span>')}
-    {ln("Compagnie maritime")}
-    <div class="f wide"><b>N° du TC</b>{TC}<b class="g">Date d'arrivée</b>{DT}</div>
-    {ln("CRN")}
-    {ln("N° B/L")}
-    <div class="f"><b>Bon à délivrer</b>{ck("Récupéré", "Non récupéré")}</div>
-    <div class="f"><b>Date du BAD</b>{DT}</div>
+    {case(1, "Transitaire", f'<span class="pre">{TRANSITAIRE}</span>', 4)}
+    {case(2, "Compagnie maritime", '', 4)}
+    {case(3, "CRN", '', 4)}
+    {case(4, "N° du TC · date", comb(11, sep=5) + '<span class="gap"></span>' + DATE, 8)}
+    {case(5, "N° B/L", '', 4)}
+    {case(6, "Bon à délivrer", opts("Récupéré", "Non récupéré") + '<span class="gap"></span>' + DATE, 7)}
+    {case(7, "Bureau de douane", '', 5)}
   </div>
-
-  <h2>Entreposage et dépotage</h2>
+  <div class="sec"><span class="sl">B</span>Entreposage et dépotage</div>
   <div class="grid">
-    {ln("Lieu d'entreposage")}
-    {ln("Bureau de douane")}
-    <div class="f"><b>État de dépotage</b>{ck("Dépoté", "Non dépoté")}</div>
-    <div class="f"><b>Date de dépotage</b>{DT}</div>
-    {ln("Nom du groupeur")}
-    <div class="f"><b>Relâche du groupeur</b>{ck("Oui", "Non")}</div>
+    {case(8, "Lieu d'entreposage", '', 5)}
+    {case(9, "État de dépotage · date", opts("Dépoté", "Non dépoté") + '<span class="gap"></span>' + DATE, 7)}
+    {case(10, "Groupeur", '', 7)}
+    {case(11, "Relâche du groupeur", opts("Oui", "Non"), 5)}
   </div>
-
-  <h2>TC vide</h2>
+  <div class="sec"><span class="sl">C</span>TC vide</div>
   <div class="grid">
-    <div class="f"><b>Facturation du TC vide</b>{DT}</div>
-    <div class="f"><b>Livraison du TC vide</b>{DT}</div>
+    {case(12, "Facturation du TC vide", DATE, 6)}
+    {case(13, "Livraison du TC vide", DATE, 6)}
   </div>
-
-  <h2>Client et véhicules sur le TC</h2>
-  <div class="grid">{ln("Nom du client", cls="wide")}</div>
-  <table class="vh"><thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>Numéro de châssis (VIN, 17 caractères)</th><th>6 derniers car.</th></tr></thead>
-  <tbody>{vehs}</tbody></table>
-  <p class="nb">Le 9e caractère du châssis (case bleue) est le chiffre de contrôle. Un châssis n'a jamais les lettres I, O ou Q : lire 1 et 0.</p>
-
-  <h2>Observations</h2>
-  <div class="obs"><i></i><i></i><i></i></div>
-  <div class="ft"><span>Toutes les dates sont portées à la main au moment de chaque étape.</span><span>Page 1/2</span></div>
+  <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
+  <div class="grid">{case(14, "Nom du client", '', 12)}</div>
+  <table class="veh">
+    <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">· 6 derniers caractères en bleu = référence de rappel</span></th></tr></thead>
+    <tbody>{vehs}</tbody>
+  </table>
+  <div class="sec"><span class="sl">E</span>Observations</div>
+  <div class="obs"></div>
+  <footer><span>{TRANSITAIRE} · Suivi véhicules · dates portées à la main à chaque étape</span><span>VIN : 17 caractères, sans I, O ni Q</span></footer>
 </section>'''
 
 
+PHASES = [
+    ("Douane", [
+        ("Déclaration D10", ["N° D10", "EPC", "APC"]),
+        ("Liquidation avec l'inspecteur", ["Inspecteur", "Montant DA"]),
+        ("Dédouanement · mainlevée", ["N° D10", "EPC"]),
+    ]),
+    ("Règlement", [
+        ("Avis de paiement · quittance", ["N° quittance", "Montant DA"]),
+        ("Facturation", ["N° facture", "Montant DA"]),
+    ]),
+    ("Livraison et 846", [
+        ("Livraison au propriétaire", ["Transporteur", "Reçu par"]),
+        ("Demande du 846", ["N° de dépôt"]),
+        ("846 prêt et remis", ["N° 846", "Remis à"]),
+    ]),
+]
+
+
+def cellule(champs):
+    h = f'<td><div class="top">{DATE}<span class="tick"></span></div>'
+    for c in champs:
+        h += f'<div class="fl"><span>{c}</span><i></i></div>'
+    return h + '</td>'
+
+
 def page2():
-    head = ''.join(f'<th>Véhicule {k}<span class="six">châssis : <i></i></span></th>' for k in range(1, 5))
-    rows = ''
-    for k, (titre, lignes) in enumerate(ETAPES, 1):
-        rows += f'<tr><th class="et"><span class="no">{k}</span>{titre}</th>' + case(lignes) * 4 + '</tr>'
+    head = ''.join(f'<th><div class="vh">Véhicule {k}</div><div class="vr"><span>VIN …</span>{comb(6)}</div></th>' for k in range(1, 5))
+    rows, k = '', 0
+    for phase, etapes in PHASES:
+        rows += f'<tr class="ph"><td colspan="5"><span>{phase}</span></td></tr>'
+        for titre, champs in etapes:
+            k += 1
+            last = ' last' if k == 8 else ''
+            rows += f'<tr class="st"><th class="rail{last}"><span class="dot">{k}</span><span class="tt">{titre}</span></th>' + cellule(champs) * 4 + '</tr>'
     return f'''
-<section>
-  <div class="band"><div class="mg">AH</div><div class="tt"><div class="k">{TRANSITAIRE} · {DECLARANT}, déclarant</div>
-    <h1>Fiche de suivi véhicules</h1><div class="st">Dédouanement jusqu'à livraison · page 2/2 : étapes par véhicule</div></div>
-    <div class="rx"><b>N° TC</b><i></i></div></div>
-  <table class="mx"><thead><tr><th class="et">Étape</th>{head}</tr></thead><tbody>{rows}</tbody></table>
-  <div class="ft"><span>Lecture : une ligne = une étape pour les 4 véhicules · cocher la case du coin quand l'étape est faite · la colonne d'un véhicule se lit de haut en bas.</span><span>Page 2/2</span></div>
+<section>{tete("Dédouanement jusqu'à livraison · étapes par véhicule", "2 / 2")}
+  <div class="p2ref"><div class="case" style="flex:1"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
+    <div class="case" style="flex:1"><div class="lb"><span class="no">14</span>Client</div><div class="bd"></div></div></div>
+  <table class="mx"><colgroup><col style="width:33mm"><col><col><col><col></colgroup>
+    <thead><tr><th class="rh">Étape</th>{head}</tr></thead><tbody>{rows}</tbody></table>
+  <footer><span>Une ligne = une étape pour les 4 véhicules · une colonne = le parcours d'un véhicule · cocher le rond quand l'étape est faite</span><span>{TRANSITAIRE}</span></footer>
 </section>'''
 
 
 CSS = '''
-@page{size:A4 portrait;margin:10mm 11mm}
-:root{--navy:#0F2D4F;--blue:#2C66A8;--panel:#F5F7FA;--ink:#14202E;--muted:#5B6878;--line:#C9D3DF}
+@page{size:A4 portrait;margin:11mm 12mm 10mm}
+:root{--navy:#0B2545;--blue:#1F5FAD;--sky:#E9F1FB;--tint:#F4F7FA;--ink:#101B2B;--mute:#677489;--ghost:#B4BFCC;--rule:#CFD8E3;--hair:#E3E9F0}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-section{height:277mm;display:flex;flex-direction:column;break-after:page}
+body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
+section{height:276mm;display:flex;flex-direction:column;break-after:page}
 section:last-child{break-after:auto}
-.band{display:flex;align-items:center;gap:4mm;background:var(--navy);color:#fff;padding:3.6mm 4.4mm}
-.mg{width:10mm;height:10mm;border:1.2px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:8.4pt;letter-spacing:.06em;flex:none}
-.tt{flex:1}
-.tt .k{font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
-.tt h1{font-size:17pt;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:.6mm}
-.tt .st{font-size:7.6pt;opacity:.85;margin-top:.4mm}
-.rx{display:flex;align-items:flex-end;gap:2mm;font-size:7pt;min-width:40mm}
-.rx i{flex:1;height:6mm;border-bottom:1.2px solid #fff}
-h2{font-size:7.4pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border-bottom:1.4px solid var(--navy);padding-bottom:1.2mm;margin-top:5mm}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 6mm}
-.grid:first-of-type{margin-top:3mm}
-.f{display:flex;align-items:flex-end;gap:2mm;min-height:9.6mm;padding:1.6mm 0;border-bottom:1px solid var(--line)}
-.f.wide{grid-column:1/-1}
-.f b{font-weight:600;font-size:7.6pt;white-space:nowrap}
-.f b.g{margin-left:6mm}
-.f>i{flex:1;height:5mm}
-.pre{font:700 9.4pt Inter,sans-serif;color:var(--navy);letter-spacing:.02em}
-.dt{display:inline-flex;align-items:flex-end}
-.dt i{display:block;width:3.4mm;height:4.6mm;border-bottom:1px solid var(--navy);margin-right:.35mm}
-.dt em{font-style:normal;color:var(--muted);padding:0 .6mm}
-.tc,.vin{display:inline-flex;gap:.5mm}
-.tc i,.vin i{display:block;width:5mm;height:6.4mm;border:1px solid var(--line);border-bottom:1.3px solid var(--navy)}
-.tc i.s{margin-left:1.6mm}
-.vin i{width:4.5mm;height:6mm}
-.vin i.c{border-color:var(--blue);border-bottom-color:var(--blue);background:#EEF4FB}
-.ck{display:inline-flex;gap:4mm;font-size:7.8pt}
-.ck span{display:inline-flex;align-items:center;gap:1.4mm}
-.ck span::before{content:"";width:3.2mm;height:3.2mm;border:1.1px solid var(--navy)}
+/* En-tête */
+header{display:grid;grid-template-columns:52mm 1fr 44mm;align-items:end;gap:6mm;padding-bottom:4mm;border-bottom:2px solid var(--navy)}
+.brand{font:800 13pt "Inter Display",Inter,sans-serif;letter-spacing:.08em;color:var(--navy)}
+.who{font-size:6.4pt;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin-top:.8mm}
+.ttl h1{font:700 21pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.025em;color:var(--navy)}
+.ttl p{font-size:7.6pt;color:var(--mute);margin-top:1.4mm}
+.ref{border:1.4px solid var(--navy);border-radius:1.6mm;padding:1.6mm 2.4mm;position:relative}
+.ref .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.ref .v{height:6.6mm}
+.ref .pg{position:absolute;top:1.5mm;right:2.4mm;font-size:6pt;font-weight:600;color:var(--mute)}
+/* Sections */
+.sec{display:flex;align-items:center;gap:2.4mm;margin:4.4mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.sec::after{content:"";flex:1;height:1px;background:var(--rule)}
+.sl{width:5mm;height:5mm;border-radius:1mm;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
+/* Cases numérotées */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm}
+.case{border:1px solid var(--rule);border-radius:1.6mm;background:#fff;padding:1.5mm 2.2mm 1.8mm;min-height:13.4mm;display:flex;flex-direction:column}
+.case .lb{display:flex;align-items:center;gap:1.6mm;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.no{min-width:4mm;height:4mm;padding:0 .8mm;border-radius:.8mm;background:var(--sky);color:var(--blue);font-size:6pt;letter-spacing:0;display:inline-flex;align-items:center;justify-content:center}
+.bd{flex:1;display:flex;align-items:flex-end;gap:2mm;padding-top:1.4mm;flex-wrap:wrap}
+.pre{font-weight:700;font-size:10pt;color:var(--navy);letter-spacing:.04em}
+.gap{flex:1}
+.date{display:inline-flex;align-items:flex-end;gap:.8mm;color:var(--ghost);font-size:6.6pt;font-weight:600;letter-spacing:.06em}
+.date span{display:inline-block;width:7mm;text-align:center;border-bottom:1px solid var(--ink);padding-bottom:.3mm}
+.date span.y{width:11mm}
+.comb{display:inline-flex;gap:.6mm}
+.comb i{display:block;width:4.6mm;height:6mm;border:1px solid var(--rule);border-bottom:1.3px solid var(--ink);border-radius:.4mm;background:#fff}
+.comb i.s{margin-left:1.6mm}
+.comb i.t{background:var(--sky);border-color:#BFD3EC;border-bottom-color:var(--blue)}
+.opts{display:inline-flex;gap:4.4mm;font-size:7.6pt;font-weight:500}
+.opts span{display:inline-flex;align-items:center;gap:1.4mm}
+.opts span::before{content:"";width:3.4mm;height:3.4mm;border:1.2px solid var(--navy);border-radius:.7mm}
+/* Véhicules */
 table{border-collapse:collapse;width:100%}
-.vh{margin-top:2.4mm}
-.vh th{font-size:6.4pt;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:1.4mm 1.4mm;border-bottom:1.2px solid var(--navy)}
-.vh td{padding:2.6mm 1.4mm;border-bottom:1px solid var(--line);vertical-align:bottom;height:13mm}
-.vh td.n{font:700 11pt Inter,sans-serif;color:var(--navy);width:7mm}
-.vh .l{display:block;height:5mm;border-bottom:1px solid var(--line)}
-.vh th:nth-child(2){width:24mm}.vh th:nth-child(3){width:26mm}.vh th:nth-child(5){width:24mm}
-.nb{font-size:6.6pt;color:var(--muted);margin-top:1.6mm}
-.obs{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;min-height:14mm}
-.obs i{display:block;border-bottom:1px solid var(--line);height:6mm}
-.ft{display:flex;justify-content:space-between;gap:6mm;border-top:1px solid var(--line);padding-top:1.8mm;margin-top:2.4mm;font-size:6.4pt;color:var(--muted)}
-/* page 2 */
-.mx{margin-top:3mm;table-layout:fixed;flex:1}
-.mx thead th{background:var(--navy);color:#fff;font-size:7.6pt;font-weight:700;text-align:left;padding:1.8mm 2mm;vertical-align:top}
-.mx thead th .six{display:flex;align-items:flex-end;gap:1mm;font-size:6.2pt;font-weight:400;opacity:.85;margin-top:1mm}
-.mx thead th .six i{flex:1;height:4mm;border-bottom:1px solid #fff}
-.mx th.et{width:31mm}
-.mx tbody th.et{background:var(--panel);color:var(--navy);font-size:7.6pt;font-weight:700;text-align:left;vertical-align:top;padding:2mm;border:1px solid var(--line);line-height:1.25}
-.mx tbody th .no{display:block;font:700 13pt Inter,sans-serif;color:var(--blue);margin-bottom:.6mm}
-.mx td{border:1px solid var(--line);vertical-align:top;padding:1.6mm 1.8mm;position:relative}
-.mx tbody tr:nth-child(even) td{background:#FBFCFE}
-.mx .ok{position:absolute;top:1.4mm;right:1.4mm;width:3.6mm;height:3.6mm;border:1.2px solid var(--navy);background:#fff}
-.mx .r{display:flex;align-items:flex-end;gap:1.2mm;margin-top:1.3mm;font-size:6.4pt;color:var(--muted)}
-.mx .r:first-of-type{margin-top:0;padding-right:5mm}
-.mx .r b{font-weight:600;white-space:nowrap}
-.mx .r>i{flex:1;height:3.8mm;border-bottom:1px solid var(--line)}
-.mx .dt i{width:2.5mm;height:3.8mm;margin-right:.2mm}
-.mx .dt em{padding:0 .3mm;font-size:6.4pt}
+.veh{margin-top:2mm;border:1px solid var(--rule);border-radius:1.6mm;overflow:hidden}
+.veh th{background:var(--tint);text-align:left;font-size:5.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:1.8mm 2.2mm;border-bottom:1px solid var(--rule)}
+.veh th .hint{text-transform:none;letter-spacing:0;font-weight:500;color:var(--blue)}
+.veh td{padding:2.2mm 2.2mm;border-top:1px solid var(--hair);vertical-align:bottom;height:12.6mm}
+.veh td.n{width:9mm;font:700 13pt "Inter Display",Inter,sans-serif;color:var(--navy);vertical-align:middle}
+.veh th:nth-child(2){width:28mm}.veh th:nth-child(3){width:30mm}
+.veh .w{height:5mm;border-bottom:1px solid var(--rule)}
+.veh .comb i{width:4.25mm}
+.obs{flex:1;border:1px solid var(--rule);border-radius:1.6mm;background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.4mm,var(--hair) 7.4mm,var(--hair) 7.6mm);min-height:16mm}
+footer{margin-top:auto!important;display:flex;justify-content:space-between;gap:6mm;margin-top:3mm;padding-top:2mm;border-top:1px solid var(--rule);font-size:6.2pt;color:var(--mute)}
+/* Page 2 */
+.p2ref{display:flex;gap:2mm;margin-top:3.6mm}
+.p2ref .case{min-height:12mm}
+.mx{margin-top:3mm;table-layout:fixed}
+.mx tr.st{height:23.6mm}
+.mx tr.ph{height:6.6mm}
+.mx thead th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2.2mm;vertical-align:top}
+.mx thead th:first-child{border-top-left-radius:1.6mm}
+.mx thead th:last-child{border-top-right-radius:1.6mm}
+.mx th.rh{font-size:6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;vertical-align:bottom;color:#C9D6E8}
+.vh{font:700 9pt "Inter Display",Inter,sans-serif}
+.vr{display:flex;align-items:center;gap:1.2mm;font-size:6pt;color:#C9D6E8;margin-top:1.4mm;white-space:nowrap}
+.vr .comb{gap:.4mm}
+.vr .comb i{width:3.6mm;height:4.6mm;border-color:#5C7699;border-bottom-color:#fff;background:transparent}
+.mx tr.ph td{padding:1.6mm 2.2mm .8mm;background:#fff}
+.mx tr.ph span{font-size:6.2pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
+.mx tr.st td{border-left:1px solid var(--hair);padding:1.7mm 2mm 1.4mm;vertical-align:top}
+.mx tr.st td:last-child{border-right:1px solid var(--rule)}
+.rail{position:relative;text-align:left;vertical-align:top;padding:1.8mm 2mm 1.4mm 0;background:#fff;border-left:1px solid var(--rule)}
+.rail .dot{position:absolute;left:2.2mm;top:1.8mm;width:6mm;height:6mm;border-radius:50%;background:var(--navy);color:#fff;font-size:7.4pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.rail::before{content:"";position:absolute;left:5.1mm;top:8mm;bottom:-1px;width:1.2px;background:var(--rule)}
+.rail.last::before{display:none}
+.rail .tt{display:block;padding-left:10.2mm;font-size:7.6pt;font-weight:700;line-height:1.22;color:var(--navy)}
+.mx .top{display:flex;align-items:flex-end;justify-content:space-between;gap:1mm}
+.mx .date{font-size:5.8pt;gap:.5mm}
+.mx .date span{width:5.2mm}.mx .date span.y{width:8.6mm}
+.tick{width:4mm;height:4mm;border:1.3px solid var(--navy);border-radius:50%;flex:none}
+.fl{display:flex;align-items:flex-end;gap:1.2mm;margin-top:1.9mm;font-size:5.8pt;font-weight:600;letter-spacing:.04em;color:var(--mute);text-transform:uppercase}
+.fl span{white-space:nowrap}
+.fl i{flex:1;height:3.6mm;border-bottom:1px solid var(--rule)}
+.mx tbody tr:last-child td,.mx tbody tr:last-child th{border-bottom:1px solid var(--rule)}
 '''
 
 
 def html():
-    return f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Fiche de suivi véhicules — dédouanement jusqu\'à livraison</title><style>{CSS}</style></head><body>{page1()}{page2()}</body></html>'
+    return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
+            f'<style>{CSS}</style></head><body>{page1()}{page2()}</body></html>')
 
 
 def construire(sortie: Path) -> Path:
