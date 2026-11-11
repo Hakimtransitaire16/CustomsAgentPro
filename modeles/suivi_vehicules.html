@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Suivi de dédouanement — véhicules (modèle SV-01)</title>
+<style>
+:root{--navy:#0F2D4F;--blue:#2C66A8;--blue-l:#E8F0F9;--panel:#F5F7FA;--ink:#14202E;--muted:#5B6878;--line:#C9D3DF;--hair:#DDE4EC}
+@page land{size:A4 landscape;margin:9mm 10mm 9mm 10mm}
+@page port{size:A4 portrait;margin:10mm 11mm 10mm 11mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.ar{font-family:"DejaVu Sans",sans-serif;direction:rtl;unicode-bidi:isolate;color:var(--muted);font-weight:400}
+.mono{font-family:"DejaVu Sans Mono",monospace}
+.land{page:land;height:192mm;display:flex;flex-direction:column;break-after:page}
+.port{page:port;height:277mm;display:flex;flex-direction:column;break-after:page}
+.port:last-child{break-after:auto}
+/* En-tête */
+.hd{display:flex;align-items:flex-end;gap:4mm;padding-bottom:2.6mm;border-bottom:1.4px solid var(--navy)}
+.mg{width:9mm;height:9mm;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:8pt;letter-spacing:.06em;flex:none}
+.ttl{flex:1}
+.ttl .k{font-size:6.4pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.ttl h1{font-size:15pt;font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1.1}
+.ttl h1 .ar{font-size:10pt;margin-left:3mm}
+.meta{text-align:right;font-size:6.6pt;color:var(--muted);line-height:1.5}
+.meta b{color:var(--navy);font-weight:700}
+/* Bandeau des références */
+.refs{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:3mm;margin-top:3mm}
+.ref{border:1.2px solid var(--navy);padding:1.6mm 2.4mm 2.2mm}
+.ref .l{font-size:6.2pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);display:flex;justify-content:space-between}
+.ref .l .ar{letter-spacing:0;text-transform:none;font-size:6.6pt}
+.boxes{display:flex;gap:.7mm;margin-top:1.4mm}
+.boxes i{display:block;width:4.6mm;height:6mm;border:1px solid var(--line);border-bottom:1.2px solid var(--navy);background:#fff}
+.boxes i.sep{margin-left:1.4mm}
+.lnf{height:6mm;border-bottom:1.2px solid var(--navy);margin-top:1.4mm}
+.sec{display:flex;gap:5mm;margin-top:2.2mm;font-size:7pt;color:var(--muted)}
+.sec span{flex:1;display:flex;gap:1.6mm;align-items:flex-end}
+.sec span b{font-weight:600;color:var(--ink);white-space:nowrap}
+.sec span i{flex:1;border-bottom:1px solid var(--line);height:4mm}
+/* Masque de date */
+.dt{display:inline-flex;gap:.4mm;align-items:flex-end}
+.dt i{display:block;width:3.2mm;height:4.2mm;border-bottom:1px solid var(--navy)}
+.dt em{font-style:normal;color:var(--muted);font-size:7pt;padding:0 .2mm}
+/* Matrice */
+table.mx{width:100%;border-collapse:collapse;margin-top:3mm;table-layout:fixed;flex:1}
+.mx th{background:var(--navy);color:#fff;font-weight:600;font-size:6.5pt;text-align:left;padding:1.4mm 1.6mm;vertical-align:top;line-height:1.25}
+.mx th .n{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:6pt;opacity:.7}
+.mx th .ar{color:#cfdbea;display:block;font-size:6.2pt;margin-top:.4mm;text-align:left}
+.mx th.v{width:66mm}
+.mx td{border:1px solid var(--line);vertical-align:top;padding:1.4mm 1.5mm;height:25.6mm}
+.mx td.v{background:var(--panel)}
+.mx tbody tr{break-inside:avoid}
+.vn{display:flex;align-items:center;gap:1.6mm}
+.vn b{font-size:7pt;color:var(--navy);font-family:"DejaVu Sans Mono",monospace}
+.vin{display:flex;gap:.35mm}
+.vin i{display:block;width:3.25mm;height:4.6mm;border:1px solid var(--line);border-bottom:1.1px solid var(--navy);background:#fff}
+.vin i:nth-child(9){border-color:var(--blue)}
+.fl{display:flex;align-items:flex-end;gap:1.2mm;margin-top:1.5mm;font-size:6.3pt;color:var(--muted)}
+.fl i{flex:1;border-bottom:1px solid var(--line);height:3.4mm}
+.ck{display:flex;gap:2.6mm;margin-top:1.5mm;font-size:6.3pt;color:var(--ink);flex-wrap:wrap}
+.ck span{display:inline-flex;align-items:center;gap:1mm}
+.ck span::before{content:"";width:2.6mm;height:2.6mm;border:1px solid var(--navy);background:#fff}
+.cell{display:flex;flex-direction:column;gap:1.4mm;font-size:6.2pt;color:var(--muted)}
+.cell .r{display:flex;align-items:flex-end;gap:1mm}
+.cell .r i{flex:1;border-bottom:1px solid var(--line);height:3.4mm}
+.ft{display:flex;justify-content:space-between;gap:4mm;border-top:1px solid var(--hair);padding-top:1.8mm;margin-top:2.4mm;font-size:6.2pt;color:var(--muted)}
+.ft b{color:var(--navy)}
+/* Fiche véhicule */
+.idg{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm 4mm;margin-top:3mm}
+.idg .full{grid-column:1/-1}
+.idg .half{grid-column:span 2}
+.fld .l{font-size:6pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.fld .l .ar{letter-spacing:0;text-transform:none}
+.fld .ln{height:6mm;border-bottom:1px solid var(--navy)}
+.fld .vin i{width:6.4mm;height:7.6mm}
+.pc{margin-top:3mm;background:var(--panel);border-left:2px solid var(--navy);padding:2mm 3mm}
+.pc h3,.st h3{font-size:7pt;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.1em}
+.pc .ck{gap:2mm 5mm;font-size:7pt}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:2.6mm 4mm;margin-top:3mm;flex:1}
+.st{border-top:1.4px solid var(--navy);padding-top:1.6mm;display:flex;flex-direction:column;gap:1.8mm}
+.st h3{display:flex;align-items:baseline;gap:2mm}
+.st h3 .n{font-family:"DejaVu Sans Mono",monospace;color:var(--blue)}
+.st h3 .ar{margin-left:auto;text-transform:none;letter-spacing:0;font-size:7.4pt}
+.st .r{display:flex;align-items:flex-end;gap:1.6mm;font-size:7pt;color:var(--muted)}
+.st .r b{font-weight:600;color:var(--ink);white-space:nowrap}
+.st .r i{flex:1;border-bottom:1px solid var(--line);height:4.4mm}
+.st .two{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.illu{font-size:6pt;color:var(--muted)}
+</style></head><body>
+
+<!-- ============ PAGE 1 : FICHE CONTENEUR (paysage) ============ -->
+<section class="land">
+  <div class="hd">
+    <div class="mg">AH</div>
+    <div class="ttl"><div class="k">Fiche conteneur · Suivi de dédouanement des véhicules</div>
+      <h1>Du D10 au modèle 846 <span class="ar">متابعة السيارات من التصريح إلى النموذج 846</span></h1></div>
+    <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-01 · feuille n° ____ / ____</div>
+  </div>
+
+  <div class="refs">
+    <div class="ref"><div class="l">N° de conteneur <span class="ar">رقم الحاوية</span></div>
+      <div class="boxes"><i></i><i></i><i></i><i></i><i class="sep"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="ref"><div class="l">CRN <span class="ar">رقم CRN</span></div><div class="lnf"></div></div>
+    <div class="ref"><div class="l">N° de B/L <span class="ar">رقم وثيقة الشحن</span></div><div class="lnf"></div></div>
+  </div>
+  <div class="sec">
+    <span><b>Navire / voyage</b><i></i></span>
+    <span><b>Arrivée</b><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></span>
+    <span><b>Lieu de dépôt</b><i></i></span>
+    <span><b>Bureau</b><i></i></span>
+  </div>
+
+  <table class="mx">
+    <thead><tr>
+      <th class="v"><span class="n">VÉHICULE</span>VIN (17 car.), modèle, client<span class="ar">السيارة</span></th>
+      <th><span class="n">1</span>Déclaration D10 · EPC 51XX<span class="ar">التصريح</span></th>
+      <th><span class="n">2</span>Liquidation avec l'inspecteur<span class="ar">التصفية مع المفتش</span></th>
+      <th><span class="n">3</span>Dédouanement D10 · EPC 4151<span class="ar">التخليص الجمركي</span></th>
+      <th><span class="n">4</span>Avis de paiement · quittance<span class="ar">إشعار الدفع</span></th>
+      <th><span class="n">5</span>Facturation<span class="ar">الفوترة</span></th>
+      <th><span class="n">6</span>Livraison au propriétaire<span class="ar">النقل لصاحبها</span></th>
+      <th><span class="n">7</span>Demande du 846<span class="ar">طلب النموذج 846</span></th>
+      <th><span class="n">8</span>846 prêt et remis<span class="ar">تجهيز وتسليم 846</span></th>
+    </tr></thead>
+    <tbody>
+    __ROWS__
+    </tbody>
+  </table>
+  <div class="ft"><span>VIN : 17 caractères, jamais de lettres I, O ou Q (lire 1 et 0) · le 9e caractère (bleu) est le chiffre de contrôle.</span><span>Une ligne = un véhicule · le numéro de conteneur ne remplace jamais le VIN.</span><span><b>SV-01</b></span></div>
+</section>
+
+<!-- ============ PAGE 2 : FICHE VÉHICULE (portrait) ============ -->
+<section class="port">
+  <div class="hd">
+    <div class="mg">AH</div>
+    <div class="ttl"><div class="k">Fiche véhicule · Suivi de dédouanement</div>
+      <h1>Véhicule n° ____ <span class="ar">بطاقة السيارة</span></h1></div>
+    <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Modèle SV-02</div>
+  </div>
+
+  <div class="refs">
+    <div class="ref"><div class="l">N° de conteneur <span class="ar">رقم الحاوية</span></div>
+      <div class="boxes"><i></i><i></i><i></i><i></i><i class="sep"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="ref"><div class="l">CRN <span class="ar">رقم CRN</span></div><div class="lnf"></div></div>
+    <div class="ref"><div class="l">N° de B/L <span class="ar">رقم وثيقة الشحن</span></div><div class="lnf"></div></div>
+  </div>
+
+  <div class="idg">
+    <div class="fld full"><div class="l">Numéro de châssis (VIN) — référence du suivi <span class="ar">رقم الهيكل</span></div>
+      <div class="vin" style="margin-top:1.4mm">__VIN17__</div></div>
+    <div class="fld"><div class="l">Marque <span class="ar">العلامة</span></div><div class="ln"></div></div>
+    <div class="fld"><div class="l">Modèle <span class="ar">الطراز</span></div><div class="ln"></div></div>
+    <div class="fld"><div class="l">Couleur <span class="ar">اللون</span></div><div class="ln"></div></div>
+    <div class="fld"><div class="l">Énergie · cylindrée</div><div class="ln"></div></div>
+    <div class="fld half"><div class="l">Propriétaire <span class="ar">صاحب السيارة</span></div><div class="ln"></div></div>
+    <div class="fld"><div class="l">Téléphone <span class="ar">الهاتف</span></div><div class="ln"></div></div>
+    <div class="fld"><div class="l">1re immatriculation <span class="ar">أول ترقيم</span></div><div class="ln" style="display:flex;align-items:flex-end"><span class="dt"><i></i><i></i><em>/</em><i></i><i></i><em>/</em><i></i><i></i><i></i><i></i></span></div></div>
+    <div class="fld full"><div class="l">Catégorie <span class="ar">الصنف</span></div>
+      <div class="ck" style="font-size:7.4pt;margin-top:1.8mm"><span>Neuf · APC 085</span><span>Occasion de moins de 3 ans · APC 086</span><span>Photos prises</span><span>N° moteur relevé : ______________________</span></div></div>
+  </div>
+
+  <div class="pc"><h3>Pièces reçues <span class="ar" style="font-size:7pt;text-transform:none;letter-spacing:0">الوثائق المستلمة</span></h3>
+    <div class="ck"><span>Facture d'achat</span><span>B/L</span><span>Carte grise d'origine</span><span>Certificat de conformité</span><span>Pièce d'identité du propriétaire</span><span>Procuration</span><span>Autre : ______________</span></div></div>
+
+  <div class="steps">
+    <div class="st"><h3><span class="n">1</span>Déclaration · D10 EPC 51XX<span class="ar">التصريح</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° D10</b><i></i></div></div>
+      <div class="r"><b>Observation</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">2</span>Liquidation avec l'inspecteur<span class="ar">التصفية مع المفتش</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>Inspecteur</b><i></i></div></div>
+      <div class="r"><b>Montant liquidé</b><i></i>DA</div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">3</span>Dédouanement · D10 EPC 4151<span class="ar">التخليص الجمركي</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° D10</b><i></i></div></div>
+      <div class="r"><b>Mainlevée / BAE</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">4</span>Avis de paiement · quittance<span class="ar">إشعار الدفع</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° quittance</b><i></i></div></div>
+      <div class="r"><b>Montant payé</b><i></i>DA</div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">5</span>Facturation<span class="ar">الفوترة</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° facture</b><i></i></div></div>
+      <div class="r"><b>Montant facturé</b><i></i>DA</div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">6</span>Livraison au propriétaire<span class="ar">النقل لصاحبها</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>Transporteur</b><i></i></div></div>
+      <div class="r"><b>Reçu par (signature)</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">7</span>Demande du 846<span class="ar">طلب النموذج 846</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° de dépôt</b><i></i></div></div>
+      <div class="r"><b>Observation</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+    <div class="st"><h3><span class="n">8</span>846 prêt et remis<span class="ar">تجهيز وتسليم 846</span></h3>
+      <div class="two"><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>N° 846</b><i></i></div></div>
+      <div class="r"><b>Remis à (signature)</b><i></i></div><div class="r"><b>Note</b><i></i></div><div class="r"><i></i></div></div>
+  </div>
+  <div class="ft"><span>Toutes les dates sont portées à la main au moment de chaque étape.</span><span><b>SV-02</b></span></div>
+</section>
+</body></html>
