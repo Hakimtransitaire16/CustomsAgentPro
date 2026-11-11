@@ -267,7 +267,7 @@ ART_RE = re.compile(
 
 
 # Textes arabes : « المادة 43 : » ; « المادة 60 مكرر 1 : » (OCR : « م ادة », chiffres arabes ou indiens)
-ART_AR_RE = re.compile(r"^\s*(ال\s?م\s?ادة)\s+([0-9٠-٩]+)\s*((?:مكرر|مكررا)\s*[0-9٠-٩]*)?\s*[:：.-]", re.M)
+ART_AR_RE = re.compile(r"^\s*(ال\s?م\s?ادة)\s+([0-9٠-٩]{1,4})(?![0-9٠-٩])\s*((?:مكرر|مكررا)\s*[0-9٠-٩]*)?\s*[:：.-]", re.M)
 IND = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
 
 
