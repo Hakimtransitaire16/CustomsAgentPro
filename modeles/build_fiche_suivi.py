@@ -62,6 +62,12 @@ def tete(sous_titre, page):
   <div class="stripe"><i></i></div>'''
 
 
+def tete_suite():
+    """En-tête courant de la page de suite : une ligne, sans bandeau."""
+    return f'''
+  <div class="run"><span><b>{TRANSITAIRE}</b> · Suivi véhicules · feuille étapes</span><span class="rr">Réf. dossier <i></i><b>Page 2 / 2</b></span></div>'''
+
+
 def pied(gauche):
     return f'<footer><span>{gauche}</span><span class="ver">{VERSION}</span></footer>'
 
@@ -143,7 +149,7 @@ def page2():
             rows += f'<tr class="st {c}"><th class="rail"><span class="dot">{k}</span><span class="tt">{titre}</span></th>' + cellule(champs) * 4 + '</tr>'
     tot = '<td><div class="fl"><span>Payé DA</span><i></i></div><div class="fl"><span>Facturé DA</span><i></i></div></td>' * 4
     return f'''
-<section>{marques()}{tete("Feuille étapes · une colonne par véhicule", "2 / 2")}
+<section>{marques()}{tete_suite()}
   <div class="body">
   <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div>
     <div class="case" style="flex:1"><div class="lb"><span class="no">15</span>Client</div><div class="bd"></div></div></div>
@@ -186,7 +192,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm
 .hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
-.mx tr.st{height:19.6mm}
+.mx tr.st{height:21.8mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.4mm;margin:4.2mm 0 2mm;font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
@@ -242,7 +248,7 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
 .mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
 .mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
-.mx tr.st{height:19.6mm}
+.mx tr.st{height:21.8mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
 .mx tr.st td:last-child,.mx tr.tot td:last-child{border-right:1px solid var(--rule)}
@@ -271,6 +277,11 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .sig{display:flex;align-items:flex-end;gap:1.4mm;font-size:6pt;color:var(--mute);font-weight:600}
 .sig i{flex:1;height:4mm;border-bottom:1px solid var(--rule)}
 .sig .date{font-size:5.6pt}.sig .date span{width:4.9mm}.sig .date span.y{width:8.2mm}
+
+.run{flex:none;display:flex;justify-content:space-between;align-items:flex-end;gap:6mm;margin:9mm 10mm 0 22mm;padding-bottom:1.8mm;border-bottom:1.6px solid var(--navy);font-size:7pt;color:var(--mute)}
+.run b{color:var(--navy);font-weight:800;letter-spacing:.04em}
+.run .rr{display:flex;align-items:flex-end;gap:2mm}
+.run .rr i{display:block;width:32mm;border-bottom:1px solid var(--ink);height:4mm;margin-right:3mm}
 '''
 
 
