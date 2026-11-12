@@ -1,0 +1,141 @@
+<title>Fiches SARL TRANSIT GMOR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<style>
+/* Copie électronique d'une fiche papier : bandeau noir et filet bleu (style britannique de la fiche), sections A à E, étapes par véhicule */
+:root{
+  --ink:#0B0C0C; --mute:#505A5F; --rule:#B1B4B6; --hair:#DDE0E2; --tint:#F3F2F1; --paper:#FFFFFF; --bg:#F3F2F1;
+  --blue:#1D70B8; --band:#0B0C0C; --on-band:#FFFFFF; --ok:#00703C; --ok-bg:#E5F2EB;
+  --f:"Helvetica Neue",Arial,system-ui,sans-serif; --mono:ui-monospace,"DejaVu Sans Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#EEF0F2; --mute:#A9B1B7; --rule:#4A5157; --hair:#30363B; --tint:#1C2125; --paper:#14181B; --bg:#0E1113;
+  --blue:#6FA8DC; --band:#000000; --on-band:#FFFFFF; --ok:#7ED3A4; --ok-bg:#16301F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#EEF0F2; --mute:#A9B1B7; --rule:#4A5157; --hair:#30363B; --tint:#1C2125; --paper:#14181B; --bg:#0E1113;
+  --blue:#6FA8DC; --band:#000000; --on-band:#FFFFFF; --ok:#7ED3A4; --ok-bg:#16301F; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 var(--f)}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{background:var(--band);color:var(--on-band);border-bottom:6px solid var(--blue)}
+.band .wrap{padding-block:14px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.band b{font-size:19px;letter-spacing:.06em}
+.band span{font-size:13px;opacity:.85}
+main .wrap{padding-block:22px 48px;display:grid;gap:18px}
+h1{font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.lead{color:var(--mute);margin:6px 0 0}
+.card{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--rule);padding:16px;min-width:0}
+.card.blue{border-left-color:var(--blue)}
+h2{font-size:21px;margin:0 0 10px;display:flex;gap:8px;align-items:baseline}
+h2 .s{color:var(--blue)}
+dl.kv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:0;margin:0}
+dl.kv dt,dl.kv dd{padding:8px 0;border-top:1px solid var(--hair);margin:0;min-width:0}
+dl.kv dt{color:var(--mute);font-size:14px;padding-right:10px}
+dl.kv dd{font-weight:700;overflow-wrap:anywhere}
+.no{color:var(--blue);font-weight:700;margin-right:6px;font-variant-numeric:tabular-nums}
+.vide{color:var(--mute);font-weight:400}
+.mono{font-family:var(--mono);letter-spacing:.04em}
+.veh{display:grid;gap:12px}
+.vh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.vh .n{font-size:26px;font-weight:700}
+.vin{font-family:var(--mono);font-size:17px;letter-spacing:.08em;overflow-wrap:anywhere}
+.vin em{font-style:normal;background:var(--tint);border-bottom:2px solid var(--blue);padding:0 2px}
+.steps{list-style:none;margin:8px 0 0;padding:0;display:grid}
+.steps li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:9px 0;border-top:1px solid var(--hair)}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--rule);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--mute)}
+.steps li.ok .dot{background:var(--blue);border-color:var(--blue);color:#fff}
+.st{font-weight:700}
+.sd{font-size:14px;color:var(--mute)}
+.sv{font-size:14px;margin-top:2px;overflow-wrap:anywhere}
+.ph{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ph img{width:100%;border:1px solid var(--rule);display:block;background:#fff}
+.note{font-size:14px;color:var(--mute)}
+.pill{display:inline-block;font-size:13px;font-weight:700;padding:3px 8px;background:var(--ok-bg);color:var(--ok)}
+.err{border-left-color:#D4351C}
+footer{color:var(--mute);font-size:13px;border-top:1px solid var(--rule);padding-top:12px}
+@media (max-width:560px){dl.kv{grid-template-columns:1fr}dl.kv dd{border-top:0;padding-top:0}h1{font-size:25px}}
+</style>
+
+<header class="band"><div class="wrap"><b>SARL TRANSIT GMOR</b><span>Déclarant : ABDEL HAKIM HADJALLAH</span></div></header>
+<main><div class="wrap" id="app">
+  <div>
+    <h1>Fiche de suivi véhicules</h1>
+    <p class="lead">Copie électronique d'une fiche papier. Scannez le code QR imprimé en haut de la fiche pour l'ouvrir.</p>
+  </div>
+  <section class="card blue"><h2>Comment ça marche</h2>
+    <p class="note" style="margin:0">Chaque fiche papier porte un numéro (GM-AA-NNNNN-C) et un code QR. Le code QR contient la clé de la fiche : sans lui, son contenu reste chiffré et illisible, même pour qui ouvre cette page.</p></section>
+</div></main>
+
+<script>
+(function(){
+'use strict';
+var ETAPES=[
+ ['decl','Déclaration D10',[['n_d10','N° D10'],['epc','EPC'],['apc','APC']]],
+ ['liq',"Liquidation avec l'inspecteur et l'agent",[['inspecteur','Inspecteur'],['montant_inspecteur','Montant DA'],['agent','Agent'],['montant_agent','Montant DA']]],
+ ['dedo','Dédouanement',[['paiement','Paiement']]],
+ ['bae','Bon à enlever · quittance',[['n_bae','N° bon à enlever'],['n_quittance','N° quittance'],['montant','Montant DA']]],
+ ['fact','Facturation',[['n_facture','N° facture'],['montant','Montant DA']]],
+ ['livr','Livraison au propriétaire',[['transporteur','Transporteur'],['recu_par','Reçu par']]],
+ ['d846','Demande du 846',[['n_depot','N° de dépôt']]],
+ ['p846','846 prêt et remis',[['n_846','N° 846'],['remis_a','Remis à']]]
+];
+var app=document.getElementById('app');
+function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function val(x){return (x==null||x==='')?'<span class="vide">—</span>':esc(x);}
+function row(no,lab,x){return '<dt><span class="no">'+no+'</span>'+esc(lab)+'</dt><dd>'+val(x)+'</dd>';}
+function hex(s){var a=new Uint8Array(s.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(s.substr(i*2,2),16);return a;}
+function b64(s){var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
+function message(titre,texte,erreur){app.innerHTML='<div><h1>'+esc(titre)+'</h1><p class="lead">'+texte+'</p></div>'+(erreur?'<section class="card err"><p class="note" style="margin:0">'+erreur+'</p></section>':'');}
+
+function rendre(d){
+  var c=d.conteneur||{},h='';
+  h+='<div><p class="lead" style="margin:0 0 4px">Fiche n° <b class="mono">'+esc(d.fiche)+'</b></p><h1>Suivi véhicules</h1><p class="lead">Copie électronique de la fiche papier'+(d.maj?' · mise à jour le '+esc(d.maj):'')+' <span class="pill">Copie électronique</span></p></div>';
+  h+='<section class="card"><h2>Références</h2><dl class="kv">'+row('','Réf. dossier',c.ref_dossier)+row('','N° facture',c.n_facture)+row('','N° facture TC vide',c.n_facture_tc_vide)+'</dl></section>';
+  h+='<section class="card"><h2><span class="s">A</span>Conteneur et transport</h2><dl class="kv">'+row(1,'Transitaire',c.transitaire)+row(2,'Compagnie maritime',c.compagnie)+row(3,'CRN',c.crn)+
+     row(4,'N° du TC · date',[c.tc,c.tc_date].filter(Boolean).join(' · '))+row(5,'N° B/L',c.bl)+row(6,'Bon à délivrer',[c.bad,c.bad_date].filter(Boolean).join(' · '))+row(7,'Bureau de douane',c.bureau)+'</dl></section>';
+  h+='<section class="card"><h2><span class="s">B</span>Entreposage et dépotage</h2><dl class="kv">'+row(8,'Entrepôt',c.entrepot)+row(9,'État de dépotage · date',[c.depotage,c.depotage_date].filter(Boolean).join(' · '))+row(10,'Groupeur',c.groupeur)+row(11,'Relâche du groupeur',c.relache)+'</dl></section>';
+  h+='<section class="card"><h2><span class="s">C</span>TC vide</h2><dl class="kv">'+row(12,'Facturation du TC vide',c.tc_vide_facturation)+row(13,'Livraison du TC vide',c.tc_vide_livraison)+row(14,'Montant facturation TC',c.tc_vide_montant?c.tc_vide_montant+' DA':'')+'</dl></section>';
+  h+='<section class="card"><h2><span class="s">D</span>Client et véhicules sur le TC</h2><dl class="kv">'+row(15,'Nom du client',c.client)+row(16,'Tél. client',c.tel)+'</dl></section>';
+  (d.vehicules||[]).forEach(function(v,i){
+    var vin=String(v.vin||'');var vinH=vin.length>6?esc(vin.slice(0,-6))+'<em>'+esc(vin.slice(-6))+'</em>':val(vin);
+    h+='<section class="card blue veh"><div class="vh"><span class="n">Véhicule '+(v.n||i+1)+'</span><span>'+esc([v.marque,v.modele].filter(Boolean).join(' · '))+(v.etat?' · '+esc(v.etat):'')+'</span></div><div class="vin">'+vinH+'</div><ol class="steps">';
+    ETAPES.forEach(function(e,k){
+      var x=(v.etapes||{})[e[0]]||{},fait=!!(x.fait||x.date);
+      var vals=e[2].map(function(f){return x[f[0]]?esc(f[1])+' : <b>'+esc(x[f[0]])+'</b>':'';}).filter(Boolean).join(' · ');
+      h+='<li class="'+(fait?'ok':'')+'"><span class="dot">'+(fait?'✓':k+1)+'</span><div><div class="st">'+esc(e[1])+'</div><div class="sd">'+(x.date?esc(x.date):'Date non portée')+'</div>'+(vals?'<div class="sv">'+vals+'</div>':'')+(x.obs?'<div class="sv">'+esc(x.obs)+'</div>':'')+'</div></li>';
+    });
+    var t=v.totaux||{};
+    h+='</ol><dl class="kv">'+row('','Total payé',t.paye?t.paye+' DA':'')+row('','Total facturé',t.facture?t.facture+' DA':'')+'</dl></section>';
+  });
+  h+='<section class="card"><h2><span class="s">E</span>Observations</h2><p style="margin:0;white-space:pre-wrap">'+val(c.observations)+'</p></section>';
+  if(d.photos&&d.photos.length)h+='<section class="card"><h2>Fiche originale</h2><div class="ph">'+d.photos.map(function(p,i){return '<img alt="Fiche papier, page '+(i+1)+'" src="data:image/jpeg;base64,'+p+'">';}).join('')+'</div></section>';
+  h+='<footer>Copie électronique établie par ABDEL HAKIM HADJALLAH, déclarant en douane, SARL TRANSIT GMOR, à partir de la fiche papier n° '+esc(d.fiche)+'.</footer>';
+  app.innerHTML=h;
+}
+
+function ouvrir(){
+  var m=/^#f-(GM-\d{2}-\d{5}-\d)-([0-9a-f]{32})$/.exec(location.hash);
+  if(!m)return;
+  var serie=m[1],cle=m[2];
+  message('Fiche n° '+serie,'Ouverture de la fiche…');
+  if(!(window.crypto&&crypto.subtle)){message('Fiche n° '+serie,'','Ce navigateur ne peut pas déchiffrer la fiche. Ouvrez le lien dans Chrome ou Safari à jour.');return;}
+  fetch('f/'+serie+'.bin',{cache:'no-store'}).then(function(r){
+    if(r.status===404)throw {code:'absente'};
+    if(!r.ok)throw {code:'reseau'};
+    return r.text();
+  }).then(function(t){
+    var raw=b64(t.trim());
+    return crypto.subtle.importKey('raw',hex(cle),'AES-GCM',false,['decrypt']).then(function(k){
+      return crypto.subtle.decrypt({name:'AES-GCM',iv:raw.slice(0,12)},k,raw.slice(12));
+    });
+  }).then(function(buf){rendre(JSON.parse(new TextDecoder().decode(buf)));})
+  .catch(function(e){
+    if(e&&e.code==='absente')message('Fiche n° '+serie,'Cette fiche n’a pas encore de copie électronique : elle est en cours de saisie.');
+    else if(e&&e.code==='reseau')message('Fiche n° '+serie,'','La fiche n’a pas pu être chargée. Vérifiez la connexion puis rouvrez le lien.');
+    else message('Fiche n° '+serie,'','La clé de ce code QR ne correspond pas à la fiche. Scannez le code imprimé sur la fiche d’origine.');
+  });
+}
+window.addEventListener('hashchange',ouvrir);
+ouvrir();
+})();
+</script>

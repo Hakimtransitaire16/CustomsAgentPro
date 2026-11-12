@@ -75,7 +75,10 @@ def marques():
 
 # Application de suivi : le code QR ouvre la fiche (ses 4 véhicules) dans l'application, accès réservé au propriétaire.
 APP = "https://claude.ai/artifact/X8uFgUARsXywWx1xEgdRM1"
-SERIE = {"n": None}   # numéro de fiche en cours (carnet numéroté)
+# Copie électronique publique : le code QR porte le numéro de fiche et sa clé de déchiffrement (128 bits, tirée au hasard
+# à l'impression et conservée nulle part ailleurs que sur le papier). Sans le code QR, la fiche reste illisible.
+VIEWER = "https://claude.ai/artifact/9x4ffQjpySXHDyooHYMVHN"
+SERIE = {"n": None, "cle": None}   # numéro de fiche en cours (carnet numéroté)
 
 
 def luhn(num: str) -> int:
@@ -110,7 +113,7 @@ def serie(page):
     n = SERIE["n"]
     if not n:
         return ''
-    return (f'<div class="ser">{qr(APP + "#f-" + n)}'
+    return (f'<div class="ser">{qr(VIEWER + "#f-" + n + "-" + SERIE["cle"])}'
             f'<div class="sn"><span>N° de fiche</span><b>{n}</b></div></div>')
 
 
@@ -562,8 +565,9 @@ PALETTES = {
 
 def html(palette="facture-ue", numeros=(None,)):
     corps = ''
+    import secrets
     for n in numeros:
-        SERIE["n"] = n
+        SERIE["n"], SERIE["cle"] = n, secrets.token_hex(16)
         corps += page1() + page2()
     SERIE["n"] = None
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
