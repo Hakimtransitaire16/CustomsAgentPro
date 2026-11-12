@@ -17,7 +17,7 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-TRANSITAIRE = "SARL GMOR"
+TRANSITAIRE = "SARL TRANSIT GMOR"
 DECLARANT = "ABDEL HAKIM HADJALLAH"
 
 DATE = '<span class="date"><span>JJ</span>/<span>MM</span>/<span class="y">AAAA</span></span>'
@@ -53,7 +53,7 @@ def tete(sous_titre, page):
   <header class="inv">
     <div class="from">
       <div class="brand">{TRANSITAIRE}</div>
-      <div class="who">Transitaire · {DECLARANT}, déclarant en douane</div>
+      <div class="who">Déclarant : {DECLARANT}</div>
       <h1>Suivi véhicules</h1>
       <p>Dédouanement jusqu'à livraison · {sous_titre}</p>
     </div>
@@ -76,7 +76,7 @@ def tete_suite():
 
 def pied(gauche, page="1 / 2"):
     return f'''<footer><div class="note">{gauche}</div><div class="cols">
-    <div><b>{TRANSITAIRE}</b>Transitaire</div>
+    <div><b>Transitaire</b>{TRANSITAIRE}</div>
     <div><b>Déclarant en douane</b>{DECLARANT}</div>
     <div><b>Document</b>Suivi véhicules · dédouanement jusqu'à livraison</div>
     <div class="pg"><b>Page</b>{page}</div></div></footer>'''
@@ -183,7 +183,7 @@ CSS = '''
 :root{--navy:#003399;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#D9DBDD;--tint:#F3F2F1;
   --c1:#003399;--c1l:#FFF4C2;--c2:#003399;--c2l:#FFF4C2;--c3:#003399;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00;--hl-line:#E6C34D}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
+body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 section{position:relative;width:210mm;height:297mm;display:flex;flex-direction:column;break-after:page;overflow:hidden}
 section:last-child{break-after:auto}
 .body{flex:1;display:flex;flex-direction:column;padding:0 10mm 0 22mm}
@@ -324,7 +324,7 @@ FACTURE = '''
   --c1l:#F4F6F8;--c2l:#F4F6F8;--c3l:#F4F6F8;--hl-line:#AEB7C2;--yellow:#1F3A5F}
 header.inv{background:#fff;color:var(--ink);display:grid;grid-template-columns:1fr 66mm;gap:8mm;align-items:end;padding:12mm 10mm 0 22mm;flex:none}
 header.inv .brand{font:800 11pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.12em;color:var(--navy)}
-header.inv .who{font-size:6.6pt;color:var(--mute);margin-top:1.4mm;letter-spacing:.02em;text-transform:none}
+header.inv .who{font-size:7.6pt;font-weight:700;color:var(--ink);margin-top:1.6mm;letter-spacing:.06em;text-transform:uppercase}
 header.inv h1{font:300 25pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.02em;color:var(--ink);margin-top:6mm}
 header.inv p{font-size:7.6pt;color:var(--mute);margin-top:1.6mm}
 header.inv .meta{display:grid;grid-template-columns:auto 1fr;border-top:1.6px solid var(--navy)}
