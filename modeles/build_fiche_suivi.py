@@ -74,8 +74,32 @@ def tete_suite():
   </header>'''
 
 
+def guilloche(largeur=178, hauteur=4.6, n=14):
+    """Bande guillochée (lignes fines entrelacées, comme sur les billets et les chèques). Tracés vectoriels simples, sans motif ni dégradé."""
+    import math
+    pts = 360
+    chemins = []
+    for k in range(n):
+        ph = 2 * math.pi * k / n
+        xs = []
+        for i in range(pts + 1):
+            x = largeur * i / pts
+            t = 2 * math.pi * x / 9.0
+            y = hauteur / 2 + (hauteur / 2 - .25) * (0.62 * math.sin(t + ph) + 0.38 * math.sin(2.7 * t - ph))
+            xs.append(f"{x:.2f},{y:.2f}")
+        chemins.append(f'<polyline points="{" ".join(xs)}"/>')
+    return (f'<svg viewBox="0 0 {largeur} {hauteur}" width="{largeur}mm" height="{hauteur}mm" preserveAspectRatio="none">'
+            f'<g fill="none" stroke="#8E9BAC" stroke-width=".09">{"".join(chemins)}</g></svg>')
+
+
+def microtexte():
+    """Ligne en microtexte : lisible à la loupe, elle se brouille à la photocopie."""
+    motif = f"{TRANSITAIRE} · DÉCLARANT {DECLARANT} · SUIVI VÉHICULES · "
+    return f'<div class="micro">{motif * 14}</div>'
+
+
 def pied(gauche, page="1 / 2"):
-    return f'''<footer><div class="note">{gauche}</div><div class="cols">
+    return f'''<footer><div class="note">{gauche}</div>{microtexte()}<div class="cols">
     <div><b>Transitaire</b>{TRANSITAIRE}</div>
     <div><b>Déclarant en douane</b>{DECLARANT}</div>
     <div><b>Document</b>Suivi véhicules · dédouanement jusqu'à livraison</div>
@@ -89,6 +113,7 @@ def page1():
                    f'<tr class="vb"><td colspan="3">{vin}</td></tr>' for k in range(1, 5))
     return f'''
 <section>{marques()}{tete("Feuille conteneur", "1 / 2")}
+  <div class="guiw">{guilloche()}</div>
   <div class="body">
   <div class="sec"><span class="sl">A</span>Conteneur et transport</div>
   <div class="grid">
@@ -120,7 +145,7 @@ def page1():
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
-  <div class="obs"><i></i><i></i></div>
+  <div class="obsrow"><div class="obs"><i></i><i></i></div><div class="holo"><span>Hologramme<br>de sécurité</span></div></div>
   </div>
   {pied("VIN : 17 caractères, jamais I, O ni Q · dates portées à la main à chaque étape")}
 </section>'''
@@ -367,7 +392,8 @@ UK = r'''
 /* Royaume-Uni : esprit des formulaires GOV.UK — noir, bleu, gris clair, libellés en minuscules et en gras */
 :root{--navy:#0B0C0C;--eu:#1D70B8;--c1:#1D70B8;--c2:#1D70B8;--c3:#1D70B8;--ink:#0B0C0C;--mute:#505A5F;--rule:#B1B4B6;--hair:#D8DADB;--tint:#F3F2F1;
   --c1l:#F3F2F1;--c2l:#F3F2F1;--c3l:#F3F2F1;--hl-line:#B1B4B6}
-header.inv{padding-top:19mm!important}
+header.inv{padding-top:17mm!important}
+header.inv:not(.suite) h1{margin-top:1.6mm!important;font-size:22pt!important}
 header.inv .brand{position:absolute;top:0;left:0;right:0;height:13mm;padding:4.4mm 10mm 0 22mm;background:#0B0C0C;color:#fff;border-bottom:2.2mm solid #1D70B8;font-size:12pt;letter-spacing:.06em}
 header.inv.suite{padding-top:17mm!important}
 header.inv h1{font-weight:700;font-size:24pt;letter-spacing:-.01em;margin-top:3mm}
@@ -422,7 +448,22 @@ header.inv .meta dt:nth-last-of-type(1),header.inv .meta dd:last-of-type{border-
 .mx tr.ph td{background:#0A3161!important}
 .mx tr.ph span{color:#fff!important}
 .obs{border:1px solid #1A1A1A!important;border-top:0!important}
-.mx tr.st{height:18.2mm}
+.mx tr.st{height:17.8mm}
+'''
+
+SECURITE = '''
+.guiw{flex:none;margin:1.8mm 10mm 0 22mm;height:4.6mm;overflow:hidden;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.guiw svg{display:block}
+.micro{font-size:2.3pt;line-height:1;letter-spacing:.02em;color:var(--mute);white-space:nowrap;overflow:hidden;border-top:1px solid var(--rule);padding:.5mm 0 .4mm}
+footer .cols{border-top:0!important;padding-top:1.2mm!important}
+.obsrow{flex:1;display:flex;gap:2mm;min-height:13mm}
+.case{min-height:9.6mm!important}
+.sec{margin-top:2.6mm!important;margin-bottom:1.3mm!important}
+.veh td{height:auto}
+.veh tr.va td{padding-top:1.2mm!important;padding-bottom:.4mm!important}
+.veh tr.vb td{padding-top:.6mm!important;padding-bottom:1.4mm!important}
+.obsrow .obs{flex:1}
+.holo{flex:none;width:22mm;border:1px dashed var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;font-size:5.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.4}
 '''
 
 PALETTES = {
@@ -440,7 +481,7 @@ PALETTES = {
 
 def html(palette="facture-ue"):
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
-            f'<style>{CSS}{PALETTES[palette]}</style></head><body>{page1()}{page2()}</body></html>')
+            f'<style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{page1()}{page2()}</body></html>')
 
 
 def construire(sortie: Path, palette: str = "facture-ue") -> Path:
