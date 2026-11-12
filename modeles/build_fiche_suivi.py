@@ -73,6 +73,45 @@ def marques():
             + fil())
 
 
+SERIE = {"n": None}   # numéro de fiche en cours (carnet numéroté)
+
+
+def luhn(num: str) -> int:
+    """Chiffre de contrôle de Luhn (celui des cartes bancaires) : une faute de frappe sur le numéro est détectée."""
+    s = 0
+    for i, d in enumerate(reversed(num)):
+        d = int(d) * (2 if i % 2 == 0 else 1)
+        s += d - 9 if d > 9 else d
+    return (10 - s % 10) % 10
+
+
+def numero(n: int, annee: int) -> str:
+    base = f"{annee % 100:02d}{n:05d}"
+    return f"GM-{annee % 100:02d}-{n:05d}-{luhn(base)}"
+
+
+def qr(texte: str, taille_mm: float = 17) -> str:
+    """Code QR vectoriel (reportlab), lisible par n'importe quel téléphone."""
+    from reportlab.graphics.barcode.qr import QrCodeWidget
+    from reportlab.graphics.shapes import Drawing
+    from reportlab.graphics import renderSVG
+    w = QrCodeWidget(texte, barLevel='M')
+    x1, y1, x2, y2 = w.getBounds()
+    d = Drawing(x2 - x1, y2 - y1)
+    d.add(w)
+    svg = renderSVG.drawToString(d)
+    svg = svg[svg.index('<svg'):]
+    return f'<span class="qr" style="width:{taille_mm}mm;height:{taille_mm}mm">{svg}</span>'
+
+
+def serie(page):
+    n = SERIE["n"]
+    if not n:
+        return ''
+    return (f'<div class="ser">{qr(f"SV|{TRANSITAIRE}|{n}|{page}")}'
+            f'<div class="sn"><span>N° de fiche</span><b>{n}</b></div></div>')
+
+
 def tete(sous_titre, page):
     """En-tête de facture européenne : émetteur et titre à gauche, bloc de références à droite."""
     return f'''
@@ -83,6 +122,7 @@ def tete(sous_titre, page):
       <h1>Suivi véhicules</h1>
       <p>Dédouanement jusqu'à livraison · {sous_titre}</p>
     </div>
+    {serie(page)}
     <dl class="meta">
       <dt>Réf. dossier</dt><dd></dd>
       <dt>N° facture</dt><dd></dd>
@@ -96,6 +136,7 @@ def tete_suite():
     return f'''
   <header class="inv suite">
     <div class="from"><div class="brand">{TRANSITAIRE}</div><p>Suivi véhicules · feuille étapes</p></div>
+    {serie("2 / 2")}
     <dl class="meta"><dt>Réf. dossier</dt><dd></dd></dl>
   </header>'''
 
@@ -489,6 +530,16 @@ footer .cols{border-top:0!important;padding-top:1.2mm!important}
 .veh tr.va td{padding-top:1.2mm!important;padding-bottom:.4mm!important}
 .veh tr.vb td{padding-top:.6mm!important;padding-bottom:1.4mm!important}
 .obsrow .obs{flex:1}
+header.inv{grid-template-columns:1fr auto 62mm!important}
+.ser{display:flex;flex-direction:column;align-items:center;gap:.8mm;align-self:end}
+.qr{display:block}.qr svg{width:100%;height:100%;display:block}
+.sn{text-align:center;line-height:1.15}
+.sn span{display:block;font-size:4.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sn b{font:700 7pt "DejaVu Sans Mono",monospace;color:var(--navy);letter-spacing:.02em}
+header.inv.suite .qr{width:10mm!important;height:10mm!important}
+header.inv.suite .ser{flex-direction:row;gap:2mm}
+header.inv.suite .sn{text-align:left}
+header.inv.suite{padding-top:7mm!important}
 .fil{position:absolute;left:15.2mm;top:0;width:4mm;height:297mm;display:flex;flex-direction:column;z-index:5}
 .fil i{flex:1;display:block}
 .holo{flex:none;width:22mm;border:1px dashed var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;font-size:5.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.4}
@@ -507,25 +558,37 @@ PALETTES = {
 }
 
 
-def html(palette="facture-ue"):
+def html(palette="facture-ue", numeros=(None,)):
+    corps = ''
+    for n in numeros:
+        SERIE["n"] = n
+        corps += page1() + page2()
+    SERIE["n"] = None
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
-            f'<style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{page1()}{page2()}</body></html>')
+            f'<style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{corps}</body></html>')
 
 
-def construire(sortie: Path, palette: str = "facture-ue") -> Path:
+def construire(sortie: Path, palette: str = "facture-ue", debut: int = 0, nombre: int = 1, annee: int = 2026) -> Path:
+    """debut = 0 : fiche sans numéro. debut >= 1 : carnet de `nombre` fiches numérotées à partir de `debut`."""
     sortie.mkdir(parents=True, exist_ok=True)
     f = sortie / '_fiche_suivi.html'
-    f.write_text(html(palette), encoding='utf-8')
-    out = sortie / ('Fiche_suivi_vehicules.pdf' if palette == "facture-ue" else f'Fiche_suivi_vehicules_{palette}.pdf')
+    nums = [numero(debut + k, annee) for k in range(nombre)] if debut else [None]
+    f.write_text(html(palette, nums), encoding='utf-8')
+    suffixe = '' if palette == "facture-ue" else f'_{palette}'
+    if debut:
+        suffixe += f'_carnet_{nums[0]}_a_{nums[-1]}'
+    out = sortie / f'Fiche_suivi_vehicules{suffixe}.pdf'
     subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f.resolve()}');await p.waitForTimeout(300);
 const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const f=s.querySelector('footer');return Math.max(0,Math.round(f.getBoundingClientRect().bottom-s.getBoundingClientRect().bottom))}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
 await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
     n = len(PdfReader(str(out)).pages)
-    if n != 2:
-        print(f'  ! {n} pages au lieu de 2')
+    if n != 2 * len(nums):
+        print(f'  ! {n} pages au lieu de {2 * len(nums)}')
     f.unlink()
     return out
 
 
 if __name__ == '__main__':
-    print(construire(Path(sys.argv[1] if len(sys.argv) > 1 else '.'), sys.argv[2] if len(sys.argv) > 2 else "facture-ue"))
+    a = sys.argv
+    print(construire(Path(a[1] if len(a) > 1 else '.'), a[2] if len(a) > 2 else "facture-ue",
+                     int(a[3]) if len(a) > 3 else 0, int(a[4]) if len(a) > 4 else 1))
