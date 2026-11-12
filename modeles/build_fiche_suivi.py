@@ -570,7 +570,7 @@ def html(palette="facture-ue", numeros=(None,)):
             f'<style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{corps}</body></html>')
 
 
-def construire(sortie: Path, palette: str = "facture-ue", debut: int = 0, nombre: int = 1, annee: int = 2026) -> Path:
+def construire(sortie: Path, palette: str = "britannique", debut: int = 0, nombre: int = 1, annee: int = 2026) -> Path:
     """debut = 0 : fiche sans numéro. debut >= 1 : carnet de `nombre` fiches numérotées à partir de `debut`."""
     sortie.mkdir(parents=True, exist_ok=True)
     f = sortie / '_fiche_suivi.html'
@@ -592,5 +592,5 @@ await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true
 
 if __name__ == '__main__':
     a = sys.argv
-    print(construire(Path(a[1] if len(a) > 1 else '.'), a[2] if len(a) > 2 else "facture-ue",
+    print(construire(Path(a[1] if len(a) > 1 else '.'), a[2] if len(a) > 2 else "britannique",
                      int(a[3]) if len(a) > 3 else 0, int(a[4]) if len(a) > 4 else 1))
