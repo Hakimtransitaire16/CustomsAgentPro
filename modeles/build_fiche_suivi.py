@@ -56,7 +56,8 @@ def tete(sous_titre, page):
     </div>
     <div class="hm"><div class="kick">Dédouanement jusqu'à livraison</div><h1>Suivi véhicules</h1><p>{sous_titre}</p></div>
     <div class="hrs"><div class="hr"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">Page {page}</div></div>
-      <div class="hr"><div class="lb">N° D10</div><div class="v"></div></div></div>
+      <div class="hr2"><div class="hr"><div class="lb">N° facture</div><div class="v"></div></div>
+      <div class="hr"><div class="lb">N° facture TC vide</div><div class="v"></div></div></div></div>
   </header>
   <div class="stripe"><i></i></div>'''
 
@@ -73,7 +74,9 @@ def pied(gauche):
 
 def page1():
     vin = comb(17, tint=range(12, 18))
-    vehs = ''.join(f'<tr><td class="n">{k}</td><td><div class="w"></div></td><td><div class="w"></div></td><td>{vin}</td></tr>' for k in range(1, 5))
+    etat = opts("Neuf", "Moins de 3 ans · avec PV d'expertise")
+    vehs = ''.join(f'<tr class="va"><td class="n" rowspan="2">{k}</td><td><div class="il"><span class="k">Marque</span><i></i></div></td><td><div class="il"><span class="k">Modèle · couleur</span><i></i></div></td><td class="et">{etat}</td></tr>'
+                   f'<tr class="vb"><td colspan="3">{vin}</td></tr>' for k in range(1, 5))
     return f'''
 <section>{marques()}{tete("Feuille conteneur", "1 / 2")}
   <div class="body">
@@ -82,7 +85,7 @@ def page1():
     {case(1, "Transitaire", f'<span class="pre">{TRANSITAIRE}</span>', 4)}
     {case(2, "Compagnie maritime", '', 4)}
     {case(3, "CRN", '', 4)}
-    {case(4, "N° du TC · date", comb(11, sep=5) + '<span class="gap"></span>' + DATE, 8)}
+    {case(4, "N° du TC · date", '<span class="big">' + comb(11, sep=5) + '</span>' + '<span class="gap"></span>' + DATE, 8)}
     {case(5, "N° B/L", '', 4)}
     {case(6, "Bon à délivrer", opts("Récupéré", "Non récupéré") + '<span class="gap"></span>' + DATE, 7)}
     {case(7, "Bureau de douane", '', 5)}
@@ -96,17 +99,18 @@ def page1():
   </div>
   <div class="sec"><span class="sl">C</span>TC vide</div>
   <div class="grid">
-    {case(12, "Facturation du TC vide", DATE, 6)}
-    {case(13, "Livraison du TC vide", DATE, 6)}
+    {case(12, "Facturation du TC vide", DATE, 4)}
+    {case(13, "Livraison du TC vide", DATE, 4)}
+    {case(14, "Montant facturation TC", '<span class="gap"></span><span class="unit">DA</span>', 4)}
   </div>
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
-  <div class="grid">{case(14, "Nom du client", '', 8)}{case(15, "Tél. client", '', 4)}</div>
+  <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
   <table class="veh">
-    <thead><tr><th>N°</th><th>Marque</th><th>Modèle · couleur</th><th>N° de châssis (VIN) <span class="hint">6 derniers caractères en jaune = référence du véhicule</span></th></tr></thead>
+    <thead><tr><th>N°</th><th colspan="3">Véhicules sur le TC · marque, modèle, état et n° de châssis (VIN) <span class="hint">· 6 derniers caractères en jaune = référence</span></th></tr></thead>
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
-  <div class="obs"><i></i><i></i><i></i><i></i></div>
+  <div class="obs"><i></i><i></i></div>
   </div>
   {pied("VIN : 17 caractères, jamais I, O ni Q · dates portées à la main à chaque étape")}
 </section>'''
@@ -116,10 +120,10 @@ PHASES = [
     ("Douane", "c1", [
         ("Déclaration D10", ["N° D10", "EPC", "APC"]),
         ("Liquidation avec l'inspecteur", ["Inspecteur", "Montant DA"]),
-        ("Dédouanement · mainlevée", ["N° D10", "EPC"]),
+        ("Dédouanement", [("Paiement", ["Chèque", "Paiement électronique"])]),
     ]),
     ("Règlement", "c2", [
-        ("Avis de paiement · quittance", ["N° quittance", "Montant DA"]),
+        ("Bon à enlever · quittance", ["N° bon à enlever", "N° quittance", "Montant DA"]),
         ("Facturation", ["N° facture", "Montant DA"]),
     ]),
     ("Livraison et 846", "c3", [
@@ -133,7 +137,10 @@ PHASES = [
 def cellule(champs):
     h = f'<td><div class="top">{DATE}<span class="tick"></span></div>'
     for c in champs:
-        h += f'<div class="fl"><span>{c}</span><i></i></div>'
+        if isinstance(c, tuple):
+            h += f'<div class="fl"><span>{c[0]}</span></div><div class="ops">' + ''.join(f'<span>{o}</span>' for o in c[1]) + '</div>'
+        else:
+            h += f'<div class="fl"><span>{c}</span><i></i></div>'
     return h + '</td>'
 
 
@@ -174,28 +181,29 @@ section:last-child{break-after:auto}
 .mk{position:absolute;left:0;height:0;border-top:.6pt solid #8C99AA}
 .mk.fold{width:4mm}.mk.punch{width:7mm}
 /* En-tête pleine largeur */
-header{background:var(--navy);color:#fff;display:grid;grid-template-columns:50mm 1fr 42mm;align-items:end;gap:6mm;padding:9mm 10mm 6mm 22mm}
+header{background:var(--navy);color:#fff;display:grid;grid-template-columns:42mm 1fr 70mm;align-items:end;gap:4mm;padding:7mm 10mm 5mm 22mm}
 .brand{font:800 15pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.1em}
 .who{font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase;color:#FFFFFF;margin-top:2mm;line-height:1.45}
 .kick{font-size:6.2pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
 .hm h1{font:700 24pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.03em;margin-top:1.4mm}
 .hm p{font-size:7.6pt;color:#FFFFFF;margin-top:1.4mm}
-.hrs{display:flex;flex-direction:column;gap:1.6mm}
-.hr{background:#fff;color:var(--ink);border-radius:0;padding:1.8mm 2.6mm 2mm;position:relative}
+.hrs{display:flex;flex-direction:column;gap:1.2mm}
+.hr2{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm}
+.hr{background:#fff;color:var(--ink);border-radius:0;padding:1.3mm 2.6mm 1.4mm;position:relative}
 .hr .lb{font-size:5.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
-.hr .v{height:6.4mm;border-bottom:1.2px solid var(--navy)}
-.hr .pg{position:absolute;top:1.8mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
+.hr .v{height:5mm;border-bottom:1.2px solid var(--navy)}
+.hr .pg{position:absolute;top:1.3mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
 .mx tr.st{height:22mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
-.sec{display:flex;align-items:center;gap:2.8mm;margin:4mm 0 2mm;font-size:9.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.sec{display:flex;align-items:center;gap:2.8mm;margin:2.8mm 0 1.6mm;font-size:9.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
 .sec::after{content:"";flex:1;height:1.4px;background:var(--ink)}
 .sl{width:6.6mm;height:6.6mm;font-size:9pt!important;border-radius:0;background:var(--eu);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:7pt;letter-spacing:0}
 /* Cases numérotées */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm}
-.case{border:.9px solid var(--rule);border-top:1.6px solid var(--ink);border-radius:0;background:#fff;padding:1.5mm 2.2mm 1.8mm;min-height:13mm;display:flex;flex-direction:column}
+.case{border:.9px solid var(--rule);border-top:1.6px solid var(--ink);border-radius:0;background:#fff;padding:1.4mm 2.2mm 1.5mm;min-height:10.8mm;display:flex;flex-direction:column}
 .case .lb{display:flex;align-items:center;gap:1.6mm;font-size:6.6pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 .no{min-width:4.2mm;height:4.2mm;padding:0 .8mm;border-radius:0;background:var(--navy);color:#fff;font-size:6pt;letter-spacing:0;display:inline-flex;align-items:center;justify-content:center}
 .bd{flex:1;display:flex;align-items:flex-end;gap:2mm;padding-top:1.4mm;flex-wrap:wrap}
@@ -222,7 +230,7 @@ table{border-collapse:separate;border-spacing:0;width:100%}
 .veh th:nth-child(2){width:26mm}.veh th:nth-child(3){width:27mm}
 .veh .w{height:5mm;border-bottom:1px solid var(--rule)}
 .veh .comb i{width:4.05mm}
-.obs{flex:1;border:1px solid var(--rule);background:#fff;min-height:14mm;display:flex;flex-direction:column;justify-content:space-evenly;padding:0 2.2mm}
+.obs{flex:1;border:1px solid var(--rule);background:#fff;min-height:9mm;display:flex;flex-direction:column;justify-content:space-evenly;padding:0 2.2mm}
 .obs i{display:block;height:0;border-bottom:1px solid var(--hair)}
 footer{display:flex;justify-content:space-between;gap:6mm;margin:3mm 10mm 7mm 22mm;padding-top:2mm;border-top:1px solid var(--rule);font-size:6pt;color:var(--mute)}
 footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
@@ -280,6 +288,23 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .run b{color:var(--navy);font-weight:800;letter-spacing:.04em}
 .run .rr{display:flex;align-items:flex-end;gap:2mm}
 .run .rr i{display:block;width:32mm;border-bottom:1px solid var(--ink);height:4mm;margin-right:3mm}
+
+.big .comb i{width:5.4mm;height:7.2mm}
+.unit{font-weight:700;color:var(--mute);font-size:7.6pt}
+.veh tr.va td{border-top:1.4px solid var(--ink);height:auto;padding:1.4mm 2.2mm .8mm;vertical-align:bottom}
+.veh tbody tr.va:first-child td{border-top:0}
+.veh tr.vb td{border-top:0;height:auto;padding:.8mm 2.2mm 1.8mm}
+.veh .k{font-size:5.8pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.veh .il{display:flex;align-items:flex-end;gap:1.4mm}.veh .il i{flex:1;height:4.6mm;border-bottom:1px solid var(--rule)}
+.veh td.et .opts{font-size:7.2pt;gap:3.6mm}
+.veh tr.va td:nth-child(2){width:42mm}.veh tr.va td:nth-child(3){width:46mm}
+.veh td.et .opts span{white-space:nowrap}
+.veh td.n{vertical-align:middle!important}
+.veh tr.vb .comb{gap:.75mm}.veh tr.vb .comb i{width:8.7mm;height:7mm;border-bottom-width:1.6px}
+.veh td.n{border-right:1px solid var(--hair)}
+.ops{display:flex;flex-direction:column;gap:1.2mm;margin-top:1.2mm;font-size:6.8pt;font-weight:600}
+.ops span{display:inline-flex;align-items:center;gap:1.4mm}
+.ops span::before{content:"";width:3.2mm;height:3.2mm;border:1.2px solid var(--navy);flex:none}
 '''
 
 
@@ -294,7 +319,7 @@ def construire(sortie: Path) -> Path:
     f.write_text(html(), encoding='utf-8')
     out = sortie / 'Fiche_suivi_vehicules.pdf'
     subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f.resolve()}');await p.waitForTimeout(300);
-const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const b=s.querySelector('.body');return Math.max(0,b.scrollHeight-b.clientHeight)}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
+const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const f=s.querySelector('footer');return Math.max(0,Math.round(f.getBoundingClientRect().bottom-s.getBoundingClientRect().bottom))}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
 await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
     n = len(PdfReader(str(out)).pages)
     if n != 2:
