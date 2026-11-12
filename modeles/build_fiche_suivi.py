@@ -73,6 +73,8 @@ def marques():
             + fil())
 
 
+# Application de suivi : le code QR ouvre la fiche (ses 4 véhicules) dans l'application, accès réservé au propriétaire.
+APP = "https://claude.ai/artifact/X8uFgUARsXywWx1xEgdRM1"
 SERIE = {"n": None}   # numéro de fiche en cours (carnet numéroté)
 
 
@@ -95,7 +97,7 @@ def qr(texte: str, taille_mm: float = 17) -> str:
     from reportlab.graphics.barcode.qr import QrCodeWidget
     from reportlab.graphics.shapes import Drawing
     from reportlab.graphics import renderSVG
-    w = QrCodeWidget(texte, barLevel='M')
+    w = QrCodeWidget(texte, barLevel='L')
     x1, y1, x2, y2 = w.getBounds()
     d = Drawing(x2 - x1, y2 - y1)
     d.add(w)
@@ -108,7 +110,7 @@ def serie(page):
     n = SERIE["n"]
     if not n:
         return ''
-    return (f'<div class="ser">{qr(f"SV|{TRANSITAIRE}|{n}|{page}")}'
+    return (f'<div class="ser">{qr(APP + "#f-" + n)}'
             f'<div class="sn"><span>N° de fiche</span><b>{n}</b></div></div>')
 
 
@@ -536,10 +538,10 @@ header.inv{grid-template-columns:1fr auto 62mm!important}
 .sn{text-align:center;line-height:1.15}
 .sn span{display:block;font-size:4.8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .sn b{font:700 7pt "DejaVu Sans Mono",monospace;color:var(--navy);letter-spacing:.02em}
-header.inv.suite .qr{width:10mm!important;height:10mm!important}
+header.inv.suite .qr{width:14mm!important;height:14mm!important}
 header.inv.suite .ser{flex-direction:row;gap:2mm}
 header.inv.suite .sn{text-align:left}
-header.inv.suite{padding-top:7mm!important}
+header.inv.suite{padding-top:5mm!important}
 .fil{position:absolute;left:15.2mm;top:0;width:4mm;height:297mm;display:flex;flex-direction:column;z-index:5}
 .fil i{flex:1;display:block}
 .holo{flex:none;width:22mm;border:1px dashed var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;font-size:5.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.4}
