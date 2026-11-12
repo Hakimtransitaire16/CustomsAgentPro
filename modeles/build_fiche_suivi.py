@@ -48,28 +48,38 @@ def marques():
 
 
 def tete(sous_titre, page):
+    """En-tête de facture européenne : émetteur et titre à gauche, bloc de références à droite."""
     return f'''
-  <header>
-    <div class="hl">
+  <header class="inv">
+    <div class="from">
       <div class="brand">{TRANSITAIRE}</div>
-      <div class="who">{DECLARANT}<br>déclarant en douane</div>
+      <div class="who">Transitaire · {DECLARANT}, déclarant en douane</div>
+      <h1>Suivi véhicules</h1>
+      <p>Dédouanement jusqu'à livraison · {sous_titre}</p>
     </div>
-    <div class="hm"><div class="kick">Dédouanement jusqu'à livraison</div><h1>Suivi véhicules</h1><p>{sous_titre}</p></div>
-    <div class="hrs"><div class="hr"><div class="lb">Réf. dossier</div><div class="v"></div><div class="pg">Page {page}</div></div>
-      <div class="hr2"><div class="hr"><div class="lb">N° facture</div><div class="v"></div></div>
-      <div class="hr"><div class="lb">N° facture TC vide</div><div class="v"></div></div></div></div>
-  </header>
-  <div class="stripe"><i></i></div>'''
+    <dl class="meta">
+      <dt>Réf. dossier</dt><dd></dd>
+      <dt>N° facture</dt><dd></dd>
+      <dt>N° facture TC vide</dt><dd></dd>
+    </dl>
+  </header>'''
 
 
 def tete_suite():
-    """En-tête courant de la page de suite : une ligne, sans bandeau."""
+    """En-tête courant de la page de suite."""
     return f'''
-  <div class="run"><span><b>{TRANSITAIRE}</b> · Suivi véhicules · feuille étapes</span><span class="rr">Réf. dossier <i></i><b>Page 2 / 2</b></span></div>'''
+  <header class="inv suite">
+    <div class="from"><div class="brand">{TRANSITAIRE}</div><p>Suivi véhicules · feuille étapes</p></div>
+    <dl class="meta"><dt>Réf. dossier</dt><dd></dd></dl>
+  </header>'''
 
 
-def pied(gauche):
-    return f'<footer><span>{gauche}</span></footer>'
+def pied(gauche, page="1 / 2"):
+    return f'''<footer><div class="note">{gauche}</div><div class="cols">
+    <div><b>{TRANSITAIRE}</b>Transitaire</div>
+    <div><b>Déclarant en douane</b>{DECLARANT}</div>
+    <div><b>Document</b>Suivi véhicules · dédouanement jusqu'à livraison</div>
+    <div class="pg"><b>Page</b>{page}</div></div></footer>'''
 
 
 def page1():
@@ -164,7 +174,7 @@ def page2():
     <tbody>{rows}</tbody>
     <tfoot><tr class="tot"><th class="rail"><span class="tt">Totaux du véhicule</span></th>{tot}</tr></tfoot></table>
   </div>
-  {pied("Une ligne = une étape pour les 4 véhicules · une colonne = le parcours d'un véhicule · cocher le rond quand l'étape est faite")}
+  {pied("Une ligne = une étape pour les 4 véhicules · une colonne = le parcours d'un véhicule · cocher le rond quand l'étape est faite", "2 / 2")}
 </section>'''
 
 
@@ -195,7 +205,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:42mm
 .hr .pg{position:absolute;top:1.3mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
-.mx tr.st{height:20.4mm}
+.mx tr.st{height:18.6mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.8mm;margin:2.8mm 0 1.6mm;font-size:9.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
@@ -254,7 +264,7 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
 .mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
 .mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
-.mx tr.st{height:20.4mm}
+.mx tr.st{height:18.6mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
 .mx tr.st td:last-child,.mx tr.tot td:last-child{border-right:1px solid var(--rule)}
@@ -309,7 +319,52 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 
 
 # Palettes : chaque palette redéfinit les jetons de couleur (aucun dégradé, aucune teinte rosée).
+FACTURE = '''
+:root{--navy:#1F3A5F;--eu:#1F3A5F;--c1:#1F3A5F;--c2:#1F3A5F;--c3:#1F3A5F;--ink:#1A1D21;--mute:#626B76;--rule:#D3D8DE;--hair:#E4E7EB;--tint:#F4F6F8;
+  --c1l:#F4F6F8;--c2l:#F4F6F8;--c3l:#F4F6F8;--hl-line:#AEB7C2;--yellow:#1F3A5F}
+header.inv{background:#fff;color:var(--ink);display:grid;grid-template-columns:1fr 66mm;gap:8mm;align-items:end;padding:12mm 10mm 0 22mm;flex:none}
+header.inv .brand{font:800 11pt/1 "Inter Display",Inter,sans-serif;letter-spacing:.12em;color:var(--navy)}
+header.inv .who{font-size:6.6pt;color:var(--mute);margin-top:1.4mm;letter-spacing:.02em;text-transform:none}
+header.inv h1{font:300 25pt/1 "Inter Display",Inter,sans-serif;letter-spacing:-.02em;color:var(--ink);margin-top:6mm}
+header.inv p{font-size:7.6pt;color:var(--mute);margin-top:1.6mm}
+header.inv .meta{display:grid;grid-template-columns:auto 1fr;border-top:1.6px solid var(--navy)}
+header.inv .meta dt{font-size:6.4pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:2.2mm 3mm 1.2mm 0;border-bottom:1px solid var(--hair)}
+header.inv .meta dd{border-bottom:1px solid var(--hair);height:7.2mm}
+header.inv.suite{grid-template-columns:1fr 66mm;padding-top:8mm}
+.p2ref .case,.vins .case{min-height:10.4mm!important}
+.p2ref{margin-top:2.4mm!important}
+header.inv.suite p{margin-top:1.2mm}
+header.inv + .body,header.inv + * {}
+.body{padding-top:2mm}
+.sec{font-size:8pt;font-weight:700;letter-spacing:.14em;color:var(--navy);margin:3.4mm 0 1.6mm}
+.sec::after{height:1px;background:var(--rule)}
+.sl{background:none!important;color:var(--navy)!important;width:auto!important;height:auto!important;font-size:8pt!important;font-weight:800}
+.sl::after{content:"·";margin-left:2mm;color:var(--rule)}
+.case{border:1px solid var(--rule)!important;border-top:1px solid var(--rule)!important;background:#fff}
+.case .lb{font-size:6.2pt;font-weight:700;letter-spacing:.1em;color:var(--mute)}
+.no{background:none!important;color:var(--navy)!important;font-weight:800;min-width:0!important;padding:0!important;font-size:6.6pt!important}
+.no::after{content:"";display:inline-block;width:1px;height:3mm;background:var(--rule);margin-left:1.6mm}
+.pre{font-size:9.6pt;letter-spacing:.06em}
+.veh{border:0!important}
+.veh th{background:#fff!important;color:var(--ink)!important;border-bottom:1.6px solid var(--navy);font-size:6.2pt}
+.veh th .hint{color:var(--mute)!important}
+.veh td{border-top:1px solid var(--hair)}
+.veh td.n{background:#fff!important;color:var(--navy)}
+.mx thead th{background:#fff!important;color:var(--ink)!important;border-bottom:1.6px solid var(--navy);border-top:1.6px solid var(--navy)}
+.mx th.rh{color:var(--mute)!important}
+.vr{color:var(--mute)!important}
+.mx tr.ph td{background:var(--tint)!important}
+.mx tr.ph span{color:var(--navy)!important}
+.rail{border-left:1px solid var(--rule)!important}
+footer{display:block!important;margin:3mm 10mm 7mm 22mm!important;padding-top:0!important;border-top:0!important}
+footer .note{font-size:6pt;color:var(--mute);padding-bottom:1.6mm}
+footer .cols{display:grid;grid-template-columns:1fr 1.2fr 1.6fr .5fr;gap:4mm;border-top:1px solid var(--rule);padding-top:1.8mm;font-size:6pt;color:var(--mute);line-height:1.4}
+footer .cols b{display:block;color:var(--ink);font-weight:700}
+footer .cols .pg{text-align:right}
+'''
+
 PALETTES = {
+    "facture-ue": FACTURE,
     "bleu-jaune": "",
     "marine-argent": ":root{--navy:#0B2A4A;--eu:#0B2A4A;--c1:#0B2A4A;--c2:#0B2A4A;--c3:#0B2A4A;--yellow:#AEB7C2;"
                      "--c1l:#EDF0F3;--c2l:#EDF0F3;--c3l:#EDF0F3;--hl-line:#AEB7C2}",
@@ -319,16 +374,16 @@ PALETTES = {
 }
 
 
-def html(palette="bleu-jaune"):
+def html(palette="facture-ue"):
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
             f'<style>{CSS}{PALETTES[palette]}</style></head><body>{page1()}{page2()}</body></html>')
 
 
-def construire(sortie: Path, palette: str = "bleu-jaune") -> Path:
+def construire(sortie: Path, palette: str = "facture-ue") -> Path:
     sortie.mkdir(parents=True, exist_ok=True)
     f = sortie / '_fiche_suivi.html'
     f.write_text(html(palette), encoding='utf-8')
-    out = sortie / ('Fiche_suivi_vehicules.pdf' if palette == "bleu-jaune" else f'Fiche_suivi_vehicules_{palette}.pdf')
+    out = sortie / ('Fiche_suivi_vehicules.pdf' if palette == "facture-ue" else f'Fiche_suivi_vehicules_{palette}.pdf')
     subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f.resolve()}');await p.waitForTimeout(300);
 const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const f=s.querySelector('footer');return Math.max(0,Math.round(f.getBoundingClientRect().bottom-s.getBoundingClientRect().bottom))}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
 await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
@@ -340,4 +395,4 @@ await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true
 
 
 if __name__ == '__main__':
-    print(construire(Path(sys.argv[1] if len(sys.argv) > 1 else '.'), sys.argv[2] if len(sys.argv) > 2 else "bleu-jaune"))
+    print(construire(Path(sys.argv[1] if len(sys.argv) > 1 else '.'), sys.argv[2] if len(sys.argv) > 2 else "facture-ue"))
