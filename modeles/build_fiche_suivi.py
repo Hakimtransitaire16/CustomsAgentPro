@@ -363,8 +363,72 @@ footer .cols b{display:block;color:var(--ink);font-weight:700}
 footer .cols .pg{text-align:right}
 '''
 
+UK = r'''
+/* Royaume-Uni : esprit des formulaires GOV.UK — noir, bleu, gris clair, libellés en minuscules et en gras */
+:root{--navy:#0B0C0C;--eu:#1D70B8;--c1:#1D70B8;--c2:#1D70B8;--c3:#1D70B8;--ink:#0B0C0C;--mute:#505A5F;--rule:#B1B4B6;--hair:#D8DADB;--tint:#F3F2F1;
+  --c1l:#F3F2F1;--c2l:#F3F2F1;--c3l:#F3F2F1;--hl-line:#B1B4B6}
+header.inv{padding-top:19mm!important}
+header.inv .brand{position:absolute;top:0;left:0;right:0;height:13mm;padding:4.4mm 10mm 0 22mm;background:#0B0C0C;color:#fff;border-bottom:2.2mm solid #1D70B8;font-size:12pt;letter-spacing:.06em}
+header.inv.suite{padding-top:17mm!important}
+header.inv h1{font-weight:700;font-size:24pt;letter-spacing:-.01em;margin-top:3mm}
+header.inv .meta{border-top:2px solid #0B0C0C}
+header.inv .meta dt{text-transform:none;letter-spacing:0;font-size:7pt;color:#0B0C0C}
+.sec{text-transform:none;letter-spacing:0;font-size:11pt;color:#0B0C0C;margin:3mm 0 1.6mm}
+.sec::after{display:none}
+.sl{color:#1D70B8!important;font-size:11pt!important}
+.sl::after{content:""!important;margin:0}
+.case{border:1px solid var(--rule)!important;border-left:4px solid var(--rule)!important}
+.case .lb{text-transform:none;letter-spacing:0;font-size:7pt;color:#0B0C0C}
+.no{color:#1D70B8!important;font-size:7pt!important}
+.opts span::before,.ops span::before{border:1.6px solid #0B0C0C!important}
+.veh th,.mx thead th{border-bottom:2px solid #0B0C0C!important;text-transform:none!important;letter-spacing:0!important;font-size:7pt!important}
+.mx thead th{border-top:2px solid #0B0C0C!important}
+.mx tr.ph span{color:#0B0C0C!important;letter-spacing:.06em!important}
+.tick{border-color:#0B0C0C!important}
+.fl{text-transform:none!important;letter-spacing:0!important;font-size:6pt!important}
+.mx tr.st{height:17.2mm}
+.p2ref{margin-top:1.6mm!important}
+.vins{margin-top:1.4mm!important}
+.p2ref .case,.vins .case{min-height:9.8mm!important}
+header.inv.suite{padding-top:9mm!important}
+header.inv.suite .brand{position:static;height:auto;padding:0;background:none;color:#0B0C0C;border:0}
+'''
+
+US = r'''
+/* États-Unis : esprit des formulaires fédéraux et des factures américaines — cases jointives, sections en bandeau */
+:root{--navy:#0A3161;--eu:#0A3161;--c1:#0A3161;--c2:#0A3161;--c3:#0A3161;--ink:#111111;--mute:#4A4A4A;--rule:#1A1A1A;--hair:#BDBDBD;--tint:#E9EDF3;
+  --c1l:#E9EDF3;--c2l:#E9EDF3;--c3l:#E9EDF3;--hl-line:#8A9BB4}
+header.inv{border-bottom:2.4px solid #B31942;padding-bottom:3mm!important}
+header.inv .brand{font-size:14pt;color:#111}
+header.inv h1{text-transform:uppercase;font-weight:800;font-size:20pt;letter-spacing:.03em;color:#0A3161;margin-top:4mm}
+header.inv .meta{border:1px solid #1A1A1A}
+header.inv .meta dt{background:#E9EDF3;color:#111;padding:2mm 2.4mm 1.2mm;border-bottom:1px solid #1A1A1A;border-right:1px solid #1A1A1A}
+header.inv .meta dd{border-bottom:1px solid #1A1A1A}
+header.inv .meta dt:nth-last-of-type(1),header.inv .meta dd:last-of-type{border-bottom:0}
+.sec{background:#0A3161;color:#fff;padding:1.3mm 2.2mm;margin:3mm 0 0;font-size:7.6pt;letter-spacing:.12em}
+.sec::after{display:none}
+.sl{color:#fff!important}
+.sl::after{content:"—"!important;color:#fff!important}
+.grid{gap:0!important;border-left:1px solid #1A1A1A;border-top:1px solid #1A1A1A}
+.case{border:0!important;border-right:1px solid #1A1A1A!important;border-bottom:1px solid #1A1A1A!important}
+.case .lb{color:#111;font-size:6pt}
+.no{color:#111!important}
+.no::after{content:"."!important;width:auto!important;height:auto!important;background:none!important;margin-left:.2mm!important}
+.p2ref,.vins{gap:0!important}
+.p2ref .case,.vins .case{border:1px solid #1A1A1A!important;margin:0 -1px -1px 0}
+.veh{border:1px solid #1A1A1A!important;margin-top:0!important;border-top:0!important}
+.veh th{background:#E9EDF3!important;border-bottom:1px solid #1A1A1A!important}
+.mx thead th{background:#E9EDF3!important;border:1px solid #1A1A1A!important}
+.mx tr.ph td{background:#0A3161!important}
+.mx tr.ph span{color:#fff!important}
+.obs{border:1px solid #1A1A1A!important;border-top:0!important}
+.mx tr.st{height:18.2mm}
+'''
+
 PALETTES = {
     "facture-ue": FACTURE,
+    "britannique": FACTURE + UK,
+    "americaine": FACTURE + US,
     "bleu-jaune": "",
     "marine-argent": ":root{--navy:#0B2A4A;--eu:#0B2A4A;--c1:#0B2A4A;--c2:#0B2A4A;--c3:#0B2A4A;--yellow:#AEB7C2;"
                      "--c1l:#EDF0F3;--c2l:#EDF0F3;--c3l:#EDF0F3;--hl-line:#AEB7C2}",
