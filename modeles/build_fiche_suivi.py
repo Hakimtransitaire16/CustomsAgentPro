@@ -106,7 +106,7 @@ def page1():
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
   <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
   <table class="veh">
-    <thead><tr><th>N°</th><th colspan="3">Véhicules sur le TC · marque, modèle, état et n° de châssis (VIN) <span class="hint">· 6 derniers caractères en jaune = référence</span></th></tr></thead>
+    <thead><tr><th>N°</th><th colspan="3">Véhicules sur le TC · marque, modèle, état et n° de châssis (VIN) <span class="hint">· 6 dernières cases teintées = référence</span></th></tr></thead>
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
@@ -171,7 +171,7 @@ def page2():
 CSS = '''
 @page{size:A4 portrait;margin:0}
 :root{--navy:#003399;--navy2:#2B2F33;--ink:#0B0C0C;--mute:#505A5F;--ghost:#A3AAB0;--rule:#B1B4B6;--hair:#D9DBDD;--tint:#F3F2F1;
-  --c1:#003399;--c1l:#FFF4C2;--c2:#003399;--c2l:#FFF4C2;--c3:#003399;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00}
+  --c1:#003399;--c1l:#FFF4C2;--c2:#003399;--c2l:#FFF4C2;--c3:#003399;--c3l:#FFF4C2;--gold:#FFFFFF;--eu:#003399;--yellow:#FFCC00;--hl-line:#E6C34D}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"tnum" 1,"cv11" 1}
 section{position:relative;width:210mm;height:297mm;display:flex;flex-direction:column;break-after:page;overflow:hidden}
@@ -215,7 +215,7 @@ header,footer{flex:none}
 .comb{display:inline-flex;gap:.55mm}
 .comb i{display:block;width:4.4mm;height:6mm;border:1px solid var(--rule);border-bottom:1.3px solid var(--ink);border-radius:0;background:#fff}
 .comb i.s{margin-left:1.6mm}
-.comb i.t{background:var(--c1l);border-color:#E6C34D;border-bottom-color:var(--ink)}
+.comb i.t{background:var(--c1l);border-color:var(--hl-line);border-bottom-color:var(--ink)}
 .opts{display:inline-flex;gap:4.4mm;font-size:7.6pt;font-weight:500}
 .opts span{display:inline-flex;align-items:center;gap:1.4mm}
 .opts span::before{content:"";width:3.4mm;height:3.4mm;border:1.2px solid var(--navy);border-radius:0}
@@ -308,16 +308,27 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 '''
 
 
-def html():
+# Palettes : chaque palette redéfinit les jetons de couleur (aucun dégradé, aucune teinte rosée).
+PALETTES = {
+    "bleu-jaune": "",
+    "marine-argent": ":root{--navy:#0B2A4A;--eu:#0B2A4A;--c1:#0B2A4A;--c2:#0B2A4A;--c3:#0B2A4A;--yellow:#AEB7C2;"
+                     "--c1l:#EDF0F3;--c2l:#EDF0F3;--c3l:#EDF0F3;--hl-line:#AEB7C2}",
+    "marine-rouge": ":root{--navy:#0B2A4A;--eu:#0B2A4A;--c1:#0B2A4A;--c2:#0B2A4A;--c3:#0B2A4A;--yellow:#C8102E;"
+                    "--c1l:#EDF0F3;--c2l:#EDF0F3;--c3l:#EDF0F3;--hl-line:#AEB7C2}"
+                    ".kick{color:#FFFFFF!important}",
+}
+
+
+def html(palette="bleu-jaune"):
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
-            f'<style>{CSS}</style></head><body>{page1()}{page2()}</body></html>')
+            f'<style>{CSS}{PALETTES[palette]}</style></head><body>{page1()}{page2()}</body></html>')
 
 
-def construire(sortie: Path) -> Path:
+def construire(sortie: Path, palette: str = "bleu-jaune") -> Path:
     sortie.mkdir(parents=True, exist_ok=True)
     f = sortie / '_fiche_suivi.html'
-    f.write_text(html(), encoding='utf-8')
-    out = sortie / 'Fiche_suivi_vehicules.pdf'
+    f.write_text(html(palette), encoding='utf-8')
+    out = sortie / ('Fiche_suivi_vehicules.pdf' if palette == "bleu-jaune" else f'Fiche_suivi_vehicules_{palette}.pdf')
     subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f.resolve()}');await p.waitForTimeout(300);
 const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const f=s.querySelector('footer');return Math.max(0,Math.round(f.getBoundingClientRect().bottom-s.getBoundingClientRect().bottom))}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
 await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
@@ -329,4 +340,4 @@ await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true
 
 
 if __name__ == '__main__':
-    print(construire(Path(sys.argv[1] if len(sys.argv) > 1 else '.')))
+    print(construire(Path(sys.argv[1] if len(sys.argv) > 1 else '.'), sys.argv[2] if len(sys.argv) > 2 else "bleu-jaune"))
