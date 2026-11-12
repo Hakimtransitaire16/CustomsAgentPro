@@ -42,9 +42,35 @@ def case(no, label, body='', span=6):
             f'<div class="bd">{body}</div></div>')
 
 
+def _mix(a, b, t):
+    a, b = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#' + ''.join(f'{round(x + (y - x) * t):02X}' for x, y in zip(a, b))
+
+
+# Fil de sécurité irisé (façon billet de banque) : argent, bleu glacier, vert d'eau, or pâle, avec des éclats
+# de lumière. Construit en tranches de couleur unie (aucun dégradé ni motif PDF) : rendu identique sur téléphone,
+# sur écran et à l'impression. Aucune teinte rose.
+IRIS = ["#A9B2BE", "#86C3E0", "#93D3B8", "#E2CF8E", "#B3BDCA", "#82AEDD", "#A9B2BE"]
+
+
+def fil(n=150):
+    import math
+    out = []
+    for i in range(n):
+        t = i / (n - 1) * (len(IRIS) - 1)
+        k = min(int(t), len(IRIS) - 2)
+        c = _mix(IRIS[k], IRIS[k + 1], t - k)
+        eclat = max(0.0, math.sin(i / n * math.pi * 9)) ** 6
+        if eclat > .05:
+            c = _mix(c, "#FFFFFF", .75 * eclat)
+        out.append(f'<i style="background:{c}"></i>')
+    return '<div class="fil">' + ''.join(out) + '</div>'
+
+
 def marques():
-    """Repères DIN 5008 : perforation à 148,5 mm, pliage à 105 et 210 mm."""
-    return '<i class="mk fold" style="top:105mm"></i><i class="mk punch" style="top:148.5mm"></i><i class="mk fold" style="top:210mm"></i>'
+    """Repères DIN 5008 (perforation 148,5 mm, pliage 105 et 210 mm) et fil de sécurité irisé."""
+    return ('<i class="mk fold" style="top:105mm"></i><i class="mk punch" style="top:148.5mm"></i><i class="mk fold" style="top:210mm"></i>'
+            + fil())
 
 
 def tete(sous_titre, page):
@@ -463,6 +489,8 @@ footer .cols{border-top:0!important;padding-top:1.2mm!important}
 .veh tr.va td{padding-top:1.2mm!important;padding-bottom:.4mm!important}
 .veh tr.vb td{padding-top:.6mm!important;padding-bottom:1.4mm!important}
 .obsrow .obs{flex:1}
+.fil{position:absolute;left:15.2mm;top:0;width:4mm;height:297mm;display:flex;flex-direction:column;z-index:5}
+.fil i{flex:1;display:block}
 .holo{flex:none;width:22mm;border:1px dashed var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;font-size:5.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.4}
 '''
 
