@@ -119,7 +119,7 @@ def page1():
 PHASES = [
     ("Douane", "c1", [
         ("Déclaration D10", ["N° D10", "EPC", "APC"]),
-        ("Liquidation avec l'inspecteur", ["Inspecteur", "Montant DA"]),
+        ("Liquidation avec l'inspecteur et l'agent", ["Inspecteur", "Montant DA", "Agent", "Montant DA"]),
         ("Dédouanement", [("Paiement", ["Chèque", "Paiement électronique"])]),
     ]),
     ("Règlement", "c2", [
@@ -195,7 +195,7 @@ header{background:var(--navy);color:#fff;display:grid;grid-template-columns:42mm
 .hr .pg{position:absolute;top:1.3mm;right:2.6mm;font-size:5.8pt;font-weight:600;color:var(--mute)}
 .stripe{display:flex;height:2mm;flex:none}
 header,footer{flex:none}
-.mx tr.st{height:22mm}
+.mx tr.st{height:20.4mm}
 .stripe i{flex:1;background:var(--yellow)}
 /* Sections */
 .sec{display:flex;align-items:center;gap:2.8mm;margin:2.8mm 0 1.6mm;font-size:9.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
@@ -254,7 +254,7 @@ footer .ver{font-weight:700;color:var(--navy);white-space:nowrap}
 .mx tr.ph.c1 td{background:var(--c1l)}.mx tr.ph.c1 span{color:var(--navy)}
 .mx tr.ph.c2 td{background:var(--c2l)}.mx tr.ph.c2 span{color:var(--navy)}
 .mx tr.ph.c3 td{background:var(--c3l)}.mx tr.ph.c3 span{color:var(--navy)}
-.mx tr.st{height:22mm}
+.mx tr.st{height:20.4mm}
 .mx tr.st td,.mx tr.st th{border-top:1px solid var(--rule)}
 .mx tr.st td{border-left:1px solid var(--hair);padding:1.5mm 1.8mm 1.2mm;vertical-align:top}
 .mx tr.st td:last-child,.mx tr.tot td:last-child{border-right:1px solid var(--rule)}
