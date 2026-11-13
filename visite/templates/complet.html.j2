@@ -2,6 +2,10 @@
 {%- set dec = d.declaration -%}{%- set tr = d.transport -%}{%- set imp = d.parties.importateur -%}{%- set vis = d.visite or {} -%}
 {%- set a0 = d.articles[0] -%}{%- set orig = d.origine or {} -%}
 {%- set p_a = 2 -%}{%- set p_b = 2 + nb_fiche -%}{%- set p_c = p_b + 1 -%}
+{#- C8 « à fournir » : 6 pièces par page ; les informations à donner passent sur une page à part si la dernière est pleine -#}
+{%- set pieces8 = (manquants or [])|selectattr('type', 'equalto', 'pièce')|list -%}{%- set autres = (manquants or [])|rejectattr('type', 'equalto', 'pièce')|list -%}
+{%- set lots8 = pieces8|batch(6)|list -%}{%- set seul8 = 1 if (autres and lots8 and lots8[-1]|length > 4) else 0 -%}
+{%- set n8 = [lots8|length + seul8, 1]|max -%}
 {%- macro head(section, conf=False) -%}
 <div class="hd"><div class="brand"><div class="mono">{{ initiales }}</div><div><div class="t1">{{ d.meta.declarant.nom }}</div><div class="t2">{{ d.meta.declarant.qualite }} · {{ d.parties.declarant_societe.nom }}</div></div></div>
 <div class="ref">D10 n° <b>{{ dec.numero }}</b> · {{ dec.date_heure }}<br>MRN <b>{{ dec.mrn }}</b> · conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
@@ -57,7 +61,7 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   <table class="som"><tr><th style="width:8%">Partie</th><th>Contenu</th><th style="width:12%">Pages</th><th style="width:20%">Destinataire</th></tr>
     <tr><td><b>A</b></td><td><b>Fiche de visite</b> — identification, parties, transport, marchandise, description technique, classement motivé, origine, valeur, régime fiscal, formalités, pièces analysées, concordance, repères, procès-verbal</td><td>{{ p_a }} à {{ p_b - 1 }}</td><td><span class="tag ok">À REMETTRE AU SERVICE</span></td></tr>
     <tr><td><b>B</b></td><td><b>Fiche de terrain</b> — check-list, comptage, pesée, plan de photos, notes de visite</td><td>{{ p_b }}</td><td><span class="tag ok">USAGE SUR PLACE</span></td></tr>
-    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir, analyse 360° (coût, logistique, finance, fiscalité, commerce), veille réglementaire</td><td>{{ p_c }} à {{ p_c + 3 + (2 if a360 else 0) + ((veille|length + 3) // 4) }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
+    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir, analyse 360° (coût, logistique, finance, fiscalité, commerce), veille réglementaire</td><td>{{ p_c }} à {{ p_c + 2 + n8 + (2 if a360 else 0) + ((veille|length + 3) // 4) }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
   <p class="small mt2">Pièces du dossier : {% for doc in d.documents %}{{ doc.titre }} ({{ doc.numero }}){{ ' · ' if not loop.last }}{% endfor %}.</p>
   <p class="small">Toutes les données sont transcrites des pièces et citent leur source. Textes : tarif douanier DGD, code des douanes (loi 79-07 modifiée), lois de finances 2001, 2018 et 2026, code des TCA.</p>
   {{ foot('établi le ' ~ date_fiche, 1) }}
@@ -127,9 +131,6 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   {{ foot('partie C — note interne, confidentielle', p_c + 2) }}
 </section>
 
-{% set pieces8 = manquants|selectattr('type', 'equalto', 'pièce')|list %}{% set autres = manquants|rejectattr('type', 'equalto', 'pièce')|list %}
-{% set lots8 = pieces8|batch(6)|list %}{% set seul8 = 1 if (autres and lots8 and lots8[-1]|length > 4) else 0 %}
-{% set n8 = [lots8|length + seul8, 1]|max %}
 {% for i in range(n8) %}<section class="page">{{ head('Note interne', True) }}
   {{ sec('C8', 'À fournir — pièces et informations manquantes (' ~ manquants|length ~ ')' ~ (' (suite)' if i else '')) }}
   {% if i == 0 %}<p class="small">Liste établie automatiquement à partir du référentiel des pièces (knowledge-base/data/pieces_dossier.json) : pour chaque pièce, son émetteur, ce qu'elle prouve en douane et le texte qui la fonde.</p>{% endif %}
