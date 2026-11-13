@@ -1,0 +1,1208 @@
+REPUBLIQUE ALGERIENNE DEMOCRATIQUE ET POPULAIRE
+
+             MINISTERE DES FINANCES
+
+        DIRECTION GENERALE DES DOUANES
+
+
+
+
+     MANUEL SUR LES REGLES DE L’ORIGINE DES
+    MARCHANDISES DANS LE CADRE DE L’ACCORD
+         D’ASSOCIATION ALGERIE – U.E
+                                         PLAN
+
+
+
+
+AVERTISSEMENT
+
+
+INTRODUCTION
+
+
+   1. INTERET DE LA NOTION DE L’ORIGINE
+   2. DEFINITION LIEE A LA NOTION DE L’ORIGINE
+   3. CRITERES DE DETERMINATION DE L’ORIGINE
+   4. REGLES RETENUES PAR L’ACCORD
+
+
+
+        PREMIERE PARTIE : LES REGLES DE L’ORIGINE DES MARCHANDISES DANS LE
+                          CADRE DE L’ACCORD D’ASSOCIATION
+
+
+
+A. LES CRITERES DE DETERMINATION DE L’ORIGINE DANS LE CADRE DE L’ACCORD
+
+      1. DEFINITION DES MARCHANDISES ENTIEREMENT OBTENUES ;
+
+      1.1. PRODUITS ENTIEREMENT OBTENUS ; 1.2.
+      CAS DES NAVIRES ET NAVIRES USINES ;
+
+      2. CRITERES DE TRANSFORMATION SUBSTANTIELLE
+
+      2.1 PRODUITS SUFFISAMMENT OUVRES OU TRANSFORMES 2.2.
+      OUVRAISON OU TRANSFORMATION INSUFFISANTE
+
+
+B. EXCEPTIONS AUX CRITERES DE TRANSFORMATION SUFFISANTE
+
+      1. CUMUL BILATERAL DE L’ORIGINE
+      2. CUMUL AVEC LES MATIERES ORIGINAIRES DU MAROC ET DE LA TUNISIE
+      3. CUMUL DE L’OUVRAISON OU DES TRANSFORMATIONS
+
+C.LESCONDITIONSDEVALIDATIONOUD’APPLICABILITEDUREGIMEPREFERENTIEL
+
+      1. CONDITION DE TERRITORIALITE ;
+      2. PRINCIPE DU TRANSPORT DIRECT ;
+      3. PRINCIPE DU NON REMBOURS (NO DRAWBACK)
+D. CAS PARTICULIERS (CONDITIONS)
+
+      1.   CONTENANTS ET MATERIAUX D’EMBALLAGE ;
+      2.   ACCESSOIRES, PIECES DE RECHANGES ET OUTILLAGES ;
+      3.   ASSORTIMENTS ;
+      4.   REGROUPEMENTS DE PARTIES.
+
+
+
+DEUXIEME PARTIE : LA JUSTIFICATION DE L’ORIGINE
+
+A. LE CERTIFICAT DE CIRCULATION DES MARCHANDISES ( EUR1) :
+
+      1. LA CONTEXTURE DE L’EUR1 ;
+      2. CONTENU DE L’EUR1.
+      3. PROCEDURES DE DELIVRANCE DE L’EUR1
+
+
+B. LA DECLARATION SUR FACTURE ;
+
+
+      1. ETABLISSEMENT DE LA DECLARATION SUR FACTURE ;
+      2. CAS D’ETABLISSEMENT DE LA DECLARATION SUR FACTURE ; 3.
+      L’EXPORTATEUR AGREE.
+
+
+C. DISPOSITIONS COMMUNES
+
+      1. VALIDITE DE LA PREUVE DE L’ORIGINE
+      2. L’EXEMPTION DE LA PREUVE DE L’ORIGINE
+
+
+ANNEXES
+A VERTISSEMENT
+
+
+
+
+       Le présent manuel a pour objet de présenter les différents aspects de la notion
+d’origine préférentielle contenue dans le protocole n°6 annexé à l’Accord d ’association liant l
+’Algérie et la Communauté Européenne, en précisant les modalités pratiques d ’application et d
+’interprétation de son contenu.
+
+
+       Il est à signaler par ailleurs qu ’en l ’absence d ’une législation et de réglementation
+nationales traitant des règles d ’origines préférentielles, le présent manuel s ’inspire uniquement des
+dispositions du dit pro tocole.
+INTRODUCTION
+
+
+     L’origine d’une marchandise peut être définie comme étant <<le lien
+géographique qui unit une marchandise à un pays donné dont elle est réputée issue>>.
+
+    Cette notion a pris une importance considérable dans le domaine des échanges
+commerciaux internationaux.
+
+      A ce titre, l’indication du pays d’origine sur la déclaration en détail est nécessaire
+aussi bien à l’occasion des opérations d’exportation que d’importation.
+
+     A l’importation, l’origine est l’un des éléments avec l’espèce et la valeur en douane qui
+vont déterminer le niveau de perception des droits de douane et l’application éventuelle de
+mesures de politique commerciale (contingent, droit antidumping etc...).
+
+       A l’exportation, l’origine des marchandises est déterminée en vue de la délivrance de <<
+certificats d’origine >> lorsque de tels documents sont requis par le pays de destination.
+
+       Cependant, il convient de ne pas confondre l’origine avec la notion de provenance. A ce
+titre, la notion d’origine est définie par l’article 14 du code des douanes algérien, aux termes
+duquel le pays d’origine d’une marchandise est << celui où elle a été extraite du sous-sol,
+récoltée ou fabriquée >>. Par contre le pays de provenance est considéré par l’article 15 du code
+des douanes algérien comme étant le territoire étranger à partir duquel la marchandise est
+acheminée ou expédiée à destination directe du territoire national.
+
+       Il est à noter, par ailleurs, que le code des douanes renvoie dans ses dispositions
+à un arrêté conjoint des Ministères chargés des finances et du commerce, pour la
+détermination des conditions exigées pour l’acquisition d’une origine. Mais en l’absence d’enjeu
+fiscal, cet arrêté n’a jamais vu le jour.
+
+     L’Algérie a conclu un accord d’association avec la Communauté Européenne
+consacrant des relations commerciales préférentielles.
+
+       Dans le cadre de cet Accord, une marchandise ne peut bénéficier d’un traitement
+préférentiel ( exemption des droits de douane ou un allégement ) dans l’une des parties que si
+les dispositions contractuelles de l’Accord concerné sont satisfaites et qu’elle est accompagnée
+d’une preuve d’origine valable.
+      A cet effet, les prescriptions déterminantes en matière de règles d’origine ont été
+énoncées dans le cadre du protocole portant le N°6 annexé à l’Accord d’association Algérie –CE
+signé à valence le 22 avril 2002.
+
+      Ce protocole est composé de 44 articles répartis en huit titres et de sept annexes.
+
+      Ce dispositif repose sur une distinction de base entre les produits
+entièrement obtenus et les biens transformés
+
+
+
+1. INTERET DE LA NOTION D’ORIGINE :
+
+      La notion d’origine revêt une importance capitale dans l’exercice de la politique douanière
+et commerciale d’un pays. Les règles d’origine peuvent également servir d’instrument dans la
+réalisation de l’intégration régionale.
+
+      Outre l’établissement des statistiques du commerce extérieur établies suivant des critères
+géographiques, cette notion répond à une double préoccupation : d’une part, elle constitue un
+élément fondamental de la taxation douanière dans la mesure où le tarif douanier en vigueur peut
+édicter des taux des droits de douane différents pour une même marchandise suivant qu’elle est
+originaire de tel ou tel pays ou ensemble de pays, d’autre part, l’origine présente un intérêt
+primordial dans la mise en oeuvre de la politique commerciale du pays (contingent, prohibition,
+etc.)
+
+
+
+
+2. DEFINTIONS LIEES A LA NOTION DE L’ORIGINE
+
+
+   L’origine est la nationalité économique des marchandises dans le commerce international.
+Il existe deux types d’origine : préférentielle et non préférentielle.
+
+a. L’origine non préférentielle :
+
+Elle est utilisée pour déterminer l’origine des marchandises applicable pour la mise en œuvre de
+toutes les politiques commerciales (mesures de droit antidumping, restrictions quantitatives,
+etc....) Elle est aussi utilisée pour la détermination des statistiques du commerce extérieur.
+           b. L’origine préférentielle:
+
+           Elle confère certains avantages dans le cadre des échanges commerciaux avec un pays
+           ou un groupe de pays en matière de droits de douane et de droits d’effets
+           équivalents.
+
+
+
+Il existe plusieurs définitions des règles d’origine.
+
+
+
+      Définition de la convention de Kyoto:
+
+   << Les dispositions spécifiques appliquées par un pays pour déterminer l’origine des
+   marchandises et faisant appel à des principes établis par la législation nationale ou par les
+   accords internationaux >>.
+
+      Définition de l’OMC :
+
+    << Les règles d’origine non préférentielles s’entendront des lois et réglementations
+   administratives d’application générale appliquées par tout membre pour déterminer le pays
+   d’origine des marchandises >>.
+
+
+    << Les règles d’origine préférentielles s’entendront des lois, réglementations et déterminations
+   administratives d’application générales appliquées par tout membre pour déterminer si des
+   marchandises sont admises à bénéficier d’un traitement préférentiel dans le cadre des régimes
+   commerciaux contractuels ou autonomes qui donnent lieu à l’octroi des préférences tarifaires
+   >>.
+
+
+3. CRITERES DE DETERMINATION DE L’ORIGINE
+
+
+
+      Il existe deux critères fondamentaux permettant de déterminer le pays d’origine
+des marchandises :
+
+
+      - Les définitions relatives aux marchandises entièrement obtenues : ce critère est appliqué à
+toute marchandise lorsqu’il s’agit d’une marchandise existant à l’état naturel, d’animaux nés et
+élevés, végétaux récoltés, de minéraux extraits ou prélevés dans un seul pays et pour les
+produits entièrement fabriqués dans un seul pays.
+   - Les critères de transformation substantielle : il existe trois critères fondamentaux pour
+exprimer une transformation substantielle :
+
+       Le critère de changement de classification tarifaire :
+
+Une ouvraison ou transformation est considérée comme suffisante lors qu’elle a pour effet de
+classer le produit obtenu sous une position tarifaire différente à chacun des produits
+importés mis en œuvre. Pour l’application de cette règle, il est tenu compte des positions
+tarifaires à 4 chiffres utilisés dans la nomenclature du SH.
+
+ Le critère de la valeur ajoutée (pourcentage ad-valorem):
+
+Pour ce critère, le facteur déterminant est de savoir si un certain pourcentage minimum de
+valeur ajoutée a été apporté dans un pays spécifique ou non. A ce titre, qu’elle ait subi ou non un
+changement de classement tarifaire, une marchandise est réputée avoir subi une transformation
+suffisante lorsque sa valeur ajoutée atteint un niveau déterminé exprimé par un
+pourcentage ad-valorem. Parfois, le pourcentage prescrit un contenu national minimal et
+parfois un contenu maximal d’importation ;
+
+ Le critère relatif aux opérations de fabrication ou de transformation :
+
+Qu’elle ait subi ou non un changement de classification une marchandise est réputée avoir subi
+une transformation suffisante lorsqu’elle subi une opération de fabrication ou de transformation
+déterminée.
+
+4. REGLE RETENUE PAR L’ACCORD
+
+       Le protocole n°6 annexé à l’accord d’association entre l’Algérie et la C.E a retenu deux
+critères à savoir, le critère des << produits entièrement obtenus » et celui de la << transformation
+suffisante ». Ce dernier s’applique pour les produits non entièrement obtenus, c’est à dire, ceux dont
+la production desquels des matières ou inputs non originaires ont été intégrés. A ce titre, les
+produits fabriqués obtenus doivent subir une transformation suffisante. Le protocole prend le
+soin d’indiquer à la fois la liste des opérations considérées comme suffisantes (annexe II du
+protocole n°6) et la liste des opérations insuffisantes (article 8 du protocole n°6).
+                                       PREMIERE PARTIE       :
+
+
+LES REGLES DE L’ORIGINE DES MARCHANDISES DANS LE CADRE DE L’ACCORD
+D’ASSOCIATION
+
+
+
+
+A/ LES CRITERES DE DETERMINATION DE L’ORIGINE
+
+
+
+       Pour la définition de l’origine du produit dans les deux parties, le protocole n°6 annexé
+à l’accord retient deux critères de base :
+
+ Les produits entièrement obtenus dans les deux parties au sens de l’article 6 ;
+ Les produits non entièrement obtenus dans lesquels sont incorporées des matières non
+   originaires, à condition que ces matières aient fait l’objet, dans la Communauté ou en
+   Algérie, d’une ouvraison ou d’une transformation suffisante au sens de l’article 7 du
+   protocole, et ce sous réserve de l’application éventuelle des règles de cumul prévu par les
+   articles 3, 4 et 5.
+
+
+
+    Aussi, il (le protocole) prévoit une liste de transformations ou d’ouvraisons considérées
+comme étant insuffisantes et par voie de conséquence éliminent l’acquisition de l’origine.
+
+
+      1. Définition des marchandises entièrement obtenues              : 1.1.
+
+   Produits entièrement obtenus :
+
+    L’article 6 du protocole considère comme entièrement obtenus en Algérie et dans la
+communauté, les produits suivants :
+
+a. Les produits minéraux extraits de leurs sols ou de leurs fonds de mers ou d’océans, à
+l’exemple du pétrole, gaz et sable, argile, eau, etc. (ces produits ne doivent subir aucune
+transformation ou ouvraison quelconque).
+
+b. Les produits de règne végétal qui sont récoltés; (Fruits, légumes.....)
+
+c. Les animaux vivants qui y sont nés et élevés ; (satisfaire à une double condition :
+naissance et élevage).
+d. Les produits provenant d’animaux vivants qui y font l’objet d’un élevage ; (il s’agit des
+produits provenant d’animaux qui ne sont pas nécessairement nés dans le pays mais y vivent
+et élevés, tel par exemple le lait, les œufs, le beurre, fromages, miel, laine, etc...).
+
+e. Les produits de la chasse ou de la pêche qui y sont pratiquées ; (Il s’agit des produits de la
+   chasse ou de la pêche pratiquées sur le territoire douanier y compris les eaux territoriales
+   de l’une des deux parties. Pour les produits de la pêche, c’est la règle de la territorialité qui
+   accorde l’acquisition de l’origine et ce quelle que soit la nationalité du navire).
+
+      Le produit tiré des eaux territoriales de l’Algérie par un navire étranger est considéré
+comme originaire de l’Algérie ; c’est le cas également pour un produit tiré des eaux
+territoriales de la Communauté par un navire battant pavillon algérien qui est considéré
+comme produit originaire de la communauté.
+
+
+
+f. Les produits de la pêche maritime et autres produits tirés de la mer en dehors des eaux
+   territoriales de la Communauté ou de l’Algérie par leurs navires ; (poisson et produits du
+   Chapitre 3 du Système Harmonisé (SH), qui n’ont pas subi de transformation ou
+   d’ouvraison.).
+
+  Dans ce cas, le facteur qui accorde l’origine au produit est la nationalité du navire et non
+pas le territoire, à condition que la pêche se pratique en dehors des eaux territoriales de tout
+pays.
+
+    Un produit tiré en haute mer, en dehors des eaux territoriales de tout pays, par un navire de
+la Communauté est considéré comme originaire de la Communauté.
+
+g. Les produits fabriqués à bord de leurs navires-usines, exclusivement à partir de produits visés
+   au point f ;
+
+    C’est la transformation effectuée sur les produits visés au point f, tirés de la mer ou en
+haute mer et en dehors des eaux territoriales de tous pays, sur les navires usines de la
+Communauté ou de l’Algérie.
+
+h. Les articles usagés ne pouvant servir qu’à la récupération des matières premières, y
+   compris les pneumatiques usagés ne pouvant servir qu’au rechapage ou n’être utilisés que
+   comme déchets ; (à titre d’exemple, on peut citer le cas des vieux vêtements collectés à
+   savoir la friperie qui ne peut être utilisée comme vêtement, mais uniquement pour la
+   récupération des fibres textiles et les bouteilles en verre usagées collectées qui ne peuvent
+   être
+   réutilisées en tant que bouteilles avec leur fonction de contenant, mais seulement
+   pour la récupération du verre, etc...).
+
+i. Les déchets provenant d’opérations manufacturières qui y sont effectuées ; (Ce point vise les
+   déchets des matières non originaires sur lesquelles des transformations ont été effectuées
+   qui ont donné lieu à un produit obtenu répondant aux règles d’origine. Le déchet ou le
+   reste des matières non originaires incorporées dans le produit obtenu, s’il répond aux
+   normes de fabrication des autres produits, est considéré comme produit originaire au vu de
+   la notion de l’entièrement obtenu).
+
+j. Les produits extraits du sol ou du sous-sol marin situé hors de leurs eaux territoriales, pour
+   autant qu’elles aient des droits exclusifs d’exploitation sur ce sol ou sous-sol.
+
+k. Les marchandises qui y sont fabriquées exclusivement à partir de produits visés aux points a à j
+    ; (c’est les produits obtenus à partir des matières entièrement obtenues).
+
+
+   Cas des navires et navires usines :
+
+       Les expressions << leurs navires >> et << leurs navires usines >> cités au paragraphe 1,
+points f et g, ne sont applicables qu’aux navires et navires-usines :
+
+ Qui sont immatriculés ou enregistrés dans un Etat membre de la Communauté, ou en
+   Algérie ;
+
+ Qui battent pavillon d’un Etat membre de la Communauté ou de l’Algérie ;
+
+ Qui appartiennent au moins à 50 pour cent à des ressortissants des Etats membres de
+   la Communauté ou de l’Algérie, ou à une société dont le siège principal est situé dans l’un de
+   ces Etats, dont le ou les gérants, le président du conseil d’administration ou de surveillance
+   et la majorité des membres de ces conseils sont des ressortissants des Etats membres de la
+   communauté ou de l’Algérie et dont, en outre, en ce qui concerne des sociétés de personnes
+   ou les sociétés à responsabilité limitée, la moitié du capital au moins appartient à ces Etats, à
+   des collectivités locales publiques ou à des ressortissants desdits Etats ;
+
+ Dont l’état-major composé de ressortissants des Etats membres de la Communauté ou de
+   l’Algérie ; et
+- Dont l’équipage composé, dans une proportion de 75 pour cent au moins, de ressortissants
+    des Etats membres de la Communauté ou de l’Algérie.
+
+
+
+
+      2.   Critère de transformation suffisante (TS) :
+
+      2.1. La notion de << produit suffisamment ouvré ou transformé >> :
+
+       Un produit non entièrement obtenu dans lequel sont incorporées des matières non
+originaires, est considéré comme produit suffisamment ouvré ou transformé pour acquérir le
+caractère originaire, si les conditions de l’annexe II du protocole 6 sont remplies.
+
+      Cette définition qui est donnée par l’article 7 du protocole nous renvoie
+systématiquement à consulter la liste des transformations reprises à l’annexe 2 à chaque fois
+qu’un produit non entièrement obtenu est importé.
+
+       Au titre de l’accord, la notion de << transformation suffisante >> suppose que les << produits
+non entièrement obtenus >> dans la Communauté ou en Algérie aient été suffisamment ouvrés ou
+transformés.
+
+        Ce principe de produit << suffisamment ouvré ou transformé >> est observé sous réserve
+de l’application de la règle d’origine cumulative prévue par les articles 3, 4 et 5.dont
+l’application n’exige pas de transformation suffisante au sens de la définition de l’article 7. (voir
+règles cumulatives).
+
+
+
+       La règle d’origine concernant les produits transformés retient une combinaison
+de plusieurs critères : nature de l’opération ; intégration des matières ; le pourcentage en
+valeur maximale des matières non originaires à incorporer.
+
+        Dans le cadre de l’application de cette règle (transformation suffisante) et pour
+déterminer l’origine des marchandises, il n’est pas recherché si les produits énergétiques, les
+installations, les machines et les outils utilisés pour l’obtention de cette marchandise sont ou non
+originaires à condition qu’ils ne soient pas destinés à demeurer dans la marchandise ou à en
+faire partie.
+
+      Les règles de transformation sont listées dans les colonnes 3 et 4 de l’annexe 2 du
+protocole n°6.
+    La règle de la colonne 3 concerne tous les chapitres du système harmonisé. Elle retient
+comme critère le pourcentage maximum des matières et le changement de position tarifaire.
+
+      Par contre, la règle de la colonne 4 est alternative. Elle ne concerne que certains
+chapitres du Système Harmonisé et qui sont : 28 ; 29 ; 31 ; 32 ; 33 ; 34 ; 35 ; 36 ; 37 ; 38 ; 39 ;
+84 ; 85 ; 86 ; 87 ; 88 ; 89 ; 90 ; 91 et 94.
+
+      La règle 4 est également destinée à simplifier les conditions d’acquisition du caractère
+originaire. En ce sens, elle ne retient que le critère de pourcentage des matières.
+
+       Pour les positions tarifaires où la règle alternative est prévue, l’exportateur a la liberté de
+choisir entre l’application de la règle de la colonne 3 ou celle de la colonne 4, pour définir
+l’origine de son produit.
+
+
+      2.2. Comment lire l’annexe 2 :
+
+       La liste de l’annexe 2 reprend pour tous les produis les conditions requises pour que ces
+produits puissent être considérés comme suffisamment ouvrés ou transformés au sens de
+l’article 7 du protocole n°6.
+
+2.2.1. Présentation de la structure de l’annexe 2 L’annexe
+
+      2 comprend quatre colonnes.
+
+      Les deux premières décrivent le produit obtenu :
+
+ La première colonne : désigne le n° de la position tarifaire à quatre chiffres du produit
+   obtenu ou du chapitre du système harmonisé ;
+
+ La deuxième colonne : précise la désignation du produit obtenu (SH) figurant dans la
+   colonne numéro 1 ;
+
+      La troisième et quatrième colonne énoncent les règles de liste applicables pour chaque
+position ou chapitre désigné à la première et seconde colonne. Ainsi :
+
+ La troisième colonne : concerne la règle de la transformation. Chaque règle désignée par un
+   tiret correspond à une désignation du produit obtenu de la colonne numéro 2.
+ La quatrième colonne : désigne une autre règle de transformation (règle alternative) qui,
+   quand elle est prévue, correspond à une désignation du produit obtenu de la colonne 2.
+
+
+
+
+Exemple 1 :
+
+
+
+
+    Colonne 1              Colonne 2                         colonne 3               Colonne 4
+   39.12
+                Cellulose et ses dérivés   Fabrication dans laquelle la
+                chimiques, non dénommés ni valeur de toutes les matières de la
+                compris ailleurs.          même position que le produit
+                                           utilisé ne doit pas excéder 20%
+                                           du prix départ usine.
+
+
+
+
+Lecture :
+
+
+
+ La position tarifaire du produit obtenu est 3912.
+ La désignation est : Cellulose et ses dérivés chimiques, non dénommés ni compris
+  ailleurs.
+ Ce produit doit satisfaire aux conditions de la colonne 3 : Dans cet exemple, il est prévu
+  qu’une seule règle de transformation : Fabrication dans laquelle la valeur de toutes les
+  matières de la même position que le produit utilisé ne doit pas excéder 20% du prix départ
+  usine.
+Exemple 2 :
+    Colonne 1                Colonne 2                    Colonne 3               Colonne 4
+   87.16
+                  Remorques et semi-remorques     Fabrication :               Fabrication    dans
+                  pour tous véhicules ; autres    - à partir de matières de laquelle la valeur
+                  véhicules non automobiles ;     toutes      positions     à de     toutes    les
+                  leurs parties.                  l’exclusion des matières matières utilisées
+                                                  de la même position ne doit excéder
+                                                  que le produit et ;        30% du prix départ
+                                                                             usine du produit
+                                                  - dans laquelle la valeur
+                                                  de toutes les
+                                                        matières
+                                                  utilisées ne doit pas
+                                                  excéder 40%       du prix
+
+
+      Lecture :
+
+              La position tarifaire du produit obtenu est de la position 8716.
+              Sa désignation est : remorques et semi-remorques...
+- Ce produit doit satisfaire à l’une des conditions de transformation prévues par :
+
+
+
+       la colonne 3 : Fabrication à partir de matières de toutes positions à l’exclusion des
+           matières de la même position que le produit et dans laquelle la valeur de toutes les
+           matières non originaires utilisées ne doit pas excéder 40% du prix départ usine du
+           produit.
+
+                                                                                      Ou
+          La colonne 4 : Fabrication dans laquelle la valeur de toutes les matières non
+           originaires utilisées ne doit excéder 30% du prix départ usine du produit.
+2.2.2. La règle de liste :
+
+       La règle de liste fixe le degré minimal d’ouvraison ou de transformation à effectuer. A ce
+titre les ouvraisons ou transformations allant au-delà du degré minimal, fixé par la liste,
+confère le caractère originaire au produit, ce qui implique que les ouvraisons ou
+transformations en deçà de ce seuil ne confère pas le caractère originaire au produit.
+
+      Autrement dit, si une règle de liste prévoit que des matières non originaires se
+trouvant à un stade d’élaboration déterminé peuvent être utilisées, l’utilisation des dites
+matières se trouvant à un stade moins avancé est-elle, aussi, autorisée. Mais l’utilisation des
+dites matières se trouvant à un stade plus avancé ne l’est pas. Aussi, lorsqu’une règle de liste
+énonce que les matières de toutes positions peuvent être utilisées, les matières relevant de la
+même position que le produit obtenu peuvent être également utilisés sous réserve des restrictions
+particulières susceptibles d’être énoncées par la même règle.
+
+                   Lorsqu’un numéro de la première colonne est précédé d’un «EX » cela signifie
+que la règle figurant dans les colonnes 3 et 4 ne s’applique qu’à la partie de la position décrite à
+la colonne n°2. Aussi, lorsque plusieurs numéros de positions sont regroupés dans la colonne 1
+ou qu’un numéro de chapitre y est mentionné et que la désignation des produits figurant dans la
+colonne 2 sont en conséquence désignés en termes généraux, la règle correspondante
+énoncée dans la colonne 3 ou 4 s’applique à tous les produits qui dans le cadre du Système
+Harmonisé sont classés dans les différentes positions du chapitre concerné ou dans les
+positions qui y sont regroupées.
+
+                      D e m ê m e l o r s q u ’ i l e s t p r é v u d a n s l a l i st e d e s d if f é r e n t e s
+r è g l e s applicables à différents produits relevant d’une même position, chaque tiret indique la
+désignation relative à la partie de la position faisant l’objet de la règle correspondant
+dans les colonnes 3 et 4.
+
+                 En outre, dans le cas où il est prévu une règle dans la colonne 3 et 4, il est
+donné à l’exportateur de choisir l’application de la règle énoncée à la colonne 3 ou la règle
+énoncée à la colonne 4. Toutefois, lorsque la colonne 4 ne prévoit aucune règle, la règle
+énoncée à la colonne 3 doit être appliquée obligatoirement.
+                   L’expression « fabrication à partir des matières de toutes
+positions », y compris à partir des autres matières des n° signifie que seules les
+matières classées dans la même position que le produit dont la désignation est
+différente de celle des produits telle qu’elle apparaît dans la colonne 2 de la liste ;
+
+                   Une règle de liste prévoyant qu’un produit peut être fabriqué à partir de
+plusieurs matières signifie qu’une ou plusieurs matières peuvent être utilisées. Cela
+implique qu’il n’est pas exigé que toutes ces matières doivent être utilisées simultanément
+
+
+
+
+Exemple :
+
+         La règle de liste applicable aux tissus des positions tarifaires 52.08 à 52.12 autorise
+l’utilisation des fibres naturelles et que les matières chimiques entre autres peuvent l’être
+également. Ceci n’implique pas que les fibres naturelles et les matières chimiques doivent être
+utilisées simultanément mais l’une ou l’autre ou même les deux ensemble.
+
+
+
+
+2.2.3. La règle de tolérance d’incorporation des matières :
+
+     Les règles de la liste de l’annexe 2 sont strictes et s’appliquent exclusivement aux matières
+indiquées dans la colonne 3. Cependant, une tolérance d’incorporation des matières
+non entièrement obtenues, et qui ne doivent pas être incorporées conformément à la règle de la
+liste est prévue par l’alinéa 2 de l’article 7, à condition que :
+
+ La valeur totale des matières non originaires qui ne doivent pas être mises en œuvre dans la
+  fabrication des produits conformément aux conditions de la liste, ne doit pas excéder 10 pour
+  cent du prix départ usine ;
+ La valeur maximale de toutes les matières non originaires ne doit pas être dépassée.
+
+Remarque :
+
+      La règle de tolérance d’incorporation des matières présentées ci haut, ne s’applique
+pas aux chapitres de 50 à 63 du Système Harmonisé.
+       Les tolérances applicables à ces chapitres sont prévues par les notes introductives
+(annexe 1) du protocole. Il s’agit notamment des notes 5 et 6. Les règles de fabrication de
+l’annexe 2 font référence à ces notes à chaque fois que leurs applications soient possibles.
+Pour une bonne application des règles de transformation concernant les matières textiles, le
+service des douanes doit tenir compte de ces tolérances.
+
+
+Exemple:
+
+       Fabrication en Algérie d’un chariot de la position 8709, à partir de matières d’origine
+algérienne et de matières non originaires importées de Turquie pour une valeur de 60, relevant
+d’une position tarifaire différente de celle du produit, et de parties classées sous la position
+8709 d’origine chinoise d’une valeur de 15. Le prix départ usine du produit est de 200.
+
+      La règle de transformation qui correspond à cette position : 8709, dit : fabrication :
+
+ à partir de matières de toute position, à l’exclusion des matières de la même
+position que le produit, et
+ dans laquelle la valeur de toutes les matières non originaires utilisées ne doit pas
+excéder 40% du prix départ usine du produit.
+
+      Suivant la 1 ere condition, les matières chinoises relevant de la même position que le
+produit ne doivent pas être incorporées. Toutefois, la règle de tolérance permet l’utilisation
+de ces matières (de la même position) à condition que leur valeur ne dépasse pas 10% du prix
+départ usine du produit. Les parties chinoises représentent : 15/200 * 100 = 7,5%, inférieur au seuil
+maximal de 10%.
+
+        Mais aussi, le produit obtenu doit satisfaire à la 2eme condition : maximum de 40% de
+matières non originaires. Dans l’exemple, la valeur totale des matières utilisées est de : 60 +15 =
+75 ; et 75/200 * 100 = 37,5 %, inférieur à 40%.
+
+       Suivant cet exemple, le produit est considéré comme d’origine algérienne. Il satisfait aux
+conditions de transformation de la colonne 3. (Dans l’exemple, la règle alternative prévue par
+la colonne 4 est sciemment ignorée).
+2.3. LES OUVRAISONS OU LES TRANSFORMATIONS INSUFFISANTES :
+
+      L’article 8 du protocole prévoit une liste d’opérations de transformation ou d’ouvraison
+insuffisantes pour conférer au produit le caractère originaire, même si les conditions de
+transformation de l’annexe 2 sont remplies et les règles de cumul sont vérifiées.
+
+      La liste des ouvraisons et transformations insuffisantes est fixée comme suit :
+
+a. Les manipulations destinées à assurer la conservation en l’état des produits pendant leurs
+transports et leurs stockages (aération, étendage, séchage, réfrigération, mise dans
+l’eau salée, soufrée ou additionnée d’autres substances, extraction de parties avariées et
+opérations similaires) ;
+
+
+b. Les opérations simples de dépoussiérage, de criblage, de triage, de classement, d’assortiment (y
+compris la composition de jeux de marchandises), de lavage, de peinture, de découpage ;
+
+c. Les changements d’emballage et de division et réunions de colis ;
+
+       La simple mise en bouteilles, en flacons, en sacs, en étuis, en boites, sur planchettes, etc...,
+ainsi que toutes autres opérations simples de conditionnement ;
+d. L’apposition sur les produits eux-mêmes ou sur les emballages de marques, d’étiquettes ou
+d’autres signes distinctifs similaires ;
+
+e. Le simple mélange de produits, même d’espèces différentes, dès lors qu’un ou plusieurs
+composants du mélange ne répondent pas aux conditions établies par le présent protocole pour
+pouvoir être considérés comme originaires de la Communauté ou de l’Algérie ;
+
+f. La simple réunion de parties en vue de constituer un produit complet
+
+g. Le cumul de deux ou plusieurs opérations visées sous a) à f) ;
+
+h. L’abattage des animaux.
+
+     Les opérations énumérées ci-haut, effectuées distinctement ou
+cumulativement ne confèrent pas le caractère originaire au produit mis en œuvre. Elles ne
+permettent aucune exception.
+        Cependant, l’alinéa 2 du même article indique que les mêmes opérations effectuées sur
+un produit en Algérie ou dans la communauté sont considérées conjointement pour déterminer
+si l’opération d’ouvraison ou de transformation est insuffisante.
+
+
+B. EXCEPTIONS AUX CRITERES DE TRANSFORMATION
+   SUFFISANTE
+
+
+       Le protocole n°6 annexé à l’accord d’association Algérie – CE prévoit trois dispositions
+d’origine cumulative.
+
+ Un dispositif de cumul bilatéral.
+ Cumul avec les matières originaires du Maroc et la Tunisie.
+ Cumul des ouvraisons ou des transformations.
+
+      L’intérêt des règles de cumul est d’accroître l’intégration industrielle et commerciale entre
+les deux partenaires de l’accord. En ce sens, que la transformation effectuée dans l’autre
+partie contractante nécessaire à l’obtention de la préférence, sera réalisée plus aisément, si
+les produits non nationaux mis en œuvre sont originaires de l’autre partie contractante.
+
+Il en résulte que les fabricants sont de ce fait, incités à s’approvisionner en produits de
+base auprès des pays partenaires que les pays tiers.
+
+1. Cumul bilateral
+
+       Ce principe est consacré par l’article 3 du protocole, selon lequel « les matières qui sont
+originaires de la C.E sont considérées comme des matières originaires de l’Algérie lorsqu’elles
+sont incorporées dans un produit obtenu. Il n’est pas exigé que ces matières y aient fait l’objet
+d’ouvraisons ou de transformations suffisantes à condition qu’elles aient fait l’objet
+d’ouvraisons ou de transformations allant au-delà de celles visées à l’article 8 paragraphe 1 et
+réciproquement
+
+       En vertu de cette règle, seuls les produits non originaires des parties contractantes de
+l’accord sont soumis à la règle de transformation suffisante. Cela revient à dire que dans le cadre
+du cumul bilatéral, les produits originaires de l’une des parties contractantes à l’accord (Algérie
+–U.E) qui font l’objet d’une transformation dans l’autre partie sont assimilés aux produits
+originaires de cette dernière et réciproquement.
+       Par conséquent, la transformation que doivent subir les matières premières importées du
+pays partenaire n’a donc pas besoin d’être suffisante au sens de la règle de base
+(transformation suffisante) pour conférer aux dits produits la qualité de produits originaires de
+l’autre partie.
+
+        Toutefois, le cumul bilatéral ne peut être actionné dans le cas où les produits originaires de
+l’une des parties de l’accord ne subissent dans l’autre partie qu’une opération simple du type de
+celles qui ne confèrent jamais le caractère originaire à un produit. (Voir liste prévue par l’article 8
+du protocole n°6).
+
+
+ EXEMPLES
+
+Exemple n°1 :
+
+       Farine de blé entièrement obtenue en Algérie et exportée en C.E où elle est transformée en
+produits de la boulangerie (1905). Cette ouvraison n’est pas suffisante aux termes de la règle de
+liste de l’annexe2 du protocole n°6, mais au bénéfice du cumul bilatéral, le produit obtenu sera
+considéré comme originaire de la C.E et bénéficiera lors de son exportation en Algérie du
+régime préférentiel.
+
+
+
+       Par ailleurs, les produits non originaires de la C.E ou de l’Algérie qui seraient utilisés
+dans la transformation demeurent quant à eux soumis à l’obligation de transformation
+suffisante pour l’attribution aux produits obtenus le caractère originaire.
+
+Exemple n°2 :
+
+      Vêtement fabriqué en Algérie (62 05) à partir de tissu originaire de la C.E et de fil
+importé des U.S.A et sont, ensuite, exportés vers la C.E.
+
+       Il en résulte de cet exemple que l’ouvraison du tissu pour l’obtention d’un vêtement n’est
+pas considérée comme une opération suffisante au sens de la règle de liste correspondante
+mais le fait que le tissu est originaire du pays partenaire (C.E), l’application de la règle du cumul
+bilatéral permet d’obtenir une ouvraison fil – vêtement considérée comme opération
+suffisante conformément à la règle de liste correspondante pour les produits tiers (U.S.A)
+
+      Par conséquent, les vêtements peuvent être exportés vers la C.E au bénéfice du régime
+préférentiel.
+       Toutefois, si au lieu du fil c’était le tissu qui avait été importé des USA ; la transformation
+n’aurait pas été suffisante et les vêtements, de facto, n’auraient pas été considérés comme
+originaires de l’Algérie. L’exigence de la règle de liste n’étant pas remplie.
+
+2- Cumul avec les matières originaires du Maroc et de la Tunisie (Cumul diagonal) :
+
+       Le cumul diagonal est le cumul soit des ouvraisons soit des matières d’origine des pays
+tiers méditerranéens et de l’Europe centrale et orientale ; mais ce cumul ne peut être autorisé
+que si :
+
+ L’Algérie conclut des accords de libres échanges avec ces pays.
+ Que ces accords contiennent des protocoles sur l’origine identiques à ceux de l’union
+   européenne.
+
+       Conformément à l’article 4 du protocole N°6 annexé à l’Accord d’association
+Algérie – C.E, les matières originaires du Maroc et de la Tunisie, au sens du protocole N°4
+annexé à l’Accord conclu en 1976 entre la Communauté et ces pays, sont considérées comme
+des matières originaires de la Communauté. Dans ce cadre, il n’est pas exigé que ces matières
+y aient fait l’objet d’ouvraisons ou de transformations suffisantes à condition toutefois qu’elles
+aient fait l’objet d’ouvraison ou de transformation allant au-delà de celles visées à l’article 8
+paragraphe 1 du protocole n°6 de l’accord.
+
+      Dans les mêmes conditions, les matières originaires de la Tunisie et du Maroc sont
+considérées comme des matières originaires de l’Algérie à condition que nous concluions des
+protocoles sur l’origine contenant des règles identiques à celles appliquées avec la C.E.
+
+
+       3. Cumul des ouvraisons ou des transformations (cumul multilatéral partiel)
+
+        Conformément aux dispositions de l’article 5 du protocole N°6, les ouvraisons ou
+les transformations effectuées en Algérie et au Maroc ou en Tunisie, lorsque les conditions citées
+ci-dessus sont remplies, sont considérées comme ayant été effectuées dans la Communauté
+lorsque les produits obtenus font ultérieurement l’objet de transformations ou d’ouvraisons en
+Algérie et réciproquement.
+      Cependant, lorsque les produits originaires, en application de ce cumul, sont obtenus dans
+deux ou plusieurs Etats concernés par cette règle, ils sont considérés comme originaires du pays où
+la dernière ouvraison ou transformation a eu lieu à condition que la dite ouvraison ou
+transformation aille au-delà de celles visées à l’article 8.
+
+
+C. LES CONDITIONS DE VALIDATION OU D’APPLICABILITE DU REGIME PREFERENTIEL :
+
+      Pour la validation du régime préférentiel prévu par les dispositions de l’accord, les
+produits ayant acquis le caractère originaire de l’Algérie ou de la Communauté doivent
+satisfaire aux conditions de territorialité, de transport direct et de no draw back.
+
+
+      1. LA CONDITION DE LA TERRITORIALITE: 1.1. PRINCIPE
+
+
+     Le principe de territorialité désigne l’espace géographique dans lequel les conditions
+d’acquisition de l’origine du produit doivent être accomplies.
+
+      Pour bénéficier du régime préférentiel de l’accord, les conditions d’acquisition de
+caractère originaire doivent être remplies sans interruption sur le territoire de l’Algérie ou de la
+Communauté.
+
+      Cependant, le cumul bilatéral de matières et d’ouvraisons ou de transformations entre
+l’Algérie et la Communauté représente une exception à ce principe. En effet, les produits obtenus
+conjointement dans les deux territoires, conformément aux règles de cumul, bénéficient du
+régime préférentiel.
+
+     Actuellement, ce principe n’est pas applicable pour les territoires de la Tunisie et du
+Maroc, dans la mesure où les règles d’origine ne sont pas identiques avec ces pays.
+1.2. L’exception au principe de la territorialité :
+
+       1.21 . Les produits originaires exportés dans un pays tiers et y retournés :
+
+       Les produits d’origine de l’Algérie ou de la communauté exportés dans un pays tiers, et y
+retournés, doivent être considérés comme non originaires, à moins qu’il puisse être démontré à
+la satisfaction des autorités douanières :
+
+ Que les marchandises sont les mêmes que celles qui ont été exportées ;
+ Qu’elles n’ont pas subi d’opérations allant au-delà de ce qui est nécessaire pour assurer leur
+   conservation en l’état pendant qu’elles étaient dans ce pays ou qu’elles étaient exportées.
+
+       1.2.2 Le cas des zones franches situées dans les territoires de la communauté ou de
+               l’Algérie :
+
+  Les produits originaires exportés dans une zone franche située sur le territoire de l’Algérie
+ou de la Communauté, ne doivent pas être considérés comme originaire, à moins qu’il est
+démontré que :
+
+ Les produits sont les mêmes et n’ayant subi aucune transformation, à l’exception des
+   opérations destinées uniquement à assurer leur conservation, ou :
+
+ S’il y’a transformation, celle ci doit être conforme aux dispositions du protocole
+   définissant les règles d’origine du produit.
+
+      1.2.3.Les produits originaires envoyés pour exposition dans un autre pays, puis
+      vendus et importés en Algérie ou dans la Communauté :
+
+      Ces produits bénéficient des dispositions de l’accord sous réserve qu’il soit démontré :
+
+       a- Qu’un exportateur a expédié ces produits de la Communauté ou de l’Algérie
+           vers le pays de l’exposition ;
+       b- Que cet exportateur a vendu les produits ou les a cédé au destinataire dans la
+           Communauté ou en Algérie ;
+       c- Que les produits ont été expédiés durant l’exposition ou immédiatement après dans
+           l’Etat où ils ont été expédiés en vue de l’exposition ;
+       d- Que depuis le moment où ils ont été expédiés en vue de l’exposition, les produits n’ont
+          pas été utilisés à des fins autres que la présentation à cette exposition.
+       Sur les preuves d’origine délivrées par les pays d’origine du produit avec la mention de
+l’adresse de l’exposition.
+
+      1.2.4. Le territoire de la principauté d’Andorre :
+
+       Les produits relevant du chapitre 25 à 97 du Système Harmonisé originaires de la
+principauté d’Andorre, sont considérés comme originaires de la communauté.
+
+       Les produits originaires de la république de Saint-Marin sont considérés comme
+originaires du territoire de la communauté, et sont traités en Algérie comme tels.
+
+
+2. LE PRINCIPE DU TRANSPORT DIRECT :        2.1. Principe   :
+
+       L’autre condition de la validation du régime préférentiel est que les produits ayant acquis
+le caractère originaire de la Communauté ou de l’Algérie doivent être transportés directement
+entre les deux territoires. Le document justificatif est le titre de transport.
+
+      Le but de ce principe est d’éviter, à ce que ces produits d’origine de l’Algérie ou de
+la Communauté ne fassent l’objet de substitution ou de transformation dans un pays de transit.
+
+
+2.2. Exceptions au principe de transport direct :
+
+       a- Le transport constituant un seul envoi peut s’effectuer par d’autres territoires autres
+que ceux de l’Algérie ou de la Communauté, sous réserve que ces produits restent sous la
+surveillance douanière pour éviter toute substitution ou transformation quelconque.
+
+          Par un seul envoi, on peut entendre les produits échangés entre un exportateur et
+un destinataire de la Communauté et de l’Algérie, couvert par un titre de transport unique et
+une facture unique.
+
+          Aussi, les opérations de transbordement, d’entreposage temporaire, de
+déchargement et de rechargement et toutes les opérations destinées à assurer la
+conservation en l’état de ces produits sont permises.
+       b- Le transport par canalisation des produits originaires peut s’effectuer en empruntant
+des territoires autres que ceux de l’Algérie ou de la Communauté.
+
+2.3. Justificatif du transport direct :
+
+    Un document justificatif du transport direct entre l’Algérie et la
+Communauté doit être présenté aux autorités douanières du pays d’importation.
+
+      Pour les produits transportés directement, c’est le document de transport qui justifie le
+respect de la condition et doit être présenté au service des douanes du pays d’importation ;
+
+        Pour les produits qui ont transité par un autre territoire, les documents qui doivent
+justifier la condition de transport direct sont :
+
+       a- Un titre justificatif du transport unique établi dans le pays d’exportation sous
+couvert duquel s’est effectué la traversée du pays de transit ;
+
+       b- Une attestation délivrée par les autorités du pays de transit et comportant :
+
+             Une description exacte des marchandises ;
+             Les dates du déchargement et du rechargement avec indication des navires
+              utilisés ;
+             La certification des conditions dans lesquelles s’est effectué le séjour des
+             marchandises ;
+
+       c- A défaut, tous documents probants.
+
+   3. LE PRINCIPE DE NON REMBOURS (no draw back):
+
+       Aux termes de l’article 16 du protocole n° 6, les matières non originaires mises en
+oeuvre pour la fabrication de produits originaires de la Communauté, de l’Algérie ou d’un des
+autres pays visés aux articles 4 et 5 du protocole pour lesquels une preuve de l’origine est
+délivrée ou établie, ne bénéficient dans aucune des parties contractantes, d’une ristourne ou
+d’une exonération des droits de douane (régime de draw back) d’une part et d’autre part le
+passage par un régime douanier suspensif.
+
+         Cela implique que les produits non originaires de l’Algérie ou de la communauté ou d’un
+des pays concernés par les règles du cumul, mis en œuvre dans les parties contractantes pour
+la fabrication de produits originaires doivent être soumis au paiement des droits de douanes qui
+leur sont applicables dés lors
+que les produits compensateurs originaires sont réexportés sous couvert d’un certificat EUR1
+ou d’une déclaration de l’exportateur sur facture vers un pays partie de l’accord.
+
+      Ce principe est dicté par le souci de respecter l’association de deux entités et que tout
+produit qui pénètre dans une partie de cette nouvelle entité doit acquitter les droits de
+douanes.
+
+      Toutefois, ce principe comporte une exception pour les pays du Maghreb (Algérie, Tunisie
+et Maroc ) et ce conformément au principe des droits acquis contenus dans les accords de
+1976 en vertu desquels le cumul peut être réalisé avec la possibilité de rembourser des droits
+ou d’utiliser un régime douanier suspensif mais uniquement pour les produits originaires
+des trois pays et à condition que ces derniers concluent des protocoles sur l’origine
+contenant des règles identiques à celles appliquées avec la C.E .
+
+
+D - CAS PARTICULIERS
+
+1. contenants et matériaux d’emballage :
+
+       Les contenants et matériaux d’emballages contenant des marchandises ne doivent pas
+être pris en considération lors de la détermination de leur origine, à condition qu’ils se classent
+avec ces marchandises et ce conformément à la règle générale interprétative n°5 du S.H.
+
+2. accessoires pièces détachées et outils :
+
+       L’origine des accessoires, pièces de rechange et outillages livrés avec un matériel, une
+machine, un appareil ou un véhicule ne doit pas être prise en considération lors de la
+détermination de l’origine des marchandises auxquelles elles se rapportent, à condition qu’ils
+fassent partie de l’équipement normal et sont compris dans le prix facturé. A ce titre, ils sont
+considérés comme formant un tout avec le matériel, la machine, l’appareil ou le véhicule
+considéré.
+
+
+
+
+3. les assortiments :
+
+      Les marchandises explicitement désignées comme assortiment soit dans une position du
+S.H ou au sens de la règle n°3 du S.H, sont considérées comme
+originaires à condition que tous les articles entrant dans leur composition soient originaires.
+
+      Cependant, un assortiment d’articles originaires et non originaires est considéré comme
+originaire dans son ensemble à condition que la valeur des articles non originaires n’excèdent
+pas 15% du prix départ usine.
+
+4. regroupement de parties:
+
+       Le regroupement ou l’assemblage d’articles est considéré comme originaires, à
+condition de satisfaire à la règle 2a du S.H « caractéristiques essentielles d’articles complets ou
+finis >>.
+
+      Dans le cas contraire,     chaque article « partie >> conserve son origine
+individuelle.
+                                       DEUXIEME PARTIE :
+
+                               LA JUSTIFICATION DE L’ORIGINE
+                          DANS LE CADE DE L’ACCORD D’ASSOCIATION
+
+
+  Pour que les produits originaires de la Communauté ou de l’Algérie puissent bénéficier du
+privilège tarifaire prévu par l’accord, ils doivent être accompagnés d’une preuve d’origine, à
+présenter aux autorités douanières du pays d’importation.
+
+Le protocole 6 a prévu deux sortes de preuves :
+
+1. le certificat de circulation des marchandises (EUR 1) ;
+2. la déclaration sur facture
+
+
+                A – LE CERTIFICAT DE CIRCULATION DES MARCHANDISES (EUR1)
+
+      Le certificat de circulation EUR1 constitue, dans le cadre de l’accord d’association
+ALGERIE-C.E, le document justificatif essentiel du caractère originaire des produits échangés
+dans le cadre de cet accord.
+
+
+
+
+1. La contexture du certificat de circulation EUR
+
+     Les exigences formelles pour l’établissement du certificat de circulation des marchandises
+EUR1 sont reprises à l’annexe III du protocole n° 6 (Annexe 1 du présent manuel).
+
+     A ce titre, le certificat EUR1 doit être confectionné sur papier de couleur blanche de
+format 210-297 millimètre, pesant au moins 25 grs /M2 et également revêtu d’une impression
+fond guillochée de couleur verte rendant apparentes toutes les falsifications.
+
+    Chaque certificat EUR1 porte un numéro de série visant à l’individualiser, Il est
+composé de deux feuillets :
+
+    Le premier constitue le certificat proprement dit,
+    Le deuxième constitue la demande du certificat.
+2. Contenu du certificat EUR1
+
+Le certificat EUR1 doit reprendre les mentions ci-après :
+
+ Le numéro de série ;
+ Désignation de l’exportateur ;
+ Cadre d’utilisation du EUR1 ;
+ Pays ou groupe de pays dont les produits sont originaires ;
+ Pays ou groupe de pays ou territoire de destination ;
+ Information relative au transport (facultative) ;
+ N° d’ordre, marque, numéros, nombre ou nature des colis, désignation des marchandises
+  ;
+ Masse brut ou autres mesures ;
+ Factures (facultatives) ;
+ Visa de la douane ;
+ Déclaration de l’exportateur ;
+
+
+NB : Le verso de l’EUR1 est réservé pour le contrôle de l’origine (la demande de contrôle et le
+résultat).
+
+
+3. La procédure de délivrance de l’EUR1:
+
+
+
+
+ 3.1. La procédure normale :
+
+      La délivrance du certificat EUR1 relève de la compétence exclusive des autorités
+douanières du pays de l’exportation. Il est délivré sur demande écrite établie par l’exportateur (
+voir annexe 1 du présent manuel).
+
+     Pour ce faire, l’exportateur doit remplir correctement l’imprimé de l’EUR1 et le
+formulaire de la demande à la main, complétés à l’encre et en caractères d’imprimerie.
+
+     Le certificat ne doit comporter ni grattages ni surcharges. Aussi, lorsque d’éventuelles
+modifications sont nécessaires, elles doivent être effectuées en biffant les indications
+erronées et en ajoutant, le cas échéant, les indications voulues.
+    Les marchandises reprises sur l’EUR1 doivent être désignées selon les usages
+commerciaux avec suffisamment de précisions pour faciliter leur identification.
+
+      Pour les produits transformés, il est exigé de relater les circonstances ayant conféré
+le caractère originaire à la marchandise.
+
+                   La demande de l’EUR1 est accompagnée de la déclaration de l’exportateur
+( verso du formulaire de la demande), dans laquelle il atteste que toutes les informations
+mentionnées sur la demande ( recto) sont exactes. L’exportateur doit décrire dans sa
+déclaration les circonstances ayant permis à ses produits d’ acquérir l ’origine.
+
+     Aussi, le certificat de circulation des marchandises ne peut être délivré que si les
+produits concernés peuvent être considérés comme des produits originaires au sens du
+protocole N°6.
+
+     A ce titre, l’exportateur sollicitant la délivrance d’un EUR1 doit pouvoir présenter à tout
+moment, sur demande de la douane du pays d’exportation, tous les documents appropriés
+prouvant le caractère originaire du produit.
+
+      Lorsque l’obtention de l’origine est faite suivant la règle du cumul d’ouvraisons ou de
+transformations dans plusieurs pays, l’exportateur doit présenter aux services des douanes
+d’autres éléments de preuve pour justifier sa demande de certificat EUR1 : il s’agit de la
+déclaration de son fournisseur ( annexe 2 du présent manuel) et éventuellement une fiche de
+renseignement ( annexe 3 du présent manuel).
+
+       Ces documents permettent de vérifier les ouvraisons et les transformations effectuées
+dans plusieurs pays sur le produit final. Ils doivent décrire les circonstances d’acquisition de
+l’origine ou des conditions de transformation.
+
+       Une fois les conditions de régularité établies, l’EUR1 est visé par la douane et remis
+à l’exportateur au moment de l’exportation des marchandises auxquelles il rapporte avec
+l’indication de la date de délivrance dans la case n° 11 du EUR1.
+       3.2. Procédure exceptionnelle
+
+      3.2.1. Délivrance à posteriori d’un EUR1 :
+
+Le certificat de circulation EUR1 peut être délivré, à titre exceptionnel, à posteriori de
+l’exportation des produits auxquels il se rapporte dans les cas de figures ciaprès :
+
+ L’EUR1 n’a pu être délivré au moment de l’exportation par suite d’erreurs, d’omissions
+  involontaires ou de circonstances particulières.
+ L’EUR1 n’a pas été accepté par le pays d’importation pour des raisons techniques.
+
+       La demande de délivrance d’un EUR1 à posteriori doit être motivée et indiquer le
+lieu et la date d’exportation des produits auxquels il se rapporte.
+
+      L ’EUR1 délivré a posteriori comportera la mention << DELIVRE A POSTERIORI >> dans la
+case observation.
+
+
+       3.2.2. délivrance de certificat EUR1 sur la base de la preuve de l’origine délivrée ou
+               établie antérieurement :
+
+      Pour les marchandises placées sous le contrôle d’un bureau de douane dans la
+Communauté ou en Algérie, il est possible de remplacer la preuve de l’origine initiale par un ou
+plusieurs EUR1 à utiliser pour l’envoi de ces produits dans la Communauté ou en Algérie à partir du
+bureau des douanes concerné.
+
+       3.2.3. Délivrance d’un duplicata :
+
+      Sur demande expresse de l’exportateur, un duplicata de l’EUR1 peut être délivré par
+l’autorité douanière qui l’a délivré et ce sur la base des documents d’exportation. Le
+duplicata est délivré dans le cas de vol, de perte ou de destruction de l’EUR1 original.
+
+     A ce titre, le duplicata est revêtu de la mention << duplicata >> dans la case observation et
+prend effet suivant la date de l’EUR1 original.
+B. LA DECLARATION SUR FACTURE :
+
+     La déclaration sur facture est une procédure simplifiée de la certification de l’origine des
+marchandises
+
+    Elle est établie par l’exportateur pour les produits originaires d’Algérie ou de la
+communauté.
+
+                1. Etablissement de la déclaration sur facture :
+
+      La déclaration sur facture doit être établie par l’exportateur selon les formes et modèles
+précisées dans l’accord.
+
+       A ce titre, elle est dactylographiée ou imprimée (au moyen d’un cachet ou autrement) et
+signée à la main (signature originale de l’exportateur). Le texte de la déclaration sur facture est le
+suivant : (l’exportateur des produits couvert par le présent document « autorisation douanière
+n°.... » (1) déclare que, sauf indication claire du contraire, ces produits sont d’origine
+préférentielle ..................................................................................................(2)
+       .
+
+(1) numéro d’argument de l’exportateur, si non laissé blanc.
+(2) Indiquer le pays d’origine.
+
+      La déclaration sur facture est un texte établi par l’exportateur sur une facture, un bon
+de livraison, ou tout autre document commercial décrivant les produits concernés d’une
+manière suffisamment détaillée pour pouvoir les identifier.
+
+      Le document porte la signature manuscrite de l’exportateur, toutefois, l’exportateur agréé
+n’est pas tenu de signer les déclarations à condition qu’il s’engage par écrit auprès des
+autorités douanières d’assumer l’entière responsabilité de toute déclaration l’ identifiant.
+
+      La déclaration sur facture est établie au moment de l’exportation, ou après l’exportation pour
+autant qu’elle n’intervienne pas plus de deux ans après l’importation des produits auxquels elle
+se rapporte.
+              2. Cas de l’établissement de la déclaration sur facture : (D/F) Elle est
+
+établie dans deux cas de figures ci-après :
+
+   1- par tout exportateur pour tout envoi constitué d’un ou de plusieurs colis contenant des
+      produits originaires dont la valeur totale n’excède pas 6000 EUROS.
+   2- Par un exportateur agréé (autorisé par les autorités douanières à certifier l’origine de
+     ses produits par une déclaration sur facture)
+
+
+
+
+       3. Le statut de l’exportateur agrée :
+
+      L’autorité douanière peut autoriser un exportateur, effectuant fréquemment des
+exportations de produits couverts par l’accord et offrant toutes les garanties permettant le
+contrôle du caractère originaire, à établir des déclarations d’origine sur facture et ce sans
+égard à la valeur de l’envoi.
+
+      L’autorisation de déclaration sur facture est obtenue sur demande de l’exportateur,
+adressée à l’autorité douanière, laquelle attribue, après l’acceptation, un numéro d’autorisation.
+
+       Toutefois, l’octroi du statut de l’exportateur agréé est subordonné à des conditions
+   qui seront fixées par voie réglementaire.
+
+
+
+
+C. DISPOSITIONS COMMUNES
+
+
+1- Validité de la preuve de l’origine :
+
+       La preuve de l’origine est valable, et doit être présentée aux autorités douanières du pays
+d’importation, pendant 4 mois à compter de la date de sa délivrance par le pays d’exportation,
+sauf circonstances exceptionnelles.
+2-Exemption de la preuve de l’origine :
+
+
+
+      Conformément à l’article 27 du protocole n°6, les produits originaires faisant
+l’objet de petits envois adressés à des particuliers pour des particuliers ou qui sont contenus
+dans les bagages personnels des voyageurs, à condition qu’il s’agisse d’importations
+dépourvues de tout caractère commercial, sont exemptés de la preuve de l’origine.
+
+     Les opérations dépourvues de tout caractère commercial concernent les importations
+présentant un caractère occasionnel et qui portent sur des produits réservés à l’usage personnel
+ou familial des destinataires ou des voyageurs.
+
+    A ce titre, la valeur globale est fixée à 500 EURO pour les petits envois ou 1200
+EURO pour le contenu des bagages personnels des voyageurs.
+

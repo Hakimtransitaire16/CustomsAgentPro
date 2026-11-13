@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registre des dossiers</title>
+<style>
+:root{--ink:#0E1A2B;--muted:#6B7685;--line:#DCE1E8;--navy:#0F2D4F;--blue:#2C66A8;--bg:#F3F5F8;--card:#fff;--ok:#1D7A4C;--warn:#A8660B;--crit:#B3261E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#E8EDF3;--muted:#9AA6B4;--line:#2A3646;--navy:#9FC0E6;--blue:#6FA3E0;--bg:#0D141D;--card:#151F2B;--ok:#5CC48C;--warn:#E0A84E;--crit:#F08A80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,"Segoe UI",Inter,Roboto,sans-serif}
+header{background:#0F2D4F;color:#fff;padding:22px 24px}header .k{font-size:11px;letter-spacing:.16em;color:#9FC0E6;font-weight:700}header h1{margin:4px 0 0;font-size:22px}
+main{padding:20px 24px;max-width:1200px;margin:0 auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.kpi .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}.kpi .v{font-size:24px;font-weight:800;color:var(--navy);margin-top:4px;font-variant-numeric:tabular-nums}.kpi .v small{font-size:12px;color:var(--muted);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto}h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:0 0 10px}
+.bar{display:grid;grid-template-columns:110px 1fr 120px;gap:8px;align-items:center;margin:6px 0;font-size:13px}.bar i{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--blue)}.bar b{text-align:right;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}th{text-align:left;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:8px;border-bottom:2px solid var(--navy);white-space:nowrap}td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}td.n{text-align:right;white-space:nowrap}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}.tag.rouge{color:var(--crit);border:1px solid var(--crit)}.tag.vert{color:var(--ok);border:1px solid var(--ok)}.tag.orange{color:var(--warn);border:1px solid var(--warn)}
+.mono{font-family:ui-monospace,monospace;font-size:12px}
+footer{color:var(--muted);font-size:12px;padding:0 24px 24px;max-width:1200px;margin:0 auto}
+@media (max-width:600px){main{padding:16px}header{padding:18px 16px}.bar{grid-template-columns:80px 1fr 90px}}
+</style>
+</head>
+<body>
+<header><div class="k">REGISTRE DES DOSSIERS · VISITE DOUANE</div><h1>Tableau de bord du déclarant</h1></header>
+<main>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Dossiers</div><div class="v">{{ kpi.dossiers }}</div></div>
+    <div class="kpi"><div class="l">Valeur en douane</div><div class="v">{{ kpi.valeur|n }} <small>DA</small></div></div>
+    <div class="kpi"><div class="l">Droits et taxes</div><div class="v">{{ kpi.droits|n }} <small>DA</small></div></div>
+    <div class="kpi"><div class="l">Pression fiscale</div><div class="v">{{ kpi.pression|n(1) }} <small>%</small></div></div>
+    <div class="kpi"><div class="l">Circuit rouge</div><div class="v">{{ kpi.rouge|n(0) }} <small>%</small></div></div>
+    <div class="kpi"><div class="l">Délai accostage → D10</div><div class="v">{{ kpi.delai|n(1) }} <small>jours</small></div></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h2>Valeur par origine</h2>{% set mx = origines[0][1] if origines else 1 %}
+      {% for o, v in origines %}<div class="bar"><span>{{ o }}</span><i style="width:{{ (v / mx * 100)|round(1) }}%"></i><b>{{ v|n }} DA</b></div>{% endfor %}</div>
+    <div class="card"><h2>Positions tarifaires</h2>{% set mc = codes[0][1] if codes else 1 %}
+      {% for c, k in codes %}<div class="bar"><span class="mono">{{ c }}</span><i style="width:{{ (k / mc * 100)|round(1) }}%"></i><b>{{ k }} dossier(s)</b></div>{% endfor %}</div>
+  </div>
+  <div class="card"><h2>Dossiers</h2>
+    <table><tr><th>Date D10</th><th>D10 / MRN</th><th>Importateur</th><th>Origine</th><th>Codes SH</th><th>Valeur DA</th><th>Droits DA</th><th>Circuit</th><th>Délai</th><th>Contrôles</th><th>Visite</th></tr>
+    {% for r in rows %}<tr><td>{{ r.date_d10 }}</td><td class="mono">{{ r.d10 }}<br>{{ r.mrn }}</td><td>{{ r.importateur }}</td><td>{{ r.origine }}</td><td class="mono">{{ r.codes_sh }}</td>
+      <td class="n">{{ r.valeur_da|n }}</td><td class="n">{{ r.droits_da|n }}</td><td><span class="tag {{ r.circuit }}">{{ r.circuit }}</span></td><td class="n">{{ r.delai_accostage_d10 }} j</td>
+      <td class="n">✓ {{ r.controles_ok }} · ! {{ r.controles_alerte }} · ✕ {{ r.controles_erreur }}</td><td>{{ r.lieu_visite }}<br><small>{{ r.inspecteur }}</small></td></tr>{% endfor %}</table>
+  </div>
+</main>
+<footer>Généré le {{ genere }} depuis registre.json · le même registre existe en CSV (Excel, Power BI).</footer>
+</body>
+</html>

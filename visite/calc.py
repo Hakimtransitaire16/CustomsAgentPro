@@ -1,0 +1,230 @@
+"""Contrôles automatiques d'un dossier : valeur, liquidation, poids, colis, dates.
+
+Chaque contrôle renvoie un constat : {"id", "titre", "statut": ok|alerte|erreur, "detail"}.
+"""
+from .data import conteneurs, date, n
+
+TOL_DA = 1.0          # tolérance d'arrondi en dinars
+TOL_REL = 0.0001      # 0,01 % pour les conversions de devise
+
+
+# Termes refusés seuls dans une désignation (liste de la Commission européenne, adaptée au français)
+TERMES_GENERIQUES = {
+    "divers", "marchandises", "marchandise", "general cargo", "consolidated", "groupage", "fournitures", "materiel", "matériel",
+    "equipement", "équipement", "equipements", "équipements", "accessoires", "pieces", "pièces", "pieces de rechange",
+    "pièces de rechange", "pieces detachees", "pièces détachées", "spare parts", "parts", "echantillons", "échantillons",
+    "samples", "produits chimiques", "chemicals", "medicaments", "médicaments", "pharmaceutique", "pharmaceutical", "drugs",
+    "machines", "machine", "machinery", "outillage", "outils", "tools", "consommables", "articles", "produits", "verre", "glass",
+    "plastique", "plastic", "metal", "métal", "textile", "textiles", "electronique", "électronique", "cadeaux", "gifts",
+    "rechange", "detachees", "détachées", "autres", "various", "goods", "stc", "said", "contain",
+}
+
+
+def designation_generique(des: str) -> list[str]:
+    """Termes génériques qui constituent à eux seuls la désignation (ex. « PIECES DE RECHANGE »)."""
+    import re
+    t = re.sub(r"[^\w\s]", " ", (des or "").lower())
+    t = re.sub(r"\b(\d+|de|des|du|en|et|la|le|les|pour|of|for|and)\b", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    if not t:
+        return ["(vide)"]
+    if t in TERMES_GENERIQUES:
+        return [t]
+    mots = t.split()
+    return mots if all(m in TERMES_GENERIQUES for m in mots) else []
+
+
+def _c(cid, titre, ok, detail, niveau="erreur"):
+    return {"id": cid, "titre": titre, "statut": "ok" if ok else niveau, "detail": detail}
+
+
+def controles(d):
+    dec, arts, liq = d["declaration"], d["articles"], d["liquidation"]
+    out = []
+
+    # 1. Montant facture = marchandises + fret + autres frais
+    marchandises = sum(a.get("valeur_facture", 0) for a in arts)
+    attendu = marchandises + dec.get("fret", 0) + dec.get("autres_frais", 0)
+    out.append(_c("VAL-1", "Montant facture = articles + fret + frais",
+                  abs(attendu - dec["montant_facture"]) < 0.01,
+                  f"{n(marchandises, 2)} + {n(dec.get('fret', 0), 2)} = {n(attendu, 2)} {dec['devise']} (déclaré {n(dec['montant_facture'], 2)})"))
+
+    # 2. Conversion en dinars
+    conv = (dec["montant_facture"] + dec.get("assurance", 0)) * dec["taux_change"]
+    out.append(_c("VAL-2", "Valeur en DA = montant × taux",
+                  abs(conv - dec["valeur_da"]) <= max(TOL_DA, conv * TOL_REL),
+                  f"{n(dec['montant_facture'], 2)} × {dec['taux_change']} = {n(conv, 2)} DA (déclaré {n(dec['valeur_da'])})"))
+
+    # 3. Somme des valeurs articles
+    s = sum(a["valeur_da"] for a in arts)
+    out.append(_c("VAL-3", "Somme des articles = valeur déclarée", abs(s - dec["valeur_da"]) <= TOL_DA,
+                  f"{' + '.join(n(a['valeur_da']) for a in arts)} = {n(s)} DA"))
+
+    # 4. Assurance déclarée
+    out.append(_c("VAL-4", "Assurance déclarée", dec.get("assurance", 0) > 0 or dec.get("incoterm") in ("CIF", "CIP", "DAP", "DDP"),
+                  f"assurance = {n(dec.get('assurance', 0), 2)} ; incoterm {dec.get('incoterm')} : préparer la police d'assurance", "alerte"))
+
+    # 5. Liquidation par article
+    for a in arts:
+        t = {x["code"]: x for x in a["taxes"]}
+        ok, det = True, []
+        for code in ("CS", "DD"):
+            if code in t:
+                calc_ = t[code]["assiette"] * t[code]["quotite"] / 100
+                ok &= abs(calc_ - t[code]["montant"]) <= TOL_DA and abs(t[code]["assiette"] - a["valeur_da"]) <= TOL_DA
+                det.append(f"{code} {t[code]['quotite']} % = {n(calc_, 2)}")
+        if "TVA" in t:
+            dd_base = 0 if t.get("DD", {}).get("exonere") else t.get("DD", {}).get("montant", 0)
+            base = a["valeur_da"] + dd_base + t.get("CS", {}).get("montant", 0)
+            calc_ = t["TVA"]["assiette"] * t["TVA"]["quotite"] / 100
+            ok &= abs(base - t["TVA"]["assiette"]) <= TOL_DA and abs(calc_ - t["TVA"]["montant"]) <= TOL_DA
+            det.append(f"assiette TVA {n(base, 2)} (déclarée {n(t['TVA']['assiette'])}) → TVA {n(calc_, 2)}")
+        out.append(_c(f"LIQ-{a['num']}", f"Liquidation article {a['num']}", ok, " · ".join(det)))
+
+    # 6. Récapitulatif
+    tot = {}
+    for a in arts:
+        for x in a["taxes"]:
+            tot[x["code"]] = tot.get(x["code"], 0) + (0 if x.get("exonere") else x["montant"])
+    ok = all(abs(int(tot.get(k, 0)) - liq.get(k, 0)) <= TOL_DA for k in ("DD", "TVA", "CS"))
+    total = sum(liq.get(k, 0) for k in ("DD", "TVA", "CS", "RPS"))
+    ok &= abs(total - liq["total"]) <= TOL_DA
+    out.append(_c("LIQ-T", "Liquidation récapitulative", ok,
+                  " + ".join(f"{k} {n(liq.get(k, 0))}" for k in ("DD", "TVA", "CS", "RPS")) + f" = {n(total)} DA (déclaré {n(liq['total'])})"))
+    exo = [(a["num"], x["code"]) for a in arts for x in a["taxes"] if x.get("exonere")]
+    if exo:
+        base = (d.get("exoneration") or {}).get("base_legale")
+        out.append(_c("EXO-1", "Exonération justifiée", bool(base),
+                      f"{', '.join(f'{c} art. {num}' for num, c in exo)} exonérés · "
+                      + (base if base else "base légale non renseignée dans le dossier"), "alerte"))
+
+    # 7. Poids et colis
+    col = d.get("colisage", [])
+    if col:
+        net = sum(c["net"] for c in col)
+        brut = sum(c["brut"] for c in col)
+        pal = sum(c["palettes"] for c in col)
+        net_art = sum(a["poids_net"] for a in arts)
+        out.append(_c("PDS-1", "Poids net colisage = articles", abs(net - net_art) < 0.5, f"colisage {n(net)} kg · articles {n(net_art)} kg"))
+        out.append(_c("PDS-2", "Poids brut colisage = D10", abs(brut - dec["poids_brut"]) < 0.5, f"{' + '.join(n(c['brut']) for c in col)} = {n(brut)} kg (D10 {n(dec['poids_brut'])})"))
+        out.append(_c("COL-1", "Nombre de colis", pal == dec["nb_colis"], f"{n(pal)} {col[0].get('unite', 'palettes')} · D10 {n(dec['nb_colis'])} colis"))
+    for a in arts:
+        q = a.get("quantite", {})
+        if q.get("nombre") and q.get("contenance_kg"):
+            v = q["nombre"] * q["contenance_kg"]
+            out.append(_c(f"QTE-{a['num']}", f"Quantité × contenance art. {a['num']}", abs(v - a["poids_net"]) < 0.5,
+                          f"{q['nombre']} × {n(q['contenance_kg'])} kg = {n(v)} kg (poids net {n(a['poids_net'])})"))
+
+    # 8. Dates
+    t = d.get("transport", {})
+    dom = date(dec.get("domiciliation", {}).get("date"))
+    bl = date(t.get("date_bl"))
+    if dom and bl:
+        out.append(_c("DAT-1", "Domiciliation avant expédition", dom <= bl, f"domiciliation {dom:%d/%m/%Y} · B/L {bl:%d/%m/%Y}"))
+    acc, d10 = date(t.get("date_accostage")), date(dec.get("date_heure"))
+    if acc and d10:
+        j = (d10 - acc).days
+        fr = t.get("franchise_jours")
+        out.append(_c("DAT-2", "Délai accostage → D10", not fr or j <= fr, f"{j} jours (franchise conteneur {fr} jours)", "alerte"))
+
+        # Code des douanes : 21 jours en dépôt temporaire (art. 71), puis dépôt de douane 2 mois (art. 209)
+        out.append(_c("DAT-3", "Séjour en dépôt temporaire (art. 71 : 21 jours)", j <= 21,
+                      f"{j} jours entre l'accostage et le D10" + (
+                          "" if j <= 21 else " : au-delà, constitution d'office en dépôt de douane (art. 74)"
+                          + (" ; délai de 2 mois du dépôt (art. 209) dépassé : vente aux enchères possible (art. 210)"
+                             if j > 21 + 60 else "")), "alerte"))
+
+    # Origine : preuve
+    o = d.get("origine") or {}
+    out.append(_c("ORI-1", "Certificat d'origine au dossier", bool(o.get("certificat")),
+                  f"certificat {o.get('certificat')}" if o.get("certificat") else
+                  f"aucun certificat d'origine dans le dossier ; origine {o.get('code', '?')} déclarée sur le D10 et les pièces commerciales",
+                  "alerte"))
+
+    # 9. Conteneur (chiffre de contrôle ISO 6346)
+    tcs = conteneurs(d)
+    for i, tc in enumerate(tcs, 1):
+        c = tc.get("numero", "")
+        if len(c) == 11:
+            out.append(_c("ISO-1" if len(tcs) == 1 else f"ISO-{i}", "Chiffre de contrôle du conteneur (ISO 6346)", iso6346_ok(c), c, "alerte"))
+    if len(tcs) > 1:    # plusieurs conteneurs : leur détail doit redonner les totaux du D10
+        for cle, code, lab, total, unite in (("palettes", "TC-1", "Colis répartis par conteneur = colis du D10", dec.get("nb_colis"), "colis"),
+                                             ("brut", "TC-2", "Poids brut par conteneur = poids brut du D10", dec.get("poids_brut"), "kg")):
+            vals = [tc.get(cle, tc.get("colis") if cle == "palettes" else None) for tc in tcs]
+            if all(isinstance(v, (int, float)) for v in vals) and total:
+                s = sum(vals)
+                out.append(_c(code, lab, abs(s - total) < 0.5, " + ".join(n(v) for v in vals) + f" = {n(s)} {unite} (D10 : {n(total)})", "alerte"))
+
+    # 10. Classement tarifaire : tarif DGD, notes, loi de finances 2026 (knowledge-base/)
+    out += classement_tarifaire(d)
+    # Désignation : la norme européenne refuse les termes génériques
+    # (Commission européenne, « Guidance on acceptable goods description », TAXUD v4.10, 2021)
+    for a in arts:
+        dz = designation_generique(a.get("designation", ""))
+        out.append(_c(f"DES-{a['num']}", f"Désignation de l'article {a['num']} assez précise",
+                      not dz, f"« {a.get('designation', '')} »" + (f" : terme générique {', '.join(dz)} — préciser nature, forme et usage"
+                                                                     if dz else " : nature et forme identifiables"), "alerte"))
+
+    return out
+
+
+def classement_tarifaire(d):
+    """TAR : code présent au tarif · DD : quotité = tarif · FAM : même famille que le code du pays d'origine."""
+    from . import tarif
+    if not tarif.disponible():
+        return []
+    out = []
+    for a in d["articles"]:
+        num, f = a["num"], tarif.fiche(a["code_sh"])
+        st, s, ch, p, l = f["statut"], f["section"], f["chapitre"], f["position"], f["ligne"]
+        lieu = f"Section {s['numero']} · ch. {ch['numero']} · pos. {p['code']}" if s else f"pos. {p['code']}"
+        lib = f" — {l['libelle'][:70]}" if l else ""
+        out.append(_c(f"TAR-{num}", f"Position tarifaire art. {num} au tarif", st == "exact",
+                      f"{f['code']} : {lieu}{lib}" + (f" ({f['remarque']})" if f["remarque"] else ""),
+                      "erreur" if st == "absent" else "alerte"))
+        dd = next((t for t in a["taxes"] if t["code"] == "DD"), None)
+        if dd and f["droit_douane"] is not None:
+            out.append(_c(f"DD-{num}", f"Quotité DD art. {num} = tarif", abs(dd["quotite"] - f["droit_douane"]) < 0.01,
+                          f"déclaré {n(dd['quotite'])} % · tarif {f['droit_douane']:g} % ({f['droit_douane_source']}"
+                          + (f", ligne {l['code']}" if l and st != "exact" else "") + ")",
+                          "erreur" if st == "exact" else "alerte"))
+        tva = next((t for t in a["taxes"] if t["code"] == "TVA"), None)
+        if tva and not f["tva_source"].startswith("taux normal"):
+            out.append(_c(f"TVA-{num}", f"Quotité TVA art. {num} = tarif", abs(tva["quotite"] - f["tva"]) < 0.01,
+                          f"déclaré {n(tva['quotite'])} % · {f['tva']:g} % ({f['tva_source']})", "alerte"))
+        if f.get("daps"):
+            dp = f["daps"]
+            declare = any(t["code"] == "DAPS" for t in a["taxes"])
+            out.append(_c(f"DAPS-{num}", f"DAPS art. {num}", declare,
+                          f"ligne {dp['code']}{' (EX)' if dp['ex'] else ''} inscrite à {dp['taux']} % sur la liste de "
+                          f"l'arrêté du 26/01/2019 (n° {dp['ordre']}) ; "
+                          + ("DAPS liquidé" if declare else "non liquidé : vérifier la liste en vigueur et une "
+                             "éventuelle exemption (accord préférentiel)"), "alerte"))
+        if a.get("code_origine"):
+            fam = tarif.famille(a["code_sh"], a["code_origine"])
+            if fam["sous_position"]:
+                det = f"même sous-position {fam['a'][:7]}"
+            elif fam["position"]:
+                det = (f"même position {p['code']}, sous-positions différentes : D10 {fam['a'][:7]} "
+                       f"({tarif.libelle_sh6(fam['a'])}) · pays d'origine {fam['b'][:7]} ({tarif.libelle_sh6(fam['b'])})")
+            elif fam["chapitre"]:
+                det = f"même chapitre {fam['a'][:2]}, positions différentes : D10 {fam['a'][:5]} · pays d'origine {fam['b'][:5]}"
+            else:
+                det = f"chapitres différents : D10 {fam['a'][:5]} · pays d'origine {fam['b'][:5]}"
+            out.append(_c(f"FAM-{num}", f"Famille du code art. {num} (D10 / pays d'origine)", fam["sous_position"], det, "alerte"))
+    return out
+
+
+def iso6346_ok(code):
+    vals, v = {}, 10
+    for ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+        if v % 11 == 0:
+            v += 1
+        vals[ch] = v
+        v += 1
+    s = sum((vals[ch] if ch.isalpha() else int(ch)) * (2 ** i) for i, ch in enumerate(code[:10]))
+    return (s % 11) % 10 == int(code[10])
+
+
+def resume(ctrls):
+    return {k: sum(1 for c in ctrls if c["statut"] == k) for k in ("ok", "alerte", "erreur")}

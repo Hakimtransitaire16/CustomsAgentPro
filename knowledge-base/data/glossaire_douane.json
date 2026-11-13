@@ -1,0 +1,230 @@
+{
+ "_notice": "Glossaire de travail français / anglais / arabe. Termes d'usage courant ; le texte officiel fait foi pour la terminologie juridique.",
+ "termes": [
+  {
+   "fr": "déclaration en détail",
+   "en": "goods declaration",
+   "ar": "التصريح المفصّل"
+  },
+  {
+   "fr": "commissionnaire en douane",
+   "en": "customs broker",
+   "ar": "الوكيل لدى الجمارك"
+  },
+  {
+   "fr": "déclarant",
+   "en": "declarant",
+   "ar": "المصرّح"
+  },
+  {
+   "fr": "manifeste",
+   "en": "cargo manifest",
+   "ar": "بيان الحمولة"
+  },
+  {
+   "fr": "connaissement",
+   "en": "bill of lading (B/L)",
+   "ar": "وثيقة الشحن"
+  },
+  {
+   "fr": "avis d'arrivée",
+   "en": "arrival notice",
+   "ar": "إشعار الوصول"
+  },
+  {
+   "fr": "bon à délivrer",
+   "en": "delivery order",
+   "ar": "إذن التسليم"
+  },
+  {
+   "fr": "liste de colisage",
+   "en": "packing list",
+   "ar": "قائمة التعبئة"
+  },
+  {
+   "fr": "facture commerciale",
+   "en": "commercial invoice",
+   "ar": "الفاتورة التجارية"
+  },
+  {
+   "fr": "certificat d'origine",
+   "en": "certificate of origin",
+   "ar": "شهادة المنشأ"
+  },
+  {
+   "fr": "pays d'origine",
+   "en": "country of origin",
+   "ar": "بلد المنشأ"
+  },
+  {
+   "fr": "provenance",
+   "en": "country of consignment",
+   "ar": "بلد الإرسال"
+  },
+  {
+   "fr": "valeur en douane",
+   "en": "customs value",
+   "ar": "القيمة لدى الجمارك"
+  },
+  {
+   "fr": "valeur transactionnelle",
+   "en": "transaction value",
+   "ar": "القيمة التعاملية"
+  },
+  {
+   "fr": "fret",
+   "en": "freight",
+   "ar": "أجرة النقل"
+  },
+  {
+   "fr": "assurance",
+   "en": "insurance",
+   "ar": "التأمين"
+  },
+  {
+   "fr": "droit de douane",
+   "en": "customs duty",
+   "ar": "الحق الجمركي"
+  },
+  {
+   "fr": "taxe sur la valeur ajoutée",
+   "en": "value added tax (VAT)",
+   "ar": "الرسم على القيمة المضافة"
+  },
+  {
+   "fr": "exonération",
+   "en": "exemption",
+   "ar": "إعفاء"
+  },
+  {
+   "fr": "liquidation",
+   "en": "assessment of duties",
+   "ar": "تصفية الحقوق"
+  },
+  {
+   "fr": "position tarifaire",
+   "en": "tariff heading",
+   "ar": "البند التعريفي"
+  },
+  {
+   "fr": "sous-position",
+   "en": "subheading",
+   "ar": "البند الفرعي"
+  },
+  {
+   "fr": "Système harmonisé",
+   "en": "Harmonized System (HS)",
+   "ar": "النظام المنسق"
+  },
+  {
+   "fr": "règles générales interprétatives",
+   "en": "General Interpretative Rules (GIR)",
+   "ar": "القواعد العامة لتفسير النظام المنسق"
+  },
+  {
+   "fr": "renseignement tarifaire contraignant",
+   "en": "binding tariff information (BTI)",
+   "ar": "المعلومة التعريفية الملزمة"
+  },
+  {
+   "fr": "mainlevée",
+   "en": "release of goods",
+   "ar": "رفع اليد"
+  },
+  {
+   "fr": "visite physique",
+   "en": "physical inspection",
+   "ar": "المعاينة"
+  },
+  {
+   "fr": "circuit rouge",
+   "en": "red channel",
+   "ar": "المسار الأحمر"
+  },
+  {
+   "fr": "scellé",
+   "en": "seal",
+   "ar": "الختم"
+  },
+  {
+   "fr": "conteneur",
+   "en": "container",
+   "ar": "حاوية"
+  },
+  {
+   "fr": "surestaries",
+   "en": "demurrage",
+   "ar": "غرامات التأخير"
+  },
+  {
+   "fr": "franchise",
+   "en": "free time",
+   "ar": "مدة الإعفاء"
+  },
+  {
+   "fr": "magasinage",
+   "en": "storage charges",
+   "ar": "رسوم التخزين"
+  },
+  {
+   "fr": "transbordement",
+   "en": "transshipment",
+   "ar": "إعادة الشحن"
+  },
+  {
+   "fr": "entrepôt de douane",
+   "en": "customs warehouse",
+   "ar": "المستودع الجمركي"
+  },
+  {
+   "fr": "admission temporaire",
+   "en": "temporary admission",
+   "ar": "القبول المؤقت"
+  },
+  {
+   "fr": "transit",
+   "en": "transit",
+   "ar": "العبور"
+  },
+  {
+   "fr": "domiciliation bancaire",
+   "en": "bank domiciliation",
+   "ar": "التوطين البنكي"
+  },
+  {
+   "fr": "crédit documentaire",
+   "en": "documentary credit (letter of credit)",
+   "ar": "الاعتماد المستندي"
+  },
+  {
+   "fr": "remise documentaire",
+   "en": "documentary collection",
+   "ar": "التحصيل المستندي"
+  },
+  {
+   "fr": "contentieux douanier",
+   "en": "customs litigation",
+   "ar": "المنازعات الجمركية"
+  },
+  {
+   "fr": "transaction douanière",
+   "en": "customs settlement",
+   "ar": "المصالحة الجمركية"
+  },
+  {
+   "fr": "procès-verbal",
+   "en": "official report",
+   "ar": "محضر"
+  },
+  {
+   "fr": "contrôle a posteriori",
+   "en": "post-clearance audit",
+   "ar": "الرقابة البعدية"
+  },
+  {
+   "fr": "opérateur économique agréé",
+   "en": "authorised economic operator (AEO)",
+   "ar": "المتعامل الاقتصادي المعتمد"
+  }
+ ]
+}

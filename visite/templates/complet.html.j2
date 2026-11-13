@@ -1,0 +1,166 @@
+{#- Dossier complet : couverture (partie=couverture), fiche de terrain (terrain), note interne (note). -#}
+{%- set dec = d.declaration -%}{%- set tr = d.transport -%}{%- set imp = d.parties.importateur -%}{%- set vis = d.visite or {} -%}
+{%- set a0 = d.articles[0] -%}{%- set orig = d.origine or {} -%}
+{%- set p_a = 2 -%}{%- set p_b = 2 + nb_fiche -%}{%- set p_c = p_b + 1 -%}
+{%- macro head(section, conf=False) -%}
+<div class="hd"><div class="brand"><div class="mono">{{ initiales }}</div><div><div class="t1">{{ d.meta.declarant.nom }}</div><div class="t2">{{ d.meta.declarant.qualite }} · {{ d.parties.declarant_societe.nom }}</div></div></div>
+<div class="ref">D10 n° <b>{{ dec.numero }}</b> · {{ dec.date_heure }}<br>MRN <b>{{ dec.mrn }}</b> · conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
+{% if conf %}<div class="conf">NOTE INTERNE · CONFIDENTIELLE · RÉSERVÉE AU DÉCLARANT — À RETIRER AVANT TOUTE REMISE AU SERVICE</div>{% endif %}
+{%- endmacro -%}
+{%- macro foot(lib, p) -%}<div class="ft"><span><b>{{ marque.nom or 'Dossier de visite' }}</b>{{ (' · ' ~ marque.signature) if marque.nom and marque.signature else '' }} — {{ d.meta.declarant.nom }}, déclarant en douane · {{ lib }}</span><span>page {{ p }}</span></div>{%- endmacro -%}
+{%- macro sec(num, titre) -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2></div>{%- endmacro -%}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Dossier de visite</title><style>{{ css }}
+.conf{background:var(--crit);color:#fff;font-size:7pt;font-weight:700;letter-spacing:.1em;text-align:center;padding:1.6mm;margin:-2mm 0 2mm}
+.kg{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin-top:3mm}
+.kt{border:1px solid var(--line);border-top:2px solid var(--navy);padding:2.4mm 2.6mm;background:#fff}
+.kt .l{font-size:6.4pt;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.kt .v{font-size:11.5pt;font-weight:700;color:var(--navy);margin-top:.8mm;white-space:nowrap}
+.kt .v small{font-size:7pt;font-weight:500;color:var(--muted)}
+.kt .s{font-size:6.6pt;color:var(--ink2);margin-top:.4mm}
+.som td{padding:2.4mm 2mm;font-size:8.4pt}
+.som .tag{display:inline-block;font-size:6.4pt;font-weight:700;letter-spacing:.08em;padding:.6mm 1.6mm;border-radius:1mm}
+.tag.ok{background:var(--ok-l);color:var(--ok)}.tag.no{background:var(--crit-l);color:var(--crit)}
+.ckb{display:inline-block;width:3.4mm;height:3.4mm;border:1px solid var(--ink2);margin-right:2mm;vertical-align:-0.6mm}
+ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.3mm 0;border-bottom:1px solid var(--hair)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin-top:2mm}
+.slot{border:1px dashed var(--muted);height:22mm;display:flex;align-items:flex-end;padding:1.4mm;font-size:6.8pt;color:var(--ink2)}
+.rk{border:1px solid var(--line);border-left:3px solid var(--warn);padding:1.8mm 2.6mm;margin:1.6mm 0;break-inside:avoid}
+.rk b.t{font-size:8.2pt;color:var(--ink)}.rk p{font-size:7.5pt;margin:.8mm 0 0;line-height:1.4}.rk p.pr{color:var(--navy)}
+.st-d{color:var(--crit);font-weight:700}.st-r{color:var(--ok);font-weight:700}.st-a{color:var(--warn);font-weight:700}
+.pz{font-size:6.2pt;font-weight:700;letter-spacing:.08em;padding:.4mm 1.4mm;border-radius:1mm;margin-left:1.5mm}.pz.ob{background:var(--crit-l);color:var(--crit)}.pz.re{background:var(--warn-l);color:var(--warn)}
+.a3 td{padding:.9mm 1.6mm;font-size:7.5pt}
+.lines div{border-bottom:1px solid var(--line);height:6.5mm}
+</style></head><body>
+
+{% if partie == 'couverture' %}
+<section class="page">{{ head('Couverture') }}
+  <div class="hero"><div><div class="hk">DOSSIER DE VISITE · DÉCLARATION EN DÉTAIL · CIRCUIT {{ dec.circuit|upper }}</div>
+    <div class="hn">{{ d.meta.produit_titre }} <span>{{ d.meta.produit_sous_titre }}</span></div>
+    <div class="hs">{{ imp.nom }} · origine {{ orig.pays }} ({{ orig.code }}) · {{ a0.code_sh|sh }}</div></div></div>
+
+  <div class="kg">
+    <div class="kt"><div class="l">Valeur en douane</div><div class="v">{{ dec.valeur_da|n }} <small>DA</small></div><div class="s">{{ dec.montant_facture|n(2) }} {{ dec.devise }} {{ dec.incoterm }} × {{ dec.taux_change|n(4) }}</div></div>
+    <div class="kt"><div class="l">Droits et taxes payés</div><div class="v">{{ d.liquidation.total|n }} <small>DA</small></div><div class="s">CS 3 % + redevance informatique</div></div>
+    <div class="kt"><div class="l">Exonérés (DD + TVA)</div><div class="v">{{ enjeux[1][1]|n(2) if enjeux|length > 1 else '—' }} <small>DA</small></div><div class="s">régime fiscal {{ dec.regime_fiscal }}{{ (' · ' ~ d.exoneration.textes[0][0]) if (d.exoneration or {}).textes else '' }}</div></div>
+    <div class="kt"><div class="l">Espèce tarifaire</div><div class="v">{{ a0.code_sh|sh }}</div><div class="s">DD {{ (a0.taxes|selectattr('code','equalto','DD')|first).quotite|n }} % · {{ a0.designation }}</div></div>
+    <div class="kt"><div class="l">Quantité</div><div class="v">{{ a0.quantite.nombre|n }} <small>{{ a0.quantite.unite }}</small></div><div class="s">{{ a0.quantite_detail }}</div></div>
+    <div class="kt"><div class="l">Colis</div><div class="v">{{ dec.nb_colis|n }} <small>{{ d.colisage[0].unite if d.colisage and d.colisage[0].unite else 'colis' }}</small></div><div class="s">{{ d.colisage[0].contenu if d.colisage else '' }}</div></div>
+    <div class="kt"><div class="l">Poids</div><div class="v">{{ dec.poids_brut|n }} <small>kg brut</small></div><div class="s">{{ a0.poids_net|n }} kg net</div></div>
+    <div class="kt"><div class="l">Conteneur · scellé</div><div class="v" style="font-size:10pt">{{ tr.conteneur }}</div><div class="s">{{ tr.type_conteneur }} · scellé {{ tr.scelle }}</div></div>
+  </div>
+
+  {{ sec('', 'Visite') }}
+  <table class="sv"><tr><th style="width:24%">Lieu</th><th style="width:22%">Inspecteur de visite</th><th style="width:22%">Agent de visite</th><th>Déclarant</th></tr>
+    <tr><td>{{ vis.lieu }}</td><td><b>{{ vis.inspecteur }}</b></td><td>{{ vis.agent or '—' }}</td><td><b>{{ d.meta.declarant.nom }}</b> · {{ d.parties.declarant_societe.nom }}</td></tr></table>
+
+  {{ sec('', 'Composition du dossier') }}
+  <table class="som"><tr><th style="width:8%">Partie</th><th>Contenu</th><th style="width:12%">Pages</th><th style="width:20%">Destinataire</th></tr>
+    <tr><td><b>A</b></td><td><b>Fiche de visite</b> — identification, parties, transport, marchandise, description technique, classement motivé, origine, valeur, régime fiscal, formalités, pièces analysées, concordance, repères, procès-verbal</td><td>{{ p_a }} à {{ p_b - 1 }}</td><td><span class="tag ok">À REMETTRE AU SERVICE</span></td></tr>
+    <tr><td><b>B</b></td><td><b>Fiche de terrain</b> — check-list, comptage, pesée, plan de photos, notes de visite</td><td>{{ p_b }}</td><td><span class="tag ok">USAGE SUR PLACE</span></td></tr>
+    <tr><td><b>C</b></td><td><b>Note interne</b> — enjeux financiers, chronologie et délais légaux, points de vigilance, contrôles automatiques, pièces et informations à fournir, analyse 360° (coût, logistique, finance, fiscalité, commerce), veille réglementaire</td><td>{{ p_c }} à {{ p_c + 3 + (2 if a360 else 0) + ((veille|length + 3) // 4) }}</td><td><span class="tag no">DÉCLARANT SEUL</span></td></tr></table>
+  <p class="small mt2">Pièces du dossier : {% for doc in d.documents %}{{ doc.titre }} ({{ doc.numero }}){{ ' · ' if not loop.last }}{% endfor %}.</p>
+  <p class="small">Toutes les données sont transcrites des pièces et citent leur source. Textes : tarif douanier DGD, code des douanes (loi 79-07 modifiée), lois de finances 2001, 2018 et 2026, code des TCA.</p>
+  {{ foot('établi le ' ~ date_fiche, 1) }}
+</section>
+{% endif %}
+
+{% if partie == 'terrain' %}
+<section class="page">{{ head('Fiche de terrain') }}
+  {{ sec('B', 'Fiche de terrain — jour de la visite') }}
+  <table class="sv"><tr><th>Lieu</th><th>Inspecteur</th><th>Agent</th><th>Date et heure</th></tr>
+    <tr><td>{{ vis.lieu }}</td><td><b>{{ vis.inspecteur }}</b></td><td>{{ vis.agent or '' }}</td><td></td></tr></table>
+  <div class="grid2 mt2">
+    <div><div class="pdsh"><span>CHECK-LIST</span></div><ul class="ckl">
+      {% for x in checklist %}<li><span class="ckb"></span>{{ x }}</li>{% endfor %}
+      {% for x in (d.terrain or {}).get('presenter', []) %}<li><span class="ckb"></span>{{ x }}</li>{% endfor %}</ul></div>
+    <div><div class="pdsh"><span>COMPTAGE ET PESÉE</span></div>
+      <table><tr><th>Élément</th><th class="num">Attendu</th><th class="num" style="width:22%">Constaté</th><th style="width:14%">Écart</th></tr>
+        <tr><td>Colis</td><td class="num">{{ dec.nb_colis|n }}</td><td></td><td></td></tr>
+        {% for l, v in (d.terrain or {}).get('comptage', []) %}<tr><td>{{ l }}</td><td class="num">{{ v }}</td><td></td><td></td></tr>{% endfor %}
+        <tr><td>Poids brut de la marchandise</td><td class="num">{{ dec.poids_brut|n }} kg</td><td></td><td></td></tr>
+        {% if not tr.get('_conteneurs') %}<tr><td>Scellé</td><td class="num">{{ tr.scelle }}</td><td></td><td></td></tr>{% endif %}</table>
+      {% if (d.terrain or {}).note %}<p class="small">{{ d.terrain.note }}</p>{% endif %}</div>
+  </div>
+  <div class="pdsh mt2"><span>PLAN DE PHOTOS</span></div>
+  <div class="slots">{% for s in slots %}<div class="slot">{{ loop.index }}. {{ s }}</div>{% endfor %}</div>
+  <div class="pdsh mt2"><span>NOTES DE VISITE</span></div>
+  <div class="lines">{% for i in range(7 if (checklist|length <= 7 and slots|length <= 4) else 4) %}<div></div>{% endfor %}</div>
+  {{ foot('partie B — fiche de terrain', p_b) }}
+</section>
+{% endif %}
+
+{% if partie == 'note' %}
+<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C1', 'Synthèse et enjeux financiers') }}
+  <p class="small">Contrôles automatiques du moteur : <b>{{ resume.ok }} conformes · {{ resume.alerte }} alertes · {{ resume.erreur }} erreur{{ 's' if resume.erreur > 1 }}</b>.{% for c in ctrls if c.statut != 'ok' %}{{ ' Alertes : ' if loop.first }}{{ c.id }}{{ ', ' if not loop.last else '.' }}{% endfor %} {{ (d.note_interne or {}).synthese or '' }}</p>
+  <table><tr><th>Montant</th><th class="num" style="width:20%">DA</th><th style="width:22%">Base</th></tr>
+    {% for l, v, b in enjeux %}<tr{% if l.startswith('Si ') %} class="muted"{% endif %}><td>{{ l }}</td><td class="num"><b>{{ v|n(2) }}</b></td><td class="s">{{ b }}</td></tr>{% endfor %}</table>
+  {% if (d.note_interne or {}).enjeux %}<p class="small">{{ d.note_interne.enjeux }}</p>{% endif %}
+
+  {{ sec('C2', 'Chronologie du dossier') }}
+  <table><tr><th style="width:14%">Date</th><th>Événement</th><th style="width:28%">Pièce / émetteur</th></tr>
+    {% for x, e, p in chrono %}<tr><td class="mono-t">{{ x }}</td><td>{{ e }}</td><td class="s">{{ p }}</td></tr>{% endfor %}</table>
+
+  {{ sec('C3', 'Délais légaux depuis l\'accostage' ~ (' — ' ~ jours ~ ' jours jusqu\'au D10' if jours else '')) }}
+{% if delais %}  <table><tr><th>Délai</th><th style="width:26%">Texte (cité en C5)</th><th style="width:16%">Échéance</th><th style="width:12%">État</th></tr>
+    {% for l, t, e, s in delais %}<tr><td>{{ l }}</td><td class="s">{{ t }}</td><td class="mono-t">{{ e }}</td><td class="{{ {'dépassé':'st-d','respecté':'st-r'}.get(s,'st-a') }}">{{ s }}</td></tr>{% endfor %}</table>{% else %}<p class="small">Date d'accostage absente du dossier (avis d'arrivée non fourni) : les échéances légales ne peuvent pas être calculées.</p>{% endif %}
+  {{ foot('partie C — note interne, confidentielle', p_c) }}
+</section>
+
+<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C4', 'Points de vigilance et réponses à préparer') }}
+  {% for r in d.risques_declarant or [] %}<div class="rk"><b class="t">{{ loop.index }}. {{ r.titre }}</b><p>{{ r.detail }}</p>{% if r.preparer %}<p class="pr"><b>À préparer :</b> {{ r.preparer }}</p>{% endif %}</div>{% endfor %}
+  {{ foot('partie C — note interne, confidentielle', p_c + 1) }}
+</section>
+
+<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C5', 'Textes applicables aux délais') }}
+  {% for ref, t in textes %}<div class="txt"><b>{{ ref }}</b> — « {{ t }} »</div>{% endfor %}
+
+  {{ sec('C6', 'Contrôles automatiques en alerte') }}
+  <table><tr><th style="width:10%">Code</th><th>Constat du moteur</th></tr>
+    {% for c in ctrls if c.statut != 'ok' %}<tr><td class="mono-t">{{ c.id }}</td><td><b>{{ c.titre }}</b> — {{ c.detail }}</td></tr>{% endfor %}</table>
+
+  {{ sec('C7', 'Textes à télécharger pour compléter la base') }}
+  <table><tr><th style="width:4%">#</th><th>Texte</th><th style="width:34%">Utilité pour ce dossier</th></tr>
+    {% for t, u in (d.note_interne or {}).get('textes_manquants', []) %}<tr><td>{{ loop.index }}</td><td>{{ t }}</td><td>{{ u }}</td></tr>{% endfor %}</table>
+  {{ foot('partie C — note interne, confidentielle', p_c + 2) }}
+</section>
+
+{% set pieces8 = manquants|selectattr('type', 'equalto', 'pièce')|list %}{% set autres = manquants|rejectattr('type', 'equalto', 'pièce')|list %}
+{% set lots8 = pieces8|batch(6)|list %}{% set seul8 = 1 if (autres and lots8 and lots8[-1]|length > 4) else 0 %}
+{% set n8 = [lots8|length + seul8, 1]|max %}
+{% for i in range(n8) %}<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C8', 'À fournir — pièces et informations manquantes (' ~ manquants|length ~ ')' ~ (' (suite)' if i else '')) }}
+  {% if i == 0 %}<p class="small">Liste établie automatiquement à partir du référentiel des pièces (knowledge-base/data/pieces_dossier.json) : pour chaque pièce, son émetteur, ce qu'elle prouve en douane et le texte qui la fonde.</p>{% endif %}
+  {% if i < lots8|length %}{% for x in lots8[i] %}<div class="rk" style="border-left-color:{{ 'var(--crit)' if x.niveau == 'obligatoire' else 'var(--warn)' }}">
+    <b class="t">{{ loop.index + i * 6 }}. {{ x.nom }}</b> <span class="pz {{ 'ob' if x.niveau == 'obligatoire' else 're' }}">{{ x.niveau|upper }}</span>
+    <p><b>Pourquoi ici :</b> {{ x.motif }}. <b>Émetteur :</b> {{ x.emetteur }}.</p>
+    <p><b>Valeur douanière :</b> {{ x.preuve }}</p><p class="pr"><b>Base :</b> {{ x.base }}</p></div>{% endfor %}{% endif %}
+  {% if autres and i == n8 - 1 %}<div class="pdsh mt2"><span>INFORMATIONS À DONNER</span></div>
+  <table><tr><th>Information</th><th style="width:16%">Niveau</th><th>Usage</th></tr>
+    {% for x in autres %}<tr><td><b>{{ x.nom }}</b></td><td>{{ x.niveau }}</td><td>{{ x.motif }}</td></tr>{% endfor %}</table>{% endif %}
+  {{ foot('partie C — note interne, confidentielle', p_c + 3 + i) }}
+</section>{% endfor %}
+
+{% if a360 %}{% set secs = a360.sections.items()|selectattr('1')|list %}
+{% for groupe in [secs[:2], secs[2:]] if groupe %}<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C9', 'Analyse 360° — ' ~ (groupe|map(attribute='0')|join(', ')|lower)) }}
+  {% if loop.first %}<p class="small">Le même dossier vu par chaque métier. Les estimations sont signalées ; la facture de chaque prestataire fait foi.</p>{% endif %}
+  {% for titre, lignes in groupe %}<div class="pdsh mt2"><span>{{ titre|upper }}</span></div>
+  <table class="a3"><tr><th style="width:40%">Élément</th><th style="width:25%">Valeur</th><th>Base</th></tr>
+    {% for l, v, c in lignes %}<tr{% if l.startswith('Coût connu') %} class="tot"{% endif %}><td>{{ l }}</td><td><b>{{ v }}</b></td><td class="s">{{ c }}</td></tr>{% endfor %}</table>{% endfor %}
+  {% if loop.first and a360.surestaries and a360.surestaries.hypothese %}<p class="small">{{ a360.surestaries.hypothese }}</p>{% endif %}
+  {% if loop.last %}<div class="pdsh mt2"><span>DONNÉES À OBTENIR POUR COMPLÉTER L'ANALYSE</span></div>
+  <ul class="sq">{% for m in a360.manque %}<li>{{ m }}</li>{% endfor %}</ul>{% endif %}
+  {{ foot('partie C — note interne, confidentielle', p_c + 2 + n8 + loop.index) }}
+</section>{% endfor %}{% endif %}
+
+{% for lot in veille|batch(4) %}<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C10', 'Veille réglementaire et normes — ce qui change autour du dossier' ~ (' (suite)' if not loop.first else '')) }}
+  <table><tr><th style="width:24%">Sujet</th><th>Fait</th><th style="width:20%">Source</th></tr>
+    {% for v in lot %}<tr><td><b>{{ v.sujet }}</b></td><td>{{ v.fait }}{% if v.effet %}<br><b>Ce dossier :</b> {{ v.effet }}.{% endif %}</td><td class="s">{{ v.source }}</td></tr>{% endfor %}</table>
+  {{ foot('partie C — note interne, confidentielle', p_c + 2 + n8 + (2 if a360 else 0) + loop.index) }}
+</section>{% endfor %}
+{% endif %}
+</body></html>

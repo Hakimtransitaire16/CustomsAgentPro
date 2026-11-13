@@ -1,0 +1,250 @@
+{
+ "_source": "Tarif douanier DGD 2016 — table des matières, notes de sections, RGI",
+ "rgi": "POUR L’INTERPRETATION DU SYSTEME HARMONISE\nLe classement des marchandises dans la Nomenclature est effectué conformément aux principes ci-après :\n1. Le libellé des titres de Sections, de Chapitres ou de Sous-Chapitres est considéré comme n'ayant qu'une valeur\nindicative, le classement étant déterminé légalement d'après les termes des positions et des Notes de Sections ou\nde Chapitres et, lorsqu'elles ne sont pas contraires aux termes desdites positions et Notes, d'après les Règles\nsuivantes :\n2. a) Toute référence à un article dans une position déterminée couvre cet article même incomplet ou non fini à la\ncondition qu'il présente, en l'état, les caractéristiques essentielles de l'article complet ou fini. Elle couvre\négalement l'article complet ou fini, ou à considérer comme tel en vertu des dispositions qui précèdent, lorsqu'il\nest présenté à l'état démonté ou non monté.\nb) Toute mention d'une matière dans une position déterminée se rapporte à cette matière soit à l'état pur, soit\nmélangée ou bien associée à d'autres matières. De même, toute mention d'ouvrages en une matière\ndéterminée se rapporte aux ouvrages constitués entièrement ou partiellement de cette matière. Le\nclassement de ces produits mélangés ou articles composites est effectué suivant les principes énoncés dans\nla Règle 3.\n3. Lorsque des marchandises paraissent devoir être classées sous deux ou plusieurs positions par application de la\nRègle 2 b) ou dans tout autre cas, le classement s'opère comme suit :\na) La position la plus spécifique doit avoir la priorité sur les positions d'une portée plus générale. Toutefois,\nlorsque deux ou plusieurs positions se rapportent chacune à une partie seulement des matières constituant\nun produit mélangé ou un article composite ou à une partie seulement des articles dans le cas de\nmarchandises présentées en assortiments conditionnés pour la vente au détail, ces positions sont à\nconsidérer, au regard de ce produit ou de cet article, comme également spécifiques même si l'une d'elles en\ndonne par ailleurs une description plus précise ou plus complète.\nb) Les produits mélangés, les ouvrages composés de matières différentes ou constitués par l'assemblage\nd'articles différents et les marchandises présentées en assortiments conditionnés pour la vente au détail,\ndont le classement ne peut être effectué en application de la Règles 3 a), sont classés d'après la matière ou\nl'article qui leur confère leur caractère essentiel lorsqu'il est possible d'opérer cette détermination.\nc) Dans les cas ou les Règles 3 a) et 3 b) ne permettent pas d'effectuer le classement, la marchandise est\nclassée dans la position placée la dernière par ordre de numérotation parmi celles susceptibles d'être\nvalablement prises en considération.\n4. Les marchandises qui ne peuvent pas être classées en vertu des Règles visées ci-dessus sont classées dans la\nposition afférente aux articles les plus analogues.\n5. Outre les dispositions qui précèdent, les Règles suivantes sont applicables aux marchandises reprises ci-après :\na) Les étuis pour appareils photographiques, pour instruments de musique, pour armes, pour instruments de\ndessin, les écrins et les contenants similaires, spécialement aménagés pour recevoir un article déterminé ou\nun assortiment, susceptibles d'un usage prolongé et présentés avec les articles auxquels ils sont destinés,\nsont classés avec ces articles lorsqu'ils sont du type normalement vendu avec ceux-ci. Cette Règle ne\nconcerne pas, toutefois, les contenants qui confèrent à l'ensemble son caractère essentiel.\nb) Sous réserve des dispositions de la Règle 5 a) ci-dessus, les emballages contenant des marchandises sont\nclassés avec ces derniers lorsqu'ils sont du type normalement utilisé pour ce genre de marchandises.\nToutefois, cette disposition n'est pas obligatoire lorsque les emballages sont susceptibles d'être utilisés\nvalablement d'une façon répétée.\n6. Le classement des marchandises dans les sous-positions d'une même position est déterminé légalement d'après\nles termes de ces sous-positions et des Notes de sous-positions ainsi que, mutatis mutandis, d'après les Règles ci-\ndessus, étant entendu que ne peuvent être comparées que les sous-positions de même niveau. Aux fins de cette\nRègle, les Notes de Sections et de Chapitres sont également applicables sauf dispositions contraires.",
+ "sections": [
+  {
+   "section": "I",
+   "titre": "ANIMAUX VIVANTS ET PRODUITS DU REGNE ANIMAL",
+   "chapitres": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "notes": "Notes.\n1.- Toute référence dans la présente Section à un genre particulier ou à une espèce particulière d'animal s'applique\négalement, sauf dispositions contraires, aux jeunes animaux de ce genre ou de cette espèce.\n2.- Sauf dispositions contraires, toute mention dans la Nomenclature des produits séchés ou desséchés couvre\négalement les produits déshydratés, évaporés ou lyophilisés."
+  },
+  {
+   "section": "II",
+   "titre": "PRODUITS DU REGNE VEGETAL",
+   "chapitres": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "notes": ""
+  },
+  {
+   "section": "III",
+   "titre": "GRAISSES ET HUILES ANIMALES OU VEGETALES; PRODUITS DE LEUR DISSOCIATION; GRAISSES ALIMENTAIRES ELABOREES; CIRES D'ORIGINE ANIMALE OU VEGETALE",
+   "chapitres": [
+    15
+   ],
+   "notes": ""
+  },
+  {
+   "section": "IV",
+   "titre": "PRODUITS DES INDUSTRIES ALIMENTAIRES; BOISSONS, LIQUIDES ALCOOLIQUES ET VINAIGRES; TABACS ET SUCCEDANES DE TABACS FABRIQUES",
+   "chapitres": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+   ],
+   "notes": "Note.\n1. Dans la présente Section, l'expression agglomérés sous formes de pellets désigne les produits présentés sous forme de\ncylindres, boulettes, etc. agglomérés soit par simple pression, soit par adjonction d'un liant dans une proportion\nn'excédant pas 3% en poids."
+  },
+  {
+   "section": "V",
+   "titre": "PRODUITS MINERAUX",
+   "chapitres": [
+    25,
+    26,
+    27
+   ],
+   "notes": ""
+  },
+  {
+   "section": "VI",
+   "titre": "PRODUITS DES INDUSTRIES CHIMIQUES OU DES INDUSTRIES CONNEXES",
+   "chapitres": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ],
+   "notes": "Notes.\n1.- A) Tout produit (autre que les minerais de métaux radioactifs), répondant aux spécifications du libellé de l'un des n°s\n28.44 ou 28.45, devra être classé sous cette position, et non dans une autre position de la Nomenclature.\nB) Sous réserve des dispositions du paragraphe A) ci-dessus, tout produit répondant aux spécifications du libellé de l'un des\nn°s 28.43, 28.46 ou 28.52, devra être classé dans cette position, et non dans une autre position de la présente Section.\n2.- Sous réserve des dispositions de la note 1) ci-dessus, tout produit qui, en raison, soit de sa présentation sous forme de\ndoses, soit de son conditionnement pour la vente au détail, relève de l'un des n°s 30.04,30.05, 30.06, 32.12, 33.03, 33.04,\n33.05, 33.06, 33.07, 35.06, 37.07 ou 38.08, devra être classé sous cette position et non dans une autre position de la\nNomenclature.\n3.- Les produits présentés en assortiments consistant en plusieurs éléments constitutifs distincts relevant en totalité ou en partie\nde la présente Section et reconnaissables comme étant destinés, après mélange, à constituer des produits des Sections VI\nou VII, sont à classer dans la position afférente à ce dernier produit, sous réserve que ces éléments constitutifs soient :\na) En raison de leur conditionnement, nettement reconnaissables comme étant destinés à être utilisés ensemble\nsans être préalablement reconditionnés ;\nb) Présentés en même temps ;\nc) reconnaissables, de par leur nature ou leurs quantités respectives, comme complémentaires les uns des autres."
+  },
+  {
+   "section": "VII",
+   "titre": "MATIERES PLASTIQUES ET OUVRAGES EN CES MATIERES; CAOUTCHOUC ET OUVRAGES ENCAOUTCHOUC",
+   "chapitres": [
+    39,
+    40
+   ],
+   "notes": "Notes.\n1.- Les produits présentés en assortiments consistant en plusieurs éléments constitutifs distincts relevant en totalité ou en\npartie de la présente Section et reconnaissables comme étant destinés, après mélange, à constituer un produit des\nSections VI ou VII, sont à classer dans la position afférente à ce dernier produit, sous réserve que ces éléments\nconstitutifs soient :\na) en raison de leur conditionnement, nettement reconnaissables comme étant destinés à être utilisés ensemble\nsans être préalablement reconditionnés ;\nb) présentés en même temps ;\nc) reconnaissables, de par leur nature ou leurs quantités respectives, comme complémentaires les uns des autres.\n2.- A l'exception des articles des n°s 39.18 ou 39.19, relèvent du Chapitre 49 les matières plastiques le caoutchouc et les\nouvrages en ces matières revêtus d'impressions ou d'illustrations n'ayant pas un caractère accessoire par rapport à leur\nutilisation initiale."
+  },
+  {
+   "section": "VIII",
+   "titre": "PEAUX, CUIRS, PELLETERIES ET OUVRAGES EN CES MATIERES; ARTICLES DE BOURRELLERIE OU DE SELLERIE; ARTICLES DE VOYAGE, SACS A MAIN ET CONTENANTS SIMILAIRES; OUVRAGES EN BOYAUX",
+   "chapitres": [
+    41,
+    42,
+    43
+   ],
+   "notes": ""
+  },
+  {
+   "section": "IX",
+   "titre": "BOIS, CHARBON DE BOIS ET OUVRAGES EN BOIS; LIEGE ET OUVRAGES EN LIEGE; OUVRAGES DE SPARTERIE OU DE VANNERIE",
+   "chapitres": [
+    44,
+    45,
+    46
+   ],
+   "notes": ""
+  },
+  {
+   "section": "X",
+   "titre": "PATES DE BOIS OU D’AUTRES MATIERES FIBREUSES CELLULOSIQUES; PAPIER OU CARTON A RECYCLER (DECHETS ET REBUTS); PAPIER ET SES APPLICATIONS.",
+   "chapitres": [
+    47,
+    48,
+    49
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XI",
+   "titre": "MATIERES TEXTILES ET OUVRACES EN CES MATIERES",
+   "chapitres": [
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "notes": "Notes.\n1.-La présente Section ne comprend pas :\na) les poils et soies de brosserie (n° 05.02), les crins et déchets de crins (n° 05.11) ;\nb) les cheveux et ouvrages en cheveux (n°s 05.01, 67.03 ou 67.04); toute fois, les étreindelles et tissus épais en\ncheveux des types communément utilisés pour les presses d'huilerie ou pour des usages techniques analogues\nsont repris au n° 59.11 ;\nc) les linters de coton et autres produits végétaux du Chapitre 14 ;\nd) l'amiante (asbeste) du n° 25.24 et articles en amiante et autres produits des n°s 68.12 ou 68.13 ;\ne) les articles des n°s 30.05 ou 30.06 ; les fils utilisés pour nettoyer les espaces interdentaires (fils dentaires), en\nemballage individuels de détail, du n°33.06 ;\nf) les textiles sensibilisés des n°s 37.01 à 37.04 ;\ng) les monofilaments dont la plus grande dimension de la coupe transversale excède 1 mm et les lames et formes\nsimilaires (paille artificielle, par exemple) d'une largeur apparente excédant 5 mm, en matière plastique (Chapitre 39),\nainsi que les tresses, tissus et autres ouvrages de sparterie ou de vannerie en ces mêmes articles (Chapitre 46) ;\nh) les tissus, étoffes de bonneterie, feutres et nontissés, imprégnés, enduits ou recouverts de matière plastique ou\nstratifiés avec cette même matière, et les articles en ces produits, du Chapitre 39 ;\nij) les tissus, étoffes de bonneterie, feutres et nontissés, imprégnés, enduits ou recouverts de caoutchouc ou\nstratifiés avec cette même matière, et les articles en ces produits, du Chapitre 40 ;\nk) les peaux non épilées (Chapitres 41 ou 43) et les articles en pelleteries naturelles ou factices des n°s 43.03 ou 43.04 ;\nl) les articles en matières textiles des n°s 42.01 ou 42.02 ;\nm) les produits et articles du Chapitre 48 (l'ouate de cellulose, par exemple) ;\nn) les chaussures et parties de chaussures, guêtres, jambières et articles analogues du Chapitre 64 ;\no) les résilles, filets à cheveux et autres coiffures et leurs parties, du Chapitre 65 ;\np) les produits du Chapitre 67 ;\nq) les produits textiles revêtus d'abrasifs (n° 68.05), ainsi que les fibres de carbone et ouvrages en ces fibres du n° 68.15 ;\nr) les fibres de verre, les articles en fibres de verre et les broderies chimiques ou sans fond visible dont le fil brodeur\nest en fibres de verre (Chapitre 70) ;\ns) les articles du Chapitre 94 (meubles, articles de literie, appareils d'éclairage, par exemple) ;\nt) les articles du Chapitre 95 (jouets, jeux, engins sportifs, filets pour activités sportives, par exemple) ;\nu) les articles du Chapitre 96 (brosses, assortiments de voyage pour la couture, fermetures à glissière, rubans\nencreurs pour machines à écrire, serviettes et tampons hygiéniques, couches pour bébés, par exemple) ;\nv) les articles du Chapitre 97.\n2.- A) LesproduitstextilesdesChapitres50à55oudesn°s58.09ou59.02contenantdeuxouplusieursmatières textiles sont\nclassés comme s'ils étaient entièrement constitués de la matière textile qui prédomine en poids sur chacune des\nautres matières textiles.\nLorsqu'aucune matière textile ne prédomine en poids, le produit est classé comme s'il était entièrement constitué\nde la matière textile qui relève de la position placée la dernière par ordre de numérotation parmi celles susceptibles\nd'être valablement prise en considération.\nB) Pour l'application de cette règle :\na) les fils de crin guipés (n° 51.10) et les filés métalliques (n° 56.05) sont considérés pour leur poids total\ncomme constituant une matière textile distincte ; les fils de métal sont considérés comme une matière\ntextile pour le classement des tissus dans lesquels ils sont incorporés ;\nb) le choix de la position à retenir pour le classement s'opère en déterminant, en premier lieu, le Chapitre,\npuis, au sein de ce Chapitre, la position applicable, abstraction faite de toute matière textile n'appartenant\npas à ce Chapitre ;\nc) lorsque les Chapitres 54 et 55 sont tous deux à prendre en considération avec un autre Chapitre, ces deux\nChapitres sont traités comme un seul et même Chapitre ;\nd) lorsqu'un Chapitre ou une position se rapportent à plusieurs matières textiles, celles-ci sont traitées comme\nconstituant une seule matière textile.\nC) Les dispositions des paragraphes A) et B) s'appliquent aussi aux fils spécifiés aux Notes 3, 4, 5 ou 6 ci-après.\n3.- A) Sous réserve des exceptions prévues au paragraphe B) ci-après, on entend dans la présente Section par ficelles,\ncordes et cordages les fils (simples, retors ou câblés) :\na) de soie ou de déchets de soie titrant plus de 20.000 décitex ;\nb) de fibres synthétiques ou artificielles (y compris ceux faits de deux ou plusieurs monofilaments du Chapitre\n54), titrant plus de 10.000 décitex ;\nc) de chanvre ou de lin :\n1°) polis ou glacés, titrant 1.429 décitex ou plus ;\n2°) non polis ni glacés, titrant plus de 20.000 décitex ;\nd) de coco, comportant trois bouts ou plus ;\ne) d'autres fibres végétales, titrant plus de 20.000 décitex ;\nf) armés de fils de métal.\nB) Les dispositions ci-dessus ne s'appliquent pas :\na) aux fils de laine, de poils ou de crin, et aux fils de papier, non armés de fils de métal ;\nb) aux câbles de filaments synthétiques ou artificiels du Chapitre 55 et aux multifilaments sans torsion ou\navec une torsion inférieure à 5 tours par mètre du Chapitre 54 ;\nc) au poil de Messine du n° 50.06, et aux monofilaments du Chapitre 54 ;\nd) aux filés métalliques du n° 56.05 ; les fils textiles armés de fils de métal sont régis par le paragraphe A) f)\nci-dessus ;\ne) aux fils de chenille, aux fils guipés et aux fils dits «de chaînette» du n° 56.06.\n4.- A) Sous réserve des exceptions prévues au paragraphe B) ci-après, on entend par fils conditionnés pour la vente au\ndétail dans les Chapitres, 50, 51, 52, 54 et 55 les fils (simples, retors ou câblés) disposés :\na)sur cartes, bobines, tubes ou supports similaires, d'un poids maximal (support compris) de :\n1°) 85 g pour les fils de soie, de déchets de soie ou de filaments synthétiques ou artificiels ; ou\n2°) 125 g pour les autres fils ;\nb) en boules, en pelotes, en écheveaux ou en échevettes d'un poids maximal de :\n1°) 85 g pour les fils de filaments synthétiques ou artificiels de moins de 3.000 décitex, de soie ou de\ndéchets de soie ; ou\n2°) 125 g pour les autres fils de moins de 2.000 décitex ; ou\n3°) 500 g pour les autres fils ;\nc) en écheveaux subdivisés en échevettes au moyen d'un ou plusieurs fils diviseurs qui les rendent\nindépendantes les unes des autres, les échevettes présentant un poids uniforme n'excédant pas :\n1°) 85 g pour les fils de soie, de déchets de soie ou de filaments synthétiques ou artificiels ; ou\n2°) 125 g pour les autres fils.\nB) Les dispositions ci-dessus ne s'appliquent pas :\na) aux fils simples de toutes matières textiles, exception faite :\n1°) des fils simples de laine ou de poils fins, écrus ; et\n2°) des fils simples de laine ou de poils fins, blanchis, teints ou imprimés, titrant plus de 5.000 décitex ;\nb) aux fils écrus, retors ou câblés :\n1°) de soie ou de déchets de soie, quel que soit le mode de présentation ; ou\n2°) des autres matières textiles (à l'exception de la laine et des poils fins) présentées en écheveaux ;\nc)aux fils retors ou câblés, blanchis, teints ou imprimés, de soie ou de déchets de soie, titrant 133 décitex ou\nmoins ;\nd) aux fils simples, retors ou câblés de toutes matières textiles, présentés :\n1°) en écheveaux à dévidage croisé ; ou\n2°) sur support ou sous autre conditionnement impliquant leur utilisation dans l'industrie textile (sur tubes\nde métiers à retordre, canettes (cops), fusettes coniques ou cônes, ou présentés en cocons pour\nmétiers à broder, par exemple).\n5.- Dans les n°s 52.04, 54.01 et 55.08, on entend par fils à coudre les fils retors ou câblés satisfaisant à la fois aux conditions\nsuivantes :\na) disposés sur supports (bobines, tubes, par exemple) et d'un poids, support compris, n'excédant pas 1.000 g ;\nb) apprêtés en vue de leur utilisation en tant que fils à coudre ; et\nc) de torsion finale \"Z\".\n6.- Dans la présente Section, on entend par fils à haute ténacité les fils dont la ténacité, exprimée en cN/tex (centinewton\npar tex), excède les limites suivantes :\nFils simples de nylon ou d'autres polyamides, ou de polyesters ............................................... 60 cN/tex\nFils retors ou câblés de nylon ou d'autres polyamides, ou de polyesters .................................. 53 cN/tex\nFils simples, retors ou câblés de rayonne viscose ................................................................... 27 cN/tex.\n7.-Dans la présente Section, on entend par confectionnés :\na) les articles découpés de forme autre que carrée ou rectangulaire ;\nb) les articles obtenus à l'état fini et prêts à l'usage ou pouvant être utilisés après avoir été séparés en coupant\nsimplement les fils non entrelacés, sans couture ni autre main-d’œuvre complémentaire, tels que certains\ntorchons, serviettes de toilette, nappes, foulards (carrés) et couvertures ;\nc) les articles découpés aux dimensions requises dont au moins un des bords a été «thermoscellé» et qui\nprésente de manière apparente le bord aminci ou comprimé et les autres bords traités selon un procédé\ndécrit dans les autres alinéas de la présente Note ; toutefois, ne sont pas à considérer comme\nconfectionnées les matières textiles en pièces dont les bords dépourvus de lisières ont été simplement\narrêtés ou découpés à chaud ;\nd) les articles dont les bords ont été soit ourlés ou roulottés par n'importe quel procédé, soit arrêtés par des\nfranges nouées obtenues à l'aide des fils de l'article lui-même ou de fils rapportés ; toutefois, ne sont pas\nà considérer comme confectionnées les matières textiles en pièces dont les bords dépourvus de lisières\nont été simplement arrêtés ;\ne) les articles découpés de toute forme, ayant fait l'objet d'un travail de tirage de fils ;\nf) les articles assemblés par couture, par collage ou autrement (à l'exclusion des pièces du même textile\nréunies aux extrémités de façon à former une pièce de plus grande longueur, ainsi que des pièces\nconstituées par deux ou plusieurs textiles superposés sur toute leur surface et assemblés ainsi entre eux,\nmême avec intercalation d'une matière de rembourrage);\ng) les articles en bonneterie obtenus en forme, qu'ils soient présentés en unités ou en pièces comprenant\nplusieurs unités.\n8.- Pour l'application des chapitres 50 à 60 :\na) ne relèvent pas des chapitres 50 à 55 et 60 et, sauf dispositions contraires, des chapitres 56 à 59 les articles\nconfectionnés au sens de la note 7 ci-dessus ;\nb) ne relèvent pas des chapitre 50 à 55 et 60 les articles des chapitres 56 à 59.\n9.- Sont assimilés aux tissus des Chapitres 50 à 55, les produits constitué par des nappes de fils textiles parallélisés qui\nse superposent à angle aigu ou droit. Ces nappes sont fixées entre elles aux points de croisement de leurs fils par\nun liant ou par thermosoudage.\n10.- Les produits élastiques formés de matières textiles associées à des fils de caoutchouc sont à classer dans la présente\nSection.\n11.- Dans la présente Section, le terme imprégnés s'entend également des adhérisés.\n12.- Dans la présente Section, le terme polyamides s'entend également des aramides.\n13.- DanslaprésenteSectionet,lecaséchéant,danslaNomenclature,onentendpar fils d'élastomères, les fils de filaments (y\ncompris les monofilaments) en matières textiles synthétiques, autres que les fils texturés, qui peuvent, sans se\nrompre, subir un allongement les portant à trois fois leur longueur primitive et qui, après avoir subi un allongement\nles portant à deux fois leur longueur primitive, reprendront, en moins de cinq minutes, une longueur au plus égale à\nune fois et demie leur longueur primitive.\n14.- Sauf dispositions contraires, les vêtements en matières textiles appartenant à des positions differentes sont à classer\ndans leurs positions respectives, même s'ils sont présentés en assortiments pour la vente au détail. Au sens de la\nprésente note, l'expression vêtements en matières textiles s'entend des vêtements des n°s 61.01 à 61.14 et des n°s\n62.01 à 62.11.\nNotes de sous-positions.\n1.- Dans la présente Section et, le cas échéant, dans la Nomenclature, on entend par :\na) Fils écrus\nLes fils :\n1°) présentant la couleur naturelle des fibres constitutives et n'ayant subi ni blanchiment, ni teinture\n(même dans la masse), ni impression ; ou\n2°) sans couleur bien déterminée (dits \"fils grisaille\") fabriqués à partir d'effilochés.\nCes fils peuvent avoir reçu un apprêt non coloré ou une couleur fugace (la couleur fugace disparaît après\nun simple lavage au savon) et, dans le cas des fibres synthétiques ou artificielles, avoir été traités dans la\nmasse avec des produits de matage (dioxyde de titane, par exemple).\nb) Fils blanchis\nLes fils :\n1°) ayant subi une opération de blanchiment ou fabriqués avec des fibres blanchies, ou, sauf disposition\ncontraire, teints en blanc (même dans la masse) ouayant reçu un apprêt blanc ; ou\n2°) constitués d'un mélange de fibres écrues et de fibres blanchies ; ou\n3°) retors ou câblés, constitués de fils écrus et de fils blanchis.\nc) Fils colorés (teints ou imprimés)\nLes fils :\n1°) teints (même dans la masse) autrement qu'en blanc ou en couleur fugace ou bien imprimés, ou\nfabriqués avec des fibres teintes ou imprimées ; ou\n2°) constitués d'un mélange de fibres teintes de couleurs différentes ou d'un mélange de fibres écrues ou\nblanchies et de fibres colorées (fils jaspés ou mêlés), ou imprimés en une ou plusieurs couleurs de\ndistance en distance, de manière à présenter l'aspect d'une sorte de pointillé (fils chinés); ou\n3°) dont la mèche ou le ruban de la matière textile a été imprimé ; ou\n4°) retors ou câblés, constitués de fils écrus ou blanchis et de fils colorés.\nLes définitions ci-dessus s'appliquent aussi, mutatis mutandis, aux monofilaments, aux lames ou formes\nsimilaires du Chapitre 54.\nd) Tissus écrus.\nLes tissus obtenus à partir de fils écrus et n'ayant subi ni blanchiment, ni teinture, ni impression. Ces tissus\npeuvent avoir reçu un apprêt non coloré ou une couleur fugace.\ne) Tissus blanchis\nLes tissus :\n1°) blanchis ou, sauf disposition contraire, teints en blanc ou ayant reçu un apprêt blanc, à la pièce ; ou\n2°) constitués de fils blanchis ; ou\n3°) constitués de fils écrus et de fils blanchis.\nf) Tissus teints\nLes tissus :\n1°) teints autrement qu'en blanc (sauf disposition contraire), d'une seule couleur uniforme ou ayant reçu\nun apprêt coloré autre que blanc (sauf disposition contraire), à la pièce ; ou\n2°) constitués de fils colorés d'une seule couleur uniforme.\ng) Tissus en fils de diverses couleurs\nLes tissus (autres que les tissus imprimés) :\n1°) constitués de fils de couleurs différentes ou de fils de nuances différentes d'une même couleur, autres\nque la couleur naturelle des fibres constitutives ; ou\n2°) constitués de fils écrus ou blanchis et de fils colorés ; ou\n3°) constitués de fils jaspés ou mêlés.\n(Dans tous les cas, les fils constituant les lisières et les chefs de pièces n'entrent pas en ligne de compte.)\nh) Tissus imprimés\nLes tissus imprimés à la pièce, même s'ils sont constitués de fils de diverses couleurs.\n(Sont assimilés aux tissus imprimés les tissus présentant des dessins obtenus au pinceau, à la brosse, au\npistolet, par papier transfert, par flocage, par procédé batik, par exemple.)\nLe mercerisage n'a aucune incidence sur le classement des fils ou tissus dans les définitions ci-dessus.\nLes définitions des lettres d) à h) ci-dessus s'appliquent, mutatis mutandis, aux étoffes de bonneterie.\nij) Armure toile\nUne structure de tissu dans laquelle chaque fil de trame passe alternativement au-dessus et en des sous\nde fils successifs de la chaîne, et chaque fil de la chaîne passe alternativement au-dessus et au dessous\nde fils successifs de la trame.\n2.- A) Les produits des Chapitres 56 à 63 contenant deux ou plusieurs matières textiles sont considérés comme\nentièrement constitués de la matière textile qui serait retenue conformément à la Note 2 de la présente\nSection pour le classement d'un produit des Chapitres 50 à 55 ou du n° 58.09 obtenu à partir des mêmes\nmatières.\nB) Pour l'application de cette règle :\na) il n'est tenu compte, le cas échéant, que de la partie qui détermine le classement au sens de la Règle\ngénérale interprétative 3 ;\nb) il n'est pas tenu compte du plancher lorsque les produits textiles comportent un plancher et une surface\nveloutée ou bouclée ;\nc) il n'est tenu compte que du tissu de fond dans le cas des broderies du n° 58.10 et des ouvrages en ces\nmatières. Toutefois, pour les broderies chimiques, aériennes ou sans fond apparent, et les ouvrages\nen ces matières, le classement est opéré en tenant compte uniquement des fils brodeurs."
+  },
+  {
+   "section": "XII",
+   "titre": "CHAUSSURES, COIFFURES, PARAPLUIES, PARASOLS, CANNES, FOUETS, CRAVACHES ET LEURS PARTIES; PLUMES APPRETEES ET ARTICLES EN PLUMES; LEURS ARTIFICIELLES; OUVRAGES EN CHEVEUX",
+   "chapitres": [
+    64,
+    65,
+    66,
+    67
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XIII",
+   "titre": "OUVRAGES EN PIERRES, PLATRES, CIMENT, AMIANTE, MICA OU MATIERES ANALOGUES; PRODUITS CERAMIQUES; VERRE ET OUVRAGES EN VERRE.",
+   "chapitres": [
+    68,
+    69,
+    70
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XIV",
+   "titre": "PERLES FINES OU DE CULTURE, PIERRES GEMMES OU SIMILAIRES, METAUX PRECIEUX, PLAQUES OU DOUBLES DE METAUX PRECIEUX ET OUVRAGES EN CES MATIERES; BIJOUTERIE DE FANTAISIE; MONNAIES",
+   "chapitres": [
+    71
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XV",
+   "titre": "METAUX COMMUNS ET OUVRAGES EN CES MATIERES",
+   "chapitres": [
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83
+   ],
+   "notes": "Notes.\n1.- La présente Section ne comprend pas :\na) les couleurs et encres préparées à base de poudres ou paillettes métalliques, ainsi que les feuilles à\nmarquer au fer (n°s 32.07 à 32.10, 32.12, 32.13 ou 32.15) ;\nb) le ferrocérium et autres alliages pyrophoriques (n° 36.06) ;\nc) les coiffures métalliques et leurs parties métalliques, des n°s 65.06 ou 65.07 ;\nd) les montures de parapluies et autres articles du n° 66.03 ;\ne) les produits du Chapitre 71 (alliages de métaux précieux, métaux communs plaqués ou doublés de\nmétaux précieux, bijouterie de fantaisie, par exemple) ;\nf) les articles de la Section XVI (machines et appareils ; matériel électrique) ;\ng) les voies ferrées assemblées (n° 86.08) et autres articles de la Section XVII (véhicules, bateaux,\nvéhicules aériens) ;\nh) les instruments et appareils de la Section XVIII, y compris les ressorts d'horlogerie ;\nij) les plombs de chasse (n° 93.06) et autres articles de la Section XIX (armes et munitions) ;\nk) les articles du Chapitre 94 (meubles, sommiers, appareils d'éclairage, enseignes lumineuses,\nconstructions préfabriquées, par exemple) ;\nl) les articles du Chapitre 95 (jouets, jeux, engins sportifs, par exemple) ;\nm) les tamis à main, les boutons, les porte-plume, porte-mine, plumes et autres articles du Chapitre 96\n(ouvrages divers) ;\nn) les articles du Chapitre 97 (objets d'art, par exemple).\n2.- Dans la Nomenclature, on entend par parties et fournitures d'emploi général :\na) les articles des n°s73.07, 73.12, 73.15, 73.17 ou 73.18, ainsi que les articles similaires en autres métaux\ncommuns ;\nb) les ressorts et lames de ressorts en métaux communs, autres que les ressorts d'horlogerie (n° 91.14) ;\nc) les articles des n°s 83.01, 83.02, 83.08, 83.10 ainsi que les cadres et la miroiterie en\nmétaux communs du n° 83.06.\nDans les Chapitres 73 à 76 et 78 à 82 (à l'exception du n° 73.15), les mentions relatives aux parties ne couvrent pas\nles parties et fournitures d'emploi général au sens ci-dessus.\nSous réserve des dispositions du paragraphe précédent et de la Note 1 du Chapitre 83, les ouvrages des Chapitres\n82 ou 83 sont exclus des Chapitres 72 à 76 et 78 à 81.\n3.- Dans la Nomenclature, on entend par métaux commun : la fonte, le fer et l'acier, le cuivre, le nickel, l'aluminium, le\nplomb, le zinc, l'étain, le tungstène (Wolfram), le molybdène, le tantale, le magnésium, le cobalt, le bismuth, le\ncadmium, le titane, le zirconium, l'antimoine, le manganèse, le béryllium, le chrome, le germanium, le vanadium, le\ngallium, le hafnium (celtium), l'indium, le niobium, (columbium), le rhénium et le thallium.\n4.- Dans la Nomenclature, le terme cermets s'entend d'un produit contenant une combinaison hétérogène microscopique\nd'un composant métallique et d'un composant céramique. Ce terme couvre également les métaux durs (carbures\nmétalliques frittés) qui sont des carbures métalliques frittés avec du métal.\n5.- Règle des alliages (autres que les ferro-alliages et les alliages mères définis dans les Chapitres 72 et 74) :\na) les alliages de métaux communs sont classés avec le métal qui prédomine en poids sur\nchacun des autres constituants ;\nb) les alliages de métaux communs de la présente Section et d'éléments ne relevant pas de cette Section\nsont classés comme alliages de métaux communs de la présente Section lorsque le poids total de ces\nmétaux est égal ou supérieur à celui des autres éléments ;\nc) les mélanges frittés de poudres métalliques, les mélanges hétérogènes intimes obtenus par fusion\n(autres que les cermets) et les composés intermétalliques suivent le régime des alliages.\n6.- Sauf dispositions contraires, toute référence à un métal commun dans la Nomenclature s'entend également des alliages\nclassés avec ce métal par application de la Note 5.\n7.- Règle des articles composites :\nSauf dispositions contraires résultant du libellé des positions, les ouvrages en métaux communs ou considérés\ncomme tels,\nqui comprennent deux ou plusieurs métaux communs, sont classés avec l'ouvrage correspondant du métal\nprédominant en poids sur chacun des autres métaux.\nPour l'application de cette règle, on considère :\na) la fonte, le fer et l'acier comme constituant un seul métal ;\nb) les alliages comme constitués, pour la totalité de leur poids, par le métal dont ils suivent le régime par\napplication de la note 5 ;\nc) un cermet du n° 81.14 comme constituant un seul métal commun.\n8.- Dans la présente Section, on entend par :\na) Déchets et débris :\nLes déchets et débris métalliques provenant de la fabrication ou de l'usinage des métaux et les ouvrages\nen métaux définitivement inutilisables en tant que tels par suite de bris, découpage, usure ou autres\nmotifs.\nb) Poudres :\nLes produits qui passent à travers un tamis d'une ouverture de maille de 1 mm dans une proportion égale\nou supérieure à 90 % en poids."
+  },
+  {
+   "section": "XVI",
+   "titre": "MACHINES ET APPAREILS, MATERIFLS ELECTRIQUES ET LEUR PARTIES; APPAREILS D’ENREGISTREMENT OU DE REPRODUCTION DU SON, APPAREILS D’ENREGISTREMENT OU DE RFPRODUCTION DES IMAGES ET DU SON EN TELEVISION, ET PARTIES ET ACCESSOIRES DE CES APPAREILS",
+   "chapitres": [
+    84,
+    85
+   ],
+   "notes": "Notes.\n1.- La présente Section ne comprend pas :\na) les courroies transporteuses ou de transmission en matières plastiques du Chapitre 39, les courroies\ntransporteuses ou de transmission en caoutchouc vulcanisé (n° 40.10) ainsi que les articles à usages techniques\nen caoutchouc vulcanisé non durci (n° 40.16) ;\nb) les articles à usages techniques en cuir naturel ou reconstitué (n° 42.05) ou en pelleteries (n° 43.03) ;\nc) les canettes, fusettes, tubes, bobines et supports similaires en toutes matières (Chapitres 39, 40, 44, 48 ou\nSection XV par exemple) ;\nd) les cartes perforées pour mécaniques Jacquard ou machines similaires (Chapitres 39 ou 48 ou Section XV, par\nexemple) ;\ne) les courroies transporteuses ou de transmission en matières textiles (n° 59.10) ainsi que les articles pour usages\ntechniques en matières textiles (n° 59.11) ;\nf) les pierres gemmes, les pierres synthétiques ou reconstituées des n°s 71.02 à 71.04, ainsi que les ouvrages\nentièrement en ces matières du n°71.16, à l'exception toutefois, des saphirs et des diamants travaillés non\nmontés pour pointes de lecture (n° 85.22) ;\ng) les parties et fournitures d'emploi général, au sens de la Note 2 de la Section XV, en métaux communs (Section\nXV) et les articles similaires en matières plastiques (chapitre 39) ;\nh) les tiges de forage (n° 73.04) ;\nij) les toiles et courroies sans fin en fils ou en bandes métalliques (Section XV) ;\nk) les articles des Chapitres 82 ou 83 ;\nl) les articles de la Section XVII ;\nm) les articles du Chapitre 90 ;\nn) les articles d'horlogerie (Chapitre 91) ;\no) les outils interchangeables du n° 82.07 et les brosses constituant des éléments de machines (n°96.03), ainsi que\nles outils interchangeables similaires qui sont à classer d'après la matière constitutive de leur partie travaillante\n(Chapitres 40, 42, 43, 45, 59, n°s 68.04, 69.09, par exemple) ;\np) les articles du Chapitre 95 ;\nq) les rubans encreurs pour machines à écrire et rubans encreurs similaires, même montés sur bobines ou en\ncartouches (régime de la matière constitutive ou n° 96.12 s'ils sont encrés ou autrement préparés en vue de\nlaisser des empreintes).\n2.- Sous réserve des dispositions de la Note 1 de la présente Section et de la Note 1 des Chapitres 84 et 85, les parties\nde machines (à l'exception des parties des articles des n°s 84.84, 85.44, 85.45, 85.46 ou 85.47) sont classées\nconformément aux Règles ci-après :\na) les parties consistant en articles compris dans l'une quelconque des positions des Chapitres 84 ou 85 (à\nl'exception des n°s 84.09, 84.31, 84.48, 84.66, 84.73, 84.87, 85.03, 85.22, 85.29, 85.38 et 85.48) relèvent de\nladite position, quelle que soit la machine à laquelle elles sont destinées;\nb) lorsqu'elles sont reconnaissables comme exclusivement ou principalement destinées à une machine particulière ou\nà plusieurs machines d'une même position (même des n°s 84.79 ou 85.43), les parties, autres que celles visées au\nparagraphe précédent, sont classées dans la position afférente à cette ou à ces machines ou, selon les cas, dans\nles n°s 84.09, 84.31, 84.48, 84.66, 84.73, 85.03, 85.22, 85.29 ou 85.38. Toutefois, les parties destinées\nprincipalement aussi bien aux articles du n° 85.17 qu'à ceux des n°s 85.25 à 85.28, sont rangées au n° 85.17 ;\nc) les autres parties relèvent des n°s 84.09, 84.31, 84.48, 84.66, 84.73, 85.03, 85.22, 85.29 ou 85.38, selon le cas,\nou, à défaut, des n°s 84.87 ou 85.48\n3.- Sauf dispositions contraires, les combinaisons de machines d'espèces différentes destinées à fonctionner ensemble\net ne constituant qu'un seul corps, ainsi que les machines conçues pour assurer deux ou plusieurs fonctions différentes,\nalternatives ou complémentaires, sont classées suivant la fonction principale qui caractérise l'ensemble.\n4.- Lorsqu'une machine ou une combinaison de machines sont constituées par des éléments distincts (même séparés ou\nreliés entre eux par des conduites, des dispositifs de transmission, des câbles électriques ou autre aménagement) en\nvue d'assurer concurremment une fonction bien déterminée comprise dans l'une des positions du Chapitre 84 ou du\nChapitre 85, l'ensemble est à classer dans la position correspondant à la fonction qu'il assure.\n5.- Pour l'application des Notes qui précèdent, la dénomination machines couvre les machines, appareils, dispositifs,\nengins et matériels divers cités dans les positions des Chapitres 84 ou 85."
+  },
+  {
+   "section": "XVII",
+   "titre": "MATERIEL DE TRANSPORT",
+   "chapitres": [
+    86,
+    87,
+    88,
+    89
+   ],
+   "notes": "Notes.\n1.- La présente Section ne comprend pas les articles des n°s 95.03 ou 95.08, ni les luges, bobsleighs et similaires (n° 95.06).\n2.- Ne sont pas considérés comme parties ou accessoires, même lorsqu'ils sont reconnaissables comme destinés à du\nmatériel de transport :\na) les joints, rondelles et similaires en toutes matières (régime de la matière constitutive ou n° 84.84) ainsi que\nles autres articles en caoutchouc vulcanisé non durci (n° 40.16);\nb) les parties et fournitures d'emploi général, au sens de la Note 2 de la Section XV, en métaux communs\n(Section XV) et les articles similaires en matières plastiques (Chapitre 39);\nc) les articles du Chapitre 82 (outils) ;\nd) les articles du n° 83.06 ;\ne) les machines et appareils des n°s 84.01 à 84.79, ainsi que leurs parties ; les articles des n°s 84.81 ou 84.82\net, pour autant qu'ils constituent des parties intrinsèques de moteurs, les articles du n° 84.83 ;\nf) les machines et appareils électriques, ainsi que les appareillages et accessoires électriques (Chapitre 85) ;\ng) les instruments et appareils du Chapitre 90 ;\nh) les articles du Chapitre 91 ;\nij) les armes (Chapitre 93) ;\nk) les appareils d'éclairage et leurs parties, du n° 94.05 ;\nl) les brosses constituant des éléments de véhicules (n° 96.03).\n3.- Au sens des Chapitres 86 à 88, les références aux parties ou aux accessoires ne couvrent pas les parties ou accessoires\nqui ne sont pas exclusivement ou principalement destinés aux véhicules ou articles de la présente Section. Lorsqu'une\npartie ou un accessoire est susceptible de répondre à la fois aux spécifications de deux ou plusieurs positions de la\nSection, il doit être classé dans la position qui correspond à son usage principal.\n4.- Dans la présente section :\na) les véhicules spécialement conçus pour être utilisés sur route et sur rails sont à classer dans la position\nappropriée du Chapitre 87 ;\nb) les véhicules automobiles amphibies sont à classer dans la position appropriée du Chapitre 87 ;\nc) les véhicules aériens spécialement conçus pour pouvoir être utilisés également comme véhicules terrestres\nsont à classer dans la position appropriée du Chapitre 88.\n5.- Les véhicules à coussin d'air sont à classer avec les véhicules les plus analogues :\na) du Chapitre 86 s'ils sont conçus pour se déplacer au-dessus d'une voie de guidage (aérotrains) ;\nb) du Chapitre 87 s'ils sont conçus pour se déplacer au-dessus de la terre ferme ou indifféremment au-dessus\nde la terre ferme et de l'eau ;\nc) du Chapitre 89 s'ils sont conçus pour se déplacer au-dessus de l'eau, même s'ils peuvent se poser sur des\nplages ou des débarcadères ou se déplacer également au-dessus de surfaces glacées.\nLes parties et accessoires de véhicules à coussin d'air sont à classer dans les mêmes conditions que ceux des véhicules de\nla position dans laquelle ils sont rangés par application des dispositions qui précèdent.\nLe matériel fixe pour voies d'aérotrains doit être considéré comme du matériel fixe de voies ferrées, et les appareils de\nsignalisation, de sécurité, de contrôle ou de commande pour voies d'aérotrains comme des appareils de signalisation, de\nsécurité, de contrôle ou de commande pour voies ferrées."
+  },
+  {
+   "section": "XVIII",
+   "titre": "INSTRUMENTS ET APPAREILS D’OPTIQUE, DE PHOTOGRAPHIE OU DE CINEMATOGRAPHIE, DE MESURE, DE CONTROLE OU DE PRECISION; INSTRUMENTS ET APPAREILS MEDICO-CHIRURGICAUX; HORLOGERIE; INSTRUMENTS DE MUSIQUE; PARTIES ET ACCESSOIRES DE CES INSTRUMENTS OU APPAREILS",
+   "chapitres": [
+    90,
+    91,
+    92
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XIX",
+   "titre": "ARMES, MUNITIONS ET LEURS PARTIES ET ACCESSOIRES",
+   "chapitres": [
+    93
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XX",
+   "titre": "MARCHANDISES ET PRODUITS DIVERS",
+   "chapitres": [
+    94,
+    95,
+    96
+   ],
+   "notes": ""
+  },
+  {
+   "section": "XXI",
+   "titre": "OBJET D’ART, DE COLLECTION OU D’ANTIQUITE",
+   "chapitres": [
+    97
+   ],
+   "notes": ""
+  }
+ ]
+}
