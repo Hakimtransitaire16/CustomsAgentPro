@@ -22,19 +22,52 @@ DECLARANT = "ABDEL HAKIM HADJALLAH"
 
 DATE = '<span class="date"><span>JJ</span>/<span>MM</span>/<span class="y">AAAA</span></span>'
 
+# Fiche remplie : valeurs transcrites depuis la fiche papier (même schéma que la copie électronique).
+# Vide = formulaire vierge. Ce qui est saisi s'imprime en bleu « encre ».
+V = {}
 
-def comb(n, sep=None, tint=()):
+
+def C(cle):
+    return str((V.get("conteneur") or {}).get(cle) or "")
+
+
+def VH(i):
+    vs = V.get("vehicules") or []
+    return vs[i] if i < len(vs) else {}
+
+
+def esc(t):
+    return str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def hw(t):
+    return f'<span class="hw">{esc(t)}</span>' if t else ''
+
+
+def date(v=""):
+    import re as _re
+    m = _re.match(r"\s*(\d{1,2})[/.-](\d{1,2})[/.-](\d{2,4})\s*$", v or "")
+    if not m:
+        return DATE
+    j, mo, a = m.groups()
+    a = a if len(a) == 4 else "20" + a
+    return f'<span class="date f"><span>{int(j):02d}</span>/<span>{int(mo):02d}</span>/<span class="y">{a}</span></span>'
+
+
+def comb(n, sep=None, tint=(), txt=""):
+    txt = (txt or "").replace(" ", "")
     out = ''
     for k in range(1, n + 1):
         cls = []
         if k in tint: cls.append('t')
         if sep and k == sep: cls.append('s')
-        out += f'<i class="{" ".join(cls)}"></i>'
-    return f'<span class="comb">{out}</span>'
+        c = esc(txt[k - 1]) if k <= len(txt) else ''
+        out += f'<i class="{" ".join(cls)}">{c}</i>'
+    return f'<span class="comb{" f" if txt else ""}">{out}</span>'
 
 
-def opts(*o):
-    return '<span class="opts">' + ''.join(f'<span>{x}</span>' for x in o) + '</span>'
+def opts(*o, choix=""):
+    return '<span class="opts">' + ''.join(f'<span class="{"on" if choix and choix.lower().startswith(x.lower()[:5]) else ""}">{x}</span>' for x in o) + '</span>'
 
 
 def case(no, label, body='', span=6):
@@ -129,9 +162,9 @@ def tete(sous_titre, page):
     </div>
     {serie(page)}
     <dl class="meta">
-      <dt>Réf. dossier</dt><dd></dd>
-      <dt>N° facture</dt><dd></dd>
-      <dt>N° facture TC vide</dt><dd></dd>
+      <dt>Réf. dossier</dt><dd>{hw(C("ref_dossier"))}</dd>
+      <dt>N° facture</dt><dd>{hw(C("n_facture"))}</dd>
+      <dt>N° facture TC vide</dt><dd>{hw(C("n_facture_tc_vide"))}</dd>
     </dl>
   </header>'''
 
@@ -142,7 +175,7 @@ def tete_suite():
   <header class="inv suite">
     <div class="from"><div class="brand">{TRANSITAIRE}</div><p>Suivi véhicules · feuille étapes</p></div>
     {serie("2 / 2")}
-    <dl class="meta"><dt>Réf. dossier</dt><dd></dd></dl>
+    <dl class="meta"><dt>Réf. dossier</dt><dd>{hw(C("ref_dossier"))}</dd></dl>
   </header>'''
 
 
@@ -179,10 +212,13 @@ def pied(gauche, page="1 / 2"):
 
 
 def page1():
-    vin = comb(17, tint=range(12, 18))
-    etat = opts("Neuf", "Moins de 3 ans · avec PV d'expertise")
-    vehs = ''.join(f'<tr class="va"><td class="n" rowspan="2">{k}</td><td><div class="il"><span class="k">Marque</span><i></i></div></td><td><div class="il"><span class="k">Modèle · couleur</span><i></i></div></td><td class="et">{etat}</td></tr>'
-                   f'<tr class="vb"><td colspan="3">{vin}</td></tr>' for k in range(1, 5))
+    def ligne(k):
+        v = VH(k - 1)
+        etat = opts("Neuf", "Moins de 3 ans · avec PV d'expertise", choix=v.get("etat", ""))
+        return (f'<tr class="va"><td class="n" rowspan="2">{k}</td><td><div class="il"><span class="k">Marque</span>{hw(v.get("marque")) or "<i></i>"}</div></td>'
+                f'<td><div class="il"><span class="k">Modèle · couleur</span>{hw(v.get("modele")) or "<i></i>"}</div></td><td class="et">{etat}</td></tr>'
+                f'<tr class="vb"><td colspan="3">{comb(17, tint=range(12, 18), txt=v.get("vin", ""))}</td></tr>')
+    vehs = ''.join(ligne(k) for k in range(1, 5))
     return f'''
 <section>{marques()}{tete("Feuille conteneur", "1 / 2")}
   <div class="guiw">{guilloche()}</div>
@@ -190,34 +226,34 @@ def page1():
   <div class="sec"><span class="sl">A</span>Conteneur et transport</div>
   <div class="grid">
     {case(1, "Transitaire", f'<span class="pre">{TRANSITAIRE}</span>', 4)}
-    {case(2, "Compagnie maritime", '', 4)}
-    {case(3, "CRN", '', 4)}
-    {case(4, "N° du TC · date", '<span class="big">' + comb(11, sep=5) + '</span>' + '<span class="gap"></span>' + DATE, 8)}
-    {case(5, "N° B/L", '', 4)}
-    {case(6, "Bon à délivrer", opts("Récupéré", "Non récupéré") + '<span class="gap"></span>' + DATE, 7)}
-    {case(7, "Bureau de douane", '', 5)}
+    {case(2, "Compagnie maritime", hw(C("compagnie")), 4)}
+    {case(3, "CRN", hw(C("crn")), 4)}
+    {case(4, "N° du TC · date", '<span class="big">' + comb(11, sep=5, txt=C("tc")) + '</span>' + '<span class="gap"></span>' + date(C("tc_date")), 8)}
+    {case(5, "N° B/L", hw(C("bl")), 4)}
+    {case(6, "Bon à délivrer", opts("Récupéré", "Non récupéré", choix=C("bad")) + '<span class="gap"></span>' + date(C("bad_date")), 7)}
+    {case(7, "Bureau de douane", hw(C("bureau")), 5)}
   </div>
   <div class="sec"><span class="sl">B</span>Entreposage et dépotage</div>
   <div class="grid">
-    {case(8, "Entrepôt", '', 5)}
-    {case(9, "État de dépotage · date", opts("Dépoté", "Non dépoté") + '<span class="gap"></span>' + DATE, 7)}
-    {case(10, "Groupeur", '', 7)}
-    {case(11, "Relâche du groupeur", opts("Oui", "Non"), 5)}
+    {case(8, "Entrepôt", hw(C("entrepot")), 5)}
+    {case(9, "État de dépotage · date", opts("Dépoté", "Non dépoté", choix=C("depotage")) + '<span class="gap"></span>' + date(C("depotage_date")), 7)}
+    {case(10, "Groupeur", hw(C("groupeur")), 7)}
+    {case(11, "Relâche du groupeur", opts("Oui", "Non", choix=C("relache")), 5)}
   </div>
   <div class="sec"><span class="sl">C</span>TC vide</div>
   <div class="grid">
-    {case(12, "Facturation du TC vide", DATE, 4)}
-    {case(13, "Livraison du TC vide", DATE, 4)}
-    {case(14, "Montant facturation TC", '<span class="gap"></span><span class="unit">DA</span>', 4)}
+    {case(12, "Facturation du TC vide", date(C("tc_vide_facturation")), 4)}
+    {case(13, "Livraison du TC vide", date(C("tc_vide_livraison")), 4)}
+    {case(14, "Montant facturation TC", hw(C("tc_vide_montant")) + '<span class="gap"></span><span class="unit">DA</span>', 4)}
   </div>
   <div class="sec"><span class="sl">D</span>Client et véhicules sur le TC</div>
-  <div class="grid">{case(15, "Nom du client", '', 8)}{case(16, "Tél. client", '', 4)}</div>
+  <div class="grid">{case(15, "Nom du client", hw(C("client")), 8)}{case(16, "Tél. client", hw(C("tel")), 4)}</div>
   <table class="veh">
     <thead><tr><th>N°</th><th colspan="3">Véhicules sur le TC · marque, modèle, état et n° de châssis (VIN) <span class="hint">· 6 dernières cases teintées = référence</span></th></tr></thead>
     <tbody>{vehs}</tbody>
   </table>
   <div class="sec"><span class="sl">E</span>Observations</div>
-  <div class="obsrow"><div class="obs"><i></i><i></i></div><div class="holo"><span>Hologramme<br>de sécurité</span></div></div>
+  <div class="obsrow"><div class="obs">{('<p class="hwo">' + esc(C("observations")) + '</p>') if C("observations") else '<i></i><i></i>'}</div><div class="holo"><span>Hologramme<br>de sécurité</span></div></div>
   </div>
   {pied("VIN : 17 caractères, jamais I, O ni Q · dates portées à la main à chaque étape")}
 </section>'''
@@ -225,46 +261,52 @@ def page1():
 
 PHASES = [
     ("Douane", "c1", [
-        ("Déclaration D10", ["N° D10", "EPC", "APC"]),
-        ("Liquidation avec l'inspecteur et l'agent", ["Inspecteur", "Montant DA", "Agent", "Montant DA"]),
-        ("Dédouanement", [("Paiement", ["Chèque", "Paiement électronique"])]),
+        ("decl", "Déclaration D10", [("N° D10", "n_d10"), ("EPC", "epc"), ("APC", "apc")]),
+        ("liq", "Liquidation avec l'inspecteur et l'agent", [("Inspecteur", "inspecteur"), ("Montant DA", "montant_inspecteur"), ("Agent", "agent"), ("Montant DA", "montant_agent")]),
+        ("dedo", "Dédouanement", [("Paiement", "paiement", ["Chèque", "Paiement électronique"])]),
     ]),
     ("Règlement", "c2", [
-        ("Bon à enlever · quittance", ["N° bon à enlever", "N° quittance", "Montant DA"]),
-        ("Facturation", ["N° facture", "Montant DA"]),
+        ("bae", "Bon à enlever · quittance", [("N° bon à enlever", "n_bae"), ("N° quittance", "n_quittance"), ("Montant DA", "montant")]),
+        ("fact", "Facturation", [("N° facture", "n_facture"), ("Montant DA", "montant")]),
     ]),
     ("Livraison et 846", "c3", [
-        ("Livraison au propriétaire", ["Transporteur", "Reçu par"]),
-        ("Demande du 846", ["N° de dépôt"]),
-        ("846 prêt et remis", ["N° 846", "Remis à"]),
+        ("livr", "Livraison au propriétaire", [("Transporteur", "transporteur"), ("Reçu par", "recu_par")]),
+        ("d846", "Demande du 846", [("N° de dépôt", "n_depot")]),
+        ("p846", "846 prêt et remis", [("N° 846", "n_846"), ("Remis à", "remis_a")]),
     ]),
 ]
 
 
-def cellule(champs):
-    h = f'<td><div class="top">{DATE}<span class="tick"></span></div>'
+def cellule(champs, x=None):
+    x = x or {}
+    fait = x.get("fait") or x.get("date")
+    h = f'<td><div class="top">{date(x.get("date", ""))}<span class="tick{" on" if fait else ""}"></span></div>'
     for c in champs:
-        if isinstance(c, tuple):
-            h += f'<div class="fl"><span>{c[0]}</span></div><div class="ops">' + ''.join(f'<span>{o}</span>' for o in c[1]) + '</div>'
+        if len(c) == 3:
+            choix = x.get(c[1], "")
+            h += f'<div class="fl"><span>{c[0]}</span></div><div class="ops">' + ''.join(
+                f'<span class="{"on" if choix and choix.lower().startswith(o.lower()[:5]) else ""}">{o}</span>' for o in c[2]) + '</div>'
         else:
-            h += f'<div class="fl"><span>{c}</span><i></i></div>'
+            h += f'<div class="fl"><span>{c[0]}</span>{hw(x.get(c[1])) or "<i></i>"}</div>'
     return h + '</td>'
 
 
 def page2():
     head = ''.join(f'<th><div class="vh">Véhicule {k}</div><div class="vr">VIN : voir case V{k}</div></th>' for k in range(1, 5))
-    vins = ''.join(f'<div class="case vin"><div class="lb"><span class="no">V{k}</span>Véhicule {k} · N° de châssis (VIN)</div><div class="bd">{comb(17, tint=range(12, 18))}</div></div>' for k in range(1, 5))
+    vins = ''.join(f'<div class="case vin"><div class="lb"><span class="no">V{k}</span>Véhicule {k} · N° de châssis (VIN)</div><div class="bd">{comb(17, tint=range(12, 18), txt=VH(k - 1).get("vin", ""))}</div></div>' for k in range(1, 5))
     rows, k = '', 0
     for phase, c, etapes in PHASES:
         rows += f'<tr class="ph {c}"><td colspan="5"><span>{phase}</span></td></tr>'
-        for titre, champs in etapes:
+        for cle, titre, champs in etapes:
             k += 1
-            rows += f'<tr class="st {c}"><th class="rail"><span class="dot">{k}</span><span class="tt">{titre}</span></th>' + cellule(champs) * 4 + '</tr>'
-    tot = '<td><div class="fl"><span>Payé DA</span><i></i></div><div class="fl"><span>Facturé DA</span><i></i></div></td>' * 4
+            rows += (f'<tr class="st {c}"><th class="rail"><span class="dot">{k}</span><span class="tt">{titre}</span></th>'
+                     + ''.join(cellule(champs, (VH(i).get("etapes") or {}).get(cle)) for i in range(4)) + '</tr>')
+    tot = ''.join(f'<td><div class="fl"><span>Payé DA</span>{hw((VH(i).get("totaux") or {}).get("paye")) or "<i></i>"}</div>'
+                  f'<div class="fl"><span>Facturé DA</span>{hw((VH(i).get("totaux") or {}).get("facture")) or "<i></i>"}</div></td>' for i in range(4))
     return f'''
 <section>{marques()}{tete_suite()}
   <div class="body">
-  <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5)}</div></div></div>
+  <div class="p2ref"><div class="case" style="flex:1.25"><div class="lb"><span class="no">4</span>N° du TC</div><div class="bd">{comb(11, sep=5, txt=C("tc"))}</div></div></div>
   <div class="vins">{vins}</div>
   <table class="mx"><colgroup><col style="width:31mm"><col><col><col><col></colgroup>
     <thead><tr><th class="rh">Étape</th>{head}</tr></thead>
@@ -545,6 +587,15 @@ header.inv.suite .qr{width:14mm!important;height:14mm!important}
 header.inv.suite .ser{flex-direction:row;gap:2mm}
 header.inv.suite .sn{text-align:left}
 header.inv.suite{padding-top:5mm!important}
+/* Saisie : encre bleue */
+.hw{color:#123E8C;font-weight:700;font-size:9pt;letter-spacing:.02em;line-height:1.15;flex:1;min-width:0}
+.fl .hw,.il .hw{font-size:6.8pt;border-bottom:1px solid var(--rule);padding-bottom:.2mm}
+.meta dd .hw{display:block;padding-top:2.2mm;font-size:8pt}
+.comb.f i{display:flex;align-items:center;justify-content:center;font:700 8pt "DejaVu Sans Mono",monospace;color:#123E8C}
+.date.f{color:#123E8C}.date.f span{border-bottom-color:#123E8C}
+.opts span.on::before,.ops span.on::before{content:"✓";background:#123E8C;border-color:#123E8C!important;color:#fff;font-size:6.6pt;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.tick.on{background:#123E8C;border-color:#123E8C!important}
+.hwo{margin:0;padding:1.6mm 2.2mm;color:#123E8C;font-weight:700;font-size:8.6pt}
 .fil{position:absolute;left:15.2mm;top:0;width:4mm;height:297mm;display:flex;flex-direction:column;z-index:5}
 .fil i{flex:1;display:block}
 .holo{flex:none;width:22mm;border:1px dashed var(--mute);display:flex;align-items:center;justify-content:center;text-align:center;font-size:5.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.4}
@@ -572,6 +623,27 @@ def html(palette="facture-ue", numeros=(None,)):
     SERIE["n"] = None
     return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Suivi véhicules — {TRANSITAIRE}</title>'
             f'<style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{corps}</body></html>')
+
+
+def remplie(donnees: dict, sortie: Path, numero: str, cle: str, palette: str = "britannique") -> Path:
+    """Fiche remplie (saisie en bleu) au numéro et à la clé donnés : son code QR ouvre sa copie électronique."""
+    global V
+    V = donnees
+    try:
+        sortie.mkdir(parents=True, exist_ok=True)
+        f = sortie / '_fiche_remplie.html'
+        SERIE["n"], SERIE["cle"] = numero, cle
+        corps = page1() + page2()
+        SERIE["n"] = SERIE["cle"] = None
+        f.write_text(f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Fiche {numero}</title><style>{CSS}{PALETTES[palette]}{SECURITE}</style></head><body>{corps}</body></html>', encoding='utf-8')
+        out = sortie / f'Fiche_suivi_vehicules_{numero}_remplie.pdf'
+        subprocess.run(['node', '-e', f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage();await p.goto('file://{f.resolve()}');await p.waitForTimeout(300);
+const o=await p.evaluate(()=>[...document.querySelectorAll('section')].map(s=>{{const b=s.querySelector('.body');return Math.max(0,b.scrollHeight-b.clientHeight)}}));if(o.some(x=>x>1))console.log('  ! débordement (px) :',o);
+await p.pdf({{path:'{out.resolve()}',preferCSSPageSize:true,printBackground:true}});await b.close();}})()"""], check=True)
+        f.unlink()
+        return out
+    finally:
+        V = {}
 
 
 def construire(sortie: Path, palette: str = "britannique", debut: int = 0, nombre: int = 1, annee: int = 2026) -> Path:
