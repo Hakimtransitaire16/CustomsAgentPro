@@ -10,7 +10,7 @@ from PIL import Image
 
 from . import calc, tarif
 import json as _json
-from .data import n, sh
+from .data import conteneurs, n, sh
 
 TPL = Path(__file__).parent / "templates"
 
@@ -49,9 +49,15 @@ def taxe(a, code):
 
 def checklist(d):
     t, dec = d["transport"], d["declaration"]
-    out = [f"Scellé <b>{t.get('scelle')}</b> intact et conforme au connaissement.",
-           f"Conteneur <b>{t.get('conteneur')}</b> ({t.get('type_conteneur', '')}, tare {n(t.get('tare'))} kg).",
-           f"<b>{dec['nb_colis']} colis</b> à compter."]
+    tcs = conteneurs(d)
+    if len(tcs) > 1:
+        out = [f"<b>{c['numero']}</b> · scellé <b>{c.get('scelle', '—')}</b> intact"
+               + (f" · {n(c['palettes'])} palettes" if c.get("palettes") else "") + (f" · {n(c['brut'])} kg" if c.get("brut") else "") + "."
+               for c in tcs]
+    else:
+        out = [f"Scellé <b>{t.get('scelle')}</b> intact et conforme au connaissement.",
+               f"Conteneur <b>{t.get('conteneur')}</b> ({t.get('type_conteneur', '')}" + (f", tare {n(t.get('tare'))} kg" if t.get("tare") else "") + ")."]
+    out.append(f"<b>{dec['nb_colis']} colis</b> à compter.")
     for c in d.get("colisage", []):
         out.append(f"Type {c['type']} : {n(c['palettes'])} {c.get('unite', 'palette(s)')} — {c['contenu']}.")
     for a in d["articles"]:
@@ -136,9 +142,36 @@ def contexte(d, fidelite=None, visite=None, pngs=None, live=False):
     )
 
 
+SOURCES = (("facture", "FAC"), ("colisage", "PL"), ("b/l", "BL"), ("avis d'arrivée", "AA"), ("programme miph", "PPI"))
+
+
+def filtre_pieces(d):
+    """Filtre Jinja : dans « Facture · colisage · B/L », ne garde que les pièces présentes au dossier.
+
+    Une pièce absente n'est jamais citée comme source ; si tout disparaît, on cite le document
+    du fournisseur (code DOC) s'il existe, sinon le D10.
+    """
+    codes = {doc.get("code", "") for doc in d.get("documents", [])}
+
+    def f(s):
+        gardes, retire = [], False
+        for tok in str(s).split(" · "):
+            code = next((c for mot, c in SOURCES if mot in tok.lower()), None)
+            if code and code not in codes:
+                retire = retire or code in ("FAC", "PL")     # seul un document commercial est remplacé par celui du fournisseur
+                continue
+            gardes.append(tok)
+        if retire and "DOC" in codes and not any("fournisseur" in g.lower() for g in gardes):
+            gardes.append("document du fournisseur")
+        if gardes:
+            gardes[0] = gardes[0][0].upper() + gardes[0][1:]
+        return " · ".join(gardes) or "D10"
+    return f
+
+
 def html(d, modele="fiche_visite.html.j2", **kw):
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
-    env.filters.update(n=n, sh=sh, add_suffix=lambda s, suf: f"{s}{suf}")
+    env.filters.update(n=n, sh=sh, add_suffix=lambda s, suf: f"{s}{suf}", pieces=filtre_pieces(d))
     env.globals.update(icon=icon, taxe=taxe, total_art=lambda a: sum(0 if t.get("exonere") else t["montant"] for t in a["taxes"]))
     out = env.get_template(modele).render(**contexte(d, **kw))
     pages = out.count("{PAGE}")

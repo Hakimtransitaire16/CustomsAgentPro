@@ -9,7 +9,7 @@
 {%- macro foot() -%}<div class="ft"><span><b>Fiche de visite</b> — établie par {{ d.meta.declarant.nom }}, déclarant en douane{% if empreinte %} · empreinte SHA-256 <span class="mono-t">{{ empreinte }}</span>{% endif %}</span><span>{PAGE}</span></div>{%- endmacro -%}
 {%- macro sec(num, titre, cases='') -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2>{% if cases %}<span class="cases">{{ cases }}</span>{% endif %}</div>{%- endmacro -%}
 {%- macro kv(rows) -%}<table class="kv">{% for k, v in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{%- endmacro -%}
-{%- macro src(rows) -%}<table class="sv"><tr><th style="width:23%">Donnée</th><th>Valeur</th><th style="width:19%">Source</th></tr>{% for k, v, s in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td><td class="s">{{ s }}</td></tr>{% endfor %}</table>{%- endmacro -%}
+{%- macro src(rows) -%}<table class="sv"><tr><th style="width:23%">Donnée</th><th>Valeur</th><th style="width:19%">Source</th></tr>{% for k, v, s in rows if v %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td><td class="s">{{ s|pieces }}</td></tr>{% endfor %}</table>{%- endmacro -%}
 {%- macro txt(ref, t) -%}<div class="txt"><b>{{ ref }}</b> — {{ t }}</div>{%- endmacro -%}
 
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Fiche de visite — {{ d.meta.produit_titre or arts[0].designation }}</title><style>{{ css }}</style></head><body>
@@ -28,8 +28,8 @@
           ('Déclarant', d.parties.declarant_societe.nom ~ ' · agrément <span class="mono-t">' ~ d.parties.declarant_societe.agrement ~ '</span> · présenté par ' ~ d.meta.declarant.nom, 'D10 · décret 10-288')]) }}
 
   {{ sec('2', 'Parties à l\'opération', 'cases 2, 8, 15, 20, 22') }}
-  {{ src([('Importateur (case 8)', '<b>' ~ imp.nom ~ '</b> — ' ~ imp.adresse ~ '<br>NIF <span class="mono-t">' ~ imp.nif ~ '</span> · RC <span class="mono-t">' ~ imp.rc ~ '</span> · code fiscal <span class="mono-t">' ~ dec.code_fiscal ~ '</span>' ~ ((' · ' ~ imp.qualite) if imp.qualite else ''), 'D10 · B/L · programme MIPH'),
-          ('Vendeur (case 2)', '<b>' ~ four.nom ~ '</b> — ' ~ four.adresse ~ ((' · ' ~ four.role) if four.role else ''), 'Facture'),
+  {{ src([('Importateur (case 8)', '<b>' ~ imp.nom ~ '</b> — ' ~ imp.adresse ~ '<br>NIF <span class="mono-t">' ~ imp.nif ~ '</span>' ~ ((' · RC <span class="mono-t">' ~ imp.rc ~ '</span>') if imp.rc else '') ~ ' · code fiscal <span class="mono-t">' ~ dec.code_fiscal ~ '</span>' ~ ((' · ' ~ imp.qualite) if imp.qualite else ''), 'D10 · B/L · programme MIPH'),
+          ('Vendeur (case 2)', '<b>' ~ four.nom ~ '</b> — ' ~ four.adresse ~ ((' · ' ~ four.role) if four.role else ''), 'D10 · facture · B/L'),
           ('Fabricant et chargeur', ('<b>' ~ fab.nom ~ '</b> — ' ~ fab.adresse ~ ((' · ' ~ fab.role) if fab.role else '')) if fab else '', 'B/L'),
           ('Liens acheteur–vendeur (case 22)', vl.liens, 'D10 · art. 16 du code des douanes')]) }}
 
@@ -37,10 +37,10 @@
   {{ src([('Connaissement', '<span class="mono-t">' ~ tr.bl ~ '</span> · émis le ' ~ tr.date_bl ~ (' à ' ~ tr.lieu_bl if tr.lieu_bl else '') ~ ' · ' ~ tr.port_chargement ~ ' → ' ~ tr.port_dechargement, 'B/L'),
           ('Navires et voyages', tr.navire_detail or tr.navire, 'B/L · avis d\'arrivée · D10'),
           ('Provenance (art. 15)', arr.provenance, 'Code des douanes, art. 15'),
-          ('Accostage · sommier', arr.accostage ~ ' · ligne du sommier ' ~ dec.ligne_sommier, 'Avis d\'arrivée · D10 case 30'),
-          ('MRN — manifeste (case 29)', '<b class="mono-t">' ~ dec.mrn ~ '</b> · N° Gros <span class="mono-t">' ~ tr.bad.gros ~ '</span>' ~ (' · CRN ' ~ arr.crn if arr.crn else ''), 'D10 · avis d\'arrivée'),
+          ('Accostage · sommier' if arr.accostage else 'Inscription au sommier', ((arr.accostage ~ ' · ') if arr.accostage else '') ~ 'ligne du sommier ' ~ dec.ligne_sommier, 'Avis d\'arrivée · D10 case 30'),
+          ('MRN — manifeste (case 29)', '<b class="mono-t">' ~ dec.mrn ~ '</b>' ~ ((' · N° Gros <span class="mono-t">' ~ tr.bad.gros ~ '</span>') if tr.bad.gros else '') ~ (' · CRN ' ~ arr.crn if arr.crn else ''), 'D10 · avis d\'arrivée'),
           ('Conteneur · scellé', '<b class="mono-t">' ~ tr.conteneur ~ '</b> (' ~ tr.type_conteneur ~ ') · scellé <b class="mono-t">' ~ tr.scelle ~ '</b>', 'B/L · avis d\'arrivée'),
-          ('Localisation · lieu de visite', '<span class="mono-t">' ~ dec.localisation ~ '</span> · ' ~ (vis.lieu or ''), 'D10')]) }}
+          ('Localisation · lieu de visite' if vis.lieu else 'Localisation (case 35)', '<span class="mono-t">' ~ dec.localisation ~ '</span>' ~ ((' · ' ~ vis.lieu) if vis.lieu else ''), 'D10')]) }}
   {{ foot() }}
 </section>
 

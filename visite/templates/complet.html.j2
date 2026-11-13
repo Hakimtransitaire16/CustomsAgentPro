@@ -44,7 +44,7 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
     <div class="kt"><div class="l">Exonérés (DD + TVA)</div><div class="v">{{ enjeux[1][1]|n(2) if enjeux|length > 1 else '—' }} <small>DA</small></div><div class="s">régime fiscal {{ dec.regime_fiscal }}{{ (' · ' ~ d.exoneration.textes[0][0]) if (d.exoneration or {}).textes else '' }}</div></div>
     <div class="kt"><div class="l">Espèce tarifaire</div><div class="v">{{ a0.code_sh|sh }}</div><div class="s">DD {{ (a0.taxes|selectattr('code','equalto','DD')|first).quotite|n }} % · {{ a0.designation }}</div></div>
     <div class="kt"><div class="l">Quantité</div><div class="v">{{ a0.quantite.nombre|n }} <small>{{ a0.quantite.unite }}</small></div><div class="s">{{ a0.quantite_detail }}</div></div>
-    <div class="kt"><div class="l">Colis</div><div class="v">{{ dec.nb_colis|n }} <small>boîtes</small></div><div class="s">{{ d.colisage[0].contenu if d.colisage else '' }}</div></div>
+    <div class="kt"><div class="l">Colis</div><div class="v">{{ dec.nb_colis|n }} <small>{{ d.colisage[0].unite if d.colisage and d.colisage[0].unite else 'colis' }}</small></div><div class="s">{{ d.colisage[0].contenu if d.colisage else '' }}</div></div>
     <div class="kt"><div class="l">Poids</div><div class="v">{{ dec.poids_brut|n }} <small>kg brut</small></div><div class="s">{{ a0.poids_net|n }} kg net</div></div>
     <div class="kt"><div class="l">Conteneur · scellé</div><div class="v" style="font-size:10pt">{{ tr.conteneur }}</div><div class="s">{{ tr.type_conteneur }} · scellé {{ tr.scelle }}</div></div>
   </div>
@@ -78,13 +78,13 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
         <tr><td>Colis</td><td class="num">{{ dec.nb_colis|n }}</td><td></td><td></td></tr>
         {% for l, v in (d.terrain or {}).get('comptage', []) %}<tr><td>{{ l }}</td><td class="num">{{ v }}</td><td></td><td></td></tr>{% endfor %}
         <tr><td>Poids brut de la marchandise</td><td class="num">{{ dec.poids_brut|n }} kg</td><td></td><td></td></tr>
-        <tr><td>Scellé</td><td class="num">{{ tr.scelle }}</td><td></td><td></td></tr></table>
+        {% if not tr.get('_conteneurs') %}<tr><td>Scellé</td><td class="num">{{ tr.scelle }}</td><td></td><td></td></tr>{% endif %}</table>
       {% if (d.terrain or {}).note %}<p class="small">{{ d.terrain.note }}</p>{% endif %}</div>
   </div>
   <div class="pdsh mt2"><span>PLAN DE PHOTOS</span></div>
   <div class="slots">{% for s in slots %}<div class="slot">{{ loop.index }}. {{ s }}</div>{% endfor %}</div>
   <div class="pdsh mt2"><span>NOTES DE VISITE</span></div>
-  <div class="lines">{% for i in range(7) %}<div></div>{% endfor %}</div>
+  <div class="lines">{% for i in range(7 if (checklist|length <= 7 and slots|length <= 4) else 4) %}<div></div>{% endfor %}</div>
   {{ foot('partie B — fiche de terrain', p_b) }}
 </section>
 {% endif %}
@@ -102,8 +102,8 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
     {% for x, e, p in chrono %}<tr><td class="mono-t">{{ x }}</td><td>{{ e }}</td><td class="s">{{ p }}</td></tr>{% endfor %}</table>
 
   {{ sec('C3', 'Délais légaux depuis l\'accostage' ~ (' — ' ~ jours ~ ' jours jusqu\'au D10' if jours else '')) }}
-  <table><tr><th>Délai</th><th style="width:26%">Texte (cité en C5)</th><th style="width:16%">Échéance</th><th style="width:12%">État</th></tr>
-    {% for l, t, e, s in delais %}<tr><td>{{ l }}</td><td class="s">{{ t }}</td><td class="mono-t">{{ e }}</td><td class="{{ {'dépassé':'st-d','respecté':'st-r'}.get(s,'st-a') }}">{{ s }}</td></tr>{% endfor %}</table>
+{% if delais %}  <table><tr><th>Délai</th><th style="width:26%">Texte (cité en C5)</th><th style="width:16%">Échéance</th><th style="width:12%">État</th></tr>
+    {% for l, t, e, s in delais %}<tr><td>{{ l }}</td><td class="s">{{ t }}</td><td class="mono-t">{{ e }}</td><td class="{{ {'dépassé':'st-d','respecté':'st-r'}.get(s,'st-a') }}">{{ s }}</td></tr>{% endfor %}</table>{% else %}<p class="small">Date d'accostage absente du dossier (avis d'arrivée non fourni) : les échéances légales ne peuvent pas être calculées.</p>{% endif %}
   {{ foot('partie C — note interne, confidentielle', p_c) }}
 </section>
 
@@ -127,19 +127,21 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   {{ foot('partie C — note interne, confidentielle', p_c + 2) }}
 </section>
 
-<section class="page">{{ head('Note interne', True) }}
-  {{ sec('C8', 'À fournir — pièces et informations manquantes (' ~ manquants|length ~ ')') }}
-  <p class="small">Liste établie automatiquement à partir du référentiel des pièces (knowledge-base/data/pieces_dossier.json) : pour chaque pièce, son émetteur, ce qu'elle prouve en douane et le texte qui la fonde.</p>
-  {% for x in manquants if x.type == 'pièce' %}<div class="rk" style="border-left-color:{{ 'var(--crit)' if x.niveau == 'obligatoire' else 'var(--warn)' }}">
-    <b class="t">{{ loop.index }}. {{ x.nom }}</b> <span class="pz {{ 'ob' if x.niveau == 'obligatoire' else 're' }}">{{ x.niveau|upper }}</span>
+{% set pieces8 = manquants|selectattr('type', 'equalto', 'pièce')|list %}{% set autres = manquants|rejectattr('type', 'equalto', 'pièce')|list %}
+{% set lots8 = pieces8|batch(6)|list %}{% set seul8 = 1 if (autres and lots8 and lots8[-1]|length > 4) else 0 %}
+{% set n8 = [lots8|length + seul8, 1]|max %}
+{% for i in range(n8) %}<section class="page">{{ head('Note interne', True) }}
+  {{ sec('C8', 'À fournir — pièces et informations manquantes (' ~ manquants|length ~ ')' ~ (' (suite)' if i else '')) }}
+  {% if i == 0 %}<p class="small">Liste établie automatiquement à partir du référentiel des pièces (knowledge-base/data/pieces_dossier.json) : pour chaque pièce, son émetteur, ce qu'elle prouve en douane et le texte qui la fonde.</p>{% endif %}
+  {% if i < lots8|length %}{% for x in lots8[i] %}<div class="rk" style="border-left-color:{{ 'var(--crit)' if x.niveau == 'obligatoire' else 'var(--warn)' }}">
+    <b class="t">{{ loop.index + i * 6 }}. {{ x.nom }}</b> <span class="pz {{ 'ob' if x.niveau == 'obligatoire' else 're' }}">{{ x.niveau|upper }}</span>
     <p><b>Pourquoi ici :</b> {{ x.motif }}. <b>Émetteur :</b> {{ x.emetteur }}.</p>
-    <p><b>Valeur douanière :</b> {{ x.preuve }}</p><p class="pr"><b>Base :</b> {{ x.base }}</p></div>{% endfor %}
-  {% set autres = manquants|rejectattr('type', 'equalto', 'pièce')|list %}
-  {% if autres %}<div class="pdsh mt2"><span>INFORMATIONS À DONNER</span></div>
+    <p><b>Valeur douanière :</b> {{ x.preuve }}</p><p class="pr"><b>Base :</b> {{ x.base }}</p></div>{% endfor %}{% endif %}
+  {% if autres and i == n8 - 1 %}<div class="pdsh mt2"><span>INFORMATIONS À DONNER</span></div>
   <table><tr><th>Information</th><th style="width:16%">Niveau</th><th>Usage</th></tr>
     {% for x in autres %}<tr><td><b>{{ x.nom }}</b></td><td>{{ x.niveau }}</td><td>{{ x.motif }}</td></tr>{% endfor %}</table>{% endif %}
-  {{ foot('partie C — note interne, confidentielle', p_c + 3) }}
-</section>
+  {{ foot('partie C — note interne, confidentielle', p_c + 3 + i) }}
+</section>{% endfor %}
 
 {% if a360 %}{% set secs = a360.sections.items()|selectattr('1')|list %}
 {% for groupe in [secs[:2], secs[2:]] if groupe %}<section class="page">{{ head('Note interne', True) }}
@@ -151,14 +153,14 @@ ul.ckl{list-style:none;padding:0;margin:1mm 0}ul.ckl li{font-size:8pt;padding:1.
   {% if loop.first and a360.surestaries and a360.surestaries.hypothese %}<p class="small">{{ a360.surestaries.hypothese }}</p>{% endif %}
   {% if loop.last %}<div class="pdsh mt2"><span>DONNÉES À OBTENIR POUR COMPLÉTER L'ANALYSE</span></div>
   <ul class="sq">{% for m in a360.manque %}<li>{{ m }}</li>{% endfor %}</ul>{% endif %}
-  {{ foot('partie C — note interne, confidentielle', p_c + 3 + loop.index) }}
+  {{ foot('partie C — note interne, confidentielle', p_c + 2 + n8 + loop.index) }}
 </section>{% endfor %}{% endif %}
 
 {% for lot in veille|batch(4) %}<section class="page">{{ head('Note interne', True) }}
   {{ sec('C10', 'Veille réglementaire et normes — ce qui change autour du dossier' ~ (' (suite)' if not loop.first else '')) }}
   <table><tr><th style="width:24%">Sujet</th><th>Fait</th><th style="width:20%">Source</th></tr>
     {% for v in lot %}<tr><td><b>{{ v.sujet }}</b></td><td>{{ v.fait }}{% if v.effet %}<br><b>Ce dossier :</b> {{ v.effet }}.{% endif %}</td><td class="s">{{ v.source }}</td></tr>{% endfor %}</table>
-  {{ foot('partie C — note interne, confidentielle', p_c + 3 + (2 if a360 else 0) + loop.index) }}
+  {{ foot('partie C — note interne, confidentielle', p_c + 2 + n8 + (2 if a360 else 0) + loop.index) }}
 </section>{% endfor %}
 {% endif %}
 </body></html>

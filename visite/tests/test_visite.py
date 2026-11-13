@@ -36,6 +36,86 @@ class TestVisite(unittest.TestCase):
         complet = app.construire(d, partage=False)
         self.assertIn("SECRET-RISQUE", complet)
 
+    def test_partage_sans_note_interne_ni_hypotheses(self):
+        d = copy.deepcopy(self.d)
+        d["note_interne"] = {"synthese": "SECRET-NOTE", "enjeux": "SECRET-ENJEUX"}
+        d["meta"]["hypotheses"] = ["SECRET-HYPOTHESE"]
+        d["frais_locaux"] = [{"libelle": "SECRET-FRAIS", "ht": 1}]
+        d["transport"]["surestaries"] = {"source": "SECRET-BAREME", "paliers": []}
+        html = app.construire(d, registre=[app.ligne(d)], partage=True)
+        for s in ("SECRET-NOTE", "SECRET-ENJEUX", "SECRET-HYPOTHESE", "SECRET-FRAIS", "SECRET-BAREME"):
+            self.assertNotIn(s, html)
+
+    def _plusieurs_conteneurs(self):
+        """Dossier d'exemple (fictif) réparti sur deux conteneurs fictifs."""
+        brut = json.loads(EX.read_text(encoding="utf-8"))
+        t, dec = brut["transport"], brut["declaration"]
+        c1 = t.pop("conteneur")
+        t.pop("scelle", None)
+        t.pop("type_conteneur", None)
+        c2 = next(c for c in (f"TSTU{i:07d}" for i in range(1000000, 1000040)) if calc.iso6346_ok(c))
+        a, b = dec["nb_colis"] // 2, dec["nb_colis"] - dec["nb_colis"] // 2
+        t["conteneurs"] = [{"numero": c1, "scelle": "SC-A1", "type": "40' HC", "palettes": a, "brut": dec["poids_brut"] / 2},
+                           {"numero": c2, "scelle": "SC-B2", "type": "40' HC", "palettes": b, "brut": dec["poids_brut"] / 2}]
+        jsonschema.validate(brut, json.loads(data.SCHEMA.read_text(encoding="utf-8")))
+        return data.normaliser(brut), c1, c2
+
+    def test_plusieurs_conteneurs(self):
+        d, c1, c2 = self._plusieurs_conteneurs()
+        self.assertEqual(d["transport"]["conteneur"], f"{c1} · {c2}")
+        self.assertEqual(d["transport"]["scelle"], "SC-A1 · SC-B2")
+        self.assertEqual(d["transport"]["type_conteneur"], "2 × 40' HC")
+        self.assertEqual([c["numero"] for c in data.conteneurs(d)], [c1, c2])
+        ctrl = {c["id"]: c for c in calc.controles(d)}
+        for k in ("ISO-1", "ISO-2", "TC-1", "TC-2"):
+            self.assertEqual(ctrl[k]["statut"], "ok", k)
+        d["transport"]["_conteneurs"][1]["palettes"] += 1          # une palette de trop : le contrôle le voit
+        self.assertEqual({c["id"]: c for c in calc.controles(d)}["TC-1"]["statut"], "alerte")
+        lignes = render.checklist(d)
+        self.assertTrue(any(c1 in x and "SC-A1" in x for x in lignes) and any(c2 in x and "SC-B2" in x for x in lignes))
+
+    def test_surestaries_par_conteneur(self):
+        from visite import expertise
+        un = expertise.surestaries(self.d)
+        d, _, _ = self._plusieurs_conteneurs()
+        deux = expertise.surestaries(d)
+        if un:
+            self.assertEqual(deux["nb"], 2)
+            self.assertAlmostEqual(deux["total"], 2 * un["total"])
+
+    def test_dossier_sans_bad_ni_accostage(self):
+        d = json.loads(EX.read_text(encoding="utf-8"))
+        d["transport"].pop("bad", None)
+        d.pop("arrivee", None)
+        d["visite"] = {}
+        html = render.html(data.normaliser(d))
+        self.assertNotIn("N° Gros", html)
+        self.assertIn("Localisation (case 35)", html)
+
+    def test_sources_presentes_seulement(self):
+        f = render.filtre_pieces({"documents": [{"code": "D10"}, {"code": "BL"}, {"code": "DOC"}]})
+        self.assertEqual(f("Facture · colisage · B/L"), "B/L · document du fournisseur")
+        self.assertEqual(f("D10 · avis d'arrivée"), "D10")
+        self.assertEqual(f("Avis d'arrivée"), "D10")
+        g = render.filtre_pieces({"documents": [{"code": "FAC"}, {"code": "PL"}, {"code": "BL"}, {"code": "AA"}]})
+        self.assertEqual(g("Facture · colisage · B/L"), "Facture · colisage · B/L")
+
+    def test_fds_seulement_pour_les_produits_chimiques(self):
+        from visite import exigences
+        d = copy.deepcopy(self.d)
+        d["articles"] = d["articles"][:1]
+        d["articles"][0]["code_sh"] = "3926909990"      # ouvrage en plastique : pas de FDS
+        self.assertNotIn("FDS", {c for c, _, _ in exigences.requises(d)})
+        d["articles"][0]["code_sh"] = "3907300000"      # résine sous forme primaire : FDS
+        self.assertIn("FDS", {c for c, _, _ in exigences.requises(d)})
+
+    def test_tarif_ligne_subdivisee_depuis_2016(self):
+        if not tarif.disponible():
+            self.skipTest("base tarifaire absente")
+        f = tarif.fiche("3926909990")
+        self.assertEqual(f["ligne"]["code"], "3926.90.99.00")
+        self.assertEqual(f["ligne"]["libelle"], "Autres")          # sans le numéro de page du PDF
+
     def test_fiche_visite_plan_d10(self):
         html = render.html(self.d)
         for t in ("Identification de la déclaration", "Espèce tarifaire", "Valeur en douane", "Constatations de la visite"):

@@ -54,8 +54,10 @@ def requises(d: dict) -> list[tuple[str, str, str]]:
     if (dec.get("incoterm") or "").upper() in INCOTERMS_SANS_ASSURANCE:
         out.append(("ASS", "obligatoire", f"vente {dec.get('incoterm')} : prime réelle à ajouter ou non-assurance à justifier"))
     out.append(("FT", "recommandé", "classement et identification à la visite"))
-    chap = {str(a.get("code_sh", ""))[:2] for a in d.get("articles", [])}
-    if chap & {str(c) for c in range(28, 41)}:
+    # FDS : substances et mélanges (ch. 28 à 38) et matières sous formes primaires (39.01–39.14, 40.01–40.05),
+    # pas les ouvrages finis en plastique ou en caoutchouc (39.15 et suivants, 40.06 et suivants)
+    pos4 = {int(str(a.get("code_sh", "0000")).replace(".", "")[:4] or 0) for a in d.get("articles", [])}
+    if any(2801 <= x <= 3899 or 3901 <= x <= 3914 or 4001 <= x <= 4005 for x in pos4):
         out.append(("FDS", "obligatoire", "produit chimique"))
     if str(dec.get("regime_fiscal", "")).startswith("401"):
         out.append(("PPI", "obligatoire", "régime fiscal 401 : exonération des intrants pharmaceutiques"))

@@ -2,7 +2,7 @@
 
 Chaque contrôle renvoie un constat : {"id", "titre", "statut": ok|alerte|erreur, "detail"}.
 """
-from .data import date, n
+from .data import conteneurs, date, n
 
 TOL_DA = 1.0          # tolérance d'arrondi en dinars
 TOL_REL = 0.0001      # 0,01 % pour les conversions de devise
@@ -142,9 +142,18 @@ def controles(d):
                   "alerte"))
 
     # 9. Conteneur (chiffre de contrôle ISO 6346)
-    c = t.get("conteneur", "")
-    if len(c) == 11:
-        out.append(_c("ISO-1", "Chiffre de contrôle du conteneur (ISO 6346)", iso6346_ok(c), c, "alerte"))
+    tcs = conteneurs(d)
+    for i, tc in enumerate(tcs, 1):
+        c = tc.get("numero", "")
+        if len(c) == 11:
+            out.append(_c("ISO-1" if len(tcs) == 1 else f"ISO-{i}", "Chiffre de contrôle du conteneur (ISO 6346)", iso6346_ok(c), c, "alerte"))
+    if len(tcs) > 1:    # plusieurs conteneurs : leur détail doit redonner les totaux du D10
+        for cle, code, lab, total, unite in (("palettes", "TC-1", "Colis répartis par conteneur = colis du D10", dec.get("nb_colis"), "colis"),
+                                             ("brut", "TC-2", "Poids brut par conteneur = poids brut du D10", dec.get("poids_brut"), "kg")):
+            vals = [tc.get(cle, tc.get("colis") if cle == "palettes" else None) for tc in tcs]
+            if all(isinstance(v, (int, float)) for v in vals) and total:
+                s = sum(vals)
+                out.append(_c(code, lab, abs(s - total) < 0.5, " + ".join(n(v) for v in vals) + f" = {n(s)} {unite} (D10 : {n(total)})", "alerte"))
 
     # 10. Classement tarifaire : tarif DGD, notes, loi de finances 2026 (knowledge-base/)
     out += classement_tarifaire(d)

@@ -11,7 +11,7 @@ from __future__ import annotations
 import datetime as dt
 import re
 
-from .data import n
+from .data import conteneurs, n
 
 
 def _date(s: str) -> dt.date | None:
@@ -38,7 +38,10 @@ def surestaries(d: dict, au: dt.date | None = None) -> dict | None:
         total += nb * taux
         dernier = max(dernier, fin)
     taux_da = bar.get("taux_da")
-    return dict(jours=jours, franchise=bar.get("franchise_jours", 0), lignes=lignes, total=total, devise=bar.get("devise", "USD"),
+    nb = max(1, len(conteneurs(d)))     # le barème de l'armateur s'entend par conteneur
+    lignes = [(a, b, tx, j, m * nb) for a, b, tx, j, m in lignes]
+    total *= nb
+    return dict(nb=nb, jours=jours, franchise=bar.get("franchise_jours", 0), lignes=lignes, total=total, devise=bar.get("devise", "USD"),
                 taux_da=taux_da, total_da=round(total * taux_da, 2) if taux_da else None,
                 au_dela=max(0, jours - dernier), dernier=dernier, hypothese=bar.get("hypothese", ""),
                 gestion_da=bar.get("frais_gestion_da") if jours > bar.get("seuil_gestion_jours", 10 ** 6) else 0,
@@ -63,7 +66,7 @@ def analyse(d: dict) -> dict:
     connu = sum(x[1] for x in lignes)
     est = []
     if s and s["total_da"]:
-        est.append((f"Surestaries du conteneur, jours {s['franchise'] + 1} à {min(s['jours'], s['dernier'])} (estimation)", s["total_da"],
+        est.append((f"Surestaries {'des ' + str(s['nb']) + ' conteneurs' if s['nb'] > 1 else 'du conteneur'}, jours {s['franchise'] + 1} à {min(s['jours'], s['dernier'])} (estimation)", s["total_da"],
                     f"{n(s['total'], 2)} {s['devise']} × {n(s['taux_da'], 4)} — {s['source']}"))
         if s["gestion_da"]:
             est.append(("Frais de gestion de l'armateur (conteneur non restitué à 90 jours)", s["gestion_da"], f"hors TVA — {s['source']}"))
@@ -88,7 +91,7 @@ def analyse(d: dict) -> dict:
     if s:
         log.append(("Hors franchise conteneur", f"{max(0, s['jours'] - s['franchise'])} jours", f"franchise {s['franchise']} jours ({s['categorie']})"))
         for debut, fin, taux, nb, m in s["lignes"]:
-            log.append((f"Surestaries jours {debut} à {fin}", f"{nb} j × {n(taux)} {s['devise']} = {n(m)} {s['devise']}", "barème de l'avis d'arrivée"))
+            log.append((f"Surestaries jours {debut} à {fin}", f"{nb} j × {n(taux)} {s['devise']}" + (f" × {s['nb']} conteneurs" if s["nb"] > 1 else "") + f" = {n(m)} {s['devise']}", "barème de l'avis d'arrivée"))
         if s["au_dela"]:
             log.append((f"Au-delà du jour {s['dernier']}", f"{s['au_dela']} jours", "barème non indiqué sur l'avis : à demander à l'armateur"))
             manque.append(f"barème des surestaries après {s['dernier']} jours et date de restitution du conteneur")

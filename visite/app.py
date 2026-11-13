@@ -59,8 +59,12 @@ def construire(d, fidelite=None, pngs=None, registre=None, note=True, partage=Fa
     fid = fidelite or []
     env = Environment(loader=FileSystemLoader(TPL), autoescape=False)
     env.filters.update(n=n, sh=sh)
-    PRIVES = {"risques_declarant", "scan"}  # réservé au déclarant : jamais dans la version transmise
+    # réservé au déclarant : jamais dans la version transmise (risques, note interne, frais, hypothèses de travail)
+    PRIVES = {"risques_declarant", "note_interne", "scan", "frais_locaux", "programme"}
     dossier_pur = {k: v for k, v in d.items() if not k.startswith("_") and not (partage and k in PRIVES)}
+    if partage:
+        dossier_pur["meta"] = {k: v for k, v in d["meta"].items() if k != "hypotheses"}
+        dossier_pur["transport"] = {k: v for k, v in d["transport"].items() if k != "surestaries" and not k.startswith("_")}
     return env.get_template("cockpit.html.j2").render(
         d=d, fiche=fiche, ctrls=ctrls, resume=calc.resume(ctrls), rows=rows, kpi=kpi,
         checklist=checklist(d), comptages=comptages, slots=slots,

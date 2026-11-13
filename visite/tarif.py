@@ -150,6 +150,12 @@ def chercher(code: str):
     meme_sh6 = [l for l in meme_pos if chiffres(l["code"]).startswith(hs6)]
     if len(c) < 10 and meme_sh6:
         return "position", meme_sh6[0], f"{fmt(c)} absent de l'édition 2016 ; la sous-position {hs6[:4]}.{hs6[4:]} existe ({len(meme_sh6)} ligne(s))"
+    meme8 = [l for l in meme_pos if chiffres(l["code"])[:8] == c[:8]]
+    if meme8:   # ligne de 2016 subdivisée depuis (ex. 3926.90.99.00 → 3926.90.99.90)
+        l = meme8[0]
+        return "correspondance", l, (
+            f"{fmt(c)} absent de l'édition 2016 ; ligne de 2016 dont il est issu (mêmes 8 premiers chiffres) : "
+            f"{l['code']} — quotité à confirmer dans le tarif en vigueur")
     suffixe = [l for l in meme_pos if chiffres(l["code"])[6:] == c[6:]]
     if suffixe:
         l = suffixe[-1]
