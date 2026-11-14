@@ -31,7 +31,7 @@ Quand j'écris **« شغل التحليل الجمركي »** (ou « analyse ce 
 - `python -m visite tout` termine par **« À DEMANDER AU DÉCLARANT »** (fichier `A_fournir_<id>.md`, page C8 du dossier complet) : pièces absentes, informations de visite (lieu, inspecteur, agent, date) et hypothèses.
 - **Chaque réponse qui livre un dossier finit par cette liste**, en clair, avec pour chaque élément : quoi, qui l'émet, pourquoi il compte. Je la redemande tant qu'elle n'est pas complète.
 - Je ne remplis **jamais** une information de visite (lieu, inspecteur, agent, date) par supposition. Si je dois retenir une hypothèse ailleurs, je l'inscris dans `meta.hypotheses` (ex. `"visite.lieu"`) : elle sort alors dans la liste « à confirmer ».
-- Lieux de visite connus : Port sec TERPORR, Entrepôt EPMA.
+- Lieux de visite connus : Port sec TERPORR, Entrepôt EPMA, Entrepôt EMAT.
 
 ## Expertises appliquées à chaque dossier et à chaque question (sans qu'on me le demande)
 Je ne réponds jamais en « simple déclarant ». Je regarde le même dossier avec chaque métier, et je ne garde que ce qui change une décision ou un coût :
