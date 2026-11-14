@@ -52,7 +52,7 @@
           ('Désignation claire', a.designation_claire, 'B/L · facture · programme MIPH'),
           ('Quantité', (q.nombre|n if q.nombre is number else q.nombre) ~ ' ' ~ q.unite ~ (' — ' ~ a.quantite_detail if a.quantite_detail else ''), 'Facture · colisage · B/L'),
           ('Colis', dec.nb_colis|n ~ ' ' ~ (d.colisage[0].contenu if d.colisage else 'colis'), 'D10 · colisage · B/L'),
-          ('Poids net · brut', a.poids_net|n ~ ' kg net · ' ~ dec.poids_brut|n ~ ' kg brut', 'D10 cases 35, 38 · colisage · B/L')]) }}{% endfor %}
+          ('Poids net · brut', a.poids_net|n ~ ' kg net · ' ~ dec.poids_brut|n ~ ' kg brut', 'D10 · colisage · B/L')]) }}{% endfor %}
   {% if illus %}<div class="illu"><img src="{{ illus }}" alt="Illustration"><div class="illu-t">ILLUSTRATION — schéma établi d'après les pièces du dossier ; ne constitue pas une photographie</div></div>{% endif %}
 
   {{ sec('5', 'Description technique — modèle européen (guide EBTI)') }}
@@ -76,7 +76,8 @@
     {% if f.chapitre %}<tr><td class="p">Chapitre</td><td class="mono-t">{{ f.chapitre.numero }}</td><td>{{ f.chapitre.titre }}</td></tr>{% endif %}
     <tr><td class="p">Position</td><td class="mono-t">{{ f.position.code }}</td><td>{{ f.position.libelle }}</td></tr>
     {% if f.ligne %}{% set h = f.ligne.hierarchie %}{% if h %}<tr><td class="p">Sous-position</td><td class="mono-t">{{ f.sous_position }}</td><td>{{ h[0] }}</td></tr>{% endif %}
-    <tr><td class="p">Ligne nationale</td><td class="mono-t"><b>{{ f.ligne.code }}</b></td><td><b>{{ (h[1:] + [f.ligne.libelle])|join(' — ') }}</b> · unité {{ f.ligne.unite }} · DD {{ f.droit_douane|n }} %</td></tr>{% endif %}
+    {% set ddec = (a.taxes|selectattr('code', 'equalto', 'DD')|list) %}{% set declaree = a.code_sh|sh %}
+    <tr><td class="p">Ligne nationale</td><td class="mono-t"><b>{{ declaree if declaree != f.ligne.code else f.ligne.code }}</b></td><td><b>{{ (h[1:] + [f.ligne.libelle])|join(' — ') }}</b> · unité {{ f.ligne.unite }} · DD {{ (ddec[0].quotite if ddec else f.droit_douane)|n }} %{% if declaree != f.ligne.code %} <span class="small">(D10 ; ligne {{ f.ligne.code }} de l'édition 2016)</span>{% endif %}</td></tr>{% endif %}
   </table>{% endif %}{% endfor %}
   <div class="grid2 mt2">
     <div><div class="pdsh"><span>MOTIVATION</span></div><ol class="mot">{% for m in cl.motivation or [] %}<li>{{ m }}</li>{% endfor %}</ol></div>

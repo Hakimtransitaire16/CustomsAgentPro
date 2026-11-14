@@ -68,7 +68,7 @@ def construire(d, fidelite=None, pngs=None, registre=None, note=True, partage=Fa
     return env.get_template("cockpit.html.j2").render(
         d=d, fiche=fiche, ctrls=ctrls, resume=calc.resume(ctrls), rows=rows, kpi=kpi,
         checklist=checklist(d), comptages=comptages, slots=slots,
-        fid=fid, fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
-        dossier_json=_script_json(dossier_pur), csv_text=_script_json(buf.getvalue()),
+        fid=[] if partage else fid, fid_ok=sum(1 for f in fid if f["score"] >= 0.95),
+        dossier_json=_script_json(dossier_pur), csv_text=_script_json("" if partage else buf.getvalue()),
         dossier_pretty="" if partage else json.dumps(dossier_pur, ensure_ascii=False, indent=1), note_html=note_html, partage=partage,
     )
