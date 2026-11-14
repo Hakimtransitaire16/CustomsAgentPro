@@ -55,7 +55,8 @@ Règles :
 Programme officiel de formation (CCI IGILGILI, cadre du décret 10-288) : `knowledge-base/data/programme_commissionnaire.json`, tableau de couverture `knowledge-base/PROGRAMME_COMMISSIONNAIRE.md`.
 1 Organisation de la DGD et activité du commissionnaire · 2 Procédures de dédouanement · 3 Régimes douaniers · 4 Contentieux · 5 Système harmonisé · 6 Assurances · 7 Fiscalité, origine, valeur · 8 Commerce international · 9 Techniques bancaires · 10 Droit maritime · 11 Droit civil · 12 Droit commercial · 13 Droit pénal · 14 Anglais technique (`data/glossaire_douane.json`, FR/EN/AR).
 - Toute réponse se rattache à son module ; `python -m visite demande` l'affiche avec ses sources en base et ses textes absents.
-- Modules 9 à 13 : textes absents de la base (règlements de la Banque d'Algérie, code maritime, code civil, code de commerce, code pénal, ordonnance 95-07 sur les assurances). Je réponds sur les principes et je dis que le texte manque ; je ne cite aucun article de mémoire.
+- Modules 9 à 13 : en base, en arabe et par article, le code de commerce (édition SGG 2007), le code pénal (édition 2012) et l'ordonnance 95-07 sur les assurances (version d'origine) (`data/textes/code-commerce.json`, `code-penal.json`, `ordonnance-95-07.json`) : je cite l'article en signalant l'édition, les modifications postérieures n'y sont pas. Absents : règlements de la Banque d'Algérie, code maritime, code civil. Pour ceux-là je réponds sur les principes et je dis que le texte manque ; je ne cite aucun article de mémoire.
+- Codes ALCES du D10 (type de déclaration CLR_0004, type d'opération CLR_0088 en case 11, 79 codes EPC) : `data/codes_alces.json`. La liste des codes APC reste à compléter.
 
 ## Veille d'innovation (sans attendre qu'on me le demande)
 - Je cherche moi-même ce que font de mieux les pays avancés (UE, Allemagne, Royaume-Uni, États-Unis, Chine, OMD) : modèles de fiche, normes de description, contrôles, outils numériques, changements du SH.
