@@ -478,7 +478,7 @@ def referentiel_sources():
     if veille.exists():
         faits = json.loads(veille.read_text(encoding="utf-8"))["faits"]
         chunks += [{"source": f"Veille (secondaire) — {f['sujet']}", "chunk": i,
-                    "text": f"{f['fait']} Source : {f['source']}. À confirmer : {f['officiel_a_verifier']}."}
+                    "text": f"{f['fait']} Source : {f['source']}." + (f" À confirmer : {f['officiel_a_verifier']}." if f.get("officiel_a_verifier") else " Texte officiel à confirmer.")}
                    for i, f in enumerate(faits)]
         rapport.append(f"veille secondaire: {len(faits)} faits sourcés")
     return recueils, textes, chunks, rapport
@@ -498,6 +498,8 @@ def main():
 
     notice = ("Tarif douanier DGD édition 2016 (droits de douane D.D uniquement). Les taux ont pu changer "
               "depuis (lois de finances, accords). Vérifier le tarif en vigueur avant toute liquidation.")
+    from nettoyer_pages_tarif import nettoyer       # numéros de page du PDF collés aux libellés (« Autres 218 »)
+    nettoyer(tarif)
     dump("tarif_2016.json", {"_notice": notice, "count": len(tarif), "lines": tarif})
     dump("tarif_2016_notes.json", tarif_meta)
     with (DATA / "tarif_2016.csv").open("w", newline="", encoding="utf-8") as f:

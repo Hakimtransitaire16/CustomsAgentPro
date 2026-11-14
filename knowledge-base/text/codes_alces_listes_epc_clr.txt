@@ -1,0 +1,100 @@
+Codes ALCES du D10 — liste imprimée fournie par le déclarant (15/11/2026)
+Transcription vérifiée à la lecture des pages 4 à 7 (le texte OCR du scan, pages tournées, était illisible). Pages 1 à 3 : table des matières du tarif douanier (sections et chapitres), déjà en base. Page 8 : modèle vierge du D10, exemplaire déclarant.
+
+CLR_0004 — Type de déclaration
+EX1 : Exportation à titre définitif (Export declaration)
+EX2 : Exportation à titre temporaire (Declaration of temporary export)
+EX3 : Réexportation (Declaration of re-export)
+IM4 : Importation (Import declaration)
+IM5 : Admission temporaire (Temporary import declaration)
+IM6 : Réimportation (Declaration of re-import)
+IM7 : Entrepôt de douane (Declaration of entry into bonded area)
+IM8 : Transit douanier (Declaration of transit)
+
+CLR_0088 — Type d'opération (case 11 du D10)
+1 : Revente en l'état
+2 : Production
+3 : Équipement
+4 : Fonctionnement
+5 : Exportation O.E.A
+
+Code EPC (Extended Procedure Code) — code, libellé, type de déclaration
+40XX : Mise à la consommation directe — IM4
+1020 : Exportation définitive suite exportation temporaire avec réimportation en l'état — EX1
+1022 : Exportation définitive suite exportation temporaire pour perfectionnement — EX1
+10XX : Exportation définitive — EX1
+11XX : Exportation des marchandises pour les particuliers — EX1
+12XX : Exportation vente en consignation — EX1
+13XX : Exportation des hydrocarbures et des produits miniers — EX1
+18XX : Exportation définitive dans le cadre du troc frontalier — EX1
+20XX : Exportation temporaire avec réimportation en l'état — EX2
+22XX : Exportation temporaire pour perfectionnement — EX2
+3050 : Réexportation en l'état suite admission temporaire — EX3
+3052 : Réexportation en l'état suite admission temporaire leasing (crédit-bail) — EX3
+3053 : Réexportation suite admission temporaire pour perfectionnement — EX3
+3070 : Réexportation suite entrée en entrepôt public — EX3
+3072 : Réexportation suite entrée en entrepôt privé — EX3
+3073 : Réexportation suite entrée en entrepôt industriel — EX3
+3074 : Réexportation suite entrée en usine exercée — EX3
+4050 : Mise à la consommation suite admission temporaire avec réexportation en l'état — IM4
+4052 : Mise à la consommation suite admission temporaire avec réexportation en l'état leasing (crédit-bail) — IM4
+4053 : Mise à la consommation suite admission temporaire pour perfectionnement — IM4
+4054 : Mise à la consommation suite transformation des marchandises destinées à la mise à la consommation — IM4
+4070 : Mise à la consommation suite entrée en entrepôt public — IM4
+4072 : Mise à la consommation suite entrée en entrepôt privé — IM4
+4073 : Mise à la consommation suite entrée en entrepôt industriel — IM4
+4074 : Mise à la consommation suite entrée en usine exercée — IM4
+4075 : Mise à la consommation suite entrée en zone franche — IM4
+41XX : Importation des marchandises pour les particuliers — IM4
+42XX : Mise à la consommation pour compte — IM4
+43XX : Mise à la consommation dans le cadre leasing (crédit-bail) — IM4
+44XX : Mise à la consommation des dons — IM4
+4818 : Mise à la consommation suite exportation dans le cadre du troc — IM4
+48XX : Mise à la consommation dans le cadre du troc — IM4
+5050 : Admission temporaire avec réexportation en l'état suite admission temporaire avec réexportation en l'état — IM5
+5070 : Admission temporaire avec réexportation en l'état suite entrepôt public — IM5
+5075 : Admission temporaire avec réexportation en l'état suite zone franche — IM5
+50XX : Admission temporaire avec réexportation en l'état — IM5
+5270 : Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite entrepôt public — IM5
+5272 : Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite entrepôt privé — IM5
+5275 : Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite zone franche — IM5
+52XX : Admission temporaire avec réexportation en l'état leasing (crédit-bail) — IM5
+5354 : Admission temporaire pour perfectionnement suite transformation de marchandise destinée à la mise à la consommation — IM5
+5370 : Admission temporaire pour perfectionnement suite entrepôt public — IM5
+5372 : Admission temporaire pour perfectionnement suite entrepôt privé — IM5
+5373 : Admission temporaire pour perfectionnement suite entrepôt industriel — IM5
+5375 : Admission temporaire pour perfectionnement suite zone franche — IM5
+53XX : Admission temporaire pour perfectionnement — IM5
+5453 : Transformation de marchandise destinée à la mise à la consommation suite admission temporaire pour perfectionnement — IM5
+5470 : Transformation de marchandises destinées à la mise à la consommation suite entrepôt public — IM5
+5472 : Transformation de marchandises destinées à la mise à la consommation suite entrepôt privé — IM5
+5473 : Transformation de marchandises destinées à la mise à la consommation suite entrepôt industriel — IM5
+5475 : Transformation de marchandises destinées à la mise à la consommation suite zone franche — IM5
+54XX : Transformation de marchandises destinées à la mise à la consommation — IM5
+55XX : Prorogation d'admission temporaire — IM5
+6012 : Réimportation en l'état suite exportation vente en consignation — IM6
+6020 : Réimportation en l'état suite exportation temporaire — IM6
+6022 : Réimportation suite exportation temporaire pour perfectionnement — IM6
+7050 : Entrée en entrepôt public suite admission temporaire avec réexportation en l'état — IM7
+7052 : Entrée en entrepôt public suite admission temporaire avec réexportation en l'état leasing (crédit-bail) — IM7
+7053 : Entrée en entrepôt public suite admission temporaire pour perfectionnement — IM7
+7054 : Entrée en entrepôt public suite transformation de marchandises destinées à la mise à la consommation — IM7
+70XX : Entrée en entrepôt public — IM7
+7252 : Entrée en entrepôt privé suite admission temporaire avec réexportation en l'état leasing (crédit-bail) — IM7
+7253 : Entrée en entrepôt privé suite admission temporaire pour perfectionnement — IM7
+7254 : Entrée en entrepôt privé suite transformation de marchandises destinées à la mise à la consommation — IM7
+72XX : Entrée en entrepôt privé — IM7
+7353 : Entrée en entrepôt industriel suite admission temporaire pour perfectionnement — IM7
+7354 : Entrée en entrepôt industriel suite transformation de marchandises destinées à la mise à la consommation — IM7
+73XX : Entrée en entrepôt industriel — IM7
+74XX : Entrée en usine exercée — IM7
+7550 : Entrée en zone franche suite admission temporaire avec réexportation en l'état — IM7
+7552 : Entrée en zone franche suite admission temporaire avec réexportation en l'état leasing (crédit-bail) — IM7
+7553 : Entrée en zone franche suite admission temporaire pour perfectionnement — IM7
+7554 : Entrée en zone franche suite transformation de marchandises destinées à la mise à la consommation — IM7
+75XX : Entrée en zone franche — IM7
+80XX : Transit intérieur — IM8
+82XX : Transit douanier international (d'un bureau d'entrée vers un bureau de sortie) — IM8
+83XX : Transit douanier simplifié — IM8
+84XX : Cabotage — IM8
+85XX : Transbordement — IM8
