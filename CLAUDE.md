@@ -116,6 +116,7 @@ Faits tirés de sources secondaires (presse, cabinets, administrations étrangè
 ### Règles de recherche
 - **Question sur une position** : `python -m visite tarif <code> [--notes]`. On répond avec la section, le chapitre, la position (libellé), la ligne nationale (DD), la définition et les notes applicables, les RGI, les décisions liées et les mesures LF 2026. Skill : `position-tarifaire`.
 - **Dossier reçu** : vérifier que la position déclarée existe au tarif, que sa quotité DD est la bonne et qu'elle est **de la même famille** que le code du pays d'origine (contrôles TAR, DD, FAM). Toute divergence est expliquée à moi seul.
+- **Méthode et précédents** : `knowledge-base/REFERENCE_CLASSEMENT.md` (méthode en 6 étapes, décret 18-165, journal des cas). Chaque cas de classement tranché y est ajouté (sans donnée client) ainsi que dans la version arabe du déclarant (doc « مرجع التصنيف التعريفي »). Le contrôle `RTC-n` signale une décision de même désignation classée dans une autre position. Classement d'abord, exonération ensuite.
 - **Recherche libre** : `cd knowledge-base && python tools/kb.py search "<mots>"` (tous les documents), `kb.py article <n>`.
 - Tarif fourni = édition 2016 (SH 2012). Un code SH 2017/2022 est donné avec sa ligne 2016 correspondante, et on le signale.
 - Taux en vigueur : quand le taux compte (liquidation, litige), comparer avec la ligne publiée sur conformepro.dz (recherche web du code, source tierce non officielle) et signaler tout écart avec le tarif 2016.

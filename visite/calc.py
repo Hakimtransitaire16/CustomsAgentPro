@@ -200,6 +200,12 @@ def classement_tarifaire(d):
                           f"l'arrêté du 26/01/2019 (n° {dp['ordre']}) ; "
                           + ("DAPS liquidé" if declare else "non liquidé : vérifier la liste en vigueur et une "
                              "éventuelle exemption (accord préférentiel)"), "alerte"))
+        texte = " ".join(str(a.get(k, "")) for k in ("designation", "designation_claire"))
+        for r in tarif.decisions_proches(texte, a["code_sh"])[:2]:
+            out.append(_c(f"RTC-{num}", f"Précédent de classement hors position déclarée art. {num}", False,
+                          f"{r['reference']} (recueil {r['recueil']}) classe « {r['designation'][:80]} » en {r['code']} "
+                          f"— {'autre chapitre' if r['autre_chapitre'] else 'autre position'} que le D10 ({f['code']}) ; "
+                          f"mots communs : {', '.join(r['mots'])}. Comparer la marchandise à la décision.", "alerte"))
         if a.get("code_origine"):
             fam = tarif.famille(a["code_sh"], a["code_origine"])
             if fam["sous_position"]:

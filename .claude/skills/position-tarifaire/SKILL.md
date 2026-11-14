@@ -10,6 +10,12 @@ Toute réponse sur un code SH s'appuie sur `knowledge-base/`, jamais sur la mém
 ## 0. Le moteur d'abord
 Le hook injecte déjà les sources pertinentes à chaque message. Pour aller plus loin : `python -m visite demande "<code ou désignation>"`. Il consulte toutes les sources en une fois et propose des positions candidates pour une désignation.
 
+## 0 bis. Méthode et journal des cas
+Lire `knowledge-base/REFERENCE_CLASSEMENT.md` avant de conclure : hiérarchie des sources, méthode en 6 étapes, décisions anticipées (décret 18-165), règles à retenir, journal des cas déjà tranchés.
+- Chercher une RTC de même désignation **dans toutes les positions**, pas seulement la position déclarée : le contrôle `RTC-n` du moteur le fait (`tarif.decisions_proches`).
+- Le classement se tranche avant l'exonération ou le régime fiscal.
+- Chaque nouveau cas de classement discuté s'ajoute en tête du journal (section 5), sans donnée client, et dans la version arabe du déclarant (doc « مرجع التصنيف التعريفي — حالات عملية », https://claude.ai/artifact/LP9XfKNmqp2p5aQLYydprQ, section 7).
+
 ## 1. Ouvrir la fiche de la position
 ```bash
 python -m visite tarif 3506.99.90.00            # fiche complète
@@ -24,7 +30,7 @@ La fiche donne :
 - le **droit de douane**, après les mesures inconditionnelles de la loi de finances 2026 ;
 - toutes les lignes nationales de la position ;
 - les **mesures de la loi de finances 2026** qui touchent le code ;
-- les **décisions de classement** (RTC) des recueils 2020 et 2025 sur la même position.
+- les **décisions de classement** (RTC) des recueils 2020, 2024 et 2025 sur la même position.
 
 Recherche par mots-clés, quand on part d'une désignation :
 ```bash

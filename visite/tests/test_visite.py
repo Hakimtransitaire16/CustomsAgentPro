@@ -109,6 +109,20 @@ class TestVisite(unittest.TestCase):
         d["articles"][0]["code_sh"] = "3907300000"      # résine sous forme primaire : FDS
         self.assertIn("FDS", {c for c, _, _ in exigences.requises(d)})
 
+    def test_precedent_hors_position_declaree(self):
+        if not tarif.disponible():
+            self.skipTest("base tarifaire absente")
+        r = tarif.decisions_proches("Mécanismes de dosage pour stylos injecteurs d'insuline", "3926909990")
+        self.assertTrue(r and r[0]["code"].startswith("9018") and r[0]["autre_chapitre"])
+        self.assertIn("stylo", r[0]["mots"])
+        self.assertEqual(tarif.decisions_proches("Colle polyuréthane bicomposant", "3506999000"), [])
+        d = copy.deepcopy(self.d)
+        d["articles"] = d["articles"][:1]
+        d["articles"][0].update(code_sh="3926909990", designation="DOSING MECHANISM",
+                                designation_claire="Mécanismes de dosage pour stylos injecteurs d'insuline")
+        ids = {c["id"]: c for c in calc.controles(d)}
+        self.assertEqual(ids["RTC-1"]["statut"], "alerte")
+
     def test_tarif_ligne_subdivisee_depuis_2016(self):
         if not tarif.disponible():
             self.skipTest("base tarifaire absente")

@@ -247,6 +247,51 @@ def decisions(code: str):
     return out
 
 
+_VIDES = set("""autre autres pour avec sans dans leur leurs dont etre etat type sorte forme sous non plus
+presente presentes presentee isolement article articles produit produits matiere matieres usage usages utilise
+destine destines destinee general partie parties ensemble element elements emballe palette palettes carton cartons
+piece pieces unite unites solution sterile base prepare preparation liquide poudre melange compose composee
+chimique verre metal acier plastique couleur blanc blanche noir taille grand grande petit petite standard medical
+medicale industriel industrielle emploi simple double contenant contenu forme""".split())
+
+
+def _mots(texte: str) -> set[str]:
+    """Mots significatifs d'une désignation : minuscules, sans accents, pluriel simple retiré."""
+    import re
+    import unicodedata
+    s = unicodedata.normalize("NFKD", str(texte).lower())
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    out = set()
+    for m in re.findall(r"[a-z]{4,}", s):
+        m = m[:-1] if m.endswith(("s", "x")) and len(m) > 4 else m
+        if m not in _VIDES:
+            out.add(m)
+    return out
+
+
+def decisions_proches(texte: str, code: str, seuil: int = 2):
+    """Décisions de classement qui visent une marchandise de même désignation mais une AUTRE position.
+
+    Le contrôle de position (decisions) ne voit que les décisions de la position déclarée ; un précédent
+    rendu dans un autre chapitre pour la même marchandise (ex. RTC 062/DGD 2025 : stylo doseur en 90.18
+    alors que le D10 déclare 39.26) ne sort que par la désignation. Rapprochement : au moins `seuil`
+    mots significatifs communs avec la désignation de la décision.
+    """
+    c, mots = chiffres(code), _mots(texte)
+    out = []
+    for r in _kb()["decisions"]:
+        codes = [chiffres(x) for x in (r.get("hs_codes") or [r.get("hs_code")]) if x]
+        if not codes or any(x[:4] == c[:4] for x in codes):
+            continue
+        communs = mots & _mots(r.get("designation", ""))
+        if len(communs) >= seuil:
+            out.append({"reference": r["reference"], "recueil": r["recueil"], "code": r.get("hs_code"),
+                        "designation": r.get("designation", ""), "valide_jusqu_au": r.get("valid_to"),
+                        "mots": sorted(communs), "autre_chapitre": codes[0][:2] != c[:2]})
+    out.sort(key=lambda r: (-len(r["mots"]), not r["autre_chapitre"], r["recueil"]), reverse=False)
+    return out
+
+
 def taux_dd(ligne, code=None):
     """Droit de douane de la ligne, après les mesures inconditionnelles de la LF 2026."""
     if not ligne:

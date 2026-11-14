@@ -446,6 +446,12 @@ RISQUES = {  # préfixe du contrôle → (mots de recherche dans les sources, ce
             "spécifique l'emporte (RGI 3 a), comparaison au même niveau (RGI 6). Préparer la FDS et l'argumentaire."),
     "TAR": ([],
             "Confirmer la ligne dans le tarif en vigueur ; garder la table de corrélation SH 2022 sous la main."),
+    "RTC": ([],
+            "Lire la décision en entier (désignation, description, motivation) et la comparer à la marchandise. "
+            "Une RTC ne lie que son titulaire (décret 18-165, art. 3), mais elle montre la position de la DGD. "
+            "Méthode et journal des cas : knowledge-base/REFERENCE_CLASSEMENT.md. Le classement se tranche avant "
+            "l'exonération ; pour les opérations suivantes, demander une décision anticipée (RTC, et RCDT si une "
+            "exonération est en jeu) avant l'importation (art. 50 ter ; décret 18-165, art. 15 : pas pendant une vérification)."),
     "DD": (["taux", "droit", "douane"], "Rectifier la quotité ou justifier le taux (avantage, accord, LF)."),
     "TVA": (["taux", "réduit", "valeur", "ajoutée"], "Rectifier la TVA ou citer la base du taux réduit / de l'exonération."),
     "DAPS": (["droit", "additionnel", "provisoire", "sauvegarde"],
