@@ -1,6 +1,6 @@
 {
  "_notice": "Faits relevés dans des sources secondaires (presse, cabinets, administrations étrangères) en attendant le texte officiel. Chaque fait porte sa source et sa date ; il doit être confirmé au Journal officiel ou au texte DGD avant d'être appliqué.",
- "releve_le": "2026-11-10",
+ "releve_le": "2026-11-16",
  "faits": [
   {
    "sujet": "DAPS — base légale",
@@ -160,6 +160,24 @@
    "date": "2026-11-15",
    "portee": "veille",
    "officiel_a_verifier": "décision ou instruction DGD fixant les énonciations, documents et marchandises admises"
+  },
+  {
+   "sujet": "PLF 2027 — dispositions douanières (art. 153 à 176)",
+   "fait": "Le DGD a présenté le 15/10/2026 à la Commission des finances de l'APN les dispositions douanières du PLF 2027 (art. 153 à 176) : simplification des procédures, guichet unique, numérisation. Projet non adopté ; contenu article par article non publié dans la source.",
+   "source": "UpGrowth (presse), 18/10/2026",
+   "url": "https://www.upgrowth.dz/actualites/douanes-algerie-commission-finances-examine-plf-2027-articles-153-176",
+   "date": "2026-10-18",
+   "portee": "veille",
+   "officiel_a_verifier": "loi de finances 2027 publiée au JORADP (fin décembre 2026)"
+  },
+  {
+   "sujet": "PLF 2027 — véhicules (CCR, art. 159, 168, 170)",
+   "fait": "Projet : redevance CCR portée à 20 000 DA (art. 170) ; taxation forfaitaire de 60 % sur le dépassement de plafond (art. 159) ; tolérance de 6 mois sur l'âge du véhicule avec majoration de 3 % par mois (art. 168). Non adopté : la LF 2026 reste applicable.",
+   "source": "Algérie360 (presse), 09/10/2026",
+   "url": "https://www.algerie360.com/importation-voiture-ccr-plf-2027/",
+   "date": "2026-10-09",
+   "portee": "veille",
+   "officiel_a_verifier": "loi de finances 2027 publiée au JORADP"
   }
  ]
 }
