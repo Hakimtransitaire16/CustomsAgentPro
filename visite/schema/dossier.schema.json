@@ -1,0 +1,762 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/Hakimtransitaire16/CustomsAgentPro/visite/schema/dossier.schema.json",
+ "title": "Dossier de visite douane",
+ "description": "Source unique de vérité d'un dossier : toutes les pièces (D10, facture, colisage, B/L, BAD, certificats) sont transcrites ici une seule fois ; fiche PDF, page de visite mobile et registre sont générés à partir de ce fichier.",
+ "type": "object",
+ "required": [
+  "meta",
+  "declaration",
+  "parties",
+  "transport",
+  "articles",
+  "liquidation"
+ ],
+ "properties": {
+  "meta": {
+   "type": "object",
+   "required": [
+    "id",
+    "date_fiche",
+    "declarant"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Identifiant interne du dossier (jamais le n° de conteneur seul)"
+    },
+    "date_fiche": {
+     "type": "string",
+     "format": "date"
+    },
+    "version": {
+     "type": "string"
+    },
+    "declarant": {
+     "type": "object",
+     "properties": {
+      "nom": {
+       "type": "string"
+      },
+      "qualite": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "nom"
+     ]
+    },
+    "produit_titre": {
+     "type": "string"
+    },
+    "produit_sous_titre": {
+     "type": "string"
+    }
+   }
+  },
+  "scan": {
+   "type": "object",
+   "description": "Fichier PDF scanné du dossier et rotation de chaque page (degrés, sens trigonométrique de PIL)",
+   "properties": {
+    "fichier": {
+     "type": "string"
+    },
+    "dpi": {
+     "type": "integer",
+     "default": 300
+    },
+    "rotations": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "integer"
+     }
+    },
+    "pages": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "page → nom de la pièce"
+    }
+   }
+  },
+  "declaration": {
+   "type": "object",
+   "required": [
+    "numero",
+    "date_heure",
+    "mrn",
+    "montant_facture",
+    "devise",
+    "taux_change",
+    "valeur_da",
+    "poids_brut",
+    "nb_colis"
+   ],
+   "properties": {
+    "numero": {
+     "type": "string",
+     "description": "N° d'enregistrement du D10, transcrit caractère par caractère"
+    },
+    "date_heure": {
+     "type": "string"
+    },
+    "bureau": {
+     "type": "string"
+    },
+    "regime": {
+     "type": "string"
+    },
+    "regime_fiscal": {
+     "type": "string"
+    },
+    "type_operation": {
+     "type": "string"
+    },
+    "financement": {
+     "type": "string"
+    },
+    "incoterm": {
+     "type": "string"
+    },
+    "devise": {
+     "type": "string"
+    },
+    "montant_facture": {
+     "type": "number"
+    },
+    "fret": {
+     "type": "number"
+    },
+    "assurance": {
+     "type": "number"
+    },
+    "autres_frais": {
+     "type": "number"
+    },
+    "taux_change": {
+     "type": "number"
+    },
+    "valeur_da": {
+     "type": "number"
+    },
+    "domiciliation": {
+     "type": "object",
+     "properties": {
+      "banque": {
+       "type": "string"
+      },
+      "numero": {
+       "type": "string"
+      },
+      "date": {
+       "type": "string"
+      }
+     }
+    },
+    "mrn": {
+     "type": "string",
+     "description": "Numéro du manifeste (case 29)"
+    },
+    "ligne_sommier": {
+     "type": "string"
+    },
+    "nb_colis": {
+     "type": "integer"
+    },
+    "poids_brut": {
+     "type": "number"
+    },
+    "localisation": {
+     "type": "string"
+    },
+    "circuit": {
+     "type": "string",
+     "enum": [
+      "vert",
+      "orange",
+      "rouge"
+     ]
+    },
+    "paiement": {
+     "type": "string"
+    },
+    "code_fiscal": {
+     "type": "string"
+    }
+   }
+  },
+  "parties": {
+   "type": "object",
+   "properties": {
+    "importateur": {
+     "$ref": "#/$defs/partie"
+    },
+    "fournisseur": {
+     "$ref": "#/$defs/partie"
+    },
+    "declarant_societe": {
+     "$ref": "#/$defs/partie"
+    },
+    "transporteur": {
+     "$ref": "#/$defs/partie"
+    }
+   }
+  },
+  "transport": {
+   "type": "object",
+   "properties": {
+    "bl": {
+     "type": "string"
+    },
+    "date_bl": {
+     "type": "string"
+    },
+    "navire": {
+     "type": "string"
+    },
+    "voyage_bl": {
+     "type": "string"
+    },
+    "voyage_bad": {
+     "type": "string"
+    },
+    "escale": {
+     "type": "string"
+    },
+    "port_chargement": {
+     "type": "string"
+    },
+    "port_dechargement": {
+     "type": "string"
+    },
+    "date_accostage": {
+     "type": "string"
+    },
+    "quai": {
+     "type": "string"
+    },
+    "conteneur": {
+     "type": "string",
+     "pattern": "^[A-Z]{4}[0-9]{7}$"
+    },
+    "type_conteneur": {
+     "type": "string"
+    },
+    "tare": {
+     "type": "number"
+    },
+    "scelle": {
+     "type": "string"
+    },
+    "franchise_jours": {
+     "type": "integer"
+    },
+    "bad": {
+     "type": "object",
+     "properties": {
+      "reference": {
+       "type": "string"
+      },
+      "date": {
+       "type": "string"
+      },
+      "gros": {
+       "type": "string"
+      },
+      "agent": {
+       "type": "string"
+      }
+     }
+    },
+    "conteneurs": {
+     "type": "array",
+     "minItems": 1,
+     "description": "Un élément par conteneur quand le connaissement en couvre plusieurs ; transport.conteneur et transport.scelle sont alors déduits au chargement",
+     "items": {
+      "type": "object",
+      "required": [
+       "numero"
+      ],
+      "properties": {
+       "numero": {
+        "type": "string",
+        "pattern": "^[A-Z]{4}[0-9]{7}$"
+       },
+       "scelle": {
+        "type": "string"
+       },
+       "type": {
+        "type": "string"
+       },
+       "tare": {
+        "type": "number"
+       },
+       "palettes": {
+        "type": "number"
+       },
+       "colis": {
+        "type": "number"
+       },
+       "brut": {
+        "type": "number"
+       },
+       "volume": {
+        "type": "number"
+       }
+      }
+     }
+    }
+   }
+  },
+  "visite": {
+   "type": "object",
+   "properties": {
+    "lieu": {
+     "type": "string"
+    },
+    "inspecteur": {
+     "type": "string"
+    },
+    "agent": {
+     "type": "string"
+    },
+    "date": {
+     "type": "string"
+    }
+   }
+  },
+  "origine": {
+   "type": "object",
+   "properties": {
+    "pays": {
+     "type": "string"
+    },
+    "code": {
+     "type": "string"
+    },
+    "certificat": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "date_certificat": {
+     "type": "string"
+    },
+    "emetteur": {
+     "type": "string"
+    },
+    "preference": {
+     "type": "string"
+    },
+    "preuve": {
+     "type": "string"
+    }
+   }
+  },
+  "articles": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/article"
+   }
+  },
+  "liquidation": {
+   "type": "object",
+   "required": [
+    "total"
+   ],
+   "properties": {
+    "DD": {
+     "type": "number"
+    },
+    "TVA": {
+     "type": "number"
+    },
+    "CS": {
+     "type": "number"
+    },
+    "RPS": {
+     "type": "number"
+    },
+    "total": {
+     "type": "number"
+    }
+   }
+  },
+  "colisage": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "type",
+     "palettes",
+     "net",
+     "brut"
+    ],
+    "properties": {
+     "type": {
+      "type": "string"
+     },
+     "palettes": {
+      "type": "integer"
+     },
+     "contenu": {
+      "type": "string"
+     },
+     "net": {
+      "type": "number"
+     },
+     "brut": {
+      "type": "number"
+     },
+     "cartons": {
+      "type": "integer"
+     }
+    }
+   }
+  },
+  "documents": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "titre"
+    ],
+    "properties": {
+     "code": {
+      "type": "string"
+     },
+     "titre": {
+      "type": "string"
+     },
+     "emetteur": {
+      "type": "string"
+     },
+     "numero": {
+      "type": "string"
+     },
+     "date": {
+      "type": "string"
+     },
+     "page_scan": {
+      "type": "integer"
+     }
+    }
+   }
+  },
+  "concordance": {
+   "type": "object",
+   "description": "donnée → pièce → ok | - | ecart",
+   "properties": {
+    "pieces": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "lignes": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "donnee": {
+        "type": "string"
+       },
+       "valeurs": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "enum": [
+          "ok",
+          "-",
+          "ecart",
+          "imp"
+         ]
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "precisions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "point": {
+      "type": "string"
+     },
+     "explication": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "references_scan": {
+   "type": "array",
+   "description": "Références à confronter aux images scannées (contrôle de fidélité)",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "label",
+     "valeur",
+     "page"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     },
+     "valeur": {
+      "type": "string"
+     },
+     "page": {
+      "type": "integer"
+     },
+     "zone": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "x0,y0,x1,y1 en pixels sur la page tournée (optionnel)"
+     }
+    }
+   }
+  },
+  "technique": {
+   "type": "object",
+   "description": "Fiche technique produit (modèle fabricants européens). Les valeurs non issues du dossier portent indicatif=true.",
+   "properties": {
+    "systeme": {
+     "type": "string"
+    },
+    "procede": {
+     "type": "array",
+     "items": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "description": {
+     "type": "string"
+    },
+    "domaines": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "donnees": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "propriete": {
+        "type": "string"
+       },
+       "valeurs": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "indicatif": {
+        "type": "boolean"
+       }
+      }
+     }
+    },
+    "performance": {
+     "type": "object",
+     "properties": {
+      "reference": {
+       "type": "string"
+      },
+      "source": {
+       "type": "string"
+      },
+      "lignes": {
+       "type": "array",
+       "items": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "partie": {
+   "type": "object",
+   "properties": {
+    "nom": {
+     "type": "string"
+    },
+    "adresse": {
+     "type": "string"
+    },
+    "nif": {
+     "type": "string"
+    },
+    "rc": {
+     "type": "string"
+    },
+    "agrement": {
+     "type": "string"
+    },
+    "variantes_nom": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "taxe": {
+   "type": "object",
+   "required": [
+    "code",
+    "quotite",
+    "assiette",
+    "montant"
+   ],
+   "properties": {
+    "code": {
+     "type": "string"
+    },
+    "quotite": {
+     "type": "number"
+    },
+    "assiette": {
+     "type": "number"
+    },
+    "montant": {
+     "type": "number"
+    }
+   }
+  },
+  "article": {
+   "type": "object",
+   "required": [
+    "num",
+    "designation",
+    "code_sh",
+    "origine",
+    "poids_net",
+    "valeur_da",
+    "taxes"
+   ],
+   "properties": {
+    "num": {
+     "type": "integer"
+    },
+    "designation": {
+     "type": "string"
+    },
+    "designation_claire": {
+     "type": "string"
+    },
+    "code_sh": {
+     "type": "string",
+     "pattern": "^[0-9]{10}$"
+    },
+    "code_origine": {
+     "type": "string"
+    },
+    "origine": {
+     "type": "string"
+    },
+    "quantite": {
+     "type": "object",
+     "properties": {
+      "nombre": {
+       "type": "integer"
+      },
+      "unite": {
+       "type": "string"
+      },
+      "contenance_kg": {
+       "type": "number"
+      }
+     }
+    },
+    "poids_net": {
+     "type": "number"
+    },
+    "poids_brut": {
+     "type": "number"
+    },
+    "poids_brut_source": {
+     "type": "string"
+    },
+    "prix_unitaire": {
+     "type": "number"
+    },
+    "valeur_facture": {
+     "type": "number"
+    },
+    "valeur_da": {
+     "type": "number"
+    },
+    "pieces": {
+     "type": "string"
+    },
+    "taxes": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/taxe"
+     }
+    },
+    "description": {
+     "type": "object",
+     "properties": {
+      "definition": {
+       "type": "string"
+      },
+      "nature": {
+       "type": "string"
+      },
+      "presentation": {
+       "type": "string"
+      },
+      "fonction": {
+       "type": "string"
+      },
+      "usages": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "n_est_pas": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "identification": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

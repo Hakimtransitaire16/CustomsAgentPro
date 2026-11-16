@@ -1,0 +1,260 @@
+{#- Fiche technique & analyse douanière — généré depuis dossier.json -#}
+{%- set dec = d.declaration -%}{%- set tr = d.transport -%}{%- set imp = d.parties.importateur -%}{%- set four = d.parties.fournisseur -%}
+{%- set orig = d.origine or {} -%}{%- set vis = d.visite or {} -%}{%- set tech = d.technique or {} -%}{%- set arts = d.articles -%}
+{%- macro head(section) -%}
+<div class="hd"><div class="brand"><div class="mono">{{ initiales }}</div><div><div class="t1">{{ d.meta.declarant.nom }}</div><div class="t2">{{ d.meta.declarant.qualite or 'Déclarant en douane' }}</div></div></div>
+<div class="ref">D10 n° <b>{{ dec.numero }}</b>&nbsp; · MRN <b>{{ dec.mrn }}</b><br>Conteneur <b>{{ tr.conteneur }}</b> · {{ section }}</div></div>
+{%- endmacro -%}
+{%- macro foot() -%}<div class="ft"><span><b>Fiche technique &amp; analyse douanière</b> · {{ d.meta.declarant.nom }}, déclarant</span><span>{PAGE}</span></div>{%- endmacro -%}
+{%- macro sec(num, titre) -%}<div class="sec"><span class="n">{{ num }}</span><h2>{{ titre }}</h2></div>{%- endmacro -%}
+{%- macro pdsh(t) -%}<div class="pdsh"><span>{{ t }}</span></div>{%- endmacro -%}
+{%- macro kv(rows, cls='kv') -%}<table class="{{ cls }}">{% for k, v in rows %}<tr><td class="k">{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{%- endmacro -%}
+{%- macro chip(kind, txt) -%}<span class="chip {{ kind }}">{{ txt }}</span>{%- endmacro -%}
+{%- macro abhead() -%}<tr><th></th>{% for a in arts %}<th>{{ a.designation }} <span>· article {{ a.num }}</span></th>{% endfor %}</tr>{%- endmacro -%}
+{%- macro pallet(x, ncart, title) -%}
+<g transform="translate({{ x }},0)">{% for r in range(3) %}{% for c in range(4) %}<rect x="{{ 6 + c*26 }}" y="{{ 40 + r*22 }}" width="22" height="20" rx="2" fill="#0F2D4F"/><rect x="{{ 6 + c*26 }}" y="{{ 47 + r*22 }}" width="22" height="6" fill="#fff" opacity=".85"/>{% endfor %}{% endfor %}
+{% for k in range(ncart if ncart < 5 else 4) %}<rect x="{{ 8 + k*27 }}" y="14" width="24" height="22" fill="#C9A86A" stroke="#8C6D2E" stroke-width=".8"/>{% endfor %}
+<rect x="0" y="106" width="116" height="7" fill="#B08A57"/><rect x="4" y="113" width="12" height="7" fill="#8C6D2E"/><rect x="52" y="113" width="12" height="7" fill="#8C6D2E"/><rect x="100" y="113" width="12" height="7" fill="#8C6D2E"/>
+<text x="58" y="134" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0F2D4F">{{ title }}</text></g>
+{%- endmacro -%}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Fiche technique — {{ d.meta.produit_titre or arts[0].designation }}</title><style>{{ css }}</style></head><body>
+
+{# ================= 1. COUVERTURE ================= #}
+<section class="page">{{ head('Synthèse') }}
+  <div class="hero"><div>
+    <div class="hk">FICHE TECHNIQUE &amp; ANALYSE DOUANIÈRE · DOSSIER DE VISITE</div>
+    <div class="hn">{{ d.meta.produit_titre or arts[0].designation }} <span>{{ d.meta.produit_sous_titre or '' }}</span></div>
+    <div class="hs">{{ tech.systeme or arts[0].designation_claire }} · importateur {{ imp.nom }}</div>
+  </div></div>
+  <div class="refgrid">
+    {% for k, v, org in [('N° D10', dec.numero, 0), ('MRN — manifeste', dec.mrn, 0), ('Date et heure D10', dec.date_heure, 0),
+       ('Conteneur', tr.conteneur, 0), ('Scellé', tr.scelle, 0), ('Connaissement', tr.bl, 0),
+       ("Pays d'origine", (orig.pays or '')|upper ~ ' (' ~ (orig.code or '') ~ ')', 1), ('Pays de provenance', (orig.code or '') ~ ' · ' ~ (tr.port_chargement or ''), 1), ("Certificat d'origine", ((orig.certificat ~ ' · ' ~ (orig.date_certificat or '')) if orig.certificat else 'non joint · origine déclarée'), 0)] %}
+    <div class="rc{{ ' org' if org }}"><div class="l">{{ k }}</div><div class="v mono-t">{{ v }}</div></div>{% endfor %}
+  </div>
+  <div class="kpis mt2">
+    <div class="kpi"><div class="l">Valeur en douane</div><div class="v">{{ dec.valeur_da|n }} <small>DA</small></div><div class="s">{{ dec.montant_facture|n(2) }} {{ dec.devise }} {{ dec.incoterm }} × {{ dec.taux_change }}</div></div>
+    <div class="kpi"><div class="l">Droits et taxes</div><div class="v">{{ d.liquidation.total|n }} <small>DA</small></div><div class="s">liquidation vérifiée</div></div>
+    <div class="kpi"><div class="l">Quantité</div><div class="v">{{ poids_net|n }} <small>kg net</small></div><div class="s">{{ dec.poids_brut|n }} kg brut · {{ dec.nb_colis }} colis</div></div>
+    <div class="kpi"><div class="l">Circuit</div><div class="v" style="color:{{ 'var(--crit)' if dec.circuit == 'rouge' else 'var(--ok)' }}">{{ (dec.circuit or '—')|capitalize }}</div><div class="s">{{ 'visite physique' if dec.circuit == 'rouge' else '' }}</div></div>
+  </div>
+  <h3 class="mt">Marchandise déclarée</h3>
+  <table><tr><th>Art.</th><th>Désignation en langage clair</th><th>Code SH</th><th class="num">Quantité</th><th class="num">Poids net</th><th class="num">Valeur DA</th></tr>
+  {% for a in arts %}<tr><td>{{ a.num }}</td><td><b>{{ a.designation }}</b> — {{ a.designation_claire }}</td><td class="mono-t">{{ a.code_sh|sh }}</td><td class="num">{{ a.quantite.nombre|n if a.quantite.nombre is number else a.quantite.nombre }} {{ a.quantite.unite }}</td><td class="num">{{ a.poids_net|n }} kg</td><td class="num">{{ a.valeur_da|n }}</td></tr>{% endfor %}</table>
+  <div class="grid2 mt">
+    <div><h3>Parties à l'opération</h3>
+      {{ kv([('Importateur', '<b>' ~ imp.nom ~ '</b><br>NIF <span class="mono-t">' ~ imp.nif ~ '</span> · RC <span class="mono-t">' ~ imp.rc ~ '</span>'),
+             ('Fournisseur', '<b>' ~ four.nom ~ '</b>'),
+             ('Déclarant', '<b>' ~ d.parties.declarant_societe.nom ~ '</b> · agrément <span class="mono-t">' ~ d.parties.declarant_societe.agrement ~ '</span>'),
+             ('Banque', dec.domiciliation.banque ~ ' · <span class="mono-t">' ~ dec.domiciliation.numero ~ '</span>')]) }}</div>
+    <div><h3>Visite physique</h3>
+      {{ kv([('Lieu de la visite', '<b>' ~ (vis.lieu or '—') ~ '</b>'), ('Inspecteur de visite', '<b>' ~ (vis.inspecteur or '—') ~ '</b>'), ('Agent de visite', '<b>' ~ (vis.agent or '—') ~ '</b>'), ('Déclarant', '<b>' ~ d.meta.declarant.nom ~ '</b>')]) }}
+      <div class="result mt2"><div class="rt">Avis du déclarant</div><p><b>Dossier {{ 'complet et ' if orig.certificat }}cohérent.</b> {{ nb_pieces }} pièces concordantes ; valeur et liquidation recalculées sans écart ; {{ fid_ok }}/{{ fid_tot }} références vérifiées sur les images scannées.</p></div></div>
+  </div>
+  {{ foot() }}
+</section>
+
+{# ================= 2. FICHE TECHNIQUE PRODUIT ================= #}
+{% if tech %}
+<section class="page">{{ head('Fiche technique produit') }}
+  <div class="hero"><div><div class="hk">FICHE TECHNIQUE · TECHNICAL DATA SHEET</div>
+    <div class="hn">{{ d.meta.produit_titre }} <span>{{ d.meta.produit_sous_titre or '' }}</span></div>
+    <div class="hs">{{ tech.systeme }} · fabricant {{ (d.parties.fabricant or four).nom }} · version {{ d.meta.version or '01.00' }}</div></div></div>
+  <div class="facts">
+    {% for ic, l, v in [('globe', "Pays d'origine", (orig.pays or '')|upper ~ ' (' ~ (orig.code or '') ~ ')'), ('box', 'Emballage', emballages), ('code', 'Codes SH', codes_sh),
+       ('ratio', 'Quantité', poids_net|n ~ ' kg net'), ('profile', 'Fabricant', (d.parties.fabricant or four).nom), ('twok', 'Articles', arts|length ~ ' article(s)')] %}
+    <div class="fact">{{ icon(ic) }}<div><div class="fl">{{ l }}</div><div class="fv">{{ v }}</div></div></div>{% endfor %}
+  </div>
+  {% if tech.procede %}<div class="steps">{% for stp in tech.procede %}<div class="step"><div class="sc">{{ icon(stp[2] if stp|length > 2 else ['mix','roll','heat','press'][loop.index0 % 4], 22, '#fff') }}</div><div><div class="st">{{ loop.index }} · {{ stp[0] }}</div><div class="sd">{{ stp[1] }}</div></div></div>{% endfor %}</div>{% endif %}
+  <div class="grid2 mt2">
+    <div>{{ pdsh('DESCRIPTION') }}<p>{{ tech.description }}</p></div>
+    <div>{{ pdsh("DOMAINES D'APPLICATION") }}<ul class="sq">{% for x in tech.domaines %}<li>{{ x }}</li>{% endfor %}</ul></div>
+  </div>
+  {{ pdsh('DONNÉES TECHNIQUES') }}
+  <table class="ab">{{ abhead() }}{% for r in tech.donnees %}<tr><td class="p">{{ r.propriete }}{% if r.indicatif %}<sup class="dag">†</sup>{% endif %}</td>{% for v in r.valeurs %}<td>{{ v }}</td>{% endfor %}</tr>{% endfor %}</table>
+  {% if tech.performance %}{{ pdsh('PERFORMANCE — COMPARAISON AVEC UNE RÉFÉRENCE EUROPÉENNE') }}
+  <table class="ab perf"><tr><th>Critère</th><th>{{ d.meta.produit_titre }}</th><th>Référence UE — {{ tech.performance.reference }}</th></tr>
+  {% for a, b, c in tech.performance.lignes %}<tr><td class="p">{{ a }}</td><td>{{ b }}</td><td>{{ c }}</td></tr>{% endfor %}</table>{% endif %}
+  <p class="dagn">† Valeur type de la famille de produits ; la fiche technique et la FDS du fabricant font foi.{% if tech.performance %} Référence : {{ tech.performance.source }}, à titre de comparaison · « — » : non fourni par le fabricant.{% endif %}</p>
+  {{ foot() }}
+</section>
+{% endif %}
+
+<section class="page">{{ head('Description de la marchandise') }}
+  {{ sec('', 'Description de la marchandise — modèle européen') }}
+  {% for a in arts %}{% set ds = a.description or {} %}
+  <div class="art"><div class="ah"><span class="anum">ARTICLE {{ a.num }}</span> {{ a.designation }} <span class="acode">{{ a.code_sh|sh }}</span></div>
+    <div class="dsc" style="padding:0 3mm 1mm">
+      {% for code, titre, val in [('A','Définition', ds.definition), ('B','Nature', ds.nature), ('C','Présentation', ds.presentation), ('D','Fonction', ds.fonction)] if val %}
+      <div class="dr"><div class="dl"><span class="dk">{{ code }}</span>{{ titre }}</div><div class="db">{{ val }}</div></div>{% endfor %}
+      {% for code, titre, lst in [('E','Usages pratiques', ds.usages), ('F',"Ce qu'elle n'est pas", ds.n_est_pas), ('G','Identification à la visite', ds.identification)] if lst %}
+      <div class="dr"><div class="dl"><span class="dk">{{ code }}</span>{{ titre }}</div><div class="db"><ul class="sq">{% for x in lst %}<li>{{ x }}</li>{% endfor %}</ul></div></div>{% endfor %}
+    </div></div>{% endfor %}
+  {{ foot() }}
+</section>
+
+{# ================= 3. DESCRIPTION ET DONNÉES DOUANIÈRES PAR ARTICLE ================= #}
+<section class="page">{{ head('Données douanières') }}
+  {{ pdsh('DONNÉES DOUANIÈRES — CASES DU D10') }}
+  <table class="ab cust">{{ abhead() }}
+    {% set rows = [
+      ('Article du D10', arts|map(attribute='num')|map('string')|map('add_suffix', ' / ' ~ arts|length)|list),
+      ('Code SH (case 40)', arts|map(attribute='code_sh')|map('sh')|list),
+      ('Classement (tarif douanier)', classements),
+      ('Origine (case 39)', arts|map(attribute='origine')|list),
+      ("Code du pays d'origine", arts|map(attribute='code_origine')|list),
+      ('Quantité', qtes),
+      ('Poids net (case 41)', arts|map(attribute='poids_net')|map('n')|map('add_suffix', ' kg')|list),
+      ('Poids brut', pbruts),
+      ('Codes pièces (case 45)', arts|map(attribute='pieces')|list),
+      ('Prix unitaire (facture)', arts|map(attribute='prix_unitaire')|map('n', 2)|map('add_suffix', ' ' ~ (arts[0].prix_unite or dec.devise ~ '/kg'))|list),
+      ('Valeur facture', arts|map(attribute='valeur_facture')|map('n', 2)|map('add_suffix', ' ' ~ dec.devise)|list),
+      ('Valeur en douane (case 42)', arts|map(attribute='valeur_da')|map('n')|map('add_suffix', ' DA')|list)] %}
+    {% for lab, vals in rows %}<tr><td class="p">{{ lab }}</td>{% for v in vals %}<td>{{ v }}</td>{% endfor %}</tr>{% endfor %}
+    {% for code in ['DD', 'CS', 'TVA'] %}<tr><td class="p">{{ {'DD':'Droit de douane','CS':'Contribution de solidarité','TVA':'TVA'}[code] }}</td>{% for a in arts %}{% set t = taxe(a, code) %}<td>{% if t %}{{ t.quotite|n }} % · {{ t.montant|n(2) }} DA{% if t.exonere %} — <b>exonéré</b>{% endif %}{% else %}—{% endif %}</td>{% endfor %}</tr>{% endfor %}
+    <tr><td class="p">Total droits et taxes</td>{% for a in arts %}<td><b>{{ total_art(a)|n(2) }} DA</b></td>{% endfor %}</tr>
+    <tr><td class="p">Origine — preuve</td><td colspan="{{ arts|length }}" class="c">{% if orig.certificat %}Certificat {{ orig.certificat }} du {{ orig.date_certificat }} — {{ orig.emetteur }}{% else %}{{ orig.preuve or 'Origine déclarée sur le D10 et les pièces commerciales' }}{% endif %} · préférence : {{ orig.preference }}</td></tr>
+    {% if d.exoneration %}<tr><td class="p">Exonération (case 37·38 : {{ dec.regime_fiscal }})</td><td colspan="{{ arts|length }}" class="c">{{ d.exoneration.base_legale }}{% if d.exoneration.piece %} · {{ d.exoneration.piece }}{% endif %}</td></tr>{% endif %}
+  </table>
+  {{ pdsh('VALEUR EN DOUANE') }}
+  {% set vl = d.valeur or {} %}
+  <table><tr><th style="width:34%">Élément</th><th>Valeur</th><th style="width:26%">Source</th></tr>
+    <tr><td>Méthode d'évaluation</td><td colspan="2">{{ vl.methode or "Valeur transactionnelle (art. 16 ter du code des douanes)" }}</td></tr>
+    {% if vl.prix_fob %}<tr><td>Prix des marchandises (FOB)</td><td class="mono-t">{{ vl.prix_fob|n(2) }} {{ dec.devise }}</td><td>Facture</td></tr>{% endif %}
+    <tr><td>Fret jusqu'au port d'Alger</td><td class="mono-t">{{ dec.fret|n(2) }} {{ dec.devise }}</td><td>Facture · D10</td></tr>
+    <tr><td>Assurance</td><td class="mono-t">{{ dec.assurance|n(2) }} {{ dec.devise }}</td><td>D10</td></tr>
+    <tr><td>Prix total {{ dec.incoterm }}</td><td class="mono-t"><b>{{ dec.montant_facture|n(2) }} {{ dec.devise }}</b></td><td>Facture · D10 case 22</td></tr>
+    <tr><td>Taux de change</td><td class="mono-t">{{ dec.taux_change }}</td><td>D10 case 23</td></tr>
+    <tr><td>Valeur en douane</td><td class="mono-t"><b>{{ dec.valeur_da|n }} DA</b></td><td>D10 case 42 · recalculée</td></tr>
+    <tr><td>Domiciliation bancaire</td><td class="mono-t">{{ dec.domiciliation.numero }}</td><td>{{ dec.domiciliation.banque }} · {{ dec.domiciliation.date or '' }}</td></tr>
+  </table>
+  {{ foot() }}
+</section>
+
+
+{# ================= CLASSEMENT TARIFAIRE MOTIVÉ ================= #}
+{% if classes %}
+<section class="page">{{ head('Classement tarifaire') }}
+  {{ sec('', 'Espèce tarifaire — classement motivé') }}
+  {% for a in arts %}{% set f = classes[loop.index0] %}
+  <table class="ab cust"><tr><th style="width:24%">Niveau</th><th style="width:18%">Code</th><th>Libellé (tarif douanier DGD)</th></tr>
+    {% if f.section %}<tr><td class="p">Section</td><td class="mono-t">{{ f.section.numero }}</td><td>{{ f.section.titre|capitalize }}</td></tr>{% endif %}
+    {% if f.chapitre %}<tr><td class="p">Chapitre</td><td class="mono-t">{{ f.chapitre.numero }}</td><td>{{ f.chapitre.titre }}</td></tr>{% endif %}
+    <tr><td class="p">Position</td><td class="mono-t">{{ f.position.code }}</td><td>{{ f.position.libelle }}</td></tr>
+    {% if f.ligne %}{% set h = f.ligne.hierarchie %}
+    {% if h %}<tr><td class="p">Sous-position</td><td class="mono-t">{{ f.sous_position }}</td><td>{{ h[0] }}</td></tr>{% endif %}
+    <tr><td class="p">Ligne nationale</td><td class="mono-t"><b>{{ f.ligne.code }}</b></td><td><b>{{ (h[1:] + [f.ligne.libelle])|join(' — ') }}</b> · unité {{ f.ligne.unite }}</td></tr>{% endif %}
+    <tr><td class="p">Droit de douane / TVA</td><td class="mono-t">{{ f.droit_douane|n }} % · {{ f.tva|n }} %</td><td>{{ f.droit_douane_source }}{% if a.taxes|selectattr('exonere')|list %} · exonérés pour ce dossier (régime fiscal {{ dec.regime_fiscal }}){% endif %}</td></tr>
+    {% if a.code_origine %}<tr><td class="p">Code du pays d'export</td><td class="mono-t">{{ a.code_origine }}</td><td>B/L, facture et liste de colisage : même sous-position {{ f.sous_position }}</td></tr>{% endif %}
+  </table>
+  {% endfor %}
+  {% set cl = d.classement or {} %}
+  <div class="grid2 mt2">
+    <div>{{ pdsh('MOTIVATION') }}<ol class="mot">{% for m in cl.motivation or [] %}<li>{{ m }}</li>{% endfor %}</ol></div>
+    <div>{{ pdsh('RÈGLES ET NOTES APPLIQUÉES') }}
+      {% for k, lab in [('1', 'RGI 1'), ('6', 'RGI 6'), ('5b', 'RGI 5 b')] if rgi.get(k) %}<div class="txt"><b>{{ lab }}</b> — « {{ rgi[k]|truncate(175, True, '…') }} »</div>{% endfor %}
+      {% for ref, t in cl.notes or [] %}<div class="txt"><b>{{ ref }}</b> — {{ t }}</div>{% endfor %}
+      <div class="src">Source : tarif douanier DGD, règles générales interprétatives et notes légales.</div></div>
+  </div>
+  {% if cl.ecartees %}{{ pdsh('POSITIONS VOISINES ÉCARTÉES') }}
+  <table><tr><th style="width:15%">Code</th><th style="width:33%">Libellé</th><th style="width:8%">DD</th><th>Motif</th></tr>
+  {% for c, l, t, m in cl.ecartees %}<tr><td class="mono-t">{{ c }}</td><td>{{ l }}</td><td>{{ t }}</td><td>{{ m }}</td></tr>{% endfor %}</table>{% endif %}
+  {% set decs = classes[0].decisions if classes else [] %}
+  <p class="small mt2"><b>Décisions de classement DGD (recueils 2020, 2024, 2025) :</b> {% if decs %}{% for r in decs[:3] %}{{ r.reference }} → {{ r.code }} ({{ r.designation|lower }}){{ ' ; ' if not loop.last }}{% endfor %} ; aucune décision ne vise la sous-position {{ classes[0].sous_position }}.{% else %}aucune décision sur la position.{% endif %}</p>
+  {{ foot() }}
+</section>
+{% endif %}
+
+{# ================= RÉGIME FISCAL, ORIGINE, RÉGLEMENTATION ================= #}
+<section class="page">{{ head('Régime fiscal · origine · réglementation') }}
+  {% set ex = d.exoneration or {} %}
+  {% if ex %}{{ pdsh('RÉGIME FISCAL ' ~ dec.regime_fiscal ~ ' — EXONÉRATION') }}
+  <div class="grid2">
+    <div>{% for ref, t in ex.textes or [] %}<div class="txt"><b>{{ ref }}</b> — {{ t }}</div>{% endfor %}</div>
+    <div><table>{% for c, v in ex.conditions or [] %}<tr><td class="p" style="width:42%">{{ c }}</td><td>{{ v }} <span class="ok-t">✓</span></td></tr>{% endfor %}</table></div>
+  </div>{% endif %}
+  <div class="grid2 mt2">
+    <div>{{ pdsh('LIQUIDATION') }}
+      <table><tr><th>Taxe</th><th class="num">Quotité</th><th class="num">Assiette DA</th><th class="num">Montant DA</th></tr>
+      {% for a in arts %}{% for t in a.taxes %}<tr><td>{{ t.code }}</td><td class="num">{{ t.quotite|n }} %</td><td class="num">{{ t.assiette|n }}</td><td class="num">{{ 'exonéré' if t.exonere else t.montant|n(2) }}</td></tr>{% endfor %}{% endfor %}
+      {% if d.liquidation.RPS %}<tr><td>RPS</td><td></td><td></td><td class="num">{{ d.liquidation.RPS|n }}</td></tr>{% endif %}
+      <tr class="tot"><td colspan="3">Total à payer</td><td class="num">{{ d.liquidation.total|n }}</td></tr></table></div>
+    <div>{{ pdsh('ORIGINE ET PROVENANCE') }}
+      {{ kv([("Pays d'origine", '<b>' ~ (orig.pays or '') ~ ' (' ~ (orig.code or '') ~ ')</b> — D10 case 39'), ('Provenance', (tr.port_chargement or '') ~ (' · transbordement Malte' if 'Malte' in (tr.navire ~ (tr.bad.reference or '')) else '')),
+             ('Fabricant', (d.parties.fabricant or four).nom ~ ((' — ' ~ d.parties.fabricant.adresse) if d.parties.fabricant else '')),
+             ('Preuves', orig.preuve if not orig.certificat else 'Certificat ' ~ orig.certificat ~ ' du ' ~ orig.date_certificat), ('Préférence', orig.preference)]) }}</div>
+  </div>
+  {{ pdsh('RÉGLEMENTATION ET CONFORMITÉ') }}
+  <table><tr><th style="width:34%">Exigence</th><th>Situation du dossier</th><th style="width:14%">Statut</th></tr>
+    {% if conformite %}<tr><td>Contrôle de conformité aux frontières — décret exécutif n° 05-467 du 10/12/2005</td><td>{{ conformite }}</td><td>{{ chip('ok', 'Présent') }}</td></tr>{% endif %}
+
+    {% for e, sit, st in d.reglementation or [] %}<tr><td>{{ e }}</td><td>{{ sit }}</td><td>{{ chip(st[0], st[1]) }}</td></tr>{% endfor %}
+    <tr><td>Étiquetage et FDS</td><td>Contrôle des étiquettes à la visite (produit, fabricant, poids net, lot, origine, mentions en arabe) · FDS du fabricant</td><td>{{ chip('info', 'À la visite') }}</td></tr>
+  </table>
+  {{ foot() }}
+</section>
+
+
+
+{# ================= 4. CONDITIONNEMENT, GUIDE, LIQUIDATION ================= #}
+<section class="page">{{ head('Conditionnement · liquidation') }}
+  {{ sec('', 'Conditionnement et guide de visite' ~ (' — ' ~ vis.lieu if vis.lieu else '')) }}
+  {% if illus %}<div class="illu"><img src="{{ illus }}" alt="Illustration de la marchandise"><div class="illu-t">ILLUSTRATION — schéma établi d'après les pièces du dossier ; ne constitue pas une photographie</div></div>{% endif %}
+  {% if d.colisage %}{% set un = d.colisage[0].unite or 'palettes' %}
+  {% if un == 'palettes' %}<svg viewBox="0 0 {{ 180 * d.colisage|length }} 140" width="100%" height="140">{% for c in d.colisage %}{{ pallet(10 + loop.index0*180, c.cartons or 0, 'Type ' ~ c.type ~ ' · ' ~ c.palettes ~ ' palette' ~ ('s' if c.palettes > 1 else '')) }}{% endfor %}</svg>{% endif %}
+  <table class="mt2"><tr><th>Type</th><th>{{ un|capitalize }}</th><th>Contenu</th><th class="num">Net</th><th class="num">Brut</th></tr>
+  {% for c in d.colisage %}<tr><td><b>{{ c.type }}</b></td><td>{{ c.palettes|n }}</td><td>{{ c.contenu }}</td><td class="num">{{ c.net|n }} kg</td><td class="num">{{ c.brut|n }} kg</td></tr>{% endfor %}</table>{% endif %}
+  <h3 class="mt">Guide de la visite physique</h3><ul class="chk two">{% for x in checklist %}<li>{{ x }}</li>{% endfor %}</ul>
+  {{ foot() }}
+</section>
+
+{# ================= 5. DOCUMENTS & CONCORDANCE ================= #}
+<section class="page">{{ head('Documents') }}
+  {{ sec('', 'Analyse des pièces du dossier') }}
+  <div class="anl">{% for doc in d.documents %}{% set an = doc.analyse or {} %}<div class="ac">
+    <div class="ach"><span class="dc-n">{{ '%02d' % loop.index }}</span><b>{{ doc.titre }}</b><span class="mono-t">{{ doc.numero }}</span><span>{{ doc.date }}</span></div>
+    {% if an.objet %}<div class="aco">{{ an.objet }}</div>{% endif %}
+    {% if an.donnees %}<table class="acd">{% for k, v in an.donnees %}<tr><td>{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}</table>{% endif %}
+    {% if an.apport %}<div class="aca"><b>Apport :</b> {{ an.apport }}</div>{% endif %}
+  </div>{% endfor %}</div>
+  {{ foot() }}
+</section>
+
+{# ================= 6. CONCLUSION & PV ================= #}
+<section class="page">{{ head('Conclusion') }}
+  {{ sec('03', 'Conclusion et procès-verbal de visite') }}
+  <div class="verdict"><div class="big"><svg width="44" height="44" viewBox="0 0 46 46"><circle cx="23" cy="23" r="21" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M13 24 l7 7 l14 -15" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><small>DOSSIER CONFORME</small></div>
+    <p><b>Marchandise attendue :</b> {% for a in arts %}{{ a.quantite.nombre|n if a.quantite.nombre is number else a.quantite.nombre }} {{ a.quantite.unite }} de {{ a.designation }} ({{ a.poids_net|n }} kg){{ ' et ' if not loop.last }}{% endfor %}, sur {{ dec.nb_colis }} colis, dans le conteneur {{ tr.conteneur }} sous scellé {{ tr.scelle }}. Valeur {{ dec.valeur_da|n }} DA · liquidation {{ d.liquidation.total|n }} DA, exactes.</p></div>
+  {% if d.concordance %}<table class="mx mt"><tr><th>Concordance des pièces</th>{% for p in d.concordance.pieces %}<th>{{ p }}</th>{% endfor %}</tr>
+  {% for l in d.concordance.lignes %}<tr><td>{{ l.donnee }}</td>{% for v in l.valeurs %}<td>{{ {'ok':'✓','-':'—','ecart':'!'}[v] }}</td>{% endfor %}</tr>{% endfor %}</table>{% endif %}
+  {% if d.precisions %}<p class="small"><b>Précisions :</b> {% for p in d.precisions %}{{ p.point }} — {{ p.explication }}{{ ' · ' if not loop.last }}{% endfor %}</p>{% endif %}
+  <table class="visit mt"><tr><th style="width:36%">Rubrique</th><th>Constatation</th></tr>
+    {% for k, lab, val in pv %}<tr><td>{{ lab }}</td><td data-pv="{{ k }}">{{ val }}</td></tr>{% endfor %}</table>
+  <div class="sigs mt">
+    <div><div class="small muted">Inspecteur de visite</div><div class="nm">{{ vis.inspecteur or '' }}</div><div class="sl">Signature et cachet</div></div>
+    <div><div class="small muted">Agent de visite</div><div class="nm">{{ vis.agent or '' }}</div><div class="sl">Signature</div></div>
+    <div><div class="small muted">Déclarant</div><div class="nm">{{ d.meta.declarant.nom }}</div><div class="sl">Signature · {{ d.meta.date_fiche }}</div></div>
+  </div>
+  {{ foot() }}
+</section>
+
+{# ================= 7. PHOTOS DE LA VISITE (si fournies) ================= #}
+{% if photos or live %}
+<section class="page" id="photos-page"{% if not photos %} style="display:none"{% endif %}>{{ head('Photos de la visite') }}
+  {{ sec('04', 'Photos prises lors de la visite') }}
+  <div class="phg" id="photos-grid">{% for p in photos %}<div class="ph"><img src="{{ p.src }}" style="width:100%;height:52mm;object-fit:cover;display:block"><div class="phc">{{ p.legende }}</div></div>{% endfor %}</div>
+  {% if live %}<div class="ft"><span><b>Fiche technique &amp; analyse douanière</b> · {{ d.meta.declarant.nom }}, déclarant</span><span>Annexe photos</span></div>{% else %}{{ foot() }}{% endif %}
+</section>
+{% endif %}
+
+{# ================= 8. ANNEXE FIDÉLITÉ ================= #}
+{% if fidelite %}
+<section class="page">{{ head('Annexe') }}
+  {{ sec('A', 'Annexe — contrôle de fidélité : fiche ↔ images scannées') }}
+  <p class="small">Chaque référence a été relue par OCR sur l'image scannée puis comparée caractère par caractère ; l'extrait de l'image est reproduit en regard. {{ fid_ok }} / {{ fid_tot }} identiques en lecture automatique ; les autres sont à confirmer visuellement sur l'extrait.</p>
+  <table class="vf"><tr><th>Donnée</th><th>Valeur de la fiche</th><th>Extrait de l'image scannée</th><th>Résultat</th></tr>
+  {% for f in fidelite %}<tr><td><span class="al">{{ f.label }}</span> <span class="src">· {{ d.scan.pages.get(f.page|string, 'p. ' ~ f.page) }}</span></td><td class="mono-t">{{ f.valeur }}</td><td><img src="{{ f.src }}"></td><td><span class="ok-t">{{ '✓ identique' if f.score >= 0.95 else '◎ visuel' }}</span></td></tr>{% endfor %}</table>
+  {{ foot() }}
+</section>
+{% endif %}
+</body></html>

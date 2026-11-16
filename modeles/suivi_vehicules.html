@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Suivi de dédouanement — conteneur de véhicules (SV-01 / SV-02)</title>
+<style>
+:root{--navy:#0F2D4F;--blue:#2C66A8;--blue-l:#E8F0F9;--panel:#F5F7FA;--ink:#14202E;--muted:#5B6878;--line:#C9D3DF;--hair:#DDE4EC}
+@page{size:A4 landscape;margin:9mm 10mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,"DejaVu Sans",sans-serif;color:var(--ink);font-size:8pt;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+section{height:192mm;display:flex;flex-direction:column;break-after:page}
+section:last-child{break-after:auto}
+/* En-tête commun aux deux feuilles */
+.hd{display:flex;align-items:flex-end;gap:4mm;padding-bottom:2.6mm;border-bottom:1.4px solid var(--navy)}
+.mg{width:9mm;height:9mm;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:8pt;letter-spacing:.06em;flex:none}
+.ttl{flex:1}
+.ttl .k{font-size:6.4pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.ttl h1{font-size:15pt;font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1.1}
+.hr{display:flex;align-items:flex-end;gap:5mm}
+.tc{display:flex;flex-direction:column;align-items:flex-end;font-size:6pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.tc .boxes{margin-top:1mm}
+.meta{text-align:right;font-size:6.6pt;color:var(--muted);line-height:1.5;border-left:1px solid var(--hair);padding-left:4mm}
+.meta b{color:var(--navy);font-weight:700}
+.pg{display:inline-block;background:var(--navy);color:#fff;font:700 6.6pt "DejaVu Sans Mono",monospace;padding:.6mm 1.6mm;margin-top:.8mm}
+/* Éléments de saisie */
+.boxes{display:flex;gap:.5mm}
+.boxes i{display:block;width:4.4mm;height:6mm;border:1px solid var(--line);border-bottom:1.2px solid var(--navy);background:#fff}
+.boxes i.sep{margin-left:1.2mm}
+.dt{display:inline-flex;align-items:flex-end}
+.dt i{display:block;width:2.9mm;height:4.4mm;border-bottom:1.1px solid var(--navy);margin-right:.25mm}
+.dt em{font-style:normal;color:var(--muted);font-size:7pt;padding:0 .4mm}
+.ck{display:inline-flex;gap:3.4mm;flex-wrap:wrap}
+.ck span{display:inline-flex;align-items:center;gap:1.1mm;color:var(--ink)}
+.ck span::before{content:"";width:3mm;height:3mm;border:1.1px solid var(--navy);background:#fff;flex:none}
+.ln{flex:1;border-bottom:1px solid var(--navy);height:5mm;min-width:6mm}
+.lnl{flex:1;border-bottom:1px solid var(--line);height:4mm;min-width:4mm}
+/* Feuille 1 */
+.grp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3mm 4mm;margin-top:4mm}
+.fld{border:1px solid var(--line);border-top:2px solid var(--navy);padding:2mm 2.6mm 2.4mm;display:flex;flex-direction:column;gap:2mm;background:#fff}
+.fld .l{display:flex;align-items:baseline;gap:2mm;font-size:6.6pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--navy)}
+.fld .l .n{font-family:"DejaVu Sans Mono",monospace;color:var(--blue);letter-spacing:0}
+.fld .r{display:flex;align-items:flex-end;gap:2mm;font-size:7.4pt;color:var(--muted)}
+.fld .r b{font-weight:600;color:var(--ink);white-space:nowrap}
+.band{margin-top:4.6mm;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1.4px solid var(--navy);padding-bottom:1.4mm}
+.band h2{font-size:9pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.band span{font-size:6.8pt;color:var(--muted)}
+table.vh{width:100%;border-collapse:collapse;margin-top:1.6mm;table-layout:fixed}
+.vh th{font-size:6.4pt;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:left;padding:1.4mm 2mm;border-bottom:1px solid var(--line)}
+.vh td{border-bottom:1px solid var(--line);padding:2.6mm 2mm;vertical-align:middle;height:15mm}
+.vh td.no{font:700 13pt "DejaVu Sans Mono",monospace;color:var(--navy);text-align:center}
+.vin{display:flex;gap:.45mm}
+.vin i{display:block;width:5.6mm;height:7.4mm;border:1px solid var(--line);border-bottom:1.2px solid var(--navy);background:#fff}
+.vin i:nth-child(9){border-color:var(--blue);background:var(--blue-l)}
+.vin i:nth-child(12){margin-left:1.6mm}
+/* Feuille 2 */
+.phases{display:grid;grid-template-columns:40mm repeat(8,minmax(0,1fr));margin-top:3.4mm}
+.phases div{font-size:6.2pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);padding:0 1.6mm 1mm;border-bottom:2px solid var(--blue);margin-right:1mm}
+.phases div.e{border:0}
+table.mx{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:1.2mm}
+.mx th{background:var(--navy);color:#fff;font-weight:600;font-size:6.8pt;text-align:left;padding:1.4mm 1.6mm;vertical-align:top;line-height:1.2}
+.mx th.v{width:40mm}
+.mx th .hn{display:flex;justify-content:space-between;align-items:center;font:600 6.2pt "DejaVu Sans Mono",monospace;opacity:.85;margin-bottom:.6mm}
+.mx th .hn i{display:block;width:3mm;height:3mm;border:1px solid #fff}
+.mx td{border:1px solid var(--line);vertical-align:top;padding:1.6mm 1.6mm;height:__ROWH__}
+.mx td.v{background:var(--panel)}
+.mx td.v .no{font:700 16pt "DejaVu Sans Mono",monospace;color:var(--navy);line-height:1}
+.mx td.v .sm{font-size:6.2pt;color:var(--muted);margin-top:2mm;letter-spacing:.06em;text-transform:uppercase}
+.mx td.v .six{display:flex;gap:.4mm;margin-top:.8mm}
+.mx td.v .six i{display:block;width:4.6mm;height:6mm;border:1px solid var(--line);border-bottom:1.2px solid var(--navy);background:#fff}
+.mx td.v .ln2{border-bottom:1px solid var(--line);height:4.6mm;margin-top:.6mm}
+.cell{display:flex;flex-direction:column;gap:1.7mm;font-size:6.4pt;color:var(--muted)}
+.cell .r{display:flex;align-items:flex-end;gap:1mm}
+.cell .r b{font-weight:600;color:var(--ink);white-space:nowrap}
+.tot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4mm;margin-top:2.4mm;padding:1.8mm 2.6mm;background:var(--panel);border-left:2px solid var(--navy);font-size:7.2pt;color:var(--muted)}
+.tot span{display:flex;align-items:flex-end;gap:1.6mm}
+.tot b{color:var(--navy);font-weight:700;white-space:nowrap}
+.ft{display:flex;justify-content:space-between;gap:4mm;border-top:1px solid var(--hair);padding-top:1.8mm;margin-top:auto;font-size:6.2pt;color:var(--muted)}
+.ft b{color:var(--navy)}
+</style></head><body>
+
+<!-- ============ FEUILLE 1 : LE CONTENEUR ============ -->
+<section>
+  <div class="hd">
+    <div class="mg">AH</div>
+    <div class="ttl"><div class="k">Suivi de dédouanement · conteneur de véhicules</div><h1>Fiche conteneur</h1></div>
+    <div class="hr">
+      <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Réf. dossier V-______-_____<br><span class="pg">1 / 2</span></div>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="fld"><div class="l"><span class="n">01</span>N° de TC · date</div>
+      <div class="boxes">__TC__</div>
+      <div class="r"><b>Date</b>__DATE__</div></div>
+    <div class="fld"><div class="l"><span class="n">02</span>CRN</div><div class="r"><span class="ln"></span></div><div class="r"><span class="ln"></span></div></div>
+    <div class="fld"><div class="l"><span class="n">03</span>N° de B/L</div><div class="r"><span class="ln"></span></div><div class="r"><span class="ln"></span></div></div>
+
+    <div class="fld"><div class="l"><span class="n">04</span>Compagnie maritime</div><div class="r"><span class="ln"></span></div><div class="r"><span class="ln"></span></div></div>
+    <div class="fld"><div class="l"><span class="n">05</span>Client</div><div class="r"><span class="ln"></span></div><div class="r"><b>Tél.</b><span class="ln"></span></div></div>
+    <div class="fld"><div class="l"><span class="n">06</span>Bureau de douane</div><div class="r"><span class="ln"></span></div><div class="r"><span class="ln"></span></div></div>
+
+    <div class="fld"><div class="l"><span class="n">07</span>Lieu d'entrepôt</div><div class="r"><span class="ln"></span></div><div class="r"><span class="ln"></span></div></div>
+    <div class="fld"><div class="l"><span class="n">08</span>Groupeur · relâche</div><div class="r"><span class="ln"></span></div><div class="r"><b>Relâche</b><span class="ck"><span>Oui</span><span>Non</span></span></div></div>
+    <div class="fld"><div class="l"><span class="n">09</span>Bon à délivrer</div><div class="r"><span class="ck"><span>Récupéré</span><span>Non récupéré</span></span></div><div class="r"><b>Date</b>__DATE__</div></div>
+
+    <div class="fld"><div class="l"><span class="n">10</span>État de dépotage</div><div class="r"><span class="ck"><span>Dépoté</span><span>Non dépoté</span></span></div><div class="r"><b>Date</b>__DATE__</div></div>
+    <div class="fld"><div class="l"><span class="n">11</span>TC vide · facturation</div><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>Montant</b><span class="ln"></span>DA</div></div>
+    <div class="fld"><div class="l"><span class="n">12</span>TC vide · livraison</div><div class="r"><b>Date</b>__DATE__</div><div class="r"><b>Lieu</b><span class="ln"></span></div></div>
+  </div>
+
+  <div class="band"><h2>Véhicules sur le TC · 4</h2><span>Le n° de ligne suit le véhicule sur la feuille 2 · le 9e caractère du châssis (bleu) est le chiffre de contrôle</span></div>
+  <table class="vh">
+    <thead><tr><th style="width:12mm">N°</th><th style="width:62mm">Marque · modèle</th><th>Numéro de châssis (VIN · 17 caractères, sans I, O ni Q)</th><th style="width:34mm">Couleur</th></tr></thead>
+    <tbody>__VEH__</tbody>
+  </table>
+
+  <div class="ft"><span>Toutes les dates et références sont portées à la main.</span><span><b>SV-01</b></span></div>
+</section>
+
+<!-- ============ FEUILLE 2 : LES QUATRE VÉHICULES ============ -->
+<section>
+  <div class="hd">
+    <div class="mg">AH</div>
+    <div class="ttl"><div class="k">Suivi de dédouanement · conteneur de véhicules</div><h1>Suivi des 4 véhicules · du D10 au 846</h1></div>
+    <div class="hr">
+      <div class="tc">N° de TC<div class="boxes">__TC__</div></div>
+      <div class="meta"><b>ABDEL HAKIM HADJALLAH</b> · déclarant<br>Réf. dossier V-______-_____<br><span class="pg">2 / 2</span></div>
+    </div>
+  </div>
+
+  <div class="phases"><div class="e"></div><div style="grid-column:span 3">Douane</div><div style="grid-column:span 2">Règlement</div><div style="grid-column:span 3">Remise au client</div></div>
+  <table class="mx">
+    <thead><tr>
+      <th class="v"><span class="hn">VÉHICULE</span>N° · marque · châssis</th>
+      __STH__
+    </tr></thead>
+    <tbody>__ROWS__</tbody>
+  </table>
+  <div class="tot"><span><b>Total liquidé</b><span class="ln"></span>DA</span><span><b>Total payé</b><span class="ln"></span>DA</span><span><b>Total facturé</b><span class="ln"></span>DA</span><span><b>Dossier clôturé le</b>__DATE__</span></div>
+  <div class="ft"><span>Cocher la case de l'en-tête quand l'étape est terminée pour les 4 véhicules.</span><span><b>SV-02</b></span></div>
+</section>
+</body></html>

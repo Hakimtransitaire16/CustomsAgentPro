@@ -2,3 +2,24 @@ __pycache__/
 *.pyc
 .venv/
 knowledge-base/kb.sqlite
+dossiers/
+visite/tests/_tmp_registre/
+**/sortie/
+# données clients hors de dossiers/ (garde-fou supplémentaire)
+registre/
+CamScanner*.pdf
+Fiche_technique_*.pdf
+Dossier_*.html
+visite_*.json
+
+# documents déposés pour intégration (copiés ensuite dans sources/)
+knowledge-base/inbox/*.pdf
+knowledge-base/inbox/integres/
+
+# Supports de cours de tiers : utilisés en local, non redistribués
+knowledge-base/sources/cours-*.pdf
+knowledge-base/text/cours-*.txt
+
+# Copies électroniques chiffrées des fiches (données clients)
+modeles/fiches_viewer/f/
+*.bin

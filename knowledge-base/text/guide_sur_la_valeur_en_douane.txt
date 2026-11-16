@@ -1,0 +1,2399 @@
+                        Guide sur La Valeur en Douane
+      1ERE PARTIE : LA VALEUR EN DOUANE A L'IMPORTATION
+
+
+                                           Plan
+INTRODUCTION:
+Titre I - Caractéristiques générales.
+     Chapitre I - Ordre de priorité et utilisation.
+           Section I - Ordre de priorité.
+           Section II - Utilisation des méthodes d'évaluation.
+     Chapitre II - Les différentes méthodes d'évaluation.
+           Section I - La valeur transactionnelles.
+           Section II - Les méthodes de rechange.
+                    A - Valeur transactionnelle des marchandises identiques.
+                    B - Valeur transactionnelle des marchandises similaires.
+                    C - Méthode déductive.
+                    D - Méthode de la valeur calculée.
+                    E - Méthode du dernier recours
+           Section III - Les éléments lieu et temps.
+                    I - L'élément lieu.
+                    II - L'élément temps.
+
+
+
+Titre II - La valeur transaction nelle.
+     Chapitre I - Généralités.
+
+                  Section I - La vente.
+
+                     I - Cas particuliers.
+                     II - Notion de vente pour l'exportation à destination du pays
+d'importation.
+                  III - Le prix payé ou à payer.
+                           A - Paiements indirects.
+                           B - Cas particuliers.
+                           C - Transferts de dividendes.
+                  IV - Escompte, remise et rabais.
+                  V - Les crédits.
+                  VI - Autres facteurs affectant le prix.
+
+     Chapitre II - Eléments constitutifs de la valeur en douane.
+
+     Section I - Les éléments à ajouter.
+
+       Paragraphe I - Les éléments supportés par l'acheteur mais mon inclus dans le prix.
+
+                                                                                     1
+             I - Commissions et frais de courtage.
+            II - Contenants et emballages.
+            III - Condition d'application.
+           IV - Ajustements.
+
+    Paragraphe II - Produits et services fournis par l'acheteur sans frais ou à coûts
+réduits.
+             I - Conditions.
+            II - Matières premières.
+          III - Outils, matrices, moules et objets similaires utilisés pour la production
+               des marchandises importées.
+         IV - Travaux d'ingénierie d'études, d'art et de design plans et croquis.
+
+ Paragraphe III - Exemples d'imputation d'un apport.
+
+Paragraphe IV - Redevances et droits de licence.
+
+Paragraphe V - Prod uit de la revente.
+
+Paragraphe VI - Frais de transport et de livraison
+
+
+
+Titre III - Conditions relatives à la revente des marchandises.
+     Chapitre I - Restrictions relatives à la revente des marchandises.
+
+     Section I - La vente ou le prix ne sont pas subordonnés à des conditions ou à
+                des prestations dont la valeur n'est pas déterminable pour
+                ce qui se rapportent aux marchandises à évaluer (Art 16 ter 1-b).
+
+   Section II - Aucune partie du produit de tante revente, cession ou utilisation
+              ultérieure des marchandises par l'acheteur ne revient directement
+              ou indirectement au vendeur.
+
+  Chapitre II - Existence de lieus entre l'acheteur et le vendeur.
+
+  Section I - Définition.
+
+Section II - Vente entre parties liées.
+
+Section III - Les valeurs critères.
+
+Section IV - Valeur transactionnelle non acceptable.
+
+Section V - Conversion monétaire.
+
+
+
+
+                                                                                            2
+Titre IV - Les méthodes de substitution.
+    Chapitre I - Procédures.
+
+    Chapitre II - Les méthodes de substitution.
+
+    Section I - Valeur transactionnelle de marchandises identiques.
+
+    Section II - Marchandises similaires.
+
+    Section III - Méthode déductive.
+
+    Section IV - Méthode de la valeur calculée.
+
+    Section V - Méthode du dernier recours.
+
+
+
+Titre V - Evaluation des supports informatiques.
+
+
+Titre VI - Absence de la valeur transaction nelle.
+
+    Chapitre I - Marchandises ne faisant pas l'objet d'une vente.
+
+    Chapitre II - Marchandises importées en exécution d'un contrat de location.
+
+    Chapitre III - Marchandises cédées gratuitement.
+
+    Chapitre IV - Marchandises faisant l'objet d'opérations de trac.
+
+
+Titre VII - Valeur en douane des marchandises placées sous
+           régimes douaniers suspensifs.
+
+   Chapitre I - Valeur en douane faisant l'objet d'une opération de
+              transit ou transbordement.
+
+ Section I - Valeur à déclarer lors de l'établissement du titre de transit
+            ou de transbordement.
+
+Section II - Valeur à déclarer lors de la mise à la consommation des marchandises
+            en suite du transit.
+
+
+
+
+                                                                                    3
+     Chapitre II - Valeur en douane des marchandises en entrepôt de stockage.
+
+   Section I - Valeur à déclarer à l'entrée d'entrepôt de stockage.
+
+   Section II - Valeur à déclarer à la sortie d'entrepôt de stockage
+                pour la mise à la consommation.
+
+
+            Chapitre III - Valeur en douane des marchandises importées
+                         en suite de perfectionnement passif.
+
+   Section I - Valeur du produit initialement exporté.
+
+   Section II - Valeur en douane des produits compensateurs.
+
+
+
+
+                                      PREFACE
+
+
+
+   Le présent guide a pour but d'éclairer son utilisateur sur les principes d'évaluation
+en douane dans le cadre d'une économie de marché ouverte aux échanges
+commerciaux internationaux.
+
+    Il vise en premier lieu, dans le cadre des nouvelles disposions du code des
+douanes de vulgariser et d'expliciter le nouveau système d'évaluation en douane, qui
+repose sur les principes de l'accord de mise en œuvre de l'article VII du GATT.
+
+    Il constituera un outil appréciable dans la détermination de la valeur en douane
+pour l'ensemble du personnel traitant de la valeur en douane, notamment les
+inspecteurs liquidateurs et les inspecteurs vérificateurs.
+
+      Il est également utile aux fonctionnaires qui dispensent des cours dans les écoles
+de formation des douanes, ainsi que pour les fonctionnaires qui préparent des concours
+i nternes.
+
+     Nous espérons que ce document répondra aux besoins de tous les utilisateurs et
+leur apportera une aide dans leurs actions.
+
+
+
+
+                                                                                 4
+Introduction:
+
+      Les droits de douane ainsi que les diverses taxes fiscales instrument de
+la politique fiscale et commerciale ( droits et taxes assis sur la valeur en
+douane ) sont calculés sur la base d'un système ad valorem.
+
+       La valeur en douane est donc un des éléments importants de la
+législation douanière, au même titre que l'origine ou l'espèce .
+
+       Par conséquent à l'importation comme à l'exportation, la déclaration en
+douane doit comporter l'indication de la valeur des marchandises auxquelles
+elles se rapportent.
+
+     Le code des douanes algérien dans ses articles 16 et suivants prévoit
+des méthodes d'évaluation des marchandises à l'importation basée sur le
+système d'évaluation de l'article VII de l'O.M.C.
+
+      Le présent guide, apportera des explications et des précisions relatives
+à la détermination, à la déclaration et au contrôle de la valeur en douane des
+marchandises importées.
+
+
+
+
+                                                                                 5
+                        Première partie
+             LA VALEUR EN DOUANE A L'IMPORTATION
+
+
+TITRE- I - Caractéristiques Générales
+
+      Dans ses dispositions prévues aux articles 16 jusqu'à 16 déciès, le
+code des douanes reprend substantiellement l'accord relatif à la mise en
+oeuvre de l'article VII de l'OMC.
+
+       Ce dernier est entré en vigueur le 1er Janvier 1981; étaient parties à
+l'accord l'Autriche, la CEE (10 membres), les Etats Unis, la Norvège, la
+Finlande, la Hongrie, le Japon, la Roumanie, et la Suisse.
+
+        L'Argentine, le Canada, la Corée, L'Espagne, l'Inde et la Yougoslavie
+avaient à cette date signé l'accord sous réserve de pouvoir en différer
+l'application en vertu des dispositions de son article 21 qui prévoit une période
+de transition de 5 ans, dont l'Algérie n'a pas bénéficiée.
+
+       Les dispositions de ce guide sont complétées par les notes
+interprétatives de l'accord.
+
+Chapitre I: Ordre de priorité et utilisation:
+
+        Les diverses méthodes de substitution sont rangées dans un ordre de
+priorité d'application ( Art 16 bis 2 du CDA ) la base première pour la
+détermination de la valeur à l'art 16 ter du CDA.
+
+       Lorsque la valeur en douane ne peut être déterminée selon la méthode
+de la valeur transactionnelle , il doit être fait application successive des
+méthodes de substitution prévues aux articles 16 , quater à 16 septiès du
+C.D.A.
+
+
+       La notion de valeur transactionnelle sur laquelle repose le système
+d'évaluation consacré par le code est une "notion positive" qui fait appel au
+prix conclu lors d'une vente, moyennant certains ajustements. La valeur
+transactionnelle devra être la valeur en douane pour la grande majorité des
+marchandises, aussi la valeur transactionnelle constitue t-elle la première et
+principale méthode énoncée par le C.D.A.
+Le code exclut l'utilisation de valeurs arbitraires ou fictives.
+
+S.II Utilisation des méthodes d'évaluation:
+
+        Une étude relative à l'utilisation des méthodes d'évaluation publiée par
+le CCD a fait ressortir que la valeur transactionnelle des marchandises est
+utilisée dans plus de 90% des cas.
+
+
+
+
+                                                                                    6
+Chapitre II - Les différentes méthodes d'évaluation:
+
+S . I : La valeur transactionnelle:
+
+       Le code des douanes prévoit plusieurs méthodes d'évaluation dont la
+valeur transactionnelle reste privilégiée et définie comme étant le prix
+effectivement payé ou à payer pour les marchandises après ajustement
+éventuel, lorsqu'elle sont vendues pour l'exportation à destination du territoire
+douanier algérien.
+
+       Ceci revient, dans la pratique à prendre en considération le prix net
+facturé des marchandises à évaluer cependant le service des douanes n'est
+pas lié par le prix net facturé puisque son acceptation est subordonnée à des
+conditions.
+
+S.II - Les méthodes de rechange:
+
+      Les méthodes de substitution prévues aux articles à du CDA peuvent
+être utilisées lorsque la valeur transactionnelle n'est pas acceptable, et
+lorsque les marchandises importées n'ont pas fait l'objet d'une vente (
+marchandises cédées à titre de dons la valeur ).
+
+A - Valeur transactionnelle des marchandises identiques:
+
+      La valeur en douane est dans ce cas la V. T de marchandises
+identiques vendues pour l'exportation à destination du territoire douanier
+algérien au même moment à peu prés au même moment.
+
+B - Valeur transactionnelle des marchandises similaires:
+
+       Si le service n'est pas en possession de V.T de marchandise
+identiques, la valeur en douane est constituée par la V.T des marchandises
+similaires vendues pour l'exportation à destination du territoire douanier
+algérien au même moment ou à peu prés au même moment.
+
+C - Méthode déductive:
+
+       Cette méthode permet au service de déterminer la valeur en douane à
+partir du prix de revente de la marchandise importée ou de marchandises
+identiques ou similaires importées sous réserve de la déduction de certains
+éléments (droits et taxes perçus à l'importation, bénéfices réalisés etc.).
+
+D - La méthode de la valeur calculée:
+
+      La valeur à retenir par le service est établie à partir des éléments
+constitutifs du prix C.A.D des coûts de production fournis par le producteur
+de la marchandise considérée.
+
+
+
+
+                                                                                    7
+Section III - Les éléments lieu et temps:
+I- L'élément lieu:
+
+      Le lieu à prendre en considération pour la détermination de la valeur
+en douane est définie comme étant le lieu d'introduction des marchandises à
+évaluer dans le territoire douanier.
+
+II L'élément Temps :
+
+       Le moment à retenir pour la détermination de la valeur en douane est
+celui de la date de la mise à la consommation des marchandises à évaluer ,
+c'est à dire la date à laquelle le service des douanes accepte l'acte par lequel
+le déclarant manifeste sa volonté de procéder au dédouanement de ces
+marchandises .
+Toutefois lorsque les marchandises sont mises à la consommation suite à un
+autre régime douanier, la date à retenir est celle de l'enregistrement de la
+déclaration en détail de cet autre régime douanier.
+
+        Cette définition ne doit pas être prise en considération pour juger de la
+validité du prix payé ou à payer en tant que base de calcul de la valeur, elle
+permet uniquement de procéder à la conversion monétaire sur la base du
+taux de change en vigueur à la date définie ci dessus.
+
+     Il en découle que le prix payé ou à payer doit être retenu comme
+base de l'évaluation quelle que soit la date de conclusion de la vente.
+
+
+
+
+                                                                                    8
+                            DEUXIEME PARTIE
+                          ANALYSEDES     METHODES
+                              D'EVALUATION
+
+
+
+
+TITRE II - LA VALEUR TRANSACTIONNELLE
+
+       La base de l'évaluation en douane des marchandises devrait autant
+que possible être la valeur transactionnelle des marchandises à évaluer c.a.d
+le prix effectivement payé ou à payer pour les marchandises lorsqu'elles sont
+vendues pour l'exportation à destination du pays d'importation après
+ajustement éventuel.
+
+      Cette définition fait appel à deux notions fondamentales à savoir le prix
+payé ou à payer et la vente.
+
+CHAPITRE I - GENERALITES
+Section I- la vente:
+
+       L'utilisation de la V.T suppose que les marchandises à évaluer ont
+obligatoirement fait l'objet d'une vente au moment de l'importation.
+
+         Les dispositions du code ne donnent pas de définition de la notion de
+vente.
+
+       Cependant le code civil définit la vente comme étant un contrat par
+lequel le vendeur oblige à transférer la propriété d'une chose ou tout autre
+droit patrimonial à l'acheteur qui doit lui en payer le prix. ( Art 351).
+
+     Par conséquent sont réputées ne pas faire l'objet d'une vente, les
+marchandises importées dans les situations qui suivent:
+
+I - Cas particuliers:
+A - Les livraisons gratuites:
+
+        Il s'agit notamment de l'importation de cadeaux, d'échantillons et
+d'articles publ icitai res fournis gratuitement.
+
+B - Marchandises importées en consignation:
+
+      Il s'agit de marchandises, qui demeurent la propriété du fournisseur
+étranger tant qu'elles n'ont pas été vendues, après importation au meilleur
+prix par l'intermédiaire d'agents ou de représentants des fournisseurs
+(commissionnaires ou mandataires).
+
+
+
+
+                                                                                  9
+C - Marchandises importées par des succursales:
+
+     Il s'agit d'importations réalisées par des succursales qui n'ont pas la
+personnalité juridique .
+
+D - Marchandises importées en exécution d'un contrat de location, de crédit
+bail ou de prêt:
+
+      Dans toutes ces situations, il n'existe pas de V.T au moment de la mise
+à la consommation et la valeur en douane est déterminée en utilisant les
+méthodes de substitution.
+
+II - Notion de vente pour l'exportation à destination du pays d'importation:
+
+      Le fait que les marchandises soient représentées en vue de leur
+évaluation suffit en soi à établir leur importation qui à son tour établit le fait de
+leur exportation.
+
+
+     Dans le cas de ventes successives avant importation, la valeur en
+douane sera, le prix payé ou à payer par le dernier acheteur connu, qui
+procède à la mise à la consommation des marchandises à évaluer.
+
+III - Le prix payé ou à payer:
+
+     La valeur transactionnelle repose entre autres sur le prix effectivement
+payé ou à payer des marchandises importées.
+
+Le protocole de l'accord précise que le prix effectivement payé ou à payer
+comprend tous les paiements effectués ou à effectuer, comme condition de
+la vente des marchandises importées, par l'acheteur au vendeur ou par
+l'acheteur à une tierce partie pour satisfaire à une obligation du vendeur.
+
+       Si les marchandises sont payées avant l'évaluation cette dernière sera
+fondée sur le prix payé, dans le cas contraire l'évaluation sera basée sur le
+prix à payer.
+
+
+
+
+                                                                                        10
+A - Paiements indirects:
+
+       Le paiement ne doit pas nécessairement être fait en argent, il peut se
+faire par lettre de crédit ou instruments monétaires.
+
+       1/ Un exemple de paiement indirect peut se faire lorsque le prix
+effectivement payé ou à payer ( P.E.P.P ) est réduit en raison d'une dette du
+vendeur envers l'acheteur.
+
+      Dans ce cas le P.E.P.P serait la somme de tous les paiements
+effectués directement ou indirectement.
+
+      2/ Une autre forme de paiement indirect est le règlement par l'acheteur
+d'une dette du vendeur à l'égard d'un tiers .
+
+      B - Cas particuliers:
+
+       Les activités entreprises par l'acheteur pour son propre compte, autres
+que celles prévus au titre des ajustements à l'article16 octiés du code des
+douanes, ne sont pas considérées comme des paiements même si elles
+profitent au vendeur.
+
+      Nous pouvons citer :
+
+      - Etudes et recherches de marchés.
+      - Publicité de la marque de fabrique ou de commerce sous laquelle les
+      marchandises vont être vendues.
+      - Préparation des salles d'expositions.
+      - Participation à des foires et expositions commerciales.
+      - Tests.
+      - Frais liés à l'obtention d'une lettre de crédit.
+
+C - Transferts de dividendes.
+
+       Les transferts de dividendes et autres paiements de l'acheteur au
+vendeur qui ne se rapportent pas aux marchandises importées sont exclus de
+la valeur en douane.
+
+IV - Escomptes, Remises et rabais:
+
+     Le P.E.P.P peut être obtenu après déduction des escomptes, de
+remises commerciales de rabais de quantité.
+
+IV a - Escompte:
+
+L'escompte est accordé à un acheteur pour paiement effectué au comptant
+ou dans un délai déterminé.
+
+
+
+
+                                                                                 11
+Exemple: Un escompte est accordé à:
+               - 3% pour paiement effectué dans un délai de 10 jours à
+compter de la réception de la facture.
+                - 2% pour un paiement effectué dans un délai de 20 jours net à
+30 jours.
+
+IV b - Rabais de quantité:
+
+       Le rabais de quantité est une réduction de prix accordée en fonction
+des quantités achetées pendant un délai déterminé.
+
+       Aux fins de l'évaluation, il y - a lieu de retenir la quantité qui a
+déterminé le prix unitaire des marchandises à évaluer au moment ou elles ont
+été vendues pour l'exportation à destination de l'Algérie.
+
+V - Les créd its:
+
+       Le crédit se rapportant à une transaction antérieure, représente un
+montant déjà payé au vendeur et qu'il fait donc partie du prix effectivement ou à
+payer.
+
+       Il fait donc partie du paiement total effectué ou à effectuer au vendeur
+pour les marchandises importées.
+
+      Le crédit fait donc partie du prix payé aux fins de l'évaluation en
+douane, il est à ajouter à la valeur transactionnelle.
+
+
+VI - Autres facteurs affectant le prix:
+
+         VI - a / Le fait que le prix déclaré soit inférieur au prix de marché
+courant pour des marchandises identiques, n'est pas une raison suffisante pour
+qu'il soit rejeté au sens de l'Art ( 16 CD A bis - 4 - ).
+
+       VI - b / Les subventions ou primes à l'exportation accordées à des
+marchandises importées ne doivent pas être incluses au prix, car elles n'ont pas
+été payées par l'acheteur au vendeur ou au bénéfice de celui ci.
+
+ VI - c / Le prix des marchandises ayant fait l'objet d'un dumping, ne peut être
+rejeté pour cette seule raison.
+
+        La marge du dumping ne peut être ajoutée à la valeur transactionnelle.
+
+Chapitre II - Eléments constitutifs de la valeur en douane
+
+          Le prix effectivement payé ou à payer tel que défini précédemment,
+constitue la valeur en douane des marchandises après ajustements prévus à
+l'article 16 octiés du CDA .
+
+
+
+
+                                                                                   12
+S.I - Les éléments à ajouter:
+
+L'article 16 octiès prévoit des éléments à ajouter au prix effectivement payé ou
+payer et qui sont les suivants:
+
+        10 - Eléments supportés par l'acheteur.
+        2 0 - Produits et services fournis directement ou indirectement par
+l'acheteur.
+        3 0 - Redevances et doits de licence relatifs aux marchandises à
+évaluer.
+        4 0 - Valeur de toute partie de toute revente, cession ou utilisation
+ultérieure des marchandises qui revient directement on indirectement au
+vendeur.
+        50 - Frais de transport et de livraison jusqu'au lieu d'introduction dans le
+territoire douanier algérien.
+
+
+Paragraphe I - Eléments supportés par l'acheteur mais non inclus dans le prix:
+
+      On inclut dans cette catégorie les commissions à la vente, les
+courtages, les contenants et les emballages.
+
+I - Commissions et frais de courtage:
+
+       Ils sont constitués par les rémunérations reçues par des intermédiaires
+dans une transaction. Une distinction est établie entre ceux qui sont employés
+par l'une des parties à la transaction ou agissant pour son compte et ceux qui
+opèrent de façon indépendante des deux parties.
+
+10/ Les commissionnaires:
+
+      D'une manière générale, un commissionnaire est une personne ou une
+société qui achète ou vend des marchandises pour le compte d'un
+commettant. Il participe à la conclusion d'un contrat de vente en y
+représentant soit le vendeur, soit l'acheteur.
+
+     Le commissionnaire est rémunéré par une commission qui est
+généralement exprimée en pourcentage du prix total des marchandises.
+
+     Les commissionnaires qui travaillent pour le compte de l'acheteur sont
+appelés "commissionnaires à l'achat" est ceux qui travaillent pour le compte
+du vendeur "commissionnaires à la vente".
+
+      Leurs commissions sont appelées respectivement commissions d'achat
+et commissions de vente".
+
+     Seules les commissions à la vente sont à ajouter ou prix effectivement
+payé ou à payer ( Art 16 octies - a - i ).
+
+
+
+
+                                                                                       13
+       C'est le rôle joué dans la transaction qui déterminera si la commission
+est à ajouter ou non à la valeur en douane.
+
+
+
+10/ - a - Le commissionnaire à la vente:
+
+       Un commissionnaire à la vente est une personne physique ou morale
+qui est employée par un vendeur ou qui travaille pour le compte du vendeur .
+
+Les fonctions d'un commissionnaire à la vente
+
+      Les principales fonctions d'un commissionnaires à la vente sont les
+suivantes:
+
+       - Rechercher des clients pour les marchandises du vendeur.
+       - Recueillir et transmettre les commandes entre les acheteurs et le
+vendeur.
+       - Conserver des échantillons et les montrer aux acheteurs potentiels.
+       - Aider à prendre des dispositions en matière d'assurance, de transport
+et de stockage.
+       - Contribuer à l'établissement des factures à l'exportation.
+      - Négocier le prix le plus haut.
+
+       La commission perçue par le commissionnaire à la vente est versée par
+le vendeur et est généralement indiquée sur la facture de vente.
+
+10 - b - Le commissionnaire à l'achat:
+
+      Un commissionnaire à l'achat est employé par l'acheteur ou travaille
+pour son compte.
+
+Les fonctions d'un commissionnaire à l'achat:
+
+      Les fonctions d'un commissionnaire à l'achat sont notamment:
+
+        - Rechercher des fournisseurs pour les marchandises que l'acheteur
+souhaite se procurer.
+        - Communiquer au vendeur les souhaits de l'acheteur.
+        - Se procurer des échantillons des marchandises pour que l'acheteur
+les examine.
+        - Aider l'acheteur à se procurer le prix le plus bas.
+        - Aider à prendre les dispositions en matière d'assurance, de transport
+et de livraison.
+        - Regrouper les envois provenant de différents vendeurs.
+        - Etablir des factures pour toutes les marchandises achetées.
+
+
+
+
+                                                                                  14
+      La commission perçue par le commissionnaire à l'achat est versée par
+l'acheteur et doit être distincte du paiement des marchandises.
+
+      Le rôle du commissionnaire à l'achat peut être stipulé par contrat ou
+      dans une convention type régissant ses attributions.
+
+2° - Courtage:
+
+      Dans la pratique, il n'y a pas de distinction entre les termes "courtage et
+courtier" et d'autre part les termes "commission" et "commissionnaire".
+
+2° - a - Définitions:
+
+      Les courtiers sont des intermédiaires qui ne contractent ni en leur
+propre nom ni au nom d'un commettant. Ils se limitent à rapprocher les parties
+qui passent entre elles leur contrat et ils perçoivent un courtage après
+l'exécution de l'opération.
+
+      Les courtiers se spécialisent généralement dans certains types de
+marchandises, notamment les matières premières tels que le pétrole, le sucre,
+les céréales, etc.
+
+2° - b - Rémunération:
+
+     Le courtier est rémunéré par "courtage" généralement exprimé en
+pourcentage du chiffre d'affaires imposable à ses activités.
+
+     Lorsque le courtier est rémunéré par la vente des marchandises, le
+montant est généralement inclus dans le prix facturé à l'acheteur et fait partie
+du PE.PP.
+
+      Lorsque le courtier est rémunéré par l'acheteur, et que les frais de
+courtage ne sont pas inclus dans le prix facturé, ils doivent être ajoutés au
+PE.PP.
+
+     Lorsque le courtier est rémunéré par l'acheteur ou bien par l'acheteur et
+le vendeur, les frais de courtage à ajouter au PE.PP correspondent au
+montant effectivement à la charge de l'acheteur.
+
+
+II - Contenants et emballages:
+
+      Au sens de l'article 16 - octies , le coût des contenants et emballages
+est à ajouter à la valeur en douane s'il n'est pas déjà inclus dans le PE.PP.
+
+
+
+
+                                                                                    15
+1° - Coût des emballages:
+
+       Il s'agit des emballages appartenant à l'importateur ou qui lui ont
+été prêtés ou louées, non imposables à leur droit propre, ainsi que des frais
+relatifs à l'emballage des marchandises couvrant aussi bien le coût des
+matériaux que celui de la main d’œuvre.
+
+Le coût des emballages à incorporer dans la valeur est composé de:
+
+- La valeur des emballages lorsqu'ils ne sont pas réutilisables. - Le
+coût de leur utilisation lorsqu'ils sont réutilisables.
+
+Le coût d'utilisation comprend:
+
+ Le loyer des dits emballages.
+ Le frêt et l'assurance pour le double trajet à l'étranger (sortie - entrée)
+  sauf lorsque les frais ont été inclus dans le loyer de l'emballage ou dans
+  le prix des marchandises.
+
+2° - Emballages imposables à leur droit propre:
+
+     Afin d'éviter la double imposition, le coût des contenants n'est
+pas à inclure dans la valeur en douane, lorsque ces contenants sont
+imposables à leur droit propre.
+
+III - Condition d'application:
+
+       Tout élément qui sera ajouté par application des dispositions de
+l'article 16 octies 2 doit reposer exclusivement sur des données objectives et
+quantifiables.
+
+
+1° - Don nées objectives:
+
+       Les données doivent reposer uniquement sur des éléments de
+faits, exempts de toute interprétation personnelle. Elles doivent pouvoir être
+mesurées grâce à des chiffres et des nombres réels.
+Elles ne doivent pas reposer sur le jugement, l'estimation, l'approximation ou
+l'expérience personnelle.
+
+      Lorsque ces données n'existent pas, aucune majoration ne peut
+être apportée au titre des éléments à rajouter et la valeur transactionnelle ne
+peut être déterminée aux termes de l'article 16 ter.
+
+2° - Données quantifiables:
+
+     Aux termes de l'article 16 octies 2 - aucun élément ne sera
+ajouté au prix effectivement payé ou à payer à l'exception de ceux prévus au
+code des douanes ).
+
+
+
+
+                                                                                  16
+VI - Ajustements:
+
+      En sus des conditions visées ci-dessus , il y - a lieu de souligner que
+les ajustements prévus à l'article 16 octies-a ne peuvent être apportés que
+dans la mesure où:
+
+          - Ils sont supportés par l'acheteur
+              - Ils ne sont pas déjà inclus dans le prix effectivement payé ou à payer.
+
+Paragraphe 2 - Produits et services fournis par l'acheteur sans frais ou à coût
+réduit:
+
+      L'article 16 octies - b - du CDA , prévoit que le prix payé pour les
+marchandises doit être majoré de la valeur imputée de façon appropriée, des
+produits et services ci après lorsqu'ils sont fournis sans frais ou à coûts réduits
+et utilisés lors de la production et de la vente pour l'exportation des
+marchandises importées dans la mesure où cette valeur n'a pas été incluse
+dans le prix effectivement payé ou à payer.
+
+I - Conditions:
+
+      Il ressort de la disposition précédente que le PE.PP ne peut être majoré
+des éléments prévus à l'article 16-octiés b - du CDA que si certaines
+conditions sont satisfaites:
+
+       - Les éléments ne seront ajoutés que s'ils ne sont pas déjà inclus dans
+le PE.PP.
+       - Les produits et services doivent être fournis pas l'acheteur soit sans
+frais soit à coût réduit.
+       - Les produits et services doivent être fournis directement ou
+indirectement par l'acheteur.
+       - Les produits et services doivent être utilisés lors de la production et de
+la vente pour l'exportation des marchandises importées.
+
+      Doivent également être respectées les conditions énumérées à l'article
+16 - octies -2 qui s'appliquent à l'intégralité de l'article 16 - octies citées dans
+le Paragraphe.1 .(données objectives et quantifiables).
+
+II - Matières composants, parties et éléments similaires incorporés dans les
+marchandises importées:
+
+A - Cette catégorie d'apports inclut les éléments qui suivent:
+
+            1°/ Matières premières: Tissus, bois, matières plastiques, métaux,
+etc....
+     2°/ Parties et composants:
+     .Produits finis, composants électriques ( fusi bles commutateurs,
+condensateurs, diodes, ect... ).
+     . Pré-assemblages ( circuits intégrés, microcircuits ect...).
+     . Matières premières découpées à la dimension ou au format.
+
+
+
+                                                                                          17
+B - Evaluation:
+
+      1° - Si l'apport a été obtenu auprès d'un vendeur, qui n'est pas lié à
+l'acheteur, la valeur de l'apport sera son coût d'acquisition.
+
+       2° - Si l'apport a été produit par l'acheteur ou une personne qui lui est
+liée, sa valeur sera coût de fabrication.
+
+      3° - Dans les deux cas précédents, le coût sera majoré des frais de
+transport jusqu'au lieu de fabrication ainsi que les droits et taxes.
+
+
+III - Outils, matrices, moules et objets similaires utilisés pour la production des
+marchandises importées:
+
+1°/ Outils, matrices, moules et objet similaires:
+
+      Ces produits qui sont utilisés par le vendeur pour la production des
+marchandises importées peuvent être fournis par l'acheteur lui même ou par
+une tierce personne auxquels l'importateur les a commandés.
+
+2°/ Evaluation:
+
+      Ce type d'apports peut être évalué de différentes manières.
+
+      - Ils peuvent être évalués selon le coût d'acquisition ou le coût de
+fabrication .( voir évaluation des matières premières prévues au II ).
+
+       - Dans l'hypothèse où cette catégorie d'éléments ont été utilisés
+antérieurement par l'importateur, qu'ils aient ou non été acquis ou produits
+par ce dernier, le coût initial d'acquisition de production doit être minoré pour
+tenir compte de la dépréciation dans le calcul de la valeur en douane.
+
+       - Si l'apport a été pris en location la valeur sera le coût de la location
+ou le loyer.
+
+       - Si l'apport a été réparé ou modifié , sa valeur doit tenir compte des
+frais de réparation ou de modification.
+
+IV - Travaux d'ingénierie d'étude, d'art et de design, plans et croquis:
+
+      Cette catégorie d'apports est prévue par l'article 16 octies du CDA.
+
+1° - Définition:
+a - Ingénierie et travaux de design:
+       - Ingénierie: Ce terme désigne une étude globale d'un projet industriel.
+" cette étude est d'ordinaire réalisée par une société ou par un bureau
+spécialisé employant une équipe de spécialistes ( ingénieurs, architectes,
+économistes, etc ....)
+
+
+
+
+                                                                                      18
+Travaux de désign:
+
+      Ce terme inclut les travaux d'art, plans et croquis. C'est une
+représentation visuelle des travaux de recherche et de développement. Elle
+recouvre les dessins professionnels (dessins d'architecte, photocalques, les
+schémas et autres dessins utilisés dans la production des marchandises
+importées.
+
+     Cette notion exclut généralement le type de dessins ou travaux d'art
+"conceptuels" qui ne sont pas utilisés dans le procédé de production.
+
+Recherche:
+
+      Les frais de recherche sont les frais engagés en vue d'élaborer des
+connaissances nouvelles susceptibles de permettre ultérieurement la mise au
+point d'un nouveau produit, procédé ou nouvelle technique ou une
+amélioration significative d'un produit ou un procède existant.
+
+Frais de développement ( travaux d'étude ):
+
+      Il s'agit des frais se rapportant à la traduction des résultats de la
+recherche ou de découvertes ou d'autres connaissances visant à créer un
+nouveau produit ou procédé ou à apporter une amélioration à un produit ou
+procède existant.
+
+      Il comprend la formulation conceptuelle, l'étude et la mise à l'essai de
+plusieurs variantes d'un même produit et la construction de prototypes.
+
+2° / Conditions:
+
+      Deux conditions doivent être respectées pour que les frais liés à ces
+travaux soient ajoutés au PEPP.
+
+      a - Ils doivent être nécessaires pour la production de la marchandise
+importée.
+
+      b - Ils doivent être exécutés ailleurs que dans le territoire algérien.
+
+
+       Par conséquent, ils ne sont à ajouter au PEPP que s'ils étaient fournis
+par l'acheteur sans frais ou à coût réduit après avoir été exécutés dans un
+pays tiers pour le compte de cet importateur ou encore par une filiale de ce
+dernier implantée dans un pays tiers.
+
+c - Les valeurs à ajouter doivent être fondées sur des données objectives et
+quantifiables, qu'il appartient à l'importateur de fournir à partir de sa
+comptabilité.
+
+
+
+
+                                                                                 19
+30 - Evaluation:
+
+       a - Lorsque les éléments fournis par l'acheteur sont achetés ou loués
+auprès d'un tiers la valeur à ajouter sera le coût d'acquisition ou celui de la
+location.
+
+     b - Si ces éléments appartiennent au domaine public, la valeur à
+prendre en considération serait le coût de l'élaboration des copies.
+
+      c - Lorsque le centre de design est situé à l'extérieur du territoire
+algérien et que la comptabilité indique clairement les coûts imputables à un
+produit donné il convient d'apporter directement une majoration en
+conséquence.
+
+      d - Lorsque le centre de design est situé à l'extérieur du territoire
+algérien et que l'entreprise comptabilise les coûts de son centre de design
+dans ses frais généraux sans les imputer à des produits déterminés, il
+convient dans ce cas d'imputer le total des coûts du centre de design sur
+l'ensemble de la production qui bénéficie des services du centre et d'ajuster
+les coûts ainsi imputés au prix des marchandises importées, en fonction du
+nombre d'unités importées.
+
+       e - Dans le cas où la production de l'élément en question fait intervenir
+un certain nombre de pays et s'échelonne sur un certain laps de temps,
+l'ajustement doit être limité à la valeur effectivement ajoutée en dehors du
+pays d'importation.
+
+40 - Imputation:
+
+      Une fois que la valeur de l'apport est déterminée, il convient d'imputer
+cette valeur au produit importé.
+
+      L'imputation doit être conforme aux principes du plan comptable
+généralement admis et que des preuves documentaires soient fournies à
+l'appui de la méthode d'imputation.
+
+
+
+Paragraphe III - Exemples d'imputation d'un apport:
+
+      Plusieurs méthodes d'imputation des apports sont prévues.
+
+      1 0 / La valeur peut être entièrement imputée au premier envoi si
+l'importateur désire payer les droits en une seule fois sur la valeur totale.
+
+    20 / La valeur peut être imputée au nombre d'unités produites jusqu'au
+moment du premier envoi.
+
+      30/ La valeur peut être imputée à la totalité de la production prévue, si
+des contrats ou des engagements fermes existent pour cette production.
+
+
+
+                                                                                   20
+       4°/ La valeur peut être imputée au nombre d'années ou au nombre
+d'unités de vie utile de l'apport
+
+Paragraphe IV- Redevances et droits de licence
+
+       L'article 16 octies - c stipule que pour déterminer la valeur en douane,
+on ajoutera au PEPP pour les marchandises importées, les redevances et les
+droits de licence relatifs aux marchandises à évaluer, que l'acheteur est tenu
+d'acquitter soit directement, soit indirectement, en tant que condition de la
+vente des marchandises à évaluer, dans la mesure où ces redevances et
+droits de licence n'ont pas été inclus dans le prix effectivement payé ou à
+payer.
+
+1°/ Définition:
+
+      Les termes redevances ou droit de licence, concernent les paiements
+effectués en contre partie du droit d'utiliser, de produire ou de vendre un
+produit donné.
+
+         - Un droit de produire implique des paiements effectués pour
+l'utilisation de brevets, modèles, dessins, plans, savoir faire en matière de
+production.
+
+
+      - Un droit de vendre des marchandises importées implique le paiement
+par l'acheteur d'une certaine somme pour l'utilisation de marques de
+commerce ou de fabrique des modèles déposés.
+
+       - Un droit d'utiliser ou de revendre implique des paiements effectués
+par l'acheteur pour l'utilisation d’œuvres artistiques etc
+
+
+      Les paiements cités à l'article 16 octies -c, constituent un complément
+du prix facturé pour les marchandises importées et sont réservées
+généralement en vertu d'un accord écrit (contrat) au vendeur ou à un tiers
+lors de l'utilisation de ces marchandises à des fins particulières ou lors de leur
+revente sous une marque de fabrique ou de commerce qui est la
+propriété du vendeur
+(Éventuellement après transformation ou ouvraison) .
+
+2°/ Conditions:
+
+      L'article 16 octies - c du CDA pose deux conditions cumulatives pour
+qu'une redevance soit ajoutée au PEPP.
+
+a - La redevance doit être en relation avec les marchandises importées:
+
+      Pour établir si une redevance se rapporte aux marchandises importées,
+il y a lieu le plus souvent de rechercher les motifs pour lesquels elle est
+versée.
+
+
+
+                                                                                     21
+       Les contrats font habituellement apparaître:
+       - La nature et le but essentiel de l'accord.
+       - L'obligation du paiement de la redevance.
+       - Le mode de calcul de la redevance.
+       - La mention des brevets, marques de fabrique ou de commerce
+concerné.
+       - On peut retrouver les motifs de la redevance, dans les détails et
+modalités des brevets repris dans les spécifications.
+       - Le mode de calcul de la redevance est susceptible également
+d'indiquer si la redevance se rapporte ou non aux marchandises importées.
+
+b - La redevance constitue une condition de la vente:
+
+      Les redevances portant sur les marchandises importées, ne sont
+ajoutées au prix effectivement payé ou à payer, que si leur paiement par
+l'acheteur au vendeur ou à un tiers est exigé par le vendeur comme condition
+de la vente.
+
+     Donc lorsque les conditions de la vente prévoient effectivement une
+disposition prévoyant le paiement d'une redevance, la condition citée ci
+dessus est remplie.
+
+P- V - Produit de la revente:
+
+      En vertu de l'article 16 octiès - d du CDA, la valeur de toute partie du
+produit de toute revente, cession ou utilisation ultérieure des marchandises
+importées qui revient directement ou indirectement au vendeur, sont à ajouter
+au prix effectivement payé ou à payer lorsqu'ils n'y sont pas déjà inclus.
+
+      Le produit de la revente est constitué par des versements relevant
+d'une clause de partage des bénéfices. Cependant les partages de dividendes
+qui ne se rapportent pas expressément aux marchandises importées ne
+relèvent pas de cette rubrique.
+
+P - VI - Frais de transport et de livraison:
+
+       L'article 16 octies - c du CDA prévoit que certains frais de transport et
+de livraison doivent être ajoutés au PEPP s'ils n' y sont pas inclus:
+
+        - Les frais de transport.
+        - Les frais de chargement, de déchargement et de manutention
+connexes au transport des marchandises jusqu'au lieu d'introduction dans le
+territoire douanier algérien.
+        - L'assurance inhérente au transport des marchandises.
+
+
+
+
+                                                                                   22
+1 - Définition :
+a - Frais de transport:
+
+      Les frais de transport comprennent les frais encourus pour déplacer
+matériellement les marchandises, notamment :
+      - Transport routier.
+      - Transport ferroviaire.
+      - Transport maritime.
+      - Transport aérien.
+
+b- Chargement, déchargement et manutention :
+
+       Cette catégorie comprend le chargement des marchandises à bord de
+l'un des moyens de transport citées ci-dessus ou leur déchargement.
+
+      La manutention comprend toutes les activités connexes ou inhérentes
+au déplacement matériel des marchandises telles que l'établissement des
+manifestes, des connaissements ou autres lettres de transport, l'obtention le
+cas échéant de licence d'exportation exigibles et toutes autres dispositions en
+rapport avec l’expédition .Ces différents frais doivent être associés au
+transport de la marchandise.
+
+c - Assurance:
+
+       Il s'agit des frais occasionnés par le transport des marchandises c.a d
+l'assurance des marchandises durant le transport, le chargement, le
+déchargement et la manutention, ainsi que l'assurance du transporteur chargé
+de l'exportation ( exemple assurance maritime ou aérienne).
+
+d - Entreposage:
+
+       Les frais d'entreposage sont étroitement liés au transport, il y a lieu de
+distinguer deux situations.
+
+        Les frais d'entreposage ne sont pas inhérents à l'acheminement des
+marchandises, dans ce cas ils ne sont pas à ajouter au PEPP , au titre de
+l'article 16 octies e.
+
+       Les frais d'entreposage sont inhérents à l'acheminement des
+marchandises, dans ce cas ils sont considérés comme partie intégrante des
+frais de transport et sont à inclure dans la valeur en douane.
+
+
+
+
+                                                                                    23
+TITRE III - Conditions d'utilisation de la valeur transactionnelle:
+
+       L'article 16 ter du CDA prévoit des conditions à remplir pour que la
+valeur transactionnelle soit acceptable et qui sont en nombre de quatre.
+
+Chapitre I: Restrictions relatives à la revente des marchandises:
+
+- Section I: Restrictions relatives à la cession ou l'utilisation de la
+marchandise:
+
+I - 1 : Règle générale:
+
+      Cette condition est prévue par l'Art 16 . ter - a et stipule que la valeur
+transactionnelle ne peut être acceptée que s'il n'existe pas de restrictions
+concernant la cession ou l'utilisation des marchandises par l'acheteur.
+
+       Lorsqu'une restriction de cette nature existe, elle impose le rejet de la
+valeur transaction nelle.
+
+      A titre d'exemple nous pouvons citer le cas ou il est interdit à l'acheteur
+de revendre la marchandise et de ne l'utiliser qu'à des fins de démonstration.
+
+II - 2/ Exceptions:
+
+Il existe toutefois trois exceptions à cette règle.
+
+a - Les restrictions sont imposées par les autorités publiques            ( Art 16 ter 1-
+ai ):
+
+       Il s'agit dans ce cas par exemple de l'obligation d'obtenir une licence ou
+une autorisation d'importation ou alors le respect de certaines normes (
+étiquetage, emballage etc. ........... ) .
+
+
+b- Les restrictions qui limitent la zone géographique dans laquelle les
+marchandises pourront être revendues Art 16 ter - 1-a-ii:
+
+       Nous citons l'exemple où le vendeur impose une restriction territoriale
+tels que les accords de distribution régionale, limitant exclusivement la revente
+à un territoire donné. ( un pays, une région, un département).
+
+       Dans ce cas précis, la valeur transactionnelle est acceptable.
+
+C - Restriction n'affectant pas substantiellement la valeur des marchandises
+Art 16 ter aiii):
+
+Tel et le cas :
+        - Lorsqu'un vendeur demande à un acheteur d'automobiles de ne pas
+les revendre ou de les exposer avant une date déterminée marquant le début
+de l'an née pour le modèle en question.
+
+
+
+                                                                                            24
+     - Lorsque le vendeur impose que le produit importé soit vendu au
+consommateur en faisant exclusivement appel à des représentants de
+commerce pratiquant le démarchage à domicile.
+
+      Dans ces différents cas, ces clauses ne constituent pas une restriction
+autorisant le rejet de la valeur transactionnelle.
+
+Section II - La vente ou le prix ne sont pas subordonnés à des conditions ou à
+des prestations dont la valeur n'est pas déterminable pour ce qui se rapportent
+aux marchandises à évaluer ( Art 16 ter1 -b) ):
+
+Cette condition peut être expliquée au moyen de trois exemples:
+
+     I- Le vendeur établit le prix des marchandises importées en le
+subordonnant à la condition que l'acheteur achètera également d'autres
+marchandises en quantités déterminées.
+
+     II - Le prix des marchandises importées dépend du ou des prix
+auxquels l'acheteur des marchandises importées vend d'autres marchandises
+au vendeur des dites marchandises importées.
+
+       III - Le prix est établi sur la base d'un mode de paiement sans rapport
+avec les marchandises importées. Il s'agit par exemple du cas où les
+marchandises importées sont des produits semi- finis que le vendeur a fournis
+à la condition de recevoir une quantité déterminée de produits finis.
+
+S . III - Aucune partie du produit de toute revente cession ou utilisation
+ultérieure des marchandises par l'acheteur ne revient directement ou
+indirectement au vendeur:
+
+      Cette condition est prévue par l'article 16 ter 1 - c.
+        Cette condition concerne notamment le cas de partage des bénéfices.
+      Cette condition ne peut être applicable pour rejeter la valeur
+transactionnelle que s'il n'y a pas eu d'ajustement au titre de l'article 16 octies -
+d, du C.D.A.
+
+     Elle ne peut donc être prise en considération que si toute ou une partie
+du produit de la revente, cession ou utilisation ultérieure, repose sur des
+données objectives et quantifiables.
+
+      Des l'instant où cette condition est appliquée au titre de l'ajustement
+prévu à l'Art 16 . octiès du C.D.A la valeur transactionnelle est acceptable.
+
+Evaluation:
+
+      Quand l'une ou l'autre des conditions visées ci dessus n'est pas
+respectée, le service des douanes rejette la valeur transactionnelle et utilise
+les autres méthodes de substitution .
+
+
+
+
+                                                                                        25
+Chapitre II - Existence de liens entre l'acheteur et le vendeur:
+
+       L'article 16 ter 1.d impose que l'acheteur et le vendeur ne soient pas
+liés pour que la valeur transactionnelle soit acceptable.
+
+Section I - Définition:
+
+       La définition des parties liées est donnée à l'article 16.2 du C.D.A et
+elle stipule que des personnes ne seront réputées être liées que:
+
+A - Enumération:
+
+       1°/ Si l'une fait partie de la direction ou du conseil d'administration de
+l'entreprise de l'autre, et réciproquement.
+       2°/ Si elles ont juridiquement la qualité d'associés.
+       3°/ Si l'une est l'employeur de l'autre.
+       4°/ Si une personne quelconque possède, contrôle ou détient
+directement ou indirectement 5% ou plus des actions ou parts émises avec
+droit de vote, de l'une et de l'autre.
+       5°/ Si l'une d'elles contrôle l'autre directement ou indirectement.
+       6°/ Si toutes deux sont directement ou indirectement contrôlées par une
+tierce personne.
+       7°/ Si, elles sont membres de la même famille.
+       8°/ Si, ensemble, elles contrôlent directement ou indirectement une
+tierce personne.
+
+     Le terme " Personnes " s'applique le cas échéant, aux personnes
+morales.
+
+b - Contrôle exercé sur autrui:
+
+       Les personnes qui sont associées en affaire entre elles du fait que l'une
+est l'agent, le distributeur ou le concessionnaire exclusif, quelle que soit la
+désignation employée de l'autre ne seront réputées être liées que si elles
+répondent à l'un des critères énoncés ci - dessus.
+
+Section II : Vente entre parties liées:
+
+       Si l'acheteur et le vendeur sont liés au sens de l'article 16 - 2, ce fait ne
+constitue pas en soi, un motif suffisant pour considérer la transaction comme
+inacceptable, dans ce cas il faut que le service des douanes fasse les
+recherches qui suivent:
+
+1°/ Eléments à rechercher:
+a - Les circonstances de la vente:
+
+      Les circonstances de la vente doivent être examinées chaque fois que
+cela est nécessaire et non systématiquement.
+
+
+
+
+                                                                                       26
+      Cet examen ne doit se faire que lorsque le service a des doutes sur la
+véracité du prix des marchandises importées.
+
+       Si aucun doute ne subsiste dans l'esprit du service, par exemple si ces
+liens ont déjà fait l'objet d'un examen , ou alors le service dispose déjà de
+renseignements qui indiquent que le prix n'a pas été influencé par ces liens. Il
+n'y a pas lieu d'examiner les liens à nouveau, sauf s'il ont changé de nature.
+
+      Lorsque l'administration des douanes, n'accepte pas la valeur
+transactionnelle sans complément d'enquête, l'importateur lui fournira les
+renseignements nécessaires qui lui permettront de vérifier les éléments
+suivants:
+
+    a-1/ La façon dont l'acheteur et le vendeur organisent leurs rapports
+commerciaux.
+
+      a-2/ La façon dont le prix a été fixé.
+
+       Une étude des documents commerciaux accompagnant la transaction,
+donne en général des indications sur l'éventualité d'une influence des liens sur
+les prix.
+
+b - Position de l'administration des douanes:
+
+      Si le service des douanes prouve l'existence de liens entre l'acheteur et
+le vendeur, et que ces liens n'ont pas influencé le prix des marchandises
+importées, il existe alors trois situations où l'administration accepte cette
+preuve :
+
+     b-1/ Si le prix a été arrêté de manière compatible avec les pratiques
+normales de fixation des prix dans la branche de production en question.
+
+      b-2/ Le prix a été arrêté de manière compatible avec la façon dont le
+vendeur a fixé ses prix pour les ventes à des acheteurs qui ne lui sont pas
+liés.
+
+      b3/ Le prix est suffisant pour couvrir tous les coûts et assurer un
+bénéfice global à réaliser par l'entreprise sur une période représentative pour
+des ventes de marchandises de la même nature ou de la même espèce.
+
+      On entend par marchandises de la même nature ou de la même
+espèce une gamme de marchandises produites dans une branche ou un
+secteur particulier, on inclut donc les marchandises identiques et similaires.
+
+        Si l'administration dispose effectivement d'éléments lui permettant
+d'estimer que les liens ont influencé le prix elle communique à l'importateur les
+motifs sur lesquels elle fonde sa position et offre à ce dernier la possibilité de
+justifier que la valeur transactionnelle est acceptable aux fins de l'évaluation
+en douane.
+
+
+
+
+                                                                                     27
+Section III - Les valeurs critères:
+
+       Afin de compléter l'examen des circonstances de la vente, lorsqu'il est
+établi que l'acheteur et le vendeur sont liés, l'article 16 ter 2- b du code des
+douanes prévoit une autre méthode à savoir les "valeurs critères ".
+
+      Lorsque l'administration a des motifs de considérer que les liens ont
+influencé le prix facturé l'importateur a la possibilité de démontrer que la
+valeur est très proche de l'une des " valeurs critères " définies ci après, se
+situant au même moment ou à peu prés au même moment.
+
+I - Définition:
+
+         Les " valeurs critères " sont formées par les valeurs indiquées ci après:
+       1°/ Valeur transactionnelle lors de ventes entre des acheteurs et des
+vendeurs qui ne sont pas liés dans aucun cas particulier, de marchandises
+identiques ou similaires pour l'exportation à destination du territoire douanier
+algérien.
+
+       2°/ La valeur en douane de marchandises identiques ou similaires telle
+qu'elle est déterminée par application de l'article 16 sexiés du C.D.A.
+
+       3°/ La valeur en douane de marchandises identiques ou similaires telle
+qu'elle est déterminée par application de l'article 16 septies.
+
+     Ces valeurs doivent avoir été précédemment acceptées par le service
+des douanes.
+
+       Les valeurs critères sont utilisées sur l'initiative de l'importateur à des
+fins de comparaison lorsqu'il le demande .
+
+II - Condition d'application des valeurs critères:
+
+      En sus des autres conditions visées ci dessus, d'autres considérations
+doivent être respectées pour accepter les valeurs critères.
+
+      Il est à rappeler que les notions de " marchandises identiques ou
+similaires " ainsi que les méthodes "déductive" et de la "valeur calculée"
+seront examinées plus loin.
+
+1°/ Ajustements:
+
+     Pour appliquer " les valeurs critères" ci - dessus, il convient de tenir
+compte des différences éventuelles prouvées :
+
+     a - De niveau commercial.
+     b - De quantité.
+     c- Des coûts, commissions, valeurs, redevances et droits de licence,
+produits ultérieurs et autres frais prévus à l'article 16 octies du code des
+douanes algérien.
+
+
+
+                                                                                     28
+      d - Des coûts, supportés par le vendeur lors de ventes dans lesquelles
+l'acheteur et lui ne sont pas liés et qu'il ne supporte pas lors de ventes dans
+lesquelles l'acheteur et lui sont liés.
+
+      Le code de douanes prévoit de tenir compte de différences
+démontrées . Si le vendeur vend au même prix quelque soit le niveau de
+l'acheteur ou la quantité vendue, aucun ajustement ne sera apporté.
+
+2°/ Valeurs très proches:
+
+      Le terme "très proche" est un élément d'appréciation qui ne peut
+généralement pas être chiffré et que certains facteurs doivent être pris en
+considération pour déterminer si une valeur est très proche de l'autre:
+
+Il s'agit notamment de:
+
+a - Nature des marchandises:
+
+      Exemple produits périssables, nouveautés présentant un intérêt de
+courte durée.
+
+b - Nature de la branche d'activité:
+
+      Exemple, produits de haute technologie, jouet, produits chimiques.
+
+c - Saison pendant laquelle les marchandises sont importées:
+
+      Exemple fruits et légumes, vêtements, etc.
+
+d - Différences importantes sur le plan commercial:
+
+        Exemple une différence de 10 DA n'a pas la même importance selon
+qu'il s'agit d'une automobile ou d'un poste de télévision.
+Ces factures variant d'un cas à un autre, il est impossible d'appliquer une
+norme uniforme comme par exemple un pourcentage forfaitaire.
+
+3°/ Au même moment ou à peu près au même moment:
+
+      Le code des douanes prévoit à l'article 16 ter 2 . b que dans une vente
+entre parties liées, la valeur transactionnelle est acceptée s'il est démontré
+que cette valeur est très proche de l'une des valeurs critères se situant "au
+même moment ou à peu près au même moment.
+
+
+
+On retient les moments suivants:
+
+       a - Moment de l'exportation (notamment dans le cas de l'article 16 ter 2
+b.i du C.D.A ).
+
+
+
+
+                                                                                  29
+        b - Moment de la vente dans le pays d'importation (notamment dans le
+cas de l'art 16 ter 2.b ii du C.D.A ).
+        c - Moment de l'importation (notamment dans le cas de l'article 16 ter
+2.b.iii du C.D.A )
+
+Remarque: "Les valeurs critères" ne sont à utiliser qu'à des fins de
+comparaison pour établir la validité du prix des marchandises à évaluer . Elle
+ne peuvent en aucun cas être utilisées pour remplacer la valeur déclarée pour
+ces marchandises.
+
+S . IV - Valeur transaction nelle non acceptable:
+
+      Lorsque l'importateur ne peut pas démontrer que la valeur
+transactionnelle n'est pas très proche de l'une des "valeurs critères"
+l'administration des douanes rejette la valeur transactionnelle déclarée et
+recourt aux autres méthodes de substitution prévus aux articles 16 quater,
+quinquiés sexies septies.
+
+S V - Conversion monétaire:
+
+       Aux termes de l'article 16 decies du CDA, lorsque des éléments servant
+à déterminer la valeur en douane des marchandises sont exprimés dans une
+monnaie étrangère, la conversion doit se faire sur la base du taux de change
+officiel en vigueur à la date d'enregistrement de la déclaration en détail.
+
+
+TITRE VI- LES METHODES DE SUBSTITUTION
+
+CHAPITRE I- PROCEDURES
+
+      Lorsque la valeur transactionnelle n'est pas acceptée par le service des
+douanes parce que les conditions citées au titre III ne sont pas remplies, le
+service doit recourir aux autres méthodes d'évaluation de rechange, en
+respectant l'ordre de priorité pour établir une valeur en douane.
+
+       Le rejet de la valeur transactionnelle se fera par le service des douanes
+soit lors du dédouanement, soit lors des contrôles après dédouanement.
+
+      La méthode retenue sera justifiée , et les éléments d'appréciation
+seront communiqués au déclarant.
+
+        Le déclarant de la valeur ou toute autre personne directement ou
+indirectement intéressé par les opérations d'importation concernés, qu'il
+s'agisse de marchandises à évaluer ou à des marchandises identiques ou
+similaires sont tenus de fournir au service des douanes dans le délai qu'il aura
+fixé, tous documents et toutes informations utiles.
+
+      Ces informations sont traitées comme strictement confidentielles et ne
+seront divulguées qu'avec l'autorisation de la personne qui les a fournies.
+
+
+
+
+                                                                                   30
+     Si la valeur proposée par le déclarant ou autres personnes est
+acceptée par le service des douanes, elle constituera alors la valeur en
+douane.
+
+
+      Si la valeur en douane est fixée exclusivement par le service des
+douanes, elle sera notifiée par écrit au déclarant. Si elle est acceptée par ce
+dernier , cette valeur sera la valeur en douane.
+
+      Dans le cas contraire, le litige est portée devant la commission
+nationale de recours, suivant la procédure habituelle.
+
+Chapitre II - Les méthodes de substitution:
+
+      Les méthodes d'évaluation qui seront examinées ci-dessous sont
+prévus aux article 16 quater à 16 septimes du CDA, elles sont utilisées
+lorsque la valeur transactionnelle telle que définie à l'article 16 ter ne peut être
+acceptée.
+
+
+
+       L'ordre de priorité imposée dans l'utilisation des méthodes d'évaluation
+telles que énumérées ci après s'impose au service des douanes et aux
+importateurs.
+
+      Néanmoins à la demande de l'importateur, la méthode calculée peut
+être utilisée avant la méthode déductive.
+
+Section I - Valeur transactionnelle de marchandises identiques:
+
+       L'article 16 - quater stipule qu'en l'absence d'une valeur
+transactionnelle telle que définie à l'article 16 ter, la valeur en douane sera la
+valeur transactionnelle de marchandises identiques vendues pour l'exportation
+à destination de l'Algérie et exportées au même moment ou à peu près au
+même moment que les marchandises à évaluer, il ressort de cette définition
+qu'il s'agit d'une valeur transactionnelle déjà acceptée par le service des
+douanes pour une marchandise importée.
+
+Paragraphe I - Conditions:
+
+       - Les marchandises doivent être identiques aux marchandises
+importées.
+       - Les marchandises doivent être produites dans le même pays que les
+marchandises à évaluer.
+       - Elles doivent avoir été exportées au même moment ou à peu près au
+même moment que les marchandises à évaluer.
+       - La vente des marchandises identiques doit porter sur la même
+quantité et se situer au même niveau commercial que les marchandises à
+évaluer, le cas échéant un ajustement doit être apporté pour compenser les
+différences de qualité et de niveau.
+
+
+
+                                                                                       31
+       - Lorsqu'il existe deux ou plusieurs produits identiques, il y a lieu de
+retenir la valeur transactionnelle la plus basse pour déterminer la valeur en
+douane.
+
+I - Condition de niveau et de qualité:
+
+     a - Comme indiqué plus haut, la valeur transactionnelle doit avoir été
+précédemment acceptée par la douane. La valeur doit correspondre aux
+mêmes quantités et au même niveau commercial, que ceux relatifs aux
+marchandises à évaluer, cependant s'il existe des différences de quantité et
+de niveau commercial, des ajustements de la valeur s'impose, avant de
+passer à la méthode suivante.
+
+Le service se référera donc aux:
+
+      Marchandises identiques - même niveau - quantité différente
+      Marchandises identiques - niveau diffèrent - même quantité
+      Marchandises identiques - niveau diffèrent - quantité différente
+
+Paragraphe II - Définitions:
+
+I - Marchandises identiques:
+
+      Il s'agit de marchandises qui sont les mêmes à tous égards y compris
+les caractéristiques physiques, la qualité et la réputation.
+
+     Des différences d'aspects mineurs n'empêcheraient pas des
+marchandises, conformes par ailleurs à la définition d'être considérées
+comme identiques.
+
+10/ Caractéristiques physiques:
+
+       On retrouve dans cette catégorie des éléments tels que l'aspect
+extérieur, les matières constitutives, la méthode de fabrication,
+la fonction, l'utilisation finale etc.,. elle couvre également les dimensions, la
+forme. Des différences mineures, telles que la couleur, la dimension par
+exemple n'empêcheraient pas des marchandises d'être considérées comme
+identiques.
+
+20/ Qualité:
+
+       Ce point ne devrait pas poser de problèmes. Par exemple lorsqu'il s'agit
+d'articles qui sont les mêmes que les marchandises de première qualité mais
+qui présentent un léger défaut, et ne sont donc pas parfaits, ils ne peuvent
+être considérés comme identiques aux marchandises de première qualité.
+
+30/ Réputation:
+
+
+
+
+                                                                                    32
+       La réputation peut aller de pair avec la qualité. Il s'agit de faire la
+différence entre des produits qui portent des marques commerciales
+renommées et ceux qui n'en portent pas.
+
+II - Elément temps:
+
+     L'article 16 - quater du CDA ne donne pas de précisions pour l'élément
+temps.
+
+            Néanmoins la comparaison doit être faite dans un délai
+      raisonnable de 90 jours pour rapport à la date d'importation des
+      marchandises à évaluer.
+
+b - Autres critères:
+
+       - Les marchandises ne seront pas considérées comme identiques, si
+elles incorporent ou comportent des travaux d'ingénierie, d'étude d'art ou de
+design, ou des plans et croquis pour lesquels aucun ajustement n'a été fait par
+application des dispositions de l'article 16 octies 1- b IV.
+
+      - Pour être identiques, les marchandises doivent également avoir été
+produites dans le même pays que les marchandises à évaluer.
+
+       - Les marchandises identiques produites par une personne différente
+ne seront prises en considération que s'il n'existe pas de marchandises
+identiques produites par la même personne que les marchandises à évaluer .
+
+Ce qui nous permet d'établir l'ordre de priorité suivant:
+
+       Marchandises identiques - même producteur - même niveau - même
+q uantité
+       Marchandises identiques - même producteur - même niveau - quantité
+différente
+       Marchandises identiques - même producteur - niveau différent - même
+q uantité
+       Marchandises identiques - même producteur - niveau différent -
+quantité différente
+       Marchandises identiques - producteur diffèrent - même niveau - même
+q uantité
+       Marchandises identiques - producteur différent - même niveau -
+quantité différente
+       Marchandises identiques - producteur différent - niveau différent -
+même quantité
+       Marchandises identiques - producteur différent - niveau différent
+quantité différente
+
+      Lorsque l'utilisation de cette méthode ne permet pas de déterminer la
+valeur en douane des marchandises importées, il convient de passer à la
+méthode suivante:
+
+
+
+
+                                                                                  33
+Section II - Marchandises similaires:
+
+       Aux termes de l'article 16 - quinquies du CDA, la valeur en douane des
+marchandises importées, est la valeur transactionnelle de marchandises
+similaires, vendues pour l'exportation à destination de l'Algérie et exportées au
+même moment ou à peu prés au même moment que les marchandises à
+évaluer.
+
+     Cette méthode est la deuxième méthode de substitution après la
+méthode des marchandises identiques.
+
+P 1 - conditions:
+
+       L'utilisation de la valeur transactionnelle de marchandises similaires est
+régie par les mêmes conditions que celles prévues au chapitre II section I.P.I.
+ci - dessus.
+
+P 2 - Définition:
+
+       On entend par marchandises similaires, des marchandises qui sans
+être pareilles à tous égard, présentent des caractéristiques semblables et sont
+composées de matières semblables, ce qui leur permet de remplir les mêmes
+fonctions et d'être commercialement interchangeables.
+
+     La qualité des marchandises, leur réputation et l'existence d'une
+marque de fabrique ou de commerce sont au nombre des éléments à prendre
+en considération pour déterminer si des marchandises sont similaires.
+
+      Les marchandises similaires sont semblables aux marchandises à
+évaluer en ce qui concerne les points suivants:
+
+10 - Caractéristiques physiques: Elle doivent avoir les mêmes:
+
+      Dimension et forme.
+      Niveau de performance.
+      Méthode de fabrication.
+
+20 - Matières constitutives:
+
+30 - Commercialement interchangeables:
+
+      Le consommateur l'acceptera - t - elle comme marchandises de
+substitution!
+
+40 - Mêmes fonction et utilisation:
+
+      Les marchandises similaires doivent effectuer les mêmes tâches que
+les marchandises à évaluer.
+
+
+
+
+                                                                                    34
+      Lorsque l'utilisation de cette méthode ne permet pas de déterminer la
+valeur en douane des marchandises importées, il faut passer à la méthode
+déd uctive.
+
+Section III - Méthode déductive:
+
+       Rappelons que l'ordre d'utilisation de la méthode déductive et de la
+méthode calculée peut être inversé à la demande de l'importateur. Il doit à cet
+effet introduire une requête auprès du service des douanes et y joindre tous
+les éléments nécessaires pour l'utilisation de la méthode de la valeur calculée.
+
+      Cette méthode est prévue par l'article 16 sexies du CDA qui stipule que
+si les marchandises importées ou des marchandises identiques ou similaires
+importées sont vendues en Algérie en l'état où elles ont été importées, la
+valeur en douane des marchandises importées correspondant aux ventes de
+marchandises importées ou de marchandises identiques ou similaires
+importées, totalisant la quantité la plus élevée, ainsi faites à des personnes
+non liées au vendeur au moment ou à peu près au même moment de
+l'importation des marchandises à évaluer, sous réserve de déductions se
+rapportant aux éléments suivants:
+
+      - Les commissions ou le bénéfice et les frais généraux.
+      - Les frais de transport et d'assurance et frais connexes encourus en
+Algérie.
+      - Des droits de douane et autres taxes à payer en Algérie en raison de
+l'importation ou de la vente des marchandises.
+
+Paragraphe I - Valeur établie à partir du prix de revente de la marchandise
+i m portée:
+1° - Choix du prix:
+
+      La méthode déductive consiste essentiellement à choisir un prix auquel
+les marchandises sont vendues en Algérie.
+
+       La vente des marchandises importées doit avoir lieu entre personnes
+non liées. Le lien qui nous intéresse dans ce cas est celui qui lie l'importateur
+et l'acheteur en Algérie et non l'importateur et l'exportateur.
+
+2° - Ventes totalisant la quantité la plus élevée:
+
+       En application des dispositions de l'article 16 sexiès le prix doit être
+établi sur la base du prix unitaire correspondant aux ventes des marchandises
+importées totalisant la quantité la plus élevée c.ad le prix auquel le plus grand
+nombre d'unités est vendu à des acheteurs non liés, au premier niveau
+commercial.
+
+Illustration: 1er Exemple:
+
+
+
+
+                                                                                    35
+      Des marchandises sont vendues au prix courant, étant entendu que le
+prix unitaire est d'autant plus favorable que les achats sont effectués en
+grande quantité.
+Quantité       P.U/DA       Nbre /V     Q.té totale vendue à chaque prix
+
+1- 10 Unités    100       10 ventes de 5
+                           5 ventes de 3                   65
+1 1-25Unités     95       5 ventes de 11                   55
+
+Plus de 25       90        1 vente de 30
+                           1 vente de 50                   80
+
+
+       Le plus grand nombre d'unités vendues à un prix donné est de 80, donc
+le prix unitaire correspondant aux ventes totalisant la quantité la plus élevé est
+de 90 DA.
+
+
+2eme Exemple:
+
+      Deux ventes ont eu lieu. Dans la première 600 unités ont été vendues
+au prix unitaire de 95 DA chacune. Dans la seconde, 350 unités ont été
+vendues au prix unitaire de 85 DA.
+
+       Dans cet exemple le plus grand nombre d'unités vendues à un prix
+donné est de 500. En conséquence le prix unitaire qui correspond à la vente
+totalisant la quantité la plus élevée est de 95 DA.
+
+3eme Le moment à retenir:
+
+      Le moment à retenir dans ce cas est le moment le plus proche de
+l'importation. Cependant ce délai ne peut excéder la durée de 90 jours à
+compter de la date d'importation des marchandises à évaluer.
+
+P - 2 - Valeur établie à partir du prix de revente de marchandises identiques
+ou similaires importées.
+
+      Lorsque la valeur en douane ne peut être déterminée à partir de la
+revente des marchandises importées car ces dernières ont été:
+
+        - Utilisées par l'importateur sans être revendues.
+        - Uniquement revendues pour l'exportation.
+        - Vendues à une date trop éloignée pour être utilisable; il convient
+d'utiliser le prix unitaire de revente des marchandises identiques ou similaires
+importées.
+
+      Le choix du prix, du moment, et de la qualité totalisant le prix le plus
+élevé répondent aux mêmes principes que ceux exposés au paragraphe 1 ci
+dessus.
+
+
+
+
+                                                                                     36
+P - 3 - Déductions à apporter:
+
+      Après avoir sélectionné le prix adéquat dans le pays d'importation, il
+convient d'y apporter certaines déductions au titre de la méthode déductive, à
+savoir:.
+
+
+1° - Les commissions:
+
+     Il s'agit des commissions généralement payées ou encourues y
+compris les commissions à la vente.
+
+2° - Les marges généralement pratiquées pour bénéfices et Frais généraux ( y
+compris les coûts directs et indirects de la commercialisation ) relatives aux
+ventes, en Algérie des marchandises importées de la même catégorie ou du
+même type.
+
+      Les bénéfices et frais généraux sont déterminés à partir des
+renseignements fournis par l'importateur.
+
+      Lorsqu'ils sont conformes à ceux correspondant aux ventes de
+marchandises de la même nature ou de la même espèce, ils sont à retenir
+pour être déduits du prix de revente.
+
+Marchandises de la même nature, même espèce:
+
+       On entend par marchandises de la même nature ou de la même
+espèce des marchandises appartenant à un groupe ou à une gamme de
+marchandises produites par une branche de production particulière ou un
+secteur particulier et elles comprennent les marchandises identiques ou
+similaires.
+
+      Il devrait être procédé à un examen des ventes en Algérie du groupe ou
+gamme, le plus étroit de marchandises importées sur lesquels les
+renseignements nécessaires peuvent être fournis.
+
+3° - Les frais de transport et d'assurance et frais connexes:
+
+      Tous les frais de transport, de manutention et de livraison du port de
+débarquement au lieu de livraison en Algérie sont à déduire du prix de
+revente.
+
+      Sont à dédu ire également:
+
+      - Les frais d'assurance.
+
+      - Les droits de douane et taxes payés en Algérie en raison de
+l'importation ou de la vente des marchandises et le cas échéant les droits anti
+- dumping et les droits compensateurs perçus à l'importation.
+
+
+
+
+                                                                                  37
+P - 4 - Valeur établie à partir du prix de revente de marchandises importées
+vendues après ouvraison ou transformations:
+
+       En vertu des dispositions de l'article 16 sexiès -2, si ni les
+marchandises importées ni des marchandises identiques ou similaires
+importées ne sont vendues en Algérie en l'état où elles sont importées, la
+valeur en douane peut être établie à partir du prix unitaire correspondant aux
+ventes de marchandises importées totalisant la quantité la plus élevée faites
+après ouvraison ou transformation ultérieure, à des personnes en Algérie qui
+ne sont pas liées au vendeur, compte dûment tenu de la valeur ajoutée par
+l'ouvraison ou la transformation et des déductions prévues au paragraphe 3 ci
+- dessus.
+
+Cette méthode est dite " super déductive ":
+
+      Outre les déductions prévues au paragraphe 3 ci - dessus, des
+déductions au titre de la valeur ajoutée doivent être faites.
+La valeur ajoutée occasionnée par l'ouvraison ou la transformation doit être
+fondée sur des données objectives et quantifiables relatives au coût du travail.
+
+      Les éléments sont fournis par l'importateur et pris en considération s'ils
+correspondent à ceux admis dans la branche de production. A défaut ce sont
+ces derniers qui sont pris en considération.
+
+Cette méthode ne pourra pas être utilisée, dans le cas où les marchandises
+importées perdent leur identité du fait de l'ouvraison ou de la transformation
+ainsi que dans les cas où elles constituent en élément tout à fait mineur des
+marchandises vendues.
+
+
+Section IV: Méthode de la valeur calculée:
+
+      Lorsque la valeur en douane ne peut être déterminée par application de
+la valeur transactionnelle des marchandises importées, la valeur
+transactionnelle de marchandises identiques ou similaires, ou une valeur
+déductive, la valeur en douane à retenir se fondera sur la méthode de la
+valeur calculée, telle qu'elle est prévue à l'article 16 septiès du code des
+douanes.
+
+Paragraphe I - Définition:
+
+      Aux termes de l'article 16 septies du CDA, la valeur en douane est
+égale à la somme :
+
+      1°) Du coût ou de la valeur des matières ou des opérations de
+fabrication ou autres, mises en oeuvre pour produire les marchandises
+i mportées.
+
+      2°) D'un montant pour les bénéficies et les frais généraux égal à celui
+qui entre généralement dans les ventes de marchandises de la même nature
+
+
+
+                                                                                   38
+ou de la même espèce que les marchandises à évaluer, qui sont faites par
+des producteurs du pays d'exportation pour l'exportation à destination de
+l'Algérie.
+
+     3°) Du coût de la valeur des éléments énoncés à l'article 16 octies 1 e
+du CDA.
+
+      Cette méthode ne peut être utilisée que dans les cas où le producteur
+est disposé à fournir les données nécessaires concernant l'établissement des
+coûts et accorder des facilités pour toutes vérifications ultérieures qui
+pourraient être nécessaires.
+
+      Ces vérifications, dans le pays de production ne peuvent être
+effectuées qu'avec l'accord du producteur et du gouvernement intéressés.
+
+Paragraphe II - Analyse des éléments constituant la valeur calculée:
+I - Coût ou valeur des matières et des opérations de fabrication mises en
+œuvre pour produire les marchandises importées:
+
+      Il y a lieu de déterminer les coûts réellement supportés par le fabricant
+pour produire les marchandises importées et qui sont conformes aux principes
+de comptabilité généralement admis et qui sont appliqués dans le pays de
+production des marchandises importées.
+
+A - Les matières comprennent:
+
+     - Les matières premières.
+     - Les frais supportés par le producteur pour amener les matières
+premières du lieu d'origine sur le lieu de fabrication.
+     - Les montages intermédiaires comme les circuits intégrés.
+     - Les autres parties ou composants.
+
+
+Sont exclus du coût des matières:
+
+        - Les montants récupérables au titre des débris ou des déchets.
+      - Le montant des taxes intérieures perçues le cas échéant par le pays
+de production et directement applicables aux matières et à leur utilisation, si la
+taxe est remise ou remboursée à l'exportation des marchandises.
+
+B - Les coûts de fabrication comprennent:
+
+       - Tous les coûts directs de main d’œuvre.
+       - Tous les coûts de montage lorsqu'il y a opération de montage.
+       - Les coûts des machines utilisées lors de la production
+       - Les coûts indirects comme l'encadrement de l'usine, l'entretien des
+installations, les heures supplémentaires etc.,....).
+
+
+
+
+                                                                                     39
+C - Autres coûts et valeurs:
+
+      Cette catégorie comprend le coût des contenants et emballages,
+traités aux fins douanières comme ne faisant qu'un avec la marchandise
+i mportée.
+
+       Sont à ajouter également les apports couverts par l'article 16 octies,
+1 ,b) qui sont fournis par l'acheteur, directement ou indirectement, sans frais ou
+à coût réduit et utilisés lors de la fabrication des marchandises importées.
+
+      Il est à préciser, à cet égard qu'en ce qui concerne les travaux
+d'ingénierie, de développement, d'art de design, les plans et croquis, la valeur
+de tels éléments exécutés en Algérie n'est incluse que dans la mesure où ces
+travaux sont supportés par le producteur des marchandises importées.
+
+       Il faut soigneusement éviter d'ajouter deux fois le même coût
+particulièrement dans le cas des apports ou de l'emballage qui pourraient déjà
+être inclus parmi les coûts des matières et des opérations de fabrication ou à
+titre de frais généraux.
+
+
+II - Bénéfices et frais généraux:
+
+       Il convient d'inclure un montant pour les bénéfices et frais généraux,
+égal à celui qui entre généralement dans les ventes de marchandises de la
+même nature ou de la même espèce que les marchandises à évaluer, qui sont
+faites par le producteur du pays d'exportation pour l'exportation à destination
+du pays d'importation.
+
+      Les frais généraux à retenir dans la valeur calculée sont les coûts
+directs et indirects se rapportant à la production et à la vente des
+marchandises pour l'exportation et qui ne sont pas inclus au titre du point I ci
+dessus.
+
+    Le montant pour les bénéfices et frais généraux doit être considéré
+comme un tout.
+
+      Le montant est déterminé sur la base des renseignements fournis par
+le producteur ou en son nom.
+
+       Toutefois il ne convient d'utiliser ces chiffres que s'ils sont compatibles
+avec ceux qui correspondent normalement aux ventes des marchandises de
+la même nature ou de la même espèce que les marchandises à évaluer,
+réalisées par des producteurs du pays d'exportation pour l'exportation à
+destination de l'Algérie.
+
+      Si dans tel ou tel cas, les chiffres du producteur correspondant au
+bénéfice sont faibles et ses frais généraux élevés, le total de son bénéfice et
+de ses frais généraux pourra néanmoins correspondre à la situation qui se
+présente normalement dans la branche commerciale en cause.
+
+
+
+                                                                                     40
+III - Coût ou valeur des éléments visés à l'article 16 octiès, paragraphe.1,e du
+CDA:
+
+      Le paragraphe 1,c de l'article 16 septiès stipule que la valeur calculée
+doit comprendre le coût ou la valeur des frais de livraison, de transport des
+marchandises importées jusqu'au lieu d'introduction dans le territoire douanier,
+ainsi que les frais de chargement, de déchargement et de manutention
+connexes au transport et du coût de l'assurance.
+
+
+VI - Considérations générales:
+
+       Tous les renseignements qui seraient de nature confidentielle, ou qui
+seraient fournis à titre confidentiel aux fins de l'évaluation en douane, seront
+traités comme strictement confidentiels par l'administration des douanes qui
+ne les divulguera pas sans l'autorisation expresse de la personne ou du
+gouvernement qui les aura fournis sauf dans la mesure où elle pourrait être
+tenue de le faire dans le cadre de procédures judiciaires.
+
+
+      Sur demande écrite, l'importateur aura le droit de se faire remettre par
+l'administration des douanes, une explication écrite de la manière dont la
+valeur en douane des marchandises importées par lui, aura été déterminée.
+
+SECTION V: LES METHODES DU DERNIER RECOURS:
+
+Lorsqu'il n'est pas possible de déterminer la valeur en douane des
+marchandises importées par, application des articles 16 ter, 16 quater, 16 quin
+quiès, 16 sexiès et septies pour un motif quelconque, elle est déterminée par
+des moyens compatibles avec les principes et les dispositions générales de
+l'accord et de l'article VII du GATT et sur la base des données disponibles en
+Algérie.
+
+      A titre d'exem ple on citer peut le cas où:
+
+- La transaction porte sur des marchandises en location.
+- Aucune marchandise similaire ou identique n'est importée.
+- Les marchandises ne sont pas revendues dans le pays d'importation.
+- Le fabricant est inconnu ou refuse de donner à des étrangers des
+renseignements concernant les coûts.
+
+Pour répondre à ce type de situation, on applique la méthode dite de " dernier
+recours
+
+
+
+L'ARTICLE 16 BIS
+
+
+
+
+                                                                                   41
+      en son paragraphe 4 exclut expressément des méthodes qui seraient
+fondées sur:
+- Le prix de vente des marchandises produites en Algérie.
+- Un système prévoyant l'acceptation à des fins douanières la plus élevée de
+deux valeurs possibles.
+
+- Le prix des marchandises sur le marché intérieur du pays d'exportation.
+- Le coût de production, autre que les valeurs calculées qui ont été
+déterminées pour des marchandises identiques ou similaires conformément à
+la méthode de la valeur calculée.
+- Des prix de marchandises vendues pour l'exportation.
+- Des valeurs en douane minimales.
+- Des valeurs arbitraires ou fictives.
+
+Suivant les paragraphes 2 et 3 de l'article 16 bis la valeur en douane doit être
+fondée, dans la plus grande mesure possible sur des valeurs en douane
+déterminées antérieurement, mais avec plus de souplesse c'est ainsi qui l'on
+pourrait fondée la valeur en douane de marchandises importées sur la valeur
+de marchandises identiques ou similaires déjà acceptées en provenance
+d'autres pays que le pays d'exportation.
+
+Toutefois, il y a lieu de retenir des pays à niveau de développement industriel
+et commercial comparable ou que des ajustements soient apportés pour tenir
+compte des différences éventuelles.
+
+Par ailleurs les délais prévus pour l'utilisation des méthodes comparative et
+déductives pourraient être assouplis.
+
+Ou alors le recours à des tarifs de ventes pour l'exportation à destination du
+pays d'importation ou encore une évaluation à partir des montants de location.
+
+
+
+
+                                                                                   42
+TITRE V - Evaluation des supports informatiques:
+I - Définition:
+
+Aux fins de l'article 16 noniès,2 on entend par:
+
+      1/ Support informatique, toutes sortes de supports sur lesquels sont
+enregistrés des données ou des instructions sous une forme ( code, signaux
+ou consignes), il ne désigne pas les circuits intégrés, les semi - conducteurs et
+les dispositifs similaires ou les articles comportant de tels circuits ou
+dispositifs ( exemple, dispositifs électroniques destinés aux appareils
+électroménagers et aux téléviseurs, cassettes de jeux vidéo).
+
+       2/ Données ou instructions, ce sont des logiciels, qui ne comprennent ni
+des enregistrement du son, ni des enregistrements cinématographiques ni les
+enregistrements vidé. Elle comprend les faits, notions ou consignes écrits ou
+enregistrés sous forme de conventionnelle en langage utilisable par la
+machine et qui conviennent pour être communiqués, interprétés, opérés et
+traités par des équipements de traitement de données.
+
+II - Evaluation:
+
+       Aux termes de l'article 16 noniès -1, et aux fins de l'évaluation en
+douane des supports informatiques, comportant des données ou instructions
+(logiciels), on ne tient pas compte du coût ou de la valeur des données ou des
+instructions à condition que ce coût ou cette valeur soient distinguées du coût
+ou de la valeur du support informatique repris sur la facture ou sur tout autre
+document probant fourni tel que le contrat de vente.
+
+       Si le coût du logiciel n'est pas distinct de celui du support informatique
+le logiciel sera en principe évalué sur l'intégralité du prix payé ou à payer.
+
+         Cette règle est applicable quelque soit la méthode d'évaluation utilisée.
+
+     A cette valeur on ajoutera les frais de transport et d'assurance
+supportés jusqu'au lieu d'introduction sur le territoire douanier.
+
+      Les marchandises entrant dans le cadre des catégories d'exclusion
+prévues dans la définition continueront à être 'évaluées sur la base de leur
+valeur transactionnelle, ajustée des différents éléments prévus à l'article 16
+octiès du CDA et en utilisant les différentes méthodes de substitution citées ci
+- dessus le cas échéant.
+
+
+
+
+                                                                                     43
+TITRE VI: Absence de la valeur transactionnelle:
+
+      Il a déjà été indiqué que lorsque certaines conditions ne sont pas
+remplies, l'administration rejette la valeur transactionnelle et recourt aux
+méthodes de substitution, notamment lorsqu'il n'y a pas vente, trois situations
+peuvent se présenter:
+
+- Marchandises ne faisant par l'objet d'une vente
+- Marchandises cédées gratuitement.
+- Marchandises importées en exécution d'un contrat de location ou de crédit
+bail.
+- Marchandises faisant l'objet de troc.
+
+Chapitre I: Marchandises ne faisant pas l'objet d'une vente:
+
+      Relève de cette catégorie, les marchandises importées, sous le régime
+commercial, de la consignation, à titre de don ainsi que les marchandises
+importées en location.
+
+Marchandises importées sous le régime de la consignation:
+
+     Les marchandises importées sous le régime de la consignation
+demeurent la propriété du fournisseur étranger, tant qu'elle n'ont pas été après
+importation, vendues par l'intermédiaire de commissionnaires ou de
+mandataires.
+
+      Pour le cas d'espèce la valeur en douane sera déterminée par
+application des méthodes de substitution exposées ci - dessus.
+
+
+Chapitre II - Marchandises importées en exécution d'un contrat de location:
+
+       Dans ce cas précis, il n'existe pas de valeur transactionnelle, et il y a
+lieu de recourir aux méthodes de substitution, le cas échéant,
+c.a.d lorsque ne nous pourrons appliquer aucune des méthodes de
+substitution, il est recommandé de retenir la somme des loyers déterminée sur
+la base de la durée utile du matériel et auquel on déduira le montant des
+éléments suivants:
+
+       - L'ensemble des frais supportés par le fabricant et compris dans le
+loyer pour l'installation de l'équipement, sa mise en route et son maintien en
+ordre de marche, son entretien courant, les réparations gratuites et la
+fourniture gratuite de pièces de rechange.
+
+
+
+
+                                                                                   44
+       Les frais de dédouanement, les frais de livraison postérieurs à
+l'introduction dans le territoire Algérien, les droits et taxes perçus à
+l'importation s'ils sont compris dans le loyer.
+
+       Malgré la particularité pour le locataire d'acquérir le bien loué, la
+location vente ne peut être assimilée à une vente, puisqu'il n'existe pas au
+moment du dédouanement de valeur transactionnelle.
+
+       La valeur en douane sera déterminée, dans ce cas comme pour les
+marchandises en location, en ajoutant au montant des locations, le montant
+de l'option achat.
+
+Chapitre III - Marchandises cédées gratuitement:
+
+      Tel est le cas des échantillons, des objets publicitaires et des dons.
+
+       On remarque dans ce cas l'absence de vente, il y a lieu alors d'utiliser
+les méthodes de substitution, qui devraient être limitées aux marchandises
+identiques ou similaires, la méthode déductive est exclue car par définition les
+marchandises de l'espèce ne font pas l'objet d'une revente dans le territoire
+algérien.
+
+       Il pourrait être fait appel à la méthode calculée lorsque l'importance de
+l'opération le justifie.
+
+       Le cas échéant, la valeur pourra être établie sur la base de prix moyens
+constatés à l'importation en provenance du même pays d'exportation ou alors
+sur la base de la valeur transactionnelle de marchandises identiques ou
+similaires en provenance d'un autre pays tiers, dans un délai n'excédant pas
+90 jours.
+
+Chapitre IV: Marchandises faisant l'objet d'opérations de troc:
+
+      Les opérations de troc constituent une forme particulière de relations
+commerciales internationales dans laquelle la transaction n'est pas exprimée
+en termes monétaires.
+
+     Il s'agit d'opérations ne comportant pas de règlement financiers et ne
+pouvant donc pas être considérées comme des ventes.
+
+     En l'absence de valeur transactionnelle, il y a lieu de recourir aux
+méthodes de substitution.
+
+
+
+
+                                                                                   45
+TITRE VII - Valeur en douane des marchandises placées sous régimes
+douaniers suspensifs:
+
+Chapitre I: Valeur en douane faisant l'objet d'une opération de transit ou de
+transbordement:
+
+ Section I - Valeur à déclarer lors de l'établissement du titre de transit ou de
+transbordement
+
+      S'agissant d'une déclaration en détail de transit, la valeur qui y est
+mentionnée doit être celle du prix effectivement payé ou à payer telle que
+prévu par le code des douanes et les autres méthodes de substitution.
+
+ Section II: Valeur à déclarer lors de la mise à la consommation des
+marchandises en suite du transit:
+
+      Il y a lieu d'appliquer les règles d'évaluation telles que prévues
+précédemment, il s'agit d'appliquer la valeur transactionnelle, le cas échéant
+recourir aux méthodes de substitution.
+
+     La valeur est déterminée à la date de la déclaration de mise à la
+consommation, et au lieu d'introduction dans le territoire douanier algérien.
+
+Chapitre II - Valeur en douane des marchandises mises en entrepôt de
+stockage:
+
+Section I - Valeur à déclarer à l'entrée d'entrepôt de stockage
+
+      La déclaration d'entrée en entrepôt est une déclaration en détail, la
+valeur en douane est celle définie par les articles 16 ter et suivants du code
+des douanes algérien.
+
+       Elle est déterminée à la date d'enregistrement de la déclaration en
+détail au lieu d'introduction dans le territoire douanier algérien.
+Lorsque les marchandises sont placées en entrepôt de stockage en suite du
+régime du perfectionnement actif en Algérie, la valeur de ces marchandises
+est leur valeur au moment de la mise en entrepôt.
+
+       Toutefois la déclaration doit comporter la valeur des produits de base
+étrangers mis en œuvre telle qu'elle a été reconnue par le service sur la
+déclaration ayant placé les dits produits sous le régime du perfectionnement
+actif.
+
+
+Section II - Valeur à déclarer à la sortie d'entrepôt de stockage pour la mise à
+la consommation:
+
+      1) L'article 137 du CDA précise qu'en cas de mise à la consommation
+en suite d'entrepôt les droits et taxes applicables sont ceux en vigueur à la
+date d'enregistrement de la déclaration en détail pour la consommation.
+
+
+
+                                                                                   46
+      2) Lorsqu'ils doivent être liquidés sur les déficits, les droits et taxes
+exigibles sont ceux en vigueur à la date de constatation des déficits.
+
+      Pour l'application des dispositions de l'article 137 du CDA la valeur à
+considérer, est selon le cas celle des marchandises à l'une des dates visées
+aux points 1 et 2 ci dessus , elle est déterminée dans les conditions fixées par
+le code des douanes ( articles relatifs à la valeur en douane).
+
+      La valeur dans ce cas peut être établie sur la base d'un prix facturé
+pour les marchandises en question, ajusté conformément à l'article 16 octiès.
+
+      Le taux de change applicable est celui en vigueur à la date
+d'enregistrement de la déclaration de mise à la consommation.
+
+Sortie d'entrepôt de marchandises obtenues sous le régime du
+perfectionnement actif:
+
+      La valeur à déclarer à la sortie d'entrepôt de stockage est le prix payé
+ou à payer à la date de l'enregistrement de la déclaration de sortie. Cette
+valeur peut être déterminée sur la base de la vente ayant donné lieu à l'entrée
+en entrepôt ou sur la base d'une cession d'entrepôt lorsqu'elle est autorisée.
+
+      La mise à la consommation de produits compensateurs, placés en
+entrepôt, en apurement d'une opération de perfectionnement actif s'effectue
+dans les mêmes conditions que si elle avait immédiatement fait suite à cette
+opération.
+
+     La valeur à prendre en considération est donc celles des marchandises
+placées sous le régime initial du perfectionnement actif telle qu'elle a été
+admise sur l'acquit à caution souscrit pour effectuer le perfectionnement.
+
+
+Chapitre III - Valeur en douane des marchandises importées en suite de
+perfectionnement passif:
+
+      Pour les besoins de la taxation différentielle des produits réimportés en
+suite de perfectionnement passif, la déclaration de réimportation doit porter les
+mentions de deux valeurs:
+- D'une part, celle des produits compensateurs importés.
+- D'autre part celle des produits initialement exportés.
+
+     Ces deux valeurs doivent être déterminées selon les dispositions du
+code des douanes à la date d'enregistrement de la déclaration de
+réimportation et au lieu d'introduction dans le territoire douanier algérien.
+
+Section I - Valeur du produit initialement exporté:
+
+      La valeur déclarée de l'exportation temporaire, notamment lorsqu'elle
+correspond à la valeur transactionnelle, constituera la valeur en douane.
+- La valeur en douane est constituée de:
+
+
+
+                                                                                    47
+- La valeur déclarée à l'exportation.
+- Les frais de transport ainsi que les frais annexes d'assurance, de
+chargement et de manutention jusqu'au lieu de transformation des
+marchandises dans le pays où a eu lieu l'opération ou la dernière opération de
+perfectionnement passif.
+
+      Les frais qui auraient dû être engagés pour transporter cette
+marchandise du lieu de la dernière transformation jusqu'au lieu d'introduction
+dans le territoire douanier.
+
+Section II - Valeur en douane des produits compensateurs:
+
+       Lorsque la valeur en douane des produits compensateurs ne peut être
+établie par utilisation de la valeur transactionnelle ou des méthodes de
+substitution, il sera admis qu'elle soit déterminée à partir des éléments
+su ivants:
+
+      - La valeur du produit initialement exporté, déclarée lors de l'exportation
+temporaire.
+      - Les frais d'emballage, de transport et d'assurance à l'aller et d'une
+façon générale tous les frais encourus jusqu'à la livraison des marchandises
+au lieu de transformation, y compris le cas échéant, les droits de douane et
+taxes non remboursables.
+
+       - Le prix payé ou à payer de toutes les matières complémentaires
+utilisées au cours de l'ouvraison, y compris les frais de livraison de ces
+matières au fabricant étranger.
+       - Le coût de l'ouvraison ( y compris les coûts éventuels afférents aux
+dessins, modèles etc.) nécessaires pour la production des marchandises
+importées, exécutée ailleurs qu'en Algérie).
+
+    - Le bénéfice du fabricant qui effectue l'ouvraison et le cas échéant, les
+commissions versées à l'agent (à l'exception des commissions à l'achat).
+
+
+
+
+                                                                                    48
+

@@ -1,0 +1,1090 @@
+{
+ "titre": "Codes de procédure du D10 : EPC, APC (ALCES) et anciens codes SIGAD",
+ "mise_a_jour": "2026-11-15",
+ "avertissement": "La DGD n'a publié en ligne aucune table complète des codes. Les tables CLR_0004 (type de déclaration), CLR_0088 (type d'opération, case 11) et la liste des codes EPC viennent d'une liste imprimée fournie par le déclarant (statut liste_alces). La liste APC reste à compléter par une capture de la fenêtre « code APC » d'ALCES.",
+ "structure": {
+  "EPC": "Extended Procedure Code, 4 chiffres : 2 pour le régime demandé, 2 pour le régime précédent (ex. 4151 = mise à la consommation après le régime 51).",
+  "APC": "Additional Procedure Code, 3 chiffres, saisi par article : avantage, exonération ou catégorie particulière. Héritier fonctionnel de la case 39 « régime fiscal » du D10 SIGAD (déduction, non confirmée par un texte)."
+ },
+ "statuts": {
+  "officiel": "code et libellé publiés par la douane (avis, circulaire, guide DGD)",
+  "dossier": "code lu sur un D10 réel ; libellé déduit de la base légale, non publié",
+  "sigad": "ancien code SIGAD publié par la DGD ; à ne pas saisir dans ALCES sans table de correspondance",
+  "introuvable": "code vu, libellé introuvable dans toute source accessible",
+  "indicatif": "convention internationale (ASYCUDA, UE) ; aide à comprendre, jamais à saisir",
+  "liste_alces": "code et libellé lus sur la liste imprimée des codes ALCES (tables CLR_0004, CLR_0088 et Code EPC) fournie par le déclarant ; émetteur non indiqué sur les pages"
+ },
+ "codes": [
+  {
+   "code": "401",
+   "type": "APC",
+   "statut": "dossier",
+   "definition": "Exonération des droits de douane et de la TVA — intrants des industries pharmaceutiques",
+   "usage": "Produits chimiques et organiques des chapitres visés par l'art. 39 LF 2001, importés par un fabricant pharmaceutique. Joindre le programme prévisionnel d'importation visé (MIPH). Le DAPS et la CS restent dus selon la ligne.",
+   "base": "Art. 39 LF 2001 rédigé par l'art. 118 LF 2018 ; décret exécutif 15-214 du 17/08/2015 ; note DGD/SP/D0112/15 du 31/12/2015",
+   "source": "D10 5130100002026DED025027I (régime fiscal 401) ; annexes du tarif DGD 2020"
+  },
+  {
+   "code": "085",
+   "type": "APC",
+   "statut": "officiel",
+   "definition": "Véhicules neufs importés par les particuliers",
+   "usage": "Véhicules de particuliers groupés en conteneur : d'abord déclaration temporaire de passage (EPC 51XX), puis mise à la consommation (EPC 4151), avec le même APC.",
+   "base": "Régime des véhicules de particuliers (lois de finances) — texte à vérifier",
+   "source": "Avis de l'inspection divisionnaire, DR des douanes de Sétif, 02/02/2026 (cité par Algérie Eco, 14/02/2026)"
+  },
+  {
+   "code": "086",
+   "type": "APC",
+   "statut": "officiel",
+   "definition": "Véhicules d'occasion de moins de trois (03) ans importés par les particuliers",
+   "usage": "Même procédure que 085 : EPC 51XX puis EPC 4151. Le simulateur ALCES des droits et taxes demande aussi le code APC.",
+   "base": "Régime des véhicules de moins de 3 ans (lois de finances) — texte à vérifier",
+   "source": "Avis DR Sétif, 02/02/2026 ; simulateur ALCES POT0200-Q1 (communiqué DGD du 25/11/2025)"
+  },
+  {
+   "code": "40XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation directe",
+   "usage": "Importation définitive : droits et taxes acquittés (ou exonérés via l'APC). Les deux derniers chiffres disent d'où vient la marchandise (directe, entrepôt, AT…).",
+   "base": "Code des douanes, art. 75 bis (régimes à caractère définitif)",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages ; avant : D10 025027I ; structure confirmée par l'avis DR Sétif du 02/02/2026",
+   "type_declaration": "IM4"
+  },
+  {
+   "code": "4151",
+   "type": "EPC",
+   "statut": "officiel",
+   "definition": "Mise à la consommation suite à une déclaration temporaire de passage en douane (régime 51)",
+   "usage": "Véhicules de particuliers, avec APC 085 ou 086.",
+   "base": "—",
+   "source": "Avis DR Sétif, 02/02/2026"
+  },
+  {
+   "code": "51XX",
+   "type": "EPC",
+   "statut": "officiel",
+   "definition": "Déclaration temporaire de passage en douane des véhicules",
+   "usage": "Première déclaration des véhicules de particuliers groupés en conteneur ; apurée par la 4151.",
+   "base": "—",
+   "source": "Avis DR Sétif, 02/02/2026"
+  },
+  {
+   "code": "610",
+   "type": "Document",
+   "statut": "introuvable",
+   "definition": "Code de pièce jointe (case « pièces à joindre »)",
+   "usage": "Porté sur le D10 025027I. Le manuel SIGAD le cite seulement en exemple (« 600/610/648 »).",
+   "base": "Code des douanes, art. 82 (documents annexés)",
+   "source": "Manuel « La déclaration en détail et les masques SIGAD » (non officiel, non daté)"
+  },
+  {
+   "code": "351",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Attestation de franchise de TVA",
+   "usage": "Avantages ANDI : justifie la franchise de TVA sur les biens de l'investissement.",
+   "base": "Ordonnance 01-03 modifiée (ANDI)",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "671",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Décision ANDI délivrée avant le 01/01/1999",
+   "usage": "Pièce justificative de l'avantage ANDI selon la date de la décision.",
+   "base": "Ordonnance 01-03",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "651",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Décision ANDI délivrée entre le 01/01/1999 et le 15/07/2006",
+   "usage": "Idem, période intermédiaire.",
+   "base": "Ordonnance 01-03",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "901",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Décision ANDI délivrée après l'ordonnance 06-08 du 15/07/2006",
+   "usage": "Idem, décisions récentes.",
+   "base": "Ordonnance 06-08",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "699",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Exonération des droits de douane — convention algéro-jordanienne",
+   "usage": "Marchandises d'origine jordanienne sous préférence.",
+   "base": "Décret présidentiel 98-252",
+   "source": "Circulaire 07/DGD/CAB/D420 du 07/03/2005"
+  },
+  {
+   "code": "241",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Autorisation préalable d'importation (ministère du Commerce) — Jordanie",
+   "usage": "Accompagne le code 699.",
+   "base": "Art. 69 LF 2000",
+   "source": "Circulaire 07/DGD/CAB/D420 du 07/03/2005"
+  },
+  {
+   "code": "186",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Certificat de circulation des marchandises — Tunisie",
+   "usage": "Preuve d'origine pour la préférence algéro-tunisienne.",
+   "base": "Convention commerciale algéro-tunisienne et protocoles",
+   "source": "Circulaire 362/DGD/SP/D.0413/14 du 26/02/2014"
+  },
+  {
+   "code": "903",
+   "type": "Document",
+   "statut": "sigad",
+   "definition": "Attestation de franchise des droits de douane (ministère du Commerce) — Tunisie",
+   "usage": "Accompagne le code 186.",
+   "base": "Convention algéro-tunisienne",
+   "source": "Circulaire 362/DGD/SP/D.0413/14 du 26/02/2014"
+  },
+  {
+   "code": "1000",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Importation définitive (mise à la consommation)",
+   "usage": "Ancien code SIGAD ; équivalent ALCES : 40XX.",
+   "base": "—",
+   "source": "Manuel SIGAD (non officiel)"
+  },
+  {
+   "code": "1007",
+   "type": "Régime SIGAD",
+   "statut": "introuvable",
+   "definition": "Déclaration liée à un régime d'admission temporaire / perfectionnement (libellé exact non confirmé)",
+   "usage": "Ancien code SIGAD.",
+   "base": "Code des douanes, art. 174 et s.",
+   "source": "Mémoire UMMTO (secondaire)"
+  },
+  {
+   "code": "1008",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation directe — dispositif ANDI",
+   "usage": "Biens d'investissement sous décision ANDI (avec 351, 671, 651 ou 901).",
+   "base": "Ordonnance 01-03 modifiée par l'ordonnance 06-08",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008 ; fiche DGD andi.pdf"
+  },
+  {
+   "code": "1009",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation après entrepôt — dispositif ANDI",
+   "usage": "Idem, marchandise sortant d'entrepôt.",
+   "base": "Ordonnance 01-03 modifiée",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "1022",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation — convention algéro-jordanienne",
+   "usage": "Avec 699 et 241.",
+   "base": "Décret présidentiel 98-252",
+   "source": "Circulaire 07/DGD/CAB/D420 du 07/03/2005"
+  },
+  {
+   "code": "1025",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation sous préférence — accord d'association Algérie-UE",
+   "usage": "Origine UE prouvée (EUR.1 / déclaration d'origine).",
+   "base": "Loi 05-05 ; décret présidentiel 05-159 ; circulaire 55/DGD/CAB/D100 du 15/07/2005",
+   "source": "DGD, Guide des avantages fiscaux, mai 2008"
+  },
+  {
+   "code": "1039",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation directe — convention algéro-tunisienne",
+   "usage": "Avec 186 et 903.",
+   "base": "Convention de 1981 et protocoles",
+   "source": "Circulaire 362/DGD/SP/D.0413/14 du 26/02/2014"
+  },
+  {
+   "code": "1040",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Mise à la consommation après sortie d'entrepôt — convention algéro-tunisienne",
+   "usage": "Idem, après entrepôt.",
+   "base": "Convention de 1981 et protocoles",
+   "source": "Circulaire 362/DGD/SP/D.0413/14 du 26/02/2014"
+  },
+  {
+   "code": "D18",
+   "type": "Régime SIGAD",
+   "statut": "sigad",
+   "definition": "Formulaire manuel d'admission temporaire de matériels",
+   "usage": "Utilisé en attendant la codification informatique de l'AT de matériels.",
+   "base": "Code des douanes, art. 117 à 123 et 174 à 185",
+   "source": "Circulaire 157/DGD/CAB/D130 du 25/11/2006"
+  },
+  {
+   "code": "1020",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation définitive suite exportation temporaire avec réimportation en l'état",
+   "type_declaration": "EX1",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "1022",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation définitive suite exportation temporaire pour perfectionnement",
+   "type_declaration": "EX1",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "10XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation définitive",
+   "type_declaration": "EX1",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "11XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation des marchandises pour les particuliers",
+   "type_declaration": "EX1",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "12XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation vente en consignation",
+   "type_declaration": "EX1",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "13XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation des hydrocarbures et des produits miniers",
+   "type_declaration": "EX1",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "18XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation définitive dans le cadre du troc frontalier",
+   "type_declaration": "EX1",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "20XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation temporaire avec réimportation en l'état",
+   "type_declaration": "EX2",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "22XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Exportation temporaire pour perfectionnement",
+   "type_declaration": "EX2",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3050",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation en l'état suite admission temporaire",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3052",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation en l'état suite admission temporaire leasing (crédit-bail)",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3053",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation suite admission temporaire pour perfectionnement",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3070",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation suite entrée en entrepôt public",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3072",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation suite entrée en entrepôt privé",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3073",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation suite entrée en entrepôt industriel",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "3074",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réexportation suite entrée en usine exercée",
+   "type_declaration": "EX3",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4050",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite admission temporaire avec réexportation en l'état",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4052",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite admission temporaire avec réexportation en l'état leasing (crédit-bail)",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4053",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4054",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite transformation des marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4070",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite entrée en entrepôt public",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4072",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite entrée en entrepôt privé",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4073",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite entrée en entrepôt industriel",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4074",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite entrée en usine exercée",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4075",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite entrée en zone franche",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "41XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Importation des marchandises pour les particuliers",
+   "type_declaration": "IM4",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages",
+   "note_declarant": "particuliers ; véhicules de moins de 3 ans (شخص طبيعي)"
+  },
+  {
+   "code": "42XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation pour compte",
+   "type_declaration": "IM4",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "43XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation dans le cadre leasing (crédit-bail)",
+   "type_declaration": "IM4",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "44XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation des dons",
+   "type_declaration": "IM4",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "4818",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation suite exportation dans le cadre du troc",
+   "type_declaration": "IM4",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "48XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Mise à la consommation dans le cadre du troc",
+   "type_declaration": "IM4",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5050",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état suite admission temporaire avec réexportation en l'état",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5070",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état suite entrepôt public",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5075",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état suite zone franche",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "50XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état",
+   "type_declaration": "IM5",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5270",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite entrepôt public",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5272",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite entrepôt privé",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5275",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état leasing (crédit-bail) suite zone franche",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "52XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire avec réexportation en l'état leasing (crédit-bail)",
+   "type_declaration": "IM5",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5354",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement suite transformation de marchandise destinée à la mise à la consommation",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5370",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement suite entrepôt public",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5372",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement suite entrepôt privé",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5373",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement suite entrepôt industriel",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5375",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement suite zone franche",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "53XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Admission temporaire pour perfectionnement",
+   "type_declaration": "IM5",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5453",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandise destinée à la mise à la consommation suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5470",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandises destinées à la mise à la consommation suite entrepôt public",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5472",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandises destinées à la mise à la consommation suite entrepôt privé",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5473",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandises destinées à la mise à la consommation suite entrepôt industriel",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "5475",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandises destinées à la mise à la consommation suite zone franche",
+   "type_declaration": "IM5",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "54XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transformation de marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM5",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "55XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Prorogation d'admission temporaire",
+   "type_declaration": "IM5",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "6012",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réimportation en l'état suite exportation vente en consignation",
+   "type_declaration": "IM6",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "6020",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réimportation en l'état suite exportation temporaire",
+   "type_declaration": "IM6",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "6022",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Réimportation suite exportation temporaire pour perfectionnement",
+   "type_declaration": "IM6",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7050",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt public suite admission temporaire avec réexportation en l'état",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7052",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt public suite admission temporaire avec réexportation en l'état leasing (crédit-bail)",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7053",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt public suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7054",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt public suite transformation de marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "70XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt public",
+   "type_declaration": "IM7",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7252",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt privé suite admission temporaire avec réexportation en l'état leasing (crédit-bail)",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7253",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt privé suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7254",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt privé suite transformation de marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "72XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt privé",
+   "type_declaration": "IM7",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7353",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt industriel suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7354",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt industriel suite transformation de marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "73XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en entrepôt industriel",
+   "type_declaration": "IM7",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "74XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en usine exercée",
+   "type_declaration": "IM7",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7550",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en zone franche suite admission temporaire avec réexportation en l'état",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7552",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en zone franche suite admission temporaire avec réexportation en l'état leasing (crédit-bail)",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7553",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en zone franche suite admission temporaire pour perfectionnement",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "7554",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en zone franche suite transformation de marchandises destinées à la mise à la consommation",
+   "type_declaration": "IM7",
+   "usage": "Code complet : régime demandé + régime précédent.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "75XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Entrée en zone franche",
+   "type_declaration": "IM7",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "80XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transit intérieur",
+   "type_declaration": "IM8",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "82XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transit douanier international (d'un bureau d'entrée vers un bureau de sortie)",
+   "type_declaration": "IM8",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "83XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transit douanier simplifié",
+   "type_declaration": "IM8",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "84XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Cabotage",
+   "type_declaration": "IM8",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  },
+  {
+   "code": "85XX",
+   "type": "EPC",
+   "statut": "liste_alces",
+   "definition": "Transbordement",
+   "type_declaration": "IM8",
+   "usage": "XX = régime précédent (2 chiffres) ; code complet lu dans la liste quand il existe.",
+   "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages"
+  }
+ ],
+ "indicatif_international": [
+  {
+   "code": "10",
+   "libelle": "Exportation définitive"
+  },
+  {
+   "code": "21",
+   "libelle": "Exportation temporaire"
+  },
+  {
+   "code": "30",
+   "libelle": "Réexportation"
+  },
+  {
+   "code": "40",
+   "libelle": "Mise à la consommation"
+  },
+  {
+   "code": "71",
+   "libelle": "Entrepôt"
+  },
+  {
+   "code": "80",
+   "libelle": "Transit"
+  }
+ ],
+ "regimes_economiques": [
+  {
+   "regime": "Transport par cabotage",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Transbordement",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Transit douanier",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Entrepôts de douane",
+   "articles": "art. 129 à 164 ; décisions DG n° 05 et 06 du 03/02/1999"
+  },
+  {
+   "regime": "Usines exercées",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Admission temporaire",
+   "articles": "art. 174 à 185 ; art. 180 (réexportation en l'état, décision n° 04 du 03/02/1999) ; circulaire 157 du 25/11/2006 (matériels)"
+  },
+  {
+   "regime": "Réapprovisionnement en franchise",
+   "articles": "art. 186 à 192 (section 8 créée par l'art. 83 de la loi 17-04)"
+  },
+  {
+   "regime": "Drawback",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Exportation temporaire",
+   "articles": "art. 75 ter (liste)"
+  },
+  {
+   "regime": "Transformation de marchandises destinées à la mise à la consommation",
+   "articles": "art. 75 ter (créé par la loi 17-04)"
+  },
+  {
+   "regime": "Constructions navales et aériennes",
+   "articles": "art. 75 ter (liste)"
+  }
+ ],
+ "regles_communes": "Art. 75 ter : stockage, transformation, utilisation ou circulation en suspension des droits et taxes. Engagement cautionné : art. 117 et 119, décision n° 11/DGD du 03/02/1999. Suspension ou exclusion du bénéfice : art. 123 bis.",
+ "types_declaration": {
+  "table": "CLR_0004",
+  "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages",
+  "codes": [
+   {
+    "code": "EX1",
+    "fr": "Exportation à titre définitif",
+    "en": "Export declaration"
+   },
+   {
+    "code": "EX2",
+    "fr": "Exportation à titre temporaire",
+    "en": "Declaration of temporary export"
+   },
+   {
+    "code": "EX3",
+    "fr": "Réexportation",
+    "en": "Declaration of re-export"
+   },
+   {
+    "code": "IM4",
+    "fr": "Importation",
+    "en": "Import declaration"
+   },
+   {
+    "code": "IM5",
+    "fr": "Admission temporaire",
+    "en": "Temporary import declaration"
+   },
+   {
+    "code": "IM6",
+    "fr": "Réimportation",
+    "en": "Declaration of re-import"
+   },
+   {
+    "code": "IM7",
+    "fr": "Entrepôt de douane",
+    "en": "Declaration of entry into bonded area"
+   },
+   {
+    "code": "IM8",
+    "fr": "Transit douanier",
+    "en": "Declaration of transit"
+   }
+  ]
+ },
+ "types_operation": {
+  "table": "CLR_0088",
+  "case_d10": "11 (annotation du déclarant)",
+  "source": "Liste imprimée des codes ALCES fournie par le déclarant le 15/11/2026 (sources/codes_alces_listes_epc_clr.pdf, p. 4 à 7) ; émetteur non indiqué sur les pages",
+  "codes": [
+   {
+    "code": "1",
+    "fr": "Revente en l'état",
+    "note_declarant": "بيع مباشر"
+   },
+   {
+    "code": "2",
+    "fr": "Production",
+    "note_declarant": "تركيب + مواد أولية"
+   },
+   {
+    "code": "3",
+    "fr": "Équipement",
+    "note_declarant": "آلات ومعدات العمل"
+   },
+   {
+    "code": "4",
+    "fr": "Fonctionnement",
+    "note_declarant": "comme logicielle, article publicité"
+   },
+   {
+    "code": "5",
+    "fr": "Exportation O.E.A",
+    "note_declarant": "Opérateur économique agréé"
+   }
+  ]
+ }
+}
